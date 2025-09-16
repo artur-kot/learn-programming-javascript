@@ -1,4 +1,0 @@
-{
-  "title": "Hello, World",
-  "test": "node ./_test/helloworld.test.js"
-}
