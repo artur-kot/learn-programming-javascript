@@ -1,4 +1,5 @@
 {
   "title": "Hello, World",
-  "test": "node ./tests/helloworld.test.js"
+  "run": "node helloworld.js",
+  "test": "node helloworld.test.js"
 }
