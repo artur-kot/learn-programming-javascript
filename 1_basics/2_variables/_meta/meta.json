@@ -1,5 +1,5 @@
 {
   "title": "Variables",
   "run": "node ./index.js",
-  "test": "node ./tests/variables.test.js"
+  "test": "node ./variables.test.js"
 }
