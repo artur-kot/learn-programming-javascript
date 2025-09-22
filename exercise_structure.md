@@ -28,7 +28,7 @@ Example: `1_hello_world/`
     - `tests/` — Node.js tests targeting the exercise workspace. Tests run the learner files by resolving paths out of `_meta` back into the exercise folder. Example:
         - `tests/helloworld.test.js` runs `node ../../helloworld.js` and asserts output.
     - `solution/` — reference solution files mirroring the workspace names (e.g., `solution/helloworld.js`, `solution/second.js`).
-
+    - `todo.md` - description of an exercise
 ### Example files (abridged)
 
 - `1_hello_world/helloworld.js`
