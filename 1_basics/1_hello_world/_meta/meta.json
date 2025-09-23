@@ -1,5 +1,6 @@
 {
   "title": "Hello, World",
   "run": "node helloworld.js",
-  "test": "node helloworld.test.js"
+  "test": "node helloworld.test.js",
+  "entryFile": "helloworld.js"
 }
