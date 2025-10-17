@@ -1,4 +1,5 @@
 {
   "title": "JavaScript",
-  "description": "Learn the fundamentals of JavaScript, the programming language of the web."
+  "description": "Learn the fundamentals of JavaScript, the programming language of the web.",
+  "ignoreExerciseFiles": ["*.test.js", "package.json", "node_modules"]
 }
