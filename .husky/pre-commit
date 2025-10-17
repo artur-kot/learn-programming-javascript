@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running meta.json validation..."
+
+# Run validation with --fix flag to auto-correct issues
+node scripts/validate-meta.js --fix
+
+# Check if validation script modified any files
+if ! git diff --quiet; then
+  echo "📝 Auto-fixed meta.json files. Adding changes to commit..."
+  git add **/_meta/meta.json
+fi
+
+echo "✅ Pre-commit validation complete!"

@@ -1,0 +1,25 @@
+{
+  "name": "learn-programming-javascript",
+  "version": "1.0.0",
+  "description": "Open Source JavaScript Course",
+  "private": true,
+  "scripts": {
+    "validate": "node scripts/validate-meta.js",
+    "validate:fix": "node scripts/validate-meta.js --fix",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "javascript",
+    "learning",
+    "course",
+    "education"
+  ],
+  "devDependencies": {
+    "husky": "^8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/learn-programming-javascript.git"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,96 @@
+name: Validate meta.json
+
+on:
+  pull_request:
+    paths:
+      - '**/_meta/meta.json'
+      - 'scripts/validate-meta.js'
+      - '.github/workflows/validate-meta.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - '**/_meta/meta.json'
+      - 'scripts/validate-meta.js'
+
+jobs:
+  validate:
+    name: Validate Exercise Metadata
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run meta.json validation
+        run: |
+          echo "🔍 Validating all meta.json files..."
+          node scripts/validate-meta.js
+
+      - name: Check for missing IDs
+        run: |
+          echo "🔍 Checking for missing or invalid ID fields..."
+          if grep -r '"id":\s*""' **/_meta/meta.json 2>/dev/null; then
+            echo "❌ Found meta.json files with empty id fields"
+            exit 1
+          fi
+          echo "✅ All ID fields are present and non-empty"
+
+  auto-fix:
+    name: Auto-fix meta.json (if needed)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Auto-fix meta.json files
+        id: autofix
+        run: |
+          echo "🔧 Running auto-fix on meta.json files..."
+          node scripts/validate-meta.js --fix
+
+          # Check if any files were modified
+          if [[ -n $(git status -s) ]]; then
+            echo "modified=true" >> $GITHUB_OUTPUT
+          else
+            echo "modified=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push fixes
+        if: steps.autofix.outputs.modified == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add **/_meta/meta.json
+          git commit -m "🤖 Auto-fix meta.json: add missing UUID fields"
+          git push
+
+      - name: Comment on PR
+        if: steps.autofix.outputs.modified == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🤖 Auto-fixed meta.json files by adding missing UUID fields. Please pull the latest changes.'
+            })

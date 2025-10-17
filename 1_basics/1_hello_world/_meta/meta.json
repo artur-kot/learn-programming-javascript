@@ -1,6 +1,7 @@
 {
+  "id": "f017dfc8-2f89-4956-9730-caee84b81bcf",
   "title": "Hello, World",
-  "run": "node helloworld.js",
-  "test": "node helloworld.test.js",
+  "initCmd": "node helloworld.js",
+  "testCmd": "node helloworld.test.js",
   "entryFile": "helloworld.js"
 }
