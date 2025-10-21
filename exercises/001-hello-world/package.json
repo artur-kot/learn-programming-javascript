@@ -1,0 +1,6 @@
+{
+  "name": "001-hello-world",
+  "scripts": {
+    "test": "001-hello-world.test.js"
+  }
+}

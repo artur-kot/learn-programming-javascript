@@ -1,39 +1,5 @@
 {
   "name": "JavaScript Basics",
-  "description": "Learn the fundamentals of JavaScript programming",
-  "author": "Learn Programming Team",
-  "version": "1.0.0",
-  "language": "javascript",
-  "exercises": [
-    {
-      "id": "01-hello-world",
-      "title": "Hello World",
-      "description": "Your first JavaScript function",
-      "order": 1
-    },
-    {
-      "id": "02-variables",
-      "title": "Variables and Data Types",
-      "description": "Learn about variables, strings, numbers, and booleans",
-      "order": 2
-    },
-    {
-      "id": "03-functions",
-      "title": "Functions",
-      "description": "Create and use functions with parameters and return values",
-      "order": 3
-    },
-    {
-      "id": "04-arrays-basics",
-      "title": "Array Basics",
-      "description": "Learn to create and manipulate arrays in JavaScript",
-      "order": 4
-    },
-    {
-      "id": "05-conditionals",
-      "title": "Conditional Statements",
-      "description": "Learn to make decisions in your code with if/else statements",
-      "order": 5
-    }
-  ]
+  "author": "Artur Kot",
+  "version": "0.1.0"
 }
