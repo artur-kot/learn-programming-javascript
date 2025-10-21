@@ -1,25 +1,11 @@
 {
-  "name": "learn-programming-javascript",
+  "name": "javascript-basics-course",
   "version": "1.0.0",
-  "description": "Open Source JavaScript Course",
-  "private": true,
+  "description": "JavaScript basics course exercises",
   "scripts": {
-    "validate": "node scripts/validate-meta.js",
-    "validate:fix": "node scripts/validate-meta.js --fix",
-    "prepare": "husky install"
+    "test": "jest"
   },
-  "keywords": [
-    "javascript",
-    "learning",
-    "course",
-    "education"
-  ],
   "devDependencies": {
-    "husky": "^8.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/your-username/learn-programming-javascript.git"
-  },
-  "license": "MIT"
+    "jest": "^29.7.0"
+  }
 }

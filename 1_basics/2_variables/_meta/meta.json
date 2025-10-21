@@ -1,7 +1,0 @@
-{
-  "id": "a8ffcc9b-24b9-4f01-8332-0afee2794878",
-  "title": "Variables",
-  "initCmd": "node index.js",
-  "testCmd": "node variables.test.js",
-  "entryFile": "index.js"
-}
