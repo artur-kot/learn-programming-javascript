@@ -1,6 +1,6 @@
-const test = require('node:test');
-const assert = require('node:assert');
-const { sayHello } = require('./exercise');
+import test from 'node:test';
+import assert from 'node:assert';
+import { sayHello } from './001-hello-world.js';
 
 test('Hello World Exercise - sayHello should console.log "Hello, World!"', (t) => {
   const logs = [];

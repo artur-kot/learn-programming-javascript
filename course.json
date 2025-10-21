@@ -1,5 +1,6 @@
 {
   "name": "JavaScript Basics",
-  "author": "Artur Kot",
-  "version": "0.1.0"
+  "description": "Learn the fundamentals of JavaScript programming",
+  "author": "Learn Programming Team",
+  "version": "1.0.0"
 }
