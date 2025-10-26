@@ -1,0 +1,7 @@
+{
+  "name": "005-profile-templates",
+  "type": "module",
+  "scripts": {
+    "test": "node 005-profile-templates.test.js"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "007-profile-validate",
+  "type": "module",
+  "scripts": {
+    "test": "node 007-profile-validate.test.js"
+  }
+}

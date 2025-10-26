@@ -1,0 +1,7 @@
+{
+  "name": "003-profile-store-info",
+  "type": "module",
+  "scripts": {
+    "test": "node 003-profile-store-info.test.js"
+  }
+}

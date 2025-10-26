@@ -1,0 +1,7 @@
+{
+  "name": "006-profile-format",
+  "type": "module",
+  "scripts": {
+    "test": "node 006-profile-format.test.js"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "004-profile-concatenation",
+  "type": "module",
+  "scripts": {
+    "test": "node 004-profile-concatenation.test.js"
+  }
+}
