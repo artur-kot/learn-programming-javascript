@@ -1,0 +1,7 @@
+{
+  "name": "002-console-methods",
+  "type": "module",
+  "scripts": {
+    "test": "node 002-console-methods.test.js"
+  }
+}
