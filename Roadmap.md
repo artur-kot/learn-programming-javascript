@@ -31,11 +31,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 1: Profile Card Builder
 *Build a user profile display by learning variables, strings, and template literals*
 
-3. [ ] **Profile Card - Store User Info** - Create variables to store name, age, and email ([exercise 003](./exercises/003-profile-store-info))
-4. [ ] **Profile Card - Display With Concatenation** - Combine strings to show user information ([exercise 004](./exercises/004-profile-concatenation))
-5. [ ] **Profile Card - Template Literals** - Improve display using modern template strings ([exercise 005](./exercises/005-profile-templates))
-6. [ ] **Profile Card - Format and Style** - Use string methods to format text (uppercase, lowercase, trim) ([exercise 006](./exercises/006-profile-format))
-7. [ ] **Profile Card - Validate Email** - Check if email contains @ symbol using string methods ([exercise 007](./exercises/007-profile-validate))
+3. [x] **Profile Card - Store User Info** - Create variables to store name, age, and email ([exercise 003](./exercises/003-profile-store-info))
+4. [x] **Profile Card - Display With Concatenation** - Combine strings to show user information ([exercise 004](./exercises/004-profile-concatenation))
+5. [x] **Profile Card - Template Literals** - Improve display using modern template strings ([exercise 005](./exercises/005-profile-templates))
+6. [x] **Profile Card - Format and Style** - Use string methods to format text (uppercase, lowercase, trim) ([exercise 006](./exercises/006-profile-format))
+7. [x] **Profile Card - Validate Email** - Check if email contains @ symbol using string methods ([exercise 007](./exercises/007-profile-validate))
 
 ### Series 2: Simple Calculator
 *Build a basic calculator to learn numbers, operators, and type conversion*
