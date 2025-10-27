@@ -131,11 +131,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 11: Playlist Manager
 *Build a music playlist app to practice advanced array operations*
 
-53. [ ] **Playlist - Initialize Songs** - Create array of song objects with title and artist ([exercise 053](./exercises/053-playlist-init))
-54. [ ] **Playlist - Sort and Shuffle** - Implement sort by title and random shuffle ([exercise 054](./exercises/054-playlist-sort))
-55. [ ] **Playlist - Search Songs** - Use filter to search by title or artist ([exercise 055](./exercises/055-playlist-search))
-56. [ ] **Playlist - Combine Playlists** - Use concat and spread to merge playlists ([exercise 056](./exercises/056-playlist-combine))
-57. [ ] **Playlist - Check Duplicates** - Use includes and some to detect duplicate songs ([exercise 057](./exercises/057-playlist-duplicates))
+53. [x] **Playlist - Initialize Songs** - Create array of song objects with title and artist ([exercise 053](./exercises/053-playlist-init))
+54. [x] **Playlist - Sort and Shuffle** - Implement sort by title and random shuffle ([exercise 054](./exercises/054-playlist-sort))
+55. [x] **Playlist - Search Songs** - Use filter to search by title or artist ([exercise 055](./exercises/055-playlist-search))
+56. [x] **Playlist - Combine Playlists** - Use concat and spread to merge playlists ([exercise 056](./exercises/056-playlist-combine))
+57. [x] **Playlist - Check Duplicates** - Use includes and some to detect duplicate songs ([exercise 057](./exercises/057-playlist-duplicates))
 
 ---
 

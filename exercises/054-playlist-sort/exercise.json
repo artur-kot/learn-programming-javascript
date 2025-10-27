@@ -1,0 +1,10 @@
+{
+  "id": "054-playlist-sort",
+  "title": "Playlist Sort and Shuffle",
+  "description": "Learn array sorting and shuffling techniques by implementing playlist sorting and shuffling functions.",
+  "series": "11",
+  "seriesName": "Playlist Manager",
+  "difficulty": "intermediate",
+  "topics": ["arrays", "array methods", "sort", "comparison functions"],
+  "skills": ["sorting algorithms", "array manipulation", "immutability"]
+}
