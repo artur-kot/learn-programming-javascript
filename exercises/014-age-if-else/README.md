@@ -107,7 +107,4 @@ In **exercise 015-age-multiple-groups**, you'll learn about **else-if** to handl
 
 Want to dive deeper? Check out these resources:
 
-- 📚 [if...else Statements - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
-- 📖 [Conditional (Ternary) Operator - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
-- 🎯 [Conditional Branching - JavaScript.info](https://javascript.info/ifelse)
-
+- 📚 [Conditional (Ternary) Operator - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)

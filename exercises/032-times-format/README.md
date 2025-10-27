@@ -294,6 +294,3 @@ Keep up the fantastic work!
 Want to dive deeper? Check out these resources:
 
 - 📚 [String Formatting - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart)
-- 📖 [Template Literals - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
-- 🎯 [String Methods - JavaScript.info](https://javascript.info/string)
-

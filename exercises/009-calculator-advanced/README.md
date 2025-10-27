@@ -122,5 +122,3 @@ Want to dive deeper? Check out these resources:
 
 - 📚 [Math Object - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
 - 📖 [Number Methods - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-- 🎯 [Mathematical Functions - JavaScript.info](https://javascript.info/number#other-math-functions)
-

@@ -107,5 +107,4 @@ Want to dive deeper? Check out these resources:
 
 - 📚 [if...else Statements - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 - 📖 [Comparison Operators - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#relational_operators)
-- 🎯 [Conditional Operators - JavaScript.info](https://javascript.info/logical-operators)
-
+- 🎯 [Conditional Branching - JavaScript.info](https://javascript.info/ifelse)

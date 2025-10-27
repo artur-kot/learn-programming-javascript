@@ -185,12 +185,3 @@ For `timesGridRange(8, 10, 8, 10)`:
 ## Next Steps
 
 Great work! You've made your multiplication grid completely flexible. In the next exercise, you'll learn about the `continue` statement - a way to SKIP certain iterations without exiting the loop entirely. You'll use it to skip even numbers in your multiplication table!
-
-## Read More
-
-Want to dive deeper? Check out these resources:
-
-- 📚 [Function Parameters - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#function_parameters)
-- 📖 [Loop Ranges - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
-- 🎯 [Function Parameters - JavaScript.info](https://javascript.info/function-basics#parameters)
-

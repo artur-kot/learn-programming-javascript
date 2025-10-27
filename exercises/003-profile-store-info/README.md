@@ -83,4 +83,3 @@ Want to dive deeper? Check out these resources:
 - 📚 [Variables - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#declarations)
 - 📖 [JavaScript Data Types - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 - 🎯 [Variables and Scoping - JavaScript.info](https://javascript.info/variables)
-

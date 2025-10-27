@@ -165,4 +165,3 @@ Want to dive deeper? Check out these resources:
 - 📚 [Input Validation - MDN](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)
 - 📖 [isNaN() Function - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN)
 - 🎯 [Error Handling - JavaScript.info](https://javascript.info/try-catch)
-

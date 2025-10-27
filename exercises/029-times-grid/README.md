@@ -219,6 +219,3 @@ Excellent work! You've mastered nested loops by creating a complete multiplicati
 Want to dive deeper? Check out these resources:
 
 - 📚 [Nested Loops - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#nested_loops)
-- 📖 [String Building - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-- 🎯 [Nested Loops - JavaScript.info](https://javascript.info/while-for#nested-loops)
-

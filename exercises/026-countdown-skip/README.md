@@ -216,6 +216,3 @@ Fantastic work! You've learned to control both WHERE your countdown starts and H
 Want to dive deeper? Check out these resources:
 
 - 📚 [continue Statement - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue)
-- 📖 [Loop Control - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#break_and_continue_statements)
-- 🎯 [Loop Control - JavaScript.info](https://javascript.info/while-for#breaking-the-loop)
-

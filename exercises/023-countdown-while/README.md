@@ -169,5 +169,4 @@ Want to dive deeper? Check out these resources:
 
 - 📚 [while Loop - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while)
 - 📖 [Loops and Iteration - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
-- 🎯 [While Loop - JavaScript.info](https://javascript.info/while-for#the-while-loop)
-
+- 🎯 [Loops - JavaScript.info](https://javascript.info/while-for)

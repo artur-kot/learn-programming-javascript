@@ -80,6 +80,7 @@ Each exercise README should include:
 7. **Testing Instructions**: How to verify their solution works
 8. **Reflection Questions**: Prompts to deepen understanding after completing the exercise
 9. **Next Steps**: What to explore next or how this connects to future concepts
+10. **Read More**: A curated list of external resources for further study on the topic
 
 ## Quality Standards
 

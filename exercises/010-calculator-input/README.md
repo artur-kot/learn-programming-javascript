@@ -136,7 +136,5 @@ Keep coding!
 
 Want to dive deeper? Check out these resources:
 
-- 📚 [prompt() Function - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)
-- 📖 [Type Conversion - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#data_type_conversion)
+- 📚 [Type Conversion - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#data_type_conversion)
 - 🎯 [Type Conversions - JavaScript.info](https://javascript.info/type-conversions)
-

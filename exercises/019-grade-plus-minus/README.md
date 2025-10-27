@@ -220,7 +220,4 @@ Your current solution will be the starting point for the next exercise!
 
 Want to dive deeper? Check out these resources:
 
-- 📚 [switch Statement Advanced - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch#taking_advantage_of_fall-through)
-- 📖 [Fall-through in Switch - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch#using_switch_to_handle_multiple_criteria)
-- 🎯 [Complex Switch Cases - JavaScript.info](https://javascript.info/switch)
-
+- 📚 [Fall-through in Switch - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch#taking_advantage_of_fall-through)

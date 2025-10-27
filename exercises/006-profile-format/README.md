@@ -102,5 +102,3 @@ Want to dive deeper? Check out these resources:
 
 - 📚 [String Methods - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods)
 - 📖 [String.prototype.trim() - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim)
-- 🎯 [String Methods - JavaScript.info](https://javascript.info/string#changing-the-case)
-

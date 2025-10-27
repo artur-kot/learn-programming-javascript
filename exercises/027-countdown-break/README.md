@@ -239,6 +239,3 @@ Keep up the excellent work!
 Want to dive deeper? Check out these resources:
 
 - 📚 [break Statement - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break)
-- 📖 [Loop Termination - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#break_and_continue_statements)
-- 🎯 [Breaking Loops - JavaScript.info](https://javascript.info/while-for#breaking-the-loop)
-

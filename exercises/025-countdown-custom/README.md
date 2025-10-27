@@ -215,5 +215,3 @@ Want to dive deeper? Check out these resources:
 
 - 📚 [Function Parameters - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#function_parameters)
 - 📖 [Default Parameters - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
-- 🎯 [Function Parameters - JavaScript.info](https://javascript.info/function-basics#parameters)
-

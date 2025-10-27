@@ -83,7 +83,5 @@ Nice work! You've created a formatted profile card using string concatenation. B
 
 Want to dive deeper? Check out these resources:
 
-- 📚 [String Concatenation - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_concatenation)
-- 📖 [Working with Strings - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting)
+- 📚 [Working with Strings - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting)
 - 🎯 [Strings - JavaScript.info](https://javascript.info/string)
-

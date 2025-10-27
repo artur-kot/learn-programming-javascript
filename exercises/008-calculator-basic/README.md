@@ -113,4 +113,3 @@ Want to dive deeper? Check out these resources:
 - 📚 [Functions - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 - 📖 [Arithmetic Operators - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#arithmetic_operators)
 - 🎯 [Functions - JavaScript.info](https://javascript.info/function-basics)
-

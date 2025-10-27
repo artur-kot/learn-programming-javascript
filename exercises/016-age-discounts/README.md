@@ -109,12 +109,3 @@ After completing the exercise, think about:
 Excellent work! You've learned to combine conditionals with calculations. For the final exercise in this series, you'll tackle the most complex scenario yet: **logical operators**.
 
 In **exercise 017-age-permissions**, you'll build a permission system that checks **multiple conditions at once** using AND (`&&`) and OR (`||`) operators. This is where conditionals become truly powerful!
-
-## Read More
-
-Want to dive deeper? Check out these resources:
-
-- 📚 [Logical AND Operator - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND)
-- 📖 [Logical OR Operator - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR)
-- 🎯 [Logical Operators - JavaScript.info](https://javascript.info/logical-operators)
-

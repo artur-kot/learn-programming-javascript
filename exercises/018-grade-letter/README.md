@@ -199,4 +199,3 @@ Want to dive deeper? Check out these resources:
 - 📚 [switch Statement - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
 - 📖 [Control Flow - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
 - 🎯 [Switch Statement - JavaScript.info](https://javascript.info/switch)
-

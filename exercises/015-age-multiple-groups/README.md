@@ -115,7 +115,5 @@ In **exercise 016-age-discounts**, you'll learn about **nested conditionals** - 
 
 Want to dive deeper? Check out these resources:
 
-- 📚 [Nested if Statements - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else#nested_if...else_statements)
-- 📖 [Logical Operators - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#binary_logical_operators)
-- 🎯 [Complex Conditions - JavaScript.info](https://javascript.info/logical-operators)
-
+- 📚 [Logical Operators - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#binary_logical_operators)
+- 🎯 [Logical Operators - JavaScript.info](https://javascript.info/logical-operators)
