@@ -56,11 +56,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 4: Grade Calculator
 *Build a student grade system to master conditionals and comparison operators*
 
-18. [ ] **Grade Calculator - Letter Grades** - Convert numeric scores to letter grades (A-F) ([exercise 018](./exercises/018-grade-letter))
-19. [ ] **Grade Calculator - Plus/Minus Grades** - Add + and - to grades (A+, A, A-, etc.) ([exercise 019](./exercises/019-grade-plus-minus))
-20. [ ] **Grade Calculator - Pass/Fail Status** - Determine if student passed with switch statement ([exercise 020](./exercises/020-grade-pass-fail))
-21. [ ] **Grade Calculator - Multiple Subjects** - Calculate GPA across multiple courses ([exercise 021](./exercises/021-grade-gpa))
-22. [ ] **Grade Calculator - Honor Roll** - Determine honor roll status with complex conditions ([exercise 022](./exercises/022-grade-honor-roll))
+18. [x] **Grade Calculator - Letter Grades** - Convert numeric scores to letter grades (A-F) ([exercise 018](./exercises/018-grade-letter))
+19. [x] **Grade Calculator - Plus/Minus Grades** - Add + and - to grades (A+, A, A-, etc.) ([exercise 019](./exercises/019-grade-plus-minus))
+20. [x] **Grade Calculator - Pass/Fail Status** - Determine if student passed with switch statement ([exercise 020](./exercises/020-grade-pass-fail))
+21. [x] **Grade Calculator - Multiple Subjects** - Calculate GPA across multiple courses ([exercise 021](./exercises/021-grade-gpa))
+22. [x] **Grade Calculator - Honor Roll** - Determine honor roll status with complex conditions ([exercise 022](./exercises/022-grade-honor-roll))
 
 ---
 

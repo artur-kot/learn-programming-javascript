@@ -1,0 +1,7 @@
+{
+  "name": "020-grade-pass-fail",
+  "type": "module",
+  "scripts": {
+    "test": "node 020-grade-pass-fail.test.js"
+  }
+}

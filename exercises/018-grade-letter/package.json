@@ -1,0 +1,7 @@
+{
+  "name": "018-grade-letter",
+  "type": "module",
+  "scripts": {
+    "test": "node 018-grade-letter.test.js"
+  }
+}

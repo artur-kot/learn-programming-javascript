@@ -1,0 +1,7 @@
+{
+  "name": "019-grade-plus-minus",
+  "type": "module",
+  "scripts": {
+    "test": "node 019-grade-plus-minus.test.js"
+  }
+}

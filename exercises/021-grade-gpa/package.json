@@ -1,0 +1,7 @@
+{
+  "name": "021-grade-gpa",
+  "type": "module",
+  "scripts": {
+    "test": "node 021-grade-gpa.test.js"
+  }
+}
