@@ -1,25 +1,17 @@
 export function add(a, b) {
   // TODO: Return the sum of a and b
-  // Hint: Use the + operator
-  // Example: 5 + 3 = 8
 }
 
 export function subtract(a, b) {
   // TODO: Return the difference between a and b
-  // Hint: Use the - operator
-  // Example: 10 - 4 = 6
 }
 
 export function multiply(a, b) {
   // TODO: Return the product of a and b
-  // Hint: Use the * operator
-  // Example: 6 * 7 = 42
 }
 
 export function divide(a, b) {
   // TODO: Return the quotient of a divided by b
-  // Hint: Use the / operator
-  // Example: 20 / 4 = 5
 }
 
 // Test your functions

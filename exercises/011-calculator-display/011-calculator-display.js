@@ -30,14 +30,12 @@ export function formatCurrency(amount) {
   // TODO: Format a number as currency with 2 decimal places
   // Hint: Use .toFixed(2) to round to 2 decimal places
   // Example: formatCurrency(19.5) should return "$19.50"
-  // Return the result as: "$" + amount.toFixed(2)
 }
 
 export function formatPercentage(decimal) {
   // TODO: Convert a decimal to percentage with 1 decimal place
   // Hint: Multiply by 100, then use .toFixed(1)
   // Example: formatPercentage(0.156) should return "15.6%"
-  // Return: (decimal * 100).toFixed(1) + "%"
 }
 
 export function formatDistance(meters) {

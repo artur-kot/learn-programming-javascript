@@ -20,19 +20,16 @@ export function divide(a, b) {
 export function modulo(a, b) {
   // TODO: Return the remainder when a is divided by b
   // Hint: Use the % operator
-  // Example: 10 % 3 = 1 (because 10 ÷ 3 = 3 remainder 1)
 }
 
 export function power(base, exponent) {
   // TODO: Return base raised to the power of exponent
   // Hint: Use the ** operator (exponentiation)
-  // Example: 2 ** 3 = 8 (2 × 2 × 2 = 8)
 }
 
 export function squareRoot(number) {
   // TODO: Return the square root of a number
   // Hint: Use Math.sqrt()
-  // Example: Math.sqrt(16) = 4
 }
 
 // Test basic operations

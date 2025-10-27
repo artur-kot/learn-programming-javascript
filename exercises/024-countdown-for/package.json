@@ -1,0 +1,7 @@
+{
+  "name": "024-countdown-for",
+  "type": "module",
+  "scripts": {
+    "test": "node 024-countdown-for.test.js"
+  }
+}

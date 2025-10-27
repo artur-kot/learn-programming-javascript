@@ -1,0 +1,7 @@
+{
+  "name": "027-countdown-break",
+  "type": "module",
+  "scripts": {
+    "test": "node 027-countdown-break.test.js"
+  }
+}

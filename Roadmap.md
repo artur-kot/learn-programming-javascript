@@ -69,11 +69,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 5: Countdown Timer
 *Build a countdown display to learn loops and iteration*
 
-23. [ ] **Countdown - Basic While Loop** - Count down from 10 to 1 ([exercise 023](./exercises/023-countdown-while))
-24. [ ] **Countdown - For Loop Version** - Rewrite using for loop ([exercise 024](./exercises/024-countdown-for))
-25. [ ] **Countdown - Custom Start** - Accept any starting number and count down ([exercise 025](./exercises/025-countdown-custom))
-26. [ ] **Countdown - Skip Numbers** - Count down by different intervals (by 2s, 5s, etc.) ([exercise 026](./exercises/026-countdown-skip))
-27. [ ] **Countdown - Early Stop** - Use break to stop at specific number ([exercise 027](./exercises/027-countdown-break))
+23. [x] **Countdown - Basic While Loop** - Count down from 10 to 1 ([exercise 023](./exercises/023-countdown-while))
+24. [x] **Countdown - For Loop Version** - Rewrite using for loop ([exercise 024](./exercises/024-countdown-for))
+25. [x] **Countdown - Custom Start** - Accept any starting number and count down ([exercise 025](./exercises/025-countdown-custom))
+26. [x] **Countdown - Skip Numbers** - Count down by different intervals (by 2s, 5s, etc.) ([exercise 026](./exercises/026-countdown-skip))
+27. [x] **Countdown - Early Stop** - Use break to stop at specific number ([exercise 027](./exercises/027-countdown-break))
 
 ### Series 6: Multiplication Table Generator
 *Build a times table generator to practice nested loops*

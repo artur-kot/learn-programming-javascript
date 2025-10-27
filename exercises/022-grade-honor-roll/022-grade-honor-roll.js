@@ -130,20 +130,8 @@ export function checkHonorRoll(gpa, grades) {
   // Hint: Use logical AND (&&) to combine conditions
   // Hint: Use a loop to check each grade
   // Hint: If you find any grade below B-, immediately return false
-  //
-  // if (gpa < 3.5) {
-  //   return false;
-  // }
-  //
-  // for (const grade of grades) {
-  //   // Check if grade is C+ or below
-  //   if (grade === "C+" || grade === "C" || grade === "C-" ||
-  //       grade === "D+" || grade === "D" || grade === "D-" || grade === "F") {
-  //     return false;
-  //   }
-  // }
-  //
-  // return true;  // GPA is good AND no low grades
+
+  
 }
 
 // Test honor roll eligibility

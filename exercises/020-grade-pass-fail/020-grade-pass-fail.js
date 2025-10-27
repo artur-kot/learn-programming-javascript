@@ -49,19 +49,12 @@ export function getPassFailStatus(letterGrade) {
   // Use a switch statement to check the letterGrade value
   //
   // Hint: Switch statements are perfect when checking one value against many specific options
-  //
-  // switch (letterGrade) {
-  //   case "A+":
-  //   case "A":
-  //   case "A-":
-  //   case "B+":
-  //     // Continue for all passing grades...
-  //     return "Pass";
-  //   case "F":
-  //     return "Fail";
-  //   default:
-  //     return "Invalid grade";
-  // }
+
+  switch (letterGrade) {
+    case "A+":
+    case "A":
+    /* Continue here */
+  }
 }
 
 // Test both functions together

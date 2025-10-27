@@ -1,0 +1,7 @@
+{
+  "name": "026-countdown-skip",
+  "type": "module",
+  "scripts": {
+    "test": "node 026-countdown-skip.test.js"
+  }
+}

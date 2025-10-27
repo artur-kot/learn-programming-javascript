@@ -63,6 +63,8 @@ Therefore:
    - If a user requests related exercises, create them as separate but solution of previous exercise code should be an entry point of next one.
    - For example 002-TodoList1, 003-TodoList2, and 004-TodoList3 can be created as separate exercises but the solution of 002 should be the starting point for 003 and so on.
 
+4. Do not include explanations or solutions in the initial challenge description or code comments. Learner should solve it on their own or with AI hints. You can only start the code which learner should complete.
+
 ## Creating Effective README Files
 
 Each exercise README should include:

@@ -84,22 +84,8 @@ export function calculateGPA(grades) {
   // Hint: Use a switch statement to convert letter grades to numbers
   // Hint: Use a loop to process all grades in the array
   // Hint: Use .toFixed(2) to round to 2 decimal places, then convert back to number
-  //
-  // let totalPoints = 0;
-  // for (const grade of grades) {
-  //   switch (grade) {
-  //     case "A+":
-  //     case "A":
-  //       totalPoints += 4.0;
-  //       break;
-  //     case "A-":
-  //       totalPoints += 3.7;
-  //       break;
-  //     // Continue for other grades...
-  //   }
-  // }
-  // const gpa = totalPoints / grades.length;
-  // return Number(gpa.toFixed(2));
+
+  
 }
 
 // Test the GPA calculation

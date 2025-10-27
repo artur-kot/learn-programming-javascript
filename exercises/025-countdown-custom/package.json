@@ -1,0 +1,7 @@
+{
+  "name": "025-countdown-custom",
+  "type": "module",
+  "scripts": {
+    "test": "node 025-countdown-custom.test.js"
+  }
+}
