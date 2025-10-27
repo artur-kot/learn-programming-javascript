@@ -120,13 +120,13 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 47. [x] **Shopping List - Shopping Manager** - Compose all functionality into a complete manager object ([exercise 047](./exercises/047-shopping-manager))
 
 ### Series 10: Student Grade Book
-*Build a grade tracking system to master array methods*
+*Build a grade tracking system to learn about Maps and practice arrays*
 
-48. [ ] **Grade Book - Store Scores** - Create array of student scores ([exercise 048](./exercises/048-gradebook-store))
-49. [ ] **Grade Book - Map to Letters** - Use map to convert scores to letter grades ([exercise 049](./exercises/049-gradebook-map))
-50. [ ] **Grade Book - Filter Passing** - Use filter to find passing students ([exercise 050](./exercises/050-gradebook-filter))
-51. [ ] **Grade Book - Find Student** - Use find and findIndex to locate specific scores ([exercise 051](./exercises/051-gradebook-find))
-52. [ ] **Grade Book - Calculate Average** - Use reduce to compute class average ([exercise 052](./exercises/052-gradebook-reduce))
+48. [x] **Grade Book - Store Scores** - Create array of student scores ([exercise 048](./exercises/048-gradebook-store))
+49. [x] **Grade Book - Map to Letters** - Use map to convert scores to letter grades ([exercise 049](./exercises/049-gradebook-map))
+50. [x] **Grade Book - Filter Passing** - Use filter to find passing students ([exercise 050](./exercises/050-gradebook-filter))
+51. [x] **Grade Book - Find Student** - Use find and findIndex to locate specific scores ([exercise 051](./exercises/051-gradebook-find))
+52. [x] **Grade Book - Calculate Average** - Use reduce to compute class average ([exercise 052](./exercises/052-gradebook-reduce))
 
 ### Series 11: Playlist Manager
 *Build a music playlist app to practice advanced array operations*
