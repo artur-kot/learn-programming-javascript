@@ -100,11 +100,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 8: Text Analyzer Tool
 *Build a text analysis utility to practice functions and callbacks*
 
-38. [ ] **Text Analyzer - Word Counter** - Function to count words in a string ([exercise 038](./exercises/038-text-word-count))
-39. [ ] **Text Analyzer - Character Stats** - Add character, letter, and digit counting ([exercise 039](./exercises/039-text-char-stats))
-40. [ ] **Text Analyzer - Custom Filters** - Accept callback functions to filter text ([exercise 040](./exercises/040-text-callbacks))
-41. [ ] **Text Analyzer - Higher-Order Functions** - Create functions that return functions ([exercise 041](./exercises/041-text-higher-order))
-42. [ ] **Text Analyzer - Function Composition** - Combine multiple analysis functions ([exercise 042](./exercises/042-text-composition))
+38. [x] **Text Analyzer - Word Counter** - Function to count words in a string ([exercise 038](./exercises/038-text-word-count))
+39. [x] **Text Analyzer - Character Stats** - Add character, letter, and digit counting ([exercise 039](./exercises/039-text-char-stats))
+40. [x] **Text Analyzer - Custom Filters** - Accept callback functions to filter text ([exercise 040](./exercises/040-text-callbacks))
+41. [x] **Text Analyzer - Higher-Order Functions** - Create functions that return functions ([exercise 041](./exercises/041-text-higher-order))
+42. [x] **Text Analyzer - Function Composition** - Combine multiple analysis functions ([exercise 042](./exercises/042-text-composition))
 
 ---
 
