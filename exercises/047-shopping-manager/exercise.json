@@ -1,0 +1,17 @@
+{
+  "name": "047-shopping-manager",
+  "title": "Shopping Manager - Complete Manager Object",
+  "description": "Compose all shopping list functionality into a complete manager object",
+  "series": "Series 9: Shopping List Manager",
+  "seriesIndex": 5,
+  "difficulty": "Intermediate",
+  "topics": ["objects", "encapsulation", "composition", "closures"],
+  "skills": [
+    "Object methods and properties",
+    "Function factories and closures",
+    "Encapsulation",
+    "Composition pattern",
+    "Creating reusable interfaces"
+  ],
+  "keywords": ["shopping", "manager", "composition", "object", "encapsulation", "closure"]
+}

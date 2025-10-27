@@ -1,0 +1,17 @@
+{
+  "name": "044-shopping-list",
+  "title": "Shopping List - Item List",
+  "description": "Manage multiple items using array storage in a shopping list",
+  "series": "Series 9: Shopping List Manager",
+  "seriesIndex": 2,
+  "difficulty": "Beginner",
+  "topics": ["arrays", "functions", "array methods", "state management"],
+  "skills": [
+    "Working with arrays",
+    "Array push method",
+    "Array reassignment",
+    "Managing list state",
+    "Multiple related functions"
+  ],
+  "keywords": ["shopping", "list", "array", "storage", "management"]
+}

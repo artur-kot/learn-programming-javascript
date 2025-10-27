@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 044-shopping-list.test.js"
+  }
+}

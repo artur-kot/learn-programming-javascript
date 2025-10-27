@@ -111,13 +111,13 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ## Phase 6: Working with Collections
 
 ### Series 9: Shopping List Manager
-*Build a shopping list app to learn arrays and basic array methods*
+*Build a shopping list manager to learn state management, arrays, and object composition*
 
-43. [ ] **Shopping List - Create and Display** - Initialize array of items and display them ([exercise 043](./exercises/043-shopping-create))
-44. [ ] **Shopping List - Add Items** - Use push to add new items to the list ([exercise 044](./exercises/044-shopping-add))
-45. [ ] **Shopping List - Remove Items** - Use pop, shift to remove items ([exercise 045](./exercises/045-shopping-remove))
-46. [ ] **Shopping List - Access and Update** - Change specific items by index ([exercise 046](./exercises/046-shopping-update))
-47. [ ] **Shopping List - Loop Through Items** - Display all items using different loop types ([exercise 047](./exercises/047-shopping-loop))
+43. [x] **Shopping List - Add Item** - Create basic item storage with add and get functions ([exercise 043](./exercises/043-shopping-add-item))
+44. [x] **Shopping List - Item List** - Manage multiple items using array storage ([exercise 044](./exercises/044-shopping-list))
+45. [x] **Shopping List - Remove & Find** - Search for and remove items from the list ([exercise 045](./exercises/045-shopping-remove))
+46. [x] **Shopping List - Item Quantities** - Track quantities for each item using objects ([exercise 046](./exercises/046-shopping-quantities))
+47. [x] **Shopping List - Shopping Manager** - Compose all functionality into a complete manager object ([exercise 047](./exercises/047-shopping-manager))
 
 ### Series 10: Student Grade Book
 *Build a grade tracking system to master array methods*

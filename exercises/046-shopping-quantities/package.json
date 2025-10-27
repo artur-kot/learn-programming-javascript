@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 046-shopping-quantities.test.js"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "043-shopping-add-item",
+  "title": "Shopping List - Add Item",
+  "description": "Create basic item storage functionality for a shopping list manager",
+  "series": "Series 9: Shopping List Manager",
+  "seriesIndex": 1,
+  "difficulty": "Beginner",
+  "topics": ["variables", "functions", "state management"],
+  "skills": [
+    "Working with module-level variables",
+    "Creating functions that modify state",
+    "Basic data storage",
+    "Function parameters and returns"
+  ],
+  "keywords": ["shopping", "list", "state", "storage", "simple"]
+}

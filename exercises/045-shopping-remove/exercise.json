@@ -1,0 +1,17 @@
+{
+  "name": "045-shopping-remove",
+  "title": "Shopping List - Remove & Find Items",
+  "description": "Search for and remove items from the shopping list",
+  "series": "Series 9: Shopping List Manager",
+  "seriesIndex": 3,
+  "difficulty": "Intermediate",
+  "topics": ["arrays", "array methods", "searching", "filtering"],
+  "skills": [
+    "Using indexOf to search arrays",
+    "Using splice to remove elements",
+    "Conditional logic",
+    "Return values for success/failure",
+    "Array manipulation patterns"
+  ],
+  "keywords": ["shopping", "search", "remove", "indexOf", "splice", "find"]
+}
