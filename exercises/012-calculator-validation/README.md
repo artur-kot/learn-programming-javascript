@@ -140,7 +140,7 @@ After completing the exercise, think about:
 
 ## What You've Learned
 
-Through this series, you've mastered:
+Through this series, you've learn basics of:
 
 - **Arithmetic operators**: +, -, *, /, %, **
 - **Math object**: Math.sqrt() and other built-in functions
