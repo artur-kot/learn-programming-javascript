@@ -216,3 +216,12 @@ For `timesGridOddsOnly(1, 5, 1, 5)`:
 ## Next Steps
 
 Excellent work! You've learned how to filter loop iterations with `continue`. In the final exercise of this series, you'll learn how to format your multiplication table with proper spacing and alignment to make it look like a professional data table!
+
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Conditional Logic in Loops - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#break_and_continue_statements)
+- 📖 [continue Statement - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue)
+- 🎯 [Loop Control - JavaScript.info](https://javascript.info/while-for#breaking-the-loop)
+

@@ -163,4 +163,11 @@ Great job completing your first while loop! In the next exercise (024-countdown-
 
 You'll take the working countdown you just created and rewrite it using a for loop to see the differences between the two approaches. Both are useful in different situations!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [while Loop - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while)
+- 📖 [Loops and Iteration - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+- 🎯 [While Loop - JavaScript.info](https://javascript.info/while-for#the-while-loop)
 

@@ -202,4 +202,11 @@ Awesome work! You can now calculate GPA across multiple courses. In the final ex
 
 Your current solution will be the starting point for the next exercise!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Math Calculations - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
+- 📖 [Number Precision - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)
+- 🎯 [Numbers - JavaScript.info](https://javascript.info/number)
 

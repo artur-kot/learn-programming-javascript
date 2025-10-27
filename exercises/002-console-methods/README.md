@@ -37,3 +37,11 @@ npm test
 ```
 
 You should see three different colored outputs (if your terminal supports colors), each demonstrating a different console method!
+
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Console API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Console)
+- 📖 [console.log() vs console.error() vs console.warn() - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Console#methods)
+- 🎯 [Debugging in JavaScript - JavaScript.info](https://javascript.info/debugging-chrome)

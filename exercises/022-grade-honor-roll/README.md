@@ -225,4 +225,11 @@ Take a well-deserved break, then continue your JavaScript journey with the next 
 
 Keep up the excellent work!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Complex Conditionals - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#conditional_statements)
+- 📖 [Logical Operators - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#binary_logical_operators)
+- 🎯 [Decision Making - JavaScript.info](https://javascript.info/ifelse)
 

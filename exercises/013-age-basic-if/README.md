@@ -101,3 +101,11 @@ Great start! You've learned to use if statements to check a condition. But what 
 
 In **exercise 014-age-if-else**, you'll expand your age checker to handle both cases: old enough AND too young. Get ready to make your code even smarter!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [if...else Statements - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+- 📖 [Comparison Operators - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#relational_operators)
+- 🎯 [Conditional Operators - JavaScript.info](https://javascript.info/logical-operators)
+

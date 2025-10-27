@@ -85,3 +85,12 @@ After completing the exercise, think about:
 ## Next Steps
 
 Excellent! You've learned a modern, clean way to combine strings and variables. Next, you'll discover how to transform and format text using **string methods** in **exercise 006-profile-format**. Let's make that profile card even more polished!
+
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Template Literals - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+- 📖 [String Interpolation Guide - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting#template_literals)
+- 🎯 [Template Strings - JavaScript.info](https://javascript.info/string#template-literals)
+

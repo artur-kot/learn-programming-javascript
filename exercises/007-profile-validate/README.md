@@ -91,3 +91,11 @@ Ready for more? The next series, **Simple Calculator** (exercises 008-012), will
 
 Keep up the excellent work!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [String Validation - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods)
+- 📖 [Regular Expressions - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+- 🎯 [Email Validation Best Practices](https://emailregex.com/)
+

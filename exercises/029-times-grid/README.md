@@ -213,3 +213,12 @@ outer=3, inner=3 → display "3 x 3 = 9"
 ## Next Steps
 
 Excellent work! You've mastered nested loops by creating a complete multiplication grid. In the next exercise, you'll make this more flexible by accepting custom ranges (like creating a 5x7 grid instead of always 10x10).
+
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Nested Loops - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#nested_loops)
+- 📖 [String Building - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+- 🎯 [Nested Loops - JavaScript.info](https://javascript.info/while-for#nested-loops)
+

@@ -75,3 +75,12 @@ After completing the exercise, think about:
 ## Next Steps
 
 Great job! Now that you know how to store information, the next exercise will teach you how to combine these pieces of information to create a formatted profile card display. Move on to **exercise 004-profile-concatenation** when you're ready!
+
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Variables - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#declarations)
+- 📖 [JavaScript Data Types - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
+- 🎯 [Variables and Scoping - JavaScript.info](https://javascript.info/variables)
+

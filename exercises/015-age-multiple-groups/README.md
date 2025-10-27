@@ -111,3 +111,11 @@ Fantastic! You can now classify ages into multiple groups. But what if you need 
 
 In **exercise 016-age-discounts**, you'll learn about **nested conditionals** - putting if statements inside other if statements to handle more complex logic. Get ready to build a discount calculator!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Nested if Statements - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else#nested_if...else_statements)
+- 📖 [Logical Operators - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#binary_logical_operators)
+- 🎯 [Complex Conditions - JavaScript.info](https://javascript.info/logical-operators)
+

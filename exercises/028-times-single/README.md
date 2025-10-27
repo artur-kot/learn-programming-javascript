@@ -142,3 +142,12 @@ After completing the exercise, think about:
 ## Next Steps
 
 Great work! You've created a multiplication table for a single number. In the next exercise, you'll learn about **nested loops** - using one loop inside another to create a full multiplication grid showing all tables from 1x1 to 10x10. This is where things get really interesting!
+
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [for Loop - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+- 📖 [Math Operations - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#arithmetic_operators)
+- 🎯 [Loops - JavaScript.info](https://javascript.info/while-for)
+

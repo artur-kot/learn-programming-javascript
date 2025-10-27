@@ -78,3 +78,12 @@ After completing the exercise, think about:
 ## Next Steps
 
 Nice work! You've created a formatted profile card using string concatenation. But JavaScript has an even better way to combine strings and variables - **template literals**! In the next exercise (**004-profile-templates**), you'll learn a more modern and readable approach. Ready? Let's go!
+
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [String Concatenation - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_concatenation)
+- 📖 [Working with Strings - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting)
+- 🎯 [Strings - JavaScript.info](https://javascript.info/string)
+

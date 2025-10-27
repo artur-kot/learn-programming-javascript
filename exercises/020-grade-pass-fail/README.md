@@ -211,4 +211,11 @@ Fantastic work! You now have a grading system that converts scores to grades and
 
 Your current solution will be the starting point for the next exercise!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Comparison Operators - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#relational_operators)
+- 📖 [Boolean Values - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+- 🎯 [Comparisons - JavaScript.info](https://javascript.info/comparison)
 

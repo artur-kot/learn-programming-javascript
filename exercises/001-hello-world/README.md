@@ -41,3 +41,11 @@ node <filename>
 ```
 
 `node` command automatically assumes the `.js` extension if not provided.
+
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Introduction to JavaScript - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction)
+- 📖 [Getting Started with Node.js - Official Guide](https://nodejs.org/en/docs/guides/getting-started-guide/)
+- 🎯 [Hello World in JavaScript - JavaScript.info](https://javascript.info/hello-world)

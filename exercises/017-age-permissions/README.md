@@ -151,3 +151,11 @@ Take a break if you need one, then dive into **exercise 018-grade-letter** when 
 
 Keep up the amazing work!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Complex Conditionals - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#conditional_statements)
+- 📖 [Boolean Logic - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+- 🎯 [Decision Making - JavaScript.info](https://javascript.info/ifelse)
+

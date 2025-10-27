@@ -288,3 +288,12 @@ Ready to continue learning? The next series in the roadmap will teach you about 
 Take a moment to appreciate how much you've learned. Nested loops open up a whole new world of possibilities - you can now work with grids, tables, matrices, and any kind of two-dimensional data!
 
 Keep up the fantastic work!
+
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [String Formatting - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart)
+- 📖 [Template Literals - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+- 🎯 [String Methods - JavaScript.info](https://javascript.info/string)
+

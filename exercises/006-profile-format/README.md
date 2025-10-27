@@ -95,3 +95,12 @@ After completing the exercise, think about:
 ## Next Steps
 
 Fantastic! You've learned how to clean up and format text data. In the final exercise of this series (**exercise 007-profile-validate**), you'll use string methods to validate that an email address is properly formatted. This is a crucial skill for building real applications!
+
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [String Methods - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods)
+- 📖 [String.prototype.trim() - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim)
+- 🎯 [String Methods - JavaScript.info](https://javascript.info/string#changing-the-case)
+

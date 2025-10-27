@@ -103,3 +103,11 @@ Excellent work! You can now handle two categories with if-else. But what if you 
 
 In **exercise 015-age-multiple-groups**, you'll learn about **else-if** to handle multiple age categories. You're building toward a complete age classification system!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [if...else Statements - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+- 📖 [Conditional (Ternary) Operator - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+- 🎯 [Conditional Branching - JavaScript.info](https://javascript.info/ifelse)
+

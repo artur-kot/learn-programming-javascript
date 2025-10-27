@@ -209,4 +209,11 @@ After completing the exercise, think about:
 
 Great work! Your countdown functions are now much more flexible. In the next exercise (026-countdown-skip), you'll add another parameter to control the counting interval. Instead of always counting by 1s, you'll be able to count by 2s, 5s, 10s, or any interval you choose!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Function Parameters - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#function_parameters)
+- 📖 [Default Parameters - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
+- 🎯 [Function Parameters - JavaScript.info](https://javascript.info/function-basics#parameters)
 

@@ -144,3 +144,11 @@ In **exercise 012-calculator-validation** (the final exercise in this series!), 
 
 Keep coding!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [Number Formatting - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)
+- 📖 [Intl.NumberFormat - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
+- 🎯 [Number Formatting - JavaScript.info](https://javascript.info/number#toFixed)
+

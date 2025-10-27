@@ -195,3 +195,11 @@ After completing the exercise, think about:
 
 Excellent work! You now understand both while and for loops. In the next exercise (025-countdown-custom), you'll make your countdown more flexible by accepting a custom starting number as a parameter. Instead of always counting from 10, you'll be able to count from any number!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [for Loop - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+- 📖 [Loop Comparison - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement)
+- 🎯 [For Loop - JavaScript.info](https://javascript.info/while-for#the-for-loop)
+

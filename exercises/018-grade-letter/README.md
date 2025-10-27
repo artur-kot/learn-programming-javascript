@@ -192,4 +192,11 @@ Great job! You've built the foundation of a grading system. In the next exercise
 
 Your current solution will be the starting point for the next exercise - you'll build directly on this code!
 
+## Read More
+
+Want to dive deeper? Check out these resources:
+
+- 📚 [switch Statement - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+- 📖 [Control Flow - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
+- 🎯 [Switch Statement - JavaScript.info](https://javascript.info/switch)
 
