@@ -30,86 +30,41 @@ Notice that this time, **all three ages** display a message! The if-else structu
 <details>
 <summary>Hint 1: What is an if-else statement?</summary>
 
-An **if-else statement** gives your code two paths: one when the condition is true, another when it's false:
+An **if-else statement** gives your code two paths: one when the condition is true, another when it's false.
 
-```javascript
-const score = 85;
+Think about a fork in the road: you can only go left OR right, never both. Similarly, if-else ensures exactly one path executes.
 
-if (score >= 60) {
-  console.log("You passed!");
-} else {
-  console.log("You failed. Try again!");
-}
-```
-
-**Key point**: One of these will ALWAYS run. If the condition is true, the if block runs. If false, the else block runs. There's no third option.
-
-The syntax is:
-```javascript
-if (condition) {
-  // Code to run when condition is true
-} else {
-  // Code to run when condition is false
-}
-```
+**Key point**: One of these will ALWAYS run. If the condition is true, the first block runs. If false, the second block runs. There's no third option - complete coverage is guaranteed.
 </details>
 
 <details>
 <summary>Hint 2: The two categories</summary>
 
 For age classification, you have two categories:
-- **Adult**: Age is 18 or older (`age >= 18` is true)
-- **Minor**: Age is under 18 (`age >= 18` is false)
+- **Adult**: Age meets or exceeds the threshold
+- **Minor**: Age is below the threshold
 
-```javascript
-if (age >= 18) {
-  console.log(`Age ${age}: Adult`);
-} else {
-  console.log(`Age ${age}: Minor`);
-}
-```
-
-Notice how the else block handles the opposite case automatically - you don't need to write `if (age < 18)` for the else!
+The else block handles the opposite case automatically. You don't need to explicitly check the opposite condition - the structure handles it for you!
 </details>
 
 <details>
-<summary>Hint 3: Template literals work in both blocks</summary>
+<summary>Hint 3: Consistent message format</summary>
 
-You can use template literals in both the if and else blocks:
+Both paths should display messages in the same format. The only difference is the category label that changes based on which path executes.
 
-```javascript
-const age = 25;
-
-if (age >= 18) {
-  console.log(`Age ${age}: Adult`);  // Runs when age >= 18
-} else {
-  console.log(`Age ${age}: Minor`);  // Runs when age < 18
-}
-```
-
-The `${age}` will be replaced with the actual age value in both cases.
+Template literals help you embed the age value dynamically in both messages.
 </details>
 
 <details>
-<summary>Hint 4: Complete example for age1</summary>
+<summary>Hint 4: Apply the pattern</summary>
 
-Here's the complete if-else structure for age1:
+For each age variable:
+1. Check if it meets the adult threshold
+2. Display "Adult" message if true
+3. Display "Minor" message if false
+4. Ensure one message always appears
 
-```javascript
-if (age1 >= 18) {
-  console.log(`Age ${age1}: Adult`);
-} else {
-  console.log(`Age ${age1}: Minor`);
-}
-```
-
-**How this works:**
-- age1 is 25
-- The condition `25 >= 18` is true
-- So the if block runs, displaying "Age 25: Adult"
-- The else block is skipped
-
-Now apply the same pattern to age2 and age3!
+Apply this pattern to all three ages to see how each is classified.
 </details>
 
 ## Test Your Code
@@ -142,100 +97,9 @@ After completing the exercise, think about:
 2. When would you use a simple `if`, and when would you use `if-else`?
 3. Can you think of other situations in real life or apps where something is classified into exactly two categories?
 
-## Solution
-
-<details>
-<summary>Click to see the solution (try the exercise first!)</summary>
-
-```javascript
-export function classifyAge() {
-  // Test different ages
-  const age1 = 25;
-  const age2 = 16;
-  const age3 = 10;
-
-  // Classify age1
-  if (age1 >= 18) {
-    console.log(`Age ${age1}: Adult`);
-  } else {
-    console.log(`Age ${age1}: Minor`);
-  }
-
-  // Classify age2
-  if (age2 >= 18) {
-    console.log(`Age ${age2}: Adult`);
-  } else {
-    console.log(`Age ${age2}: Minor`);
-  }
-
-  // Classify age3
-  if (age3 >= 18) {
-    console.log(`Age ${age3}: Adult`);
-  } else {
-    console.log(`Age ${age3}: Minor`);
-  }
-}
-
-classifyAge();
-```
-
-**Why this works:**
-
-For **age1 (25)**:
-- Checks: `25 >= 18` → true
-- Runs the if block: displays "Age 25: Adult"
-- Skips the else block
-
-For **age2 (16)**:
-- Checks: `16 >= 18` → false
-- Skips the if block
-- Runs the else block: displays "Age 16: Minor"
-
-For **age3 (10)**:
-- Checks: `10 >= 18` → false
-- Skips the if block
-- Runs the else block: displays "Age 10: Minor"
-
-**The guarantee of if-else:**
-```javascript
-if (condition) {
-  // Path A - runs when condition is true
-} else {
-  // Path B - runs when condition is false
-}
-```
-**Exactly one** of these paths will always run. There's no way for both to run, and no way for neither to run. This is what makes if-else perfect for binary decisions!
-
-**Comparison: if vs if-else**
-
-Using just **if** (Exercise 013):
-```javascript
-if (age >= 18) {
-  console.log("Can vote");
-}
-// If age < 18, nothing happens
-```
-
-Using **if-else** (Exercise 014):
-```javascript
-if (age >= 18) {
-  console.log("Adult");
-} else {
-  console.log("Minor");
-}
-// Something ALWAYS happens - everyone gets classified
-```
-
-**Real-world examples of if-else:**
-- Login: successful → go to dashboard, failed → show error
-- Payment: approved → show confirmation, declined → show error message
-- File upload: valid format → process file, invalid → reject with message
-- Game: player wins → show victory screen, player loses → show defeat screen
-
-</details>
-
 ## Next Steps
 
 Excellent work! You can now handle two categories with if-else. But what if you need **more than two categories**? What about child, teen, and adult? Or child, teen, adult, and senior?
 
 In **exercise 015-age-multiple-groups**, you'll learn about **else-if** to handle multiple age categories. You're building toward a complete age classification system!
+

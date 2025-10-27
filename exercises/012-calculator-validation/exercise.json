@@ -1,4 +1,4 @@
 {
   "title": "Calculator - Input Validation",
-  "description": "Check for valid numbers and division by zero"
+  "description": "Learn how to validate inputs and handle edge cases before performing calculations"
 }

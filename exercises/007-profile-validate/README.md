@@ -24,75 +24,36 @@ john@company.org is valid
 ## Hints
 
 <details>
-<summary>Hint 1: The .includes() method</summary>
+<summary>Hint 1: Checking if text contains something</summary>
 
-The `.includes()` method checks if a string contains another string. It returns `true` or `false`:
+You need to find out if each email address contains a specific character (the @ symbol). Strings have a built-in ability to search for text within themselves. What would you call a method that checks whether a string "includes" or "contains" another piece of text? This method returns a yes/no answer (true or false).
 
-```javascript
-const text = "hello world";
-const hasWorld = text.includes("world");  // true
-const hasGoodbye = text.includes("goodbye");  // false
-```
-
-For email validation:
-```javascript
-const email = "test@example.com";
-const hasAt = email.includes("@");  // true
-```
 </details>
 
 <details>
-<summary>Hint 2: The ternary operator (conditional expression)</summary>
+<summary>Hint 2: Making decisions based on conditions</summary>
 
-The ternary operator is a shorthand for if-else. It's perfect for choosing between two values:
+Once you know whether an email contains the @ symbol (true or false), you need to choose between two words: "valid" or "invalid". JavaScript has a compact way to make this kind of either/or decision. It uses a question mark and colon to ask "if this condition is true, use this value, otherwise use that value." Think of it as a shorthand for an if-else statement.
 
-```javascript
-const age = 18;
-const status = age >= 18 ? "adult" : "minor";
-console.log(status);  // Output: "adult"
-```
-
-The syntax is: `condition ? valueIfTrue : valueIfFalse`
-
-For your exercise:
-```javascript
-const isValid = email.includes("@");
-const result = isValid ? "valid" : "invalid";
-```
 </details>
 
 <details>
-<summary>Hint 3: Combining everything with template literals</summary>
+<summary>Hint 3: Combining the check and the decision</summary>
 
-You can put the entire check right inside a template literal:
+You can do the checking and deciding in one expression. Think about how you might embed both the test (does it contain @?) and the decision (valid or invalid?) right inside your template literal. This keeps your code concise and readable.
 
-```javascript
-const email = "test@example.com";
-console.log(`${email} is ${email.includes("@") ? "valid" : "invalid"}`);
-```
-
-Let's break this down:
-- `${email}` - inserts the email address
-- `${email.includes("@") ? "valid" : "invalid"}` - checks for @ and inserts either "valid" or "invalid"
 </details>
 
 <details>
-<summary>Hint 4: Step-by-step for email1</summary>
+<summary>Hint 4: Breaking it down step by step</summary>
 
-Here's one way to validate email1:
+If combining everything feels overwhelming, break it into steps:
+1. First, check if the email contains the @ symbol and store the result (true/false)
+2. Then, use that result to decide between "valid" and "invalid"
+3. Finally, display the email and its status together
 
-```javascript
-const hasAt1 = email1.includes("@");
-const status1 = hasAt1 ? "valid" : "invalid";
-console.log(`${email1} is ${status1}`);
-```
+Once this works, you might see how to combine the steps!
 
-Or more concisely:
-```javascript
-console.log(`${email1} is ${email1.includes("@") ? "valid" : "invalid"}`);
-```
-
-Both work! Choose whichever makes more sense to you.
 </details>
 
 ## Test Your Code
@@ -124,106 +85,9 @@ After completing the exercise, think about:
 2. How would you check if an email contains both `@` and a period `.`?
 3. Can you think of other situations where you'd use `.includes()` to validate user input?
 
-## Solution
-
-<details>
-<summary>Click to see the solution (try the exercise first!)</summary>
-
-```javascript
-export function validateEmail() {
-  // Test various email addresses
-  const email1 = "sarah.chen@email.com";
-  const email2 = "invalid.email.com";
-  const email3 = "john@company.org";
-
-  // Check if each email contains the @ symbol
-  const hasAt1 = email1.includes("@");
-  const hasAt2 = email2.includes("@");
-  const hasAt3 = email3.includes("@");
-
-  // Display validation results
-  console.log(`${email1} is ${hasAt1 ? "valid" : "invalid"}`);
-  console.log(`${email2} is ${hasAt2 ? "valid" : "invalid"}`);
-  console.log(`${email3} is ${hasAt3 ? "valid" : "invalid"}`);
-}
-
-validateEmail();
-```
-
-**More concise version:**
-```javascript
-export function validateEmail() {
-  const email1 = "sarah.chen@email.com";
-  const email2 = "invalid.email.com";
-  const email3 = "john@company.org";
-
-  // Combine checking and logging in one line
-  console.log(`${email1} is ${email1.includes("@") ? "valid" : "invalid"}`);
-  console.log(`${email2} is ${email2.includes("@") ? "valid" : "invalid"}`);
-  console.log(`${email3} is ${email3.includes("@") ? "valid" : "invalid"}`);
-}
-
-validateEmail();
-```
-
-**Why this works:**
-- `.includes("@")` returns `true` if the email contains @ and `false` if it doesn't
-- The ternary operator `? :` chooses "valid" when true, "invalid" when false
-- The template literal creates the full message: "email is valid/invalid"
-
-**How the ternary operator works:**
-```javascript
-// Think of it as a compact if-else:
-condition ? doThisIfTrue : doThisIfFalse
-
-// Instead of writing:
-let status;
-if (hasAt) {
-  status = "valid";
-} else {
-  status = "invalid";
-}
-
-// You can write:
-const status = hasAt ? "valid" : "invalid";
-```
-
-**Bonus: More robust email validation**
-```javascript
-function isEmailValid(email) {
-  // Check for both @ and . after the @
-  const hasAt = email.includes("@");
-  const atIndex = email.indexOf("@");
-  const hasDotAfterAt = email.slice(atIndex).includes(".");
-
-  return hasAt && hasDotAfterAt;
-}
-
-// Usage:
-const email = "test@example.com";
-console.log(`${email} is ${isEmailValid(email) ? "valid" : "invalid"}`);
-```
-
-**Real-world context:**
-In production applications, email validation is much more complex (checking for proper format, valid domain, etc.), but the principle is the same: using string methods to check if the input meets certain criteria.
-
-</details>
-
-## Series Complete!
-
-Congratulations! You've completed the **Profile Card Builder** series!
-
-Here's what you've accomplished:
-- ✅ **Exercise 003**: Stored user information in variables
-- ✅ **Exercise 004**: Combined strings with concatenation
-- ✅ **Exercise 005**: Used modern template literals
-- ✅ **Exercise 006**: Formatted text with string methods
-- ✅ **Exercise 007**: Validated email addresses
-
-You now have a solid foundation in working with strings and variables - skills you'll use in every JavaScript program you write!
-
 ## Next Steps
 
 Ready for more? The next series, **Simple Calculator** (exercises 008-012), will teach you how to work with numbers, perform calculations, and handle user input. Take a break if you need one, then dive into **exercise 008-calculator-basic** when you're ready!
 
 Keep up the excellent work!
+

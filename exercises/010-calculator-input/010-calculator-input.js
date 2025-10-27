@@ -2,40 +2,30 @@
 
 export function add(a, b) {
   // TODO: Convert a and b to numbers before adding
-  // Hint: Use Number() to convert strings to numbers
-  // Example: Number("5") becomes 5
-  // Then return the sum
 }
 
 export function subtract(a, b) {
   // TODO: Convert a and b to numbers before subtracting
-  // Then return the difference
 }
 
 export function multiply(a, b) {
   // TODO: Convert a and b to numbers before multiplying
-  // Then return the product
 }
 
 export function divide(a, b) {
   // TODO: Convert a and b to numbers before dividing
-  // Then return the quotient
 }
 
 export function modulo(a, b) {
   // TODO: Convert a and b to numbers before finding modulo
-  // Then return the remainder
 }
 
 export function power(base, exponent) {
   // TODO: Convert base and exponent to numbers before calculating power
-  // Then return the result
 }
 
 export function squareRoot(number) {
   // TODO: Convert number to a number before calculating square root
-  // Hint: Use parseFloat() for decimal numbers
-  // Then return Math.sqrt() of the number
 }
 
 // Test with string inputs (simulating user input from forms)

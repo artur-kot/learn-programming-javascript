@@ -62,140 +62,47 @@ squareRoot(16) = 4
 ## Hints
 
 <details>
-<summary>Hint 1: What is NaN?</summary>
+<summary>Hint 1: Understanding invalid data</summary>
 
-`NaN` stands for "Not a Number" - it's JavaScript's way of saying "this math operation failed."
+When conversions fail, JavaScript produces a special value indicating "this isn't a valid number." Think about:
+- What happens when you try to convert "hello" to a number?
+- How can you detect when a conversion has failed?
+- What special value represents calculation failure in JavaScript?
 
-```javascript
-Number("hello")  // Returns NaN
-Number("123abc") // Returns NaN
-Number("42")     // Returns 42 (valid!)
-
-// NaN in calculations:
-NaN + 5          // NaN (NaN infects everything!)
-10 * NaN         // NaN
-```
-
-You can check if something is NaN:
-```javascript
-isNaN(NaN)           // true
-isNaN("hello")       // true (would become NaN when converted)
-isNaN(42)            // false (valid number)
-isNaN("42")          // false (valid number as string)
-```
-
-**Important**: `isNaN()` tries to convert to a number first, then checks!
+Detecting invalid data is the first step in defensive programming.
 </details>
 
 <details>
-<summary>Hint 2: Validating inputs</summary>
+<summary>Hint 2: Checking for invalid inputs</summary>
 
-To check if inputs are valid numbers:
+Before performing calculations, you need to verify inputs are usable. Consider:
+- How do you check if a converted value is actually a valid number?
+- What should your function return when it receives invalid input?
+- Does JavaScript provide a built-in way to test for invalid numeric values?
 
-```javascript
-const numA = Number(a);
-const numB = Number(b);
-
-if (isNaN(numA) || isNaN(numB)) {
-  return "Error: Invalid input";
-}
-
-// If we get here, both numbers are valid
-return numA + numB;
-```
-
-The `||` operator means "or" - if **either** number is NaN, return the error.
-
-**Flow:**
-```javascript
-add("hello", 5)
-  → Number("hello") = NaN
-  → isNaN(NaN) = true
-  → Returns "Error: Invalid input"
-
-add(10, 5)
-  → Number(10) = 10, Number(5) = 5
-  → isNaN(10) = false, isNaN(5) = false
-  → Returns 10 + 5 = 15
-```
+Validation creates a safety checkpoint before proceeding with operations.
 </details>
 
 <details>
-<summary>Hint 3: Checking for division by zero</summary>
+<summary>Hint 3: Handling mathematical impossibilities</summary>
 
-Division by zero is mathematically undefined. In the `divide()` function:
+Some operations have special restrictions beyond just being numbers. Think about:
+- What happens mathematically when you divide by zero?
+- Can you calculate the square root of a negative number (in basic math)?
+- How should your functions respond when asked to do impossible operations?
 
-```javascript
-export function divide(a, b) {
-  const numA = Number(a);
-  const numB = Number(b);
-
-  // First check for invalid inputs
-  if (isNaN(numA) || isNaN(numB)) {
-    return "Error: Invalid input";
-  }
-
-  // Then check for division by zero
-  if (numB === 0) {
-    return "Error: Division by zero";
-  }
-
-  // If all checks pass, do the division
-  return numA / numB;
-}
-```
-
-**Order matters!** Check for invalid inputs first, then specific errors.
+Different functions may need different validation checks based on their mathematical constraints.
 </details>
 
 <details>
-<summary>Hint 4: Validating square root</summary>
+<summary>Hint 4: Ordering validation checks</summary>
 
-You can't take the square root of a negative number (in basic math):
+When multiple things can go wrong, order matters. Consider:
+- Should you check if something is a number before checking if it's zero?
+- What's the most fundamental requirement that should be checked first?
+- How do you structure multiple validation conditions?
 
-```javascript
-export function squareRoot(number) {
-  const num = Number(number);
-
-  // Check for invalid input
-  if (isNaN(num)) {
-    return "Error: Invalid input";
-  }
-
-  // Check for negative number
-  if (num < 0) {
-    return "Error: Cannot calculate square root of negative number";
-  }
-
-  // If all checks pass, calculate square root
-  return Math.sqrt(num);
-}
-```
-
-Note: Zero is allowed! `Math.sqrt(0)` equals `0`.
-</details>
-
-<details>
-<summary>Hint 5: Complete example for add</summary>
-
-Here's the complete `add()` function with validation:
-
-```javascript
-export function add(a, b) {
-  const numA = Number(a);
-  const numB = Number(b);
-
-  if (isNaN(numA) || isNaN(numB)) {
-    return "Error: Invalid input";
-  }
-
-  return numA + numB;
-}
-```
-
-Apply this same pattern to all functions! The only differences:
-- `divide()` and `modulo()` also check `numB === 0`
-- `squareRoot()` also checks `num < 0`
+Always validate the most basic requirements first before checking specific constraints.
 </details>
 
 ## Test Your Code
@@ -231,386 +138,6 @@ After completing the exercise, think about:
 2. What other errors might a calculator need to handle?
 3. How would you improve these error messages to be even more helpful?
 
-## Solution
-
-<details>
-<summary>Click to see the solution (try the exercise first!)</summary>
-
-```javascript
-// Calculator functions with validation!
-
-export function add(a, b) {
-  const numA = Number(a);
-  const numB = Number(b);
-
-  if (isNaN(numA) || isNaN(numB)) {
-    return "Error: Invalid input";
-  }
-
-  return numA + numB;
-}
-
-export function subtract(a, b) {
-  const numA = Number(a);
-  const numB = Number(b);
-
-  if (isNaN(numA) || isNaN(numB)) {
-    return "Error: Invalid input";
-  }
-
-  return numA - numB;
-}
-
-export function multiply(a, b) {
-  const numA = Number(a);
-  const numB = Number(b);
-
-  if (isNaN(numA) || isNaN(numB)) {
-    return "Error: Invalid input";
-  }
-
-  return numA * numB;
-}
-
-export function divide(a, b) {
-  const numA = Number(a);
-  const numB = Number(b);
-
-  if (isNaN(numA) || isNaN(numB)) {
-    return "Error: Invalid input";
-  }
-
-  if (numB === 0) {
-    return "Error: Division by zero";
-  }
-
-  return numA / numB;
-}
-
-export function modulo(a, b) {
-  const numA = Number(a);
-  const numB = Number(b);
-
-  if (isNaN(numA) || isNaN(numB)) {
-    return "Error: Invalid input";
-  }
-
-  if (numB === 0) {
-    return "Error: Division by zero";
-  }
-
-  return numA % numB;
-}
-
-export function power(base, exponent) {
-  const numBase = Number(base);
-  const numExponent = Number(exponent);
-
-  if (isNaN(numBase) || isNaN(numExponent)) {
-    return "Error: Invalid input";
-  }
-
-  return numBase ** numExponent;
-}
-
-export function squareRoot(number) {
-  const num = Number(number);
-
-  if (isNaN(num)) {
-    return "Error: Invalid input";
-  }
-
-  if (num < 0) {
-    return "Error: Cannot calculate square root of negative number";
-  }
-
-  return Math.sqrt(num);
-}
-
-// Test valid inputs
-console.log("=== Valid Inputs ===");
-console.log("add(10, 5) =", add(10, 5));
-console.log("subtract(10, 5) =", subtract(10, 5));
-console.log("divide(10, 5) =", divide(10, 5));
-
-// Test invalid inputs (not numbers)
-console.log("\n=== Invalid Inputs ===");
-console.log('add("hello", 5) =', add("hello", 5));
-console.log('multiply(10, "world") =', multiply(10, "world"));
-console.log('subtract("abc", "def") =', subtract("abc", "def"));
-
-// Test division by zero
-console.log("\n=== Division by Zero ===");
-console.log("divide(10, 0) =", divide(10, 0));
-console.log("modulo(10, 0) =", modulo(10, 0));
-
-// Test negative square root
-console.log("\n=== Negative Square Root ===");
-console.log("squareRoot(-16) =", squareRoot(-16));
-console.log("squareRoot(16) =", squareRoot(16));
-```
-
-**Understanding the validation flow:**
-
-```javascript
-// Example 1: Valid input
-add(10, 5)
-  → Number(10) = 10, Number(5) = 5
-  → isNaN(10) = false, isNaN(5) = false
-  → Validation passes
-  → Returns 10 + 5 = 15
-
-// Example 2: Invalid input
-add("hello", 5)
-  → Number("hello") = NaN, Number(5) = 5
-  → isNaN(NaN) = true
-  → Validation fails
-  → Returns "Error: Invalid input"
-
-// Example 3: Division by zero
-divide(10, 0)
-  → Number(10) = 10, Number(0) = 0
-  → isNaN(10) = false, isNaN(0) = false (0 is a valid number!)
-  → Input validation passes
-  → numB === 0 is true
-  → Division by zero check fails
-  → Returns "Error: Division by zero"
-```
-
-**Why check in this order?**
-
-```javascript
-// CORRECT order:
-export function divide(a, b) {
-  const numA = Number(a);
-  const numB = Number(b);
-
-  // Check 1: Are inputs valid numbers?
-  if (isNaN(numA) || isNaN(numB)) {
-    return "Error: Invalid input";
-  }
-
-  // Check 2: Is this division by zero?
-  if (numB === 0) {
-    return "Error: Division by zero";
-  }
-
-  return numA / numB;
-}
-
-// WRONG order (don't do this):
-export function divide(a, b) {
-  const numA = Number(a);
-  const numB = Number(b);
-
-  // If we check division by zero first:
-  if (numB === 0) {
-    return "Error: Division by zero";
-  }
-
-  // And then check for invalid input:
-  if (isNaN(numA) || isNaN(numB)) {
-    return "Error: Invalid input";
-  }
-
-  return numA / numB;
-}
-
-// Problem with wrong order:
-divide("hello", 0)
-  → Number("hello") = NaN, Number(0) = 0
-  → numB === 0 is true
-  → Returns "Error: Division by zero"
-  // But the REAL problem is "hello" is not a number!
-  // We should return "Error: Invalid input" instead!
-```
-
-Always check the most fundamental errors first (is this even a number?) before checking specific errors (is this zero?).
-
-**Understanding isNaN:**
-
-```javascript
-// isNaN checks if something is Not-a-Number
-isNaN(42)           // false (42 IS a number)
-isNaN("42")         // false (converts to 42, which IS a number)
-isNaN("hello")      // true (converts to NaN, which is NOT a number)
-isNaN(NaN)          // true (NaN is NOT a number)
-isNaN(undefined)    // true (undefined is NOT a number)
-
-// Be careful with special values:
-isNaN(null)         // false (null converts to 0!)
-isNaN(true)         // false (true converts to 1!)
-isNaN(false)        // false (false converts to 0!)
-isNaN("")           // false (empty string converts to 0!)
-
-// That's why we convert to Number first:
-const num = Number("hello");  // NaN
-isNaN(num);                   // true
-```
-
-**The OR operator (||):**
-
-```javascript
-// || means "or" - true if EITHER side is true
-if (isNaN(numA) || isNaN(numB)) {
-  // This runs if:
-  // - numA is NaN, OR
-  // - numB is NaN, OR
-  // - BOTH are NaN
-}
-
-// Examples:
-isNaN(NaN) || isNaN(5)    // true (left is true)
-isNaN(5) || isNaN(NaN)    // true (right is true)
-isNaN(NaN) || isNaN(NaN)  // true (both are true)
-isNaN(5) || isNaN(10)     // false (both are false)
-```
-
-**Why return strings instead of throwing errors?**
-
-For now, we're returning error strings because it's simpler to understand. In real applications, you might:
-
-```javascript
-// Option 1: Return special values (what we're doing)
-if (numB === 0) {
-  return "Error: Division by zero";
-}
-
-// Option 2: Throw exceptions (more advanced)
-if (numB === 0) {
-  throw new Error("Division by zero");
-}
-
-// Option 3: Return objects with status
-if (numB === 0) {
-  return { error: true, message: "Division by zero" };
-}
-```
-
-We're using Option 1 because it's easiest for beginners. You'll learn about exceptions (try/catch) in later exercises!
-
-**Edge cases to consider:**
-
-```javascript
-// Zero is a valid number (not NaN):
-add(0, 5)         // Returns 5 (valid!)
-multiply(10, 0)   // Returns 0 (valid!)
-squareRoot(0)     // Returns 0 (valid!)
-
-// But zero as a divisor is not:
-divide(10, 0)     // Returns "Error: Division by zero"
-
-// Negative numbers work fine in most operations:
-add(-5, 10)       // Returns 5 (valid!)
-power(2, -2)      // Returns 0.25 (valid!)
-
-// Except square root:
-squareRoot(-16)   // Returns "Error: Cannot calculate square root..."
-
-// Empty strings convert to 0:
-Number("")        // 0 (not NaN!)
-add("", 5)        // Returns 5 (because "" becomes 0)
-
-// Whitespace converts to 0:
-Number("  ")      // 0 (not NaN!)
-add("  ", 5)      // Returns 5
-```
-
-**Real-world applications:**
-
-**Form validation:**
-```javascript
-function processCheckout(price, quantity) {
-  const numPrice = Number(price);
-  const numQuantity = Number(quantity);
-
-  if (isNaN(numPrice) || isNaN(numQuantity)) {
-    return "Please enter valid numbers";
-  }
-
-  if (numPrice < 0 || numQuantity < 0) {
-    return "Price and quantity must be positive";
-  }
-
-  if (numQuantity === 0) {
-    return "Quantity must be at least 1";
-  }
-
-  return numPrice * numQuantity;
-}
-```
-
-**API input validation:**
-```javascript
-function calculateDiscount(total, discountPercent) {
-  const numTotal = Number(total);
-  const numDiscount = Number(discountPercent);
-
-  if (isNaN(numTotal) || isNaN(numDiscount)) {
-    return { error: "Invalid input" };
-  }
-
-  if (numDiscount < 0 || numDiscount > 100) {
-    return { error: "Discount must be between 0 and 100" };
-  }
-
-  const discountAmount = numTotal * (numDiscount / 100);
-  return { discountAmount, finalTotal: numTotal - discountAmount };
-}
-```
-
-**User-friendly error messages (bonus):**
-
-You could make error messages even more helpful:
-
-```javascript
-export function divide(a, b) {
-  const numA = Number(a);
-  const numB = Number(b);
-
-  if (isNaN(numA)) {
-    return `Error: "${a}" is not a valid number`;
-  }
-
-  if (isNaN(numB)) {
-    return `Error: "${b}" is not a valid number`;
-  }
-
-  if (numB === 0) {
-    return "Error: Cannot divide by zero";
-  }
-
-  return numA / numB;
-}
-
-// Now you get specific feedback:
-divide("hello", 5)  // "Error: "hello" is not a valid number"
-divide(10, "world") // "Error: "world" is not a valid number"
-divide(10, 0)       // "Error: Cannot divide by zero"
-```
-
-</details>
-
-## Series Complete!
-
-Congratulations! You've completed the **Simple Calculator** series!
-
-Here's what you've accomplished:
-
-- **Exercise 008**: Created basic arithmetic operations (add, subtract, multiply, divide)
-- **Exercise 009**: Added advanced math (modulo, power, square root)
-- **Exercise 010**: Handled string inputs with type conversion
-- **Exercise 011**: Formatted output professionally with toFixed() and units
-- **Exercise 012**: Validated inputs and handled errors gracefully
-
-You've built a complete, production-ready calculator that:
-- Performs basic and advanced calculations
-- Accepts user input in any format
-- Displays results beautifully
-- Handles errors intelligently
-
-These skills - math operations, type conversion, formatting, and validation - are fundamental to every application you'll ever build!
-
 ## What You've Learned
 
 Through this series, you've mastered:
@@ -630,3 +157,4 @@ Ready for the next challenge? The upcoming series will teach you how to make dec
 Take a well-deserved break, then dive into the next series when you're ready!
 
 Keep up the excellent work!
+

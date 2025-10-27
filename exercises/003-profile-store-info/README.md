@@ -27,34 +27,22 @@ sarah.chen@email.com
 <details>
 <summary>Hint 1: Creating variables</summary>
 
-In JavaScript, you can create variables using `let` or `const`:
-- `let` is for values that might change later
-- `const` is for values that stay the same
+Think about how you would label a box to remember what's inside it. Variables work the same way - they give names to pieces of information. In JavaScript, you have two keywords to choose from when creating variables: one for values that might change, and one for values that stay constant. Which makes more sense when storing someone's profile information that won't be modified?
 
-Since this profile information won't change in our function, `const` is a good choice!
-
-```javascript
-const variableName = value;
-```
 </details>
 
 <details>
 <summary>Hint 2: Different types of values</summary>
 
-Notice that we're storing different types of information:
-- Text (like names and emails) needs to be wrapped in quotes: `"Sarah Chen"`
-- Numbers (like age) don't need quotes: `28`
+Notice that you're storing different types of information. Some pieces are text (like a person's name), while others are numbers (like their age). How does JavaScript know the difference? Think about what you need to wrap around text to tell the computer "this is words, not code."
+
 </details>
 
 <details>
-<summary>Hint 3: Logging multiple values</summary>
+<summary>Hint 3: Displaying your variables</summary>
 
-You can call `console.log()` multiple times:
-```javascript
-console.log(name);
-console.log(age);
-console.log(email);
-```
+You've created variables to hold your data. Now how do you show what's inside them? You've used this tool before to display text. Can you call it multiple times to show each piece of information on its own line?
+
 </details>
 
 ## Test Your Code
@@ -83,41 +71,6 @@ After completing the exercise, think about:
 1. Why is it helpful to store information in variables instead of just typing the values directly?
 2. What's the difference between the name variable and the age variable? (Hint: one uses quotes, one doesn't)
 3. If you wanted to change the user's email, where would you make that change?
-
-## Solution
-
-<details>
-<summary>Click to see the solution (try the exercise first!)</summary>
-
-```javascript
-export function createProfile() {
-  // Create variables to store user information
-  // We use 'const' because these values won't change
-  const name = "Sarah Chen";
-  const age = 28;
-  const email = "sarah.chen@email.com";
-
-  // Display each piece of information
-  console.log(name);
-  console.log(age);
-  console.log(email);
-}
-
-createProfile();
-```
-
-**Why this works:**
-- `const name = "Sarah Chen"` creates a variable called `name` and stores the text "Sarah Chen" in it
-- The quotes around "Sarah Chen" and "sarah.chen@email.com" tell JavaScript these are text values (called "strings")
-- The number 28 doesn't need quotes because it's a number
-- Each `console.log()` statement prints one variable's value
-
-**Key concepts:**
-- **Variables** are containers for storing data values
-- **const** declares a variable whose value won't be reassigned
-- **Strings** (text) are wrapped in quotes; **numbers** are not
-- You can reuse variable names throughout your code instead of typing the same values repeatedly
-</details>
 
 ## Next Steps
 

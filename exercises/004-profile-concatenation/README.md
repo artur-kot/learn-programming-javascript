@@ -27,45 +27,24 @@ Email: sarah.chen@email.com
 ## Hints
 
 <details>
-<summary>Hint 1: The + operator joins strings</summary>
+<summary>Hint 1: Joining pieces of text</summary>
 
-The `+` operator can add numbers, but it can also join (concatenate) strings:
+You've probably used the plus sign for adding numbers. But what happens when you put a plus sign between two pieces of text? Try experimenting with joining "Hello" and "World" to see what happens. This same approach works for joining labels like "Name: " with the actual name value.
 
-```javascript
-const greeting = "Hello, " + "World!";
-console.log(greeting);  // Output: Hello, World!
-```
-
-You can also combine a string with a variable:
-```javascript
-const name = "Alex";
-const message = "Hello, " + name;
-console.log(message);  // Output: Hello, Alex
-```
 </details>
 
 <details>
-<summary>Hint 2: Building the name message</summary>
+<summary>Hint 2: Building the formatted messages</summary>
 
-To create "Name: Sarah Chen", you need to join two pieces:
-1. The text "Name: " (note the space after the colon!)
-2. The value stored in the `name` variable
+Think about what you want to see in the output: "Name: Sarah Chen". This is made up of two parts - a label and a value. How can you combine the label text with what's stored in your variable? Don't forget about spacing - you'll want a space after the colon!
 
-```javascript
-const nameMessage = "Name: " + name;
-```
 </details>
 
 <details>
-<summary>Hint 3: Numbers work too!</summary>
+<summary>Hint 3: What about numbers?</summary>
 
-When you use `+` to concatenate a string with a number, JavaScript automatically converts the number to text:
+You need to combine text labels with different types of data - both text and numbers. What do you think happens when you try to join a piece of text with a number? Does JavaScript know what to do?
 
-```javascript
-const age = 28;
-const ageMessage = "Age: " + age;  // JavaScript converts 28 to "28"
-console.log(ageMessage);  // Output: Age: 28
-```
 </details>
 
 ## Test Your Code
@@ -95,51 +74,6 @@ After completing the exercise, think about:
 1. Why is "Name: " + name easier to read than just displaying the name alone?
 2. What happens when you use `+` with a string and a number?
 3. Can you think of other situations where you'd want to combine text with variable values?
-
-## Solution
-
-<details>
-<summary>Click to see the solution (try the exercise first!)</summary>
-
-```javascript
-export function displayProfile() {
-  // Variables from the previous exercise
-  const name = "Sarah Chen";
-  const age = 28;
-  const email = "sarah.chen@email.com";
-
-  // Create formatted messages by concatenating strings
-  const nameMessage = "Name: " + name;
-  const ageMessage = "Age: " + age;
-  const emailMessage = "Email: " + email;
-
-  // Display the formatted profile
-  console.log(nameMessage);
-  console.log(ageMessage);
-  console.log(emailMessage);
-}
-
-displayProfile();
-```
-
-**Why this works:**
-- The `+` operator joins the label text with the variable value
-- "Name: " is a string literal (the text you type in quotes)
-- `name` is a variable containing "Sarah Chen"
-- When you put them together with `+`, JavaScript creates a new string: "Name: Sarah Chen"
-- Even though `age` is a number (28), JavaScript converts it to text when concatenating with a string
-
-**Alternative approach (more direct):**
-```javascript
-// You can also concatenate and log in one line:
-console.log("Name: " + name);
-console.log("Age: " + age);
-console.log("Email: " + email);
-```
-
-Both approaches work! The first creates intermediate variables (which can be useful if you need to reuse the formatted strings). The second is more concise.
-
-</details>
 
 ## Next Steps
 

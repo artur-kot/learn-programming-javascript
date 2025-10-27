@@ -11,25 +11,19 @@ export function checkPermissions() {
   // 3. Can drive: Age 16+
 
   // For user1 (Alice, 16, has consent):
-  // Check if can watch R-rated movie
-  // Hint: Use logical operators && (AND) and || (OR)
-  // const canWatchRRated = user1.age >= 17 || (user1.age >= 13 && user1.age <= 16 && user1.hasParentalConsent);
-  // const canVote = user1.age >= 18;
-  // const canDrive = user1.age >= 16;
-  //
-  // console.log(`${user1.name} (age ${user1.age}):`);
-  // console.log(`  Can watch R-rated: ${canWatchRRated ? "Yes" : "No"}`);
-  // console.log(`  Can vote: ${canVote ? "Yes" : "No"}`);
-  // console.log(`  Can drive: ${canDrive ? "Yes" : "No"}`);
+  // Check all three permissions and display results
 
 
   // For user2 (Bob, 25, no consent):
+  // Check all three permissions and display results
 
 
   // For user3 (Carol, 14, no consent):
+  // Check all three permissions and display results
 
 
   // For user4 (David, 17, has consent):
+  // Check all three permissions and display results
 
 }
 

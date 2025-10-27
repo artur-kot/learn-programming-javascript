@@ -4,30 +4,19 @@ export function formatProfile() {
   const role = "software engineer";  // Should be title case
   const company = "TECH CORP";  // All caps, needs to be lowercase except first letter
 
-  // TODO: Use string methods to clean up and format the data
-
-  // 1. Remove extra spaces from name using .trim()
-  // Hint: const cleanName = name.trim();
+  // TODO: Clean up the name by removing extra whitespace
 
 
-  // 2. Convert role to uppercase using .toUpperCase()
-  // This will make it look like a heading: "SOFTWARE ENGINEER"
+  // TODO: Transform the role to all uppercase letters
 
 
-  // 3. Convert company to lowercase using .toLowerCase()
-  // Result should be: "tech corp"
+  // TODO: Transform the company to all lowercase letters
 
 
-  // 4. Get the length of the cleaned name using .length
-  // This tells you how many characters are in the name
+  // TODO: Find the character count of the cleaned name
 
 
   // TODO: Display the formatted profile
-  // Expected output:
-  // Name: sarah chen
-  // Role: SOFTWARE ENGINEER
-  // Company: tech corp
-  // Name length: 10
 
 }
 

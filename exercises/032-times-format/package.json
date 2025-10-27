@@ -1,0 +1,7 @@
+{
+  "name": "032-times-format",
+  "type": "module",
+  "scripts": {
+    "test": "node 032-times-format.test.js"
+  }
+}

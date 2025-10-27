@@ -5,12 +5,9 @@ export function add(a, b) {
   const numA = Number(a);
   const numB = Number(b);
 
-  // TODO: Check if either number is invalid (NaN)
-  // Hint: Use isNaN() to check if a value is Not-a-Number
-  // If either is NaN, return the string "Error: Invalid input"
+  // TODO: Check if either number is invalid
+  // If invalid, return "Error: Invalid input"
   // Otherwise, return the sum
-
-
 }
 
 export function subtract(a, b) {
@@ -40,13 +37,9 @@ export function divide(a, b) {
 
   // TODO: Check for invalid inputs
 
-
   // TODO: Check for division by zero
-  // Hint: If numB === 0, return "Error: Division by zero"
-
 
   // Return the quotient
-
 }
 
 export function modulo(a, b) {
@@ -69,10 +62,8 @@ export function squareRoot(number) {
   // TODO: Validate input
   const num = Number(number);
 
+  // TODO: Check for invalid input
   // TODO: Check for negative numbers
-  // Hint: If num < 0, return "Error: Cannot calculate square root of negative number"
-
-
 }
 
 // Test valid inputs

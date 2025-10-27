@@ -14,29 +14,19 @@ export function calculateTicketPrice() {
   // - Senior (65+): 30% discount ($14)
 
   // For age1 (8):
-  // 1. Determine age group (Child)
-  // 2. Calculate discount amount
-  // 3. Calculate final price
-  // 4. Display: "Age 8: Child ticket = $10"
-  // Hint:
-  // if (age1 <= 12) {
-  //   const discount = basePrice * 0.50;  // 50% discount
-  //   const finalPrice = basePrice - discount;
-  //   console.log(`Age ${age1}: Child ticket = $${finalPrice}`);
-  // } else if (age1 <= 17) {
-  //   const discount = basePrice * 0.25;
-  //   const finalPrice = basePrice - discount;
-  //   console.log(`Age ${age1}: Teen ticket = $${finalPrice}`);
-  // } ...
+  // Classify age, calculate discounted price, and display result
 
 
-  // For age2 (16): Display "Age 16: Teen ticket = $15"
+  // For age2 (16):
+  // Classify age, calculate discounted price, and display result
 
 
-  // For age3 (35): Display "Age 35: Adult ticket = $20"
+  // For age3 (35):
+  // Classify age, calculate discounted price, and display result
 
 
-  // For age4 (70): Display "Age 70: Senior ticket = $14"
+  // For age4 (70):
+  // Classify age, calculate discounted price, and display result
 
 }
 

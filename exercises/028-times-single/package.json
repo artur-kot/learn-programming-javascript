@@ -1,0 +1,7 @@
+{
+  "name": "028-times-single",
+  "type": "module",
+  "scripts": {
+    "test": "node 028-times-single.test.js"
+  }
+}

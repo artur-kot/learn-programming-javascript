@@ -27,64 +27,31 @@ Email: sarah.chen@email.com
 ## Hints
 
 <details>
-<summary>Hint 1: Template literals use backticks</summary>
+<summary>Hint 1: A different kind of quote</summary>
 
-Template literals use backticks `` ` `` instead of regular quotes `"` or `'`:
+In the last exercise, you used the plus operator to join strings. There's a more modern way that's easier to read. Instead of regular quotes, JavaScript has a special character (the backtick) that creates a different kind of string. Can you find it on your keyboard? It's usually near the Escape key.
 
-```javascript
-const message = `This is a template literal`;
-```
-
-The backtick key is usually in the top-left of your keyboard, below the Escape key and above Tab.
 </details>
 
 <details>
-<summary>Hint 2: Insert variables with ${}</summary>
+<summary>Hint 2: Inserting variables directly</summary>
 
-Inside a template literal, you can insert variables using `${}`:
+With this special kind of string, you don't need plus signs at all. Instead, you can place variables directly inside the text. Think about how you might mark a "blank space" where a variable should go - like a placeholder that gets filled in with the actual value. JavaScript uses a special syntax with a dollar sign and curly braces for this.
 
-```javascript
-const name = "Alex";
-const greeting = `Hello, ${name}!`;
-console.log(greeting);  // Output: Hello, Alex!
-```
-
-JavaScript will replace `${name}` with the actual value of the name variable.
 </details>
 
 <details>
-<summary>Hint 3: Compare concatenation vs template literals</summary>
+<summary>Hint 3: Compare your approaches</summary>
 
-**Using concatenation (old way):**
-```javascript
-const message = "Name: " + name;
-```
+Look back at how you created messages in the previous exercise using the plus operator. How many quotes and plus signs did you need? Now think about writing the same thing but with text, a placeholder for the variable, and all in one set of backticks. Which feels easier to read?
 
-**Using template literals (modern way):**
-```javascript
-const message = `Name: ${name}`;
-```
-
-See how much cleaner the template literal is? No quotes or plus signs to juggle!
 </details>
 
 <details>
-<summary>Hint 4: Creating your messages</summary>
+<summary>Hint 4: Building your first template</summary>
 
-For the name message:
-```javascript
-const nameMessage = `Name: ${name}`;
-```
+To create "Name: Sarah Chen", you want to write text that looks like "Name: " followed by the actual name value. Using backticks to start and end your text, how would you mark where the name variable should be inserted into that text?
 
-For the age message:
-```javascript
-const ageMessage = `Age: ${age}`;
-```
-
-For the email message:
-```javascript
-const emailMessage = `Email: ${email}`;
-```
 </details>
 
 ## Test Your Code
@@ -114,65 +81,6 @@ After completing the exercise, think about:
 1. Which do you find easier to read: `"Name: " + name` or `` `Name: ${name}` ``?
 2. What happens if you put multiple variables in one template literal?
 3. Can you spot any advantages of template literals for longer, more complex strings?
-
-## Solution
-
-<details>
-<summary>Click to see the solution (try the exercise first!)</summary>
-
-```javascript
-export function displayProfileCard() {
-  // Same variables from previous exercises
-  const name = "Sarah Chen";
-  const age = 28;
-  const email = "sarah.chen@email.com";
-
-  // Create formatted messages using template literals
-  const nameMessage = `Name: ${name}`;
-  const ageMessage = `Age: ${age}`;
-  const emailMessage = `Email: ${email}`;
-
-  // Display the formatted profile
-  console.log(nameMessage);
-  console.log(ageMessage);
-  console.log(emailMessage);
-}
-
-displayProfileCard();
-```
-
-**Why this works:**
-- Backticks `` ` `` create a template literal
-- `${name}` tells JavaScript to insert the value of the `name` variable at that spot
-- JavaScript evaluates what's inside `${}` and converts it to a string
-- The result is a clean, readable string with the variable values inserted
-
-**More concise version:**
-```javascript
-// You can also skip the intermediate variables:
-console.log(`Name: ${name}`);
-console.log(`Age: ${age}`);
-console.log(`Email: ${email}`);
-```
-
-**Template literals can do even more:**
-```javascript
-// You can put any expression inside ${}:
-const nextAge = `Next year, I'll be ${age + 1}`;
-console.log(nextAge);  // Output: Next year, I'll be 29
-
-// You can have multiple variables in one template:
-const summary = `${name} (${age}) - ${email}`;
-console.log(summary);  // Output: Sarah Chen (28) - sarah.chen@email.com
-```
-
-**Why template literals are better:**
-- Easier to read and write
-- Less error-prone (no forgetting quote marks or plus signs)
-- Can span multiple lines (we'll use this later!)
-- The standard in modern JavaScript code
-
-</details>
 
 ## Next Steps
 

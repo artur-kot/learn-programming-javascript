@@ -28,72 +28,41 @@ Notice that age 16 doesn't display anything - that's correct! The if statement o
 <details>
 <summary>Hint 1: What is an if statement?</summary>
 
-An **if statement** lets your code make decisions. It only runs certain code when a condition is true:
+An **if statement** lets your code make decisions. It only runs certain code when a condition is true.
 
-```javascript
-const temperature = 30;
+Think about it like this: "If the weather is rainy, bring an umbrella." The action (bringing an umbrella) only happens when the condition (rainy weather) is true.
 
-if (temperature > 25) {
-  console.log("It's hot outside!");
-}
-```
-
-This only displays the message when temperature is greater than 25.
-
-The syntax is:
-```javascript
-if (condition) {
-  // Code to run when condition is true
-}
-```
+In programming, you check a condition, and if it evaluates to true, the code inside executes. If false, that code is skipped entirely.
 </details>
 
 <details>
-<summary>Hint 2: Comparison operators</summary>
+<summary>Hint 2: Comparing values</summary>
 
-To compare numbers, JavaScript has several operators:
-- `>` greater than
-- `<` less than
-- `>=` greater than or equal to
-- `<=` less than or equal to
-- `===` exactly equal to
-- `!==` not equal to
+To make decisions, you need to compare values. JavaScript provides ways to check:
+- Is one number larger than another?
+- Is a number equal to or larger than a threshold?
+- Are two values exactly the same?
 
-For voting age, you need to check if someone is **18 or older**, so use:
-```javascript
-if (age >= 18) {
-  // They can vote
-}
-```
+For voting age, think about the threshold. You need to determine if someone meets or exceeds the minimum voting age of 18.
 </details>
 
 <details>
-<summary>Hint 3: Template literals for the message</summary>
+<summary>Hint 3: Including values in messages</summary>
 
-Use template literals to include the age in your message:
+When displaying messages, you'll want to include the actual age value in your output. JavaScript template literals let you embed variables directly into strings using special syntax with backticks and placeholders.
 
-```javascript
-const age = 25;
-console.log(`Age ${age}: You are old enough to vote!`);
-```
-
-This will output: `Age 25: You are old enough to vote!`
+This makes your messages dynamic and informative.
 </details>
 
 <details>
-<summary>Hint 4: Complete example for age1</summary>
+<summary>Hint 4: Structure your decision</summary>
 
-Here's how to check age1:
+For each age value, you need to:
+1. Evaluate whether the age meets the voting requirement
+2. If it does, display a message indicating eligibility
+3. If it doesn't, the code does nothing (skips the display)
 
-```javascript
-if (age1 >= 18) {
-  console.log(`Age ${age1}: You are old enough to vote!`);
-}
-```
-
-The condition `age1 >= 18` checks if age1 is greater than or equal to 18. If true, the message displays. If false, nothing happens.
-
-Now apply the same logic to age2 and age3!
+Apply this pattern to all three age variables to see which ones qualify for voting.
 </details>
 
 ## Test Your Code
@@ -126,78 +95,9 @@ After completing the exercise, think about:
 2. Why use `>=` (greater than or equal to) instead of `>` (greater than) for checking voting age?
 3. Can you think of other real-world scenarios where a program needs to check if something meets a minimum requirement?
 
-## Solution
-
-<details>
-<summary>Click to see the solution (try the exercise first!)</summary>
-
-```javascript
-export function checkVotingAge() {
-  // Test different ages
-  const age1 = 25;
-  const age2 = 16;
-  const age3 = 18;
-
-  // Check if age1 is 18 or older
-  if (age1 >= 18) {
-    console.log(`Age ${age1}: You are old enough to vote!`);
-  }
-
-  // Check if age2 is 18 or older
-  if (age2 >= 18) {
-    console.log(`Age ${age2}: You are old enough to vote!`);
-  }
-
-  // Check if age3 is 18 or older
-  if (age3 >= 18) {
-    console.log(`Age ${age3}: You are old enough to vote!`);
-  }
-}
-
-checkVotingAge();
-```
-
-**Why this works:**
-- Each `if` statement checks whether the age is >= 18
-- The `>=` operator means "greater than or equal to"
-- When the condition is **true** (age1: 25 >= 18, age3: 18 >= 18), the code inside the `{ }` runs
-- When the condition is **false** (age2: 16 >= 18), the code inside is skipped
-- That's why only age1 and age3 display messages!
-
-**Understanding the comparison:**
-```javascript
-25 >= 18  // true (25 is greater than or equal to 18)
-16 >= 18  // false (16 is NOT greater than or equal to 18)
-18 >= 18  // true (18 equals 18, so it qualifies)
-```
-
-**Why >= instead of > ?**
-```javascript
-// Using > (greater than):
-if (age > 18) {
-  console.log("Can vote");
-}
-// This would exclude 18-year-olds!
-
-// Using >= (greater than or equal to):
-if (age >= 18) {
-  console.log("Can vote");
-}
-// This correctly includes 18-year-olds
-```
-
-**Real-world application:**
-If statements are everywhere in real applications:
-- Age verification for content restrictions
-- Price checks for discounts
-- Checking if a user is logged in
-- Validating form input
-- Game logic (checking if player has enough points)
-
-</details>
-
 ## Next Steps
 
 Great start! You've learned to use if statements to check a condition. But what if you want to display a different message when someone is **too young** to vote? That's where `else` comes in!
 
 In **exercise 014-age-if-else**, you'll expand your age checker to handle both cases: old enough AND too young. Get ready to make your code even smarter!
+

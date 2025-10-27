@@ -33,82 +33,47 @@ Square Root: √16 = 4
 ## Hints
 
 <details>
-<summary>Hint 1: What is modulo?</summary>
+<summary>Hint 1: Understanding modulo (remainder)</summary>
 
-The modulo operator (`%`) returns the **remainder** after division.
+The modulo operation finds what's left over after division. Think about:
+- When you divide 10 by 3, you can fit three 3's into 10, but what's left over?
+- How would you express "the remainder after division"?
+- What's a practical use for knowing remainders? (Think about even/odd numbers, or cycles)
 
-Think of it like this: when you divide 10 by 3, you get 3 with a remainder of 1.
-- 10 ÷ 3 = 3 remainder 1
-- So 10 % 3 = 1
-
-More examples:
-```javascript
-17 % 5  // Returns 2 (17 ÷ 5 = 3 remainder 2)
-20 % 4  // Returns 0 (20 ÷ 4 = 5 remainder 0)
-7 % 2   // Returns 1 (7 ÷ 2 = 3 remainder 1)
-```
-
-**Real-world use**: Checking if a number is even or odd!
-```javascript
-10 % 2  // Returns 0 (even number)
-11 % 2  // Returns 1 (odd number)
-```
+In everyday life, remainders tell us about patterns and divisibility.
 </details>
 
 <details>
-<summary>Hint 2: What is the power operator?</summary>
+<summary>Hint 2: Understanding exponentiation (powers)</summary>
 
-The power operator (`**`) raises a number to an exponent. It's like repeated multiplication.
+Raising a number to a power is like multiplying it by itself multiple times. Think about:
+- What does "2 to the power of 3" mean? (2 × 2 × 2)
+- How is this different from regular multiplication?
+- What mathematical notation represents this in math class?
 
-```javascript
-2 ** 3  // Means 2 × 2 × 2 = 8
-5 ** 2  // Means 5 × 5 = 25
-10 ** 0 // Any number to the power of 0 is 1
-```
-
-Think of it as:
-- `base ** exponent`
-- 2³ in math = `2 ** 3` in JavaScript
-
-**Real-world use**: Calculating compound interest, population growth, physics formulas!
+Programming languages need a way to express exponentiation just like calculators do.
 </details>
 
 <details>
-<summary>Hint 3: How to calculate square root</summary>
+<summary>Hint 3: Understanding square roots</summary>
 
-JavaScript provides a built-in `Math.sqrt()` function for calculating square roots.
+A square root asks: "what number multiplied by itself gives me this value?" Think about:
+- If 4 × 4 equals 16, what operation reverses this to get back to 4?
+- Does JavaScript have built-in mathematical functions beyond basic operators?
+- Where might these functions be located or organized?
 
-```javascript
-Math.sqrt(16)  // Returns 4 (because 4 × 4 = 16)
-Math.sqrt(25)  // Returns 5 (because 5 × 5 = 25)
-Math.sqrt(9)   // Returns 3 (because 3 × 3 = 9)
-```
-
-The `Math` object contains many useful mathematical functions. You'll use more of them as you progress!
-
-**Real-world use**: Calculating distances, physics, geometry, graphics programming!
+Many languages provide a collection of mathematical utilities for complex operations.
 </details>
 
 <details>
-<summary>Hint 4: Complete implementations</summary>
+<summary>Hint 4: Following the same pattern</summary>
 
-Here's how to implement all three functions:
+These three functions follow the same pattern as your basic operations:
+- Accept input value(s)
+- Apply a mathematical operation
+- Return the result
 
-```javascript
-export function modulo(a, b) {
-  return a % b;
-}
-
-export function power(base, exponent) {
-  return base ** exponent;
-}
-
-export function squareRoot(number) {
-  return Math.sqrt(number);
-}
-```
-
-Each follows the same pattern as your basic operations - take input(s), perform calculation, return result!
+The difference is you're using more advanced mathematical concepts. Try researching or experimenting to discover how JavaScript expresses these operations.
 </details>
 
 ## Test Your Code
@@ -143,171 +108,6 @@ After completing the exercise, think about:
 2. What would `power(10, 3)` calculate? (Hint: 10 × 10 × 10)
 3. Can you think of a situation where you'd need to calculate a square root in a real app?
 
-## Solution
-
-<details>
-<summary>Click to see the solution (try the exercise first!)</summary>
-
-```javascript
-// Import the basic operations from the previous exercise
-export function add(a, b) {
-  return a + b;
-}
-
-export function subtract(a, b) {
-  return a - b;
-}
-
-export function multiply(a, b) {
-  return a * b;
-}
-
-export function divide(a, b) {
-  return a / b;
-}
-
-// New advanced operations below!
-
-export function modulo(a, b) {
-  return a % b;
-}
-
-export function power(base, exponent) {
-  return base ** exponent;
-}
-
-export function squareRoot(number) {
-  return Math.sqrt(number);
-}
-
-// Test basic operations
-console.log("=== Basic Operations ===");
-console.log("Addition: 10 + 5 =", add(10, 5));
-console.log("Subtraction: 10 - 5 =", subtract(10, 5));
-console.log("Multiplication: 10 * 5 =", multiply(10, 5));
-console.log("Division: 10 / 5 =", divide(10, 5));
-
-// Test advanced operations
-console.log("\n=== Advanced Operations ===");
-console.log("Modulo: 10 % 3 =", modulo(10, 3));
-console.log("Power: 2 ** 3 =", power(2, 3));
-console.log("Square Root: √16 =", squareRoot(16));
-```
-
-**Understanding modulo:**
-
-The modulo operator finds the remainder:
-```javascript
-modulo(10, 3)  // Returns 1
-// Why? 10 ÷ 3 = 3 remainder 1
-
-modulo(17, 5)  // Returns 2
-// Why? 17 ÷ 5 = 3 remainder 2
-
-modulo(20, 4)  // Returns 0
-// Why? 20 ÷ 4 = 5 remainder 0 (divides evenly!)
-```
-
-**Practical use - checking even/odd:**
-```javascript
-function isEven(number) {
-  return number % 2 === 0;
-}
-
-isEven(10)  // true (10 % 2 = 0)
-isEven(11)  // false (11 % 2 = 1)
-```
-
-**Understanding power:**
-
-The power operator performs exponentiation:
-```javascript
-power(2, 3)  // Returns 8
-// Why? 2 × 2 × 2 = 8
-
-power(5, 2)  // Returns 25
-// Why? 5 × 5 = 25
-
-power(10, 0)  // Returns 1
-// Why? Any number to the power of 0 is 1
-```
-
-**Practical use - calculating area:**
-```javascript
-function calculateSquareArea(side) {
-  return side ** 2;  // side × side
-}
-
-calculateSquareArea(5)  // 25 square units
-```
-
-**Understanding square root:**
-
-Square root finds what number multiplied by itself gives you the original number:
-```javascript
-squareRoot(16)  // Returns 4
-// Why? 4 × 4 = 16
-
-squareRoot(25)  // Returns 5
-// Why? 5 × 5 = 25
-
-squareRoot(2)   // Returns 1.4142135623730951
-// Why? √2 is an irrational number
-```
-
-**Practical use - calculating distance:**
-```javascript
-// Distance formula in 2D space (Pythagorean theorem)
-function distance(x1, y1, x2, y2) {
-  const dx = x2 - x1;
-  const dy = y2 - y1;
-  return Math.sqrt(dx ** 2 + dy ** 2);
-}
-
-distance(0, 0, 3, 4)  // Returns 5
-// Why? 3² + 4² = 9 + 16 = 25, √25 = 5
-```
-
-**The Math object:**
-
-JavaScript's `Math` object provides many useful functions:
-```javascript
-Math.sqrt(16)      // Square root: 4
-Math.abs(-5)       // Absolute value: 5
-Math.round(4.7)    // Round to nearest integer: 5
-Math.floor(4.7)    // Round down: 4
-Math.ceil(4.1)     // Round up: 5
-Math.max(5, 10, 3) // Maximum: 10
-Math.min(5, 10, 3) // Minimum: 3
-Math.random()      // Random number between 0 and 1
-```
-
-We're using `Math.sqrt()` here, but you'll encounter other `Math` methods as you build more complex applications!
-
-**Real-world applications:**
-
-These operations appear everywhere:
-
-**Modulo:**
-- Determining if a year is a leap year
-- Cycling through array indices (circular buffers)
-- Converting 24-hour time to 12-hour format
-- Creating alternating patterns (zebra striping in tables)
-
-**Power:**
-- Compound interest calculations
-- Population growth models
-- Physics formulas (kinetic energy, gravitational force)
-- Computer science algorithms (complexity calculations)
-
-**Square root:**
-- Calculating distances (GPS, games, graphics)
-- Physics calculations (velocity, acceleration)
-- Statistics (standard deviation)
-- Graphics programming (normalizing vectors)
-
-</details>
-
 ## Next Steps
 
 Excellent work! Your calculator now has both basic and advanced operations.
@@ -315,3 +115,4 @@ Excellent work! Your calculator now has both basic and advanced operations.
 In **exercise 010-calculator-input**, you'll learn how to handle user input that comes as strings (text) instead of numbers. This is crucial because when users type into forms or command-line interfaces, JavaScript receives text that needs to be converted to numbers first!
 
 Keep building!
+

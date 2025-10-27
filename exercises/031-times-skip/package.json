@@ -1,0 +1,7 @@
+{
+  "name": "031-times-skip",
+  "type": "module",
+  "scripts": {
+    "test": "node 031-times-skip.test.js"
+  }
+}

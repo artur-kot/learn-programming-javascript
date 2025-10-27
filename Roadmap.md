@@ -78,11 +78,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 6: Multiplication Table Generator
 *Build a times table generator to practice nested loops*
 
-28. [ ] **Times Table - Single Number** - Generate multiplication table for one number ([exercise 028](./exercises/028-times-single))
-29. [ ] **Times Table - Full Grid** - Create complete 1-10 multiplication grid ([exercise 029](./exercises/029-times-grid))
-30. [ ] **Times Table - Custom Range** - Accept min and max values for flexible tables ([exercise 030](./exercises/030-times-range))
-31. [ ] **Times Table - Skip Evens** - Use continue to skip even numbers ([exercise 031](./exercises/031-times-skip))
-32. [ ] **Times Table - Formatted Display** - Format output in neat columns ([exercise 032](./exercises/032-times-format))
+28. [x] **Times Table - Single Number** - Generate multiplication table for one number ([exercise 028](./exercises/028-times-single))
+29. [x] **Times Table - Full Grid** - Create complete 1-10 multiplication grid ([exercise 029](./exercises/029-times-grid))
+30. [x] **Times Table - Custom Range** - Accept min and max values for flexible tables ([exercise 030](./exercises/030-times-range))
+31. [x] **Times Table - Skip Evens** - Use continue to skip even numbers ([exercise 031](./exercises/031-times-skip))
+32. [x] **Times Table - Formatted Display** - Format output in neat columns ([exercise 032](./exercises/032-times-format))
 
 ---
 

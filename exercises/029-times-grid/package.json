@@ -1,0 +1,7 @@
+{
+  "name": "029-times-grid",
+  "type": "module",
+  "scripts": {
+    "test": "node 029-times-grid.test.js"
+  }
+}

@@ -1,4 +1,4 @@
 {
   "title": "Console Methods",
-  "description": "Learn to use console.error, console.warn, and console.log for different message types"
+  "description": "Learn how different console methods communicate message severity levels"
 }

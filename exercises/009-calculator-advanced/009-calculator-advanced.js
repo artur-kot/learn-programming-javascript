@@ -19,17 +19,14 @@ export function divide(a, b) {
 
 export function modulo(a, b) {
   // TODO: Return the remainder when a is divided by b
-  // Hint: Use the % operator
 }
 
 export function power(base, exponent) {
   // TODO: Return base raised to the power of exponent
-  // Hint: Use the ** operator (exponentiation)
 }
 
 export function squareRoot(number) {
   // TODO: Return the square root of a number
-  // Hint: Use Math.sqrt()
 }
 
 // Test basic operations

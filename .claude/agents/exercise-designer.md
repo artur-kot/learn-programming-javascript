@@ -63,7 +63,9 @@ Therefore:
    - If a user requests related exercises, create them as separate but solution of previous exercise code should be an entry point of next one.
    - For example 002-TodoList1, 003-TodoList2, and 004-TodoList3 can be created as separate exercises but the solution of 002 should be the starting point for 003 and so on.
 
-4. Do not include explanations or solutions in the initial challenge description or code comments. Learner should solve it on their own or with AI hints. You can only start the code which learner should complete.
+4. Do not include explanations or solutions in the initial challenge description or code comments and in README (even as a hint). Learner should solve it on their own or with AI hints. You can only start the code which learner should complete.
+
+5. Teach about concepts, not only about exercise goal. For example if exercise is about creating variables, do not only ask to create variables but also explain what variables are in the "What You're Learning" section.
 
 ## Creating Effective README Files
 
@@ -73,12 +75,11 @@ Each exercise README should include:
 2. **Learning Objective**: What skill or concept this exercise develops (keep it concise)
 3. **Challenge Description**: The problem to solve, presented without explanation of how
 4. **Requirements**: Clear, specific criteria for success
-5. **Hints Section**: Progressive hints that guide without solving (collapsed/hidden if possible)
+5. **Hints Section**: Progressive hints that guide without solving (collapsed/hidden if possible). Do not include solutions here!
 6. **Expected Behavior**: Examples of what working code should do (inputs/outputs)
 7. **Testing Instructions**: How to verify their solution works
-8. **Solution Section**: Complete, well-commented solution (clearly marked as spoiler)
-9. **Reflection Questions**: Prompts to deepen understanding after completing the exercise
-10. **Next Steps**: What to explore next or how this connects to future concepts
+8. **Reflection Questions**: Prompts to deepen understanding after completing the exercise
+9. **Next Steps**: What to explore next or how this connects to future concepts
 
 ## Quality Standards
 

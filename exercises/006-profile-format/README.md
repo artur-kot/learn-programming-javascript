@@ -30,87 +30,38 @@ Name length: 10
 ## Hints
 
 <details>
-<summary>Hint 1: String methods are functions attached to strings</summary>
+<summary>Hint 1: Strings have built-in capabilities</summary>
 
-String methods are special functions you can call on any string using the dot (`.`) notation:
+Strings in JavaScript aren't just passive data - they come with built-in abilities to transform themselves. You can access these abilities using the dot notation. When you use a dot after a variable name, you're asking "what can this string do?" Think about the kinds of transformations you might want: removing unwanted characters, changing capitalization, or measuring length.
 
-```javascript
-const text = "  hello  ";
-const cleaned = text.trim();  // Removes spaces from both ends
-console.log(cleaned);  // Output: "hello"
-```
-
-The original string stays the same - methods create a new modified string!
 </details>
 
 <details>
-<summary>Hint 2: Common string methods</summary>
+<summary>Hint 2: Removing unwanted whitespace</summary>
 
-Here are the methods you'll need for this exercise:
+The name has extra spaces at the beginning and end. How would you clean that up? Strings have a built-in ability to remove whitespace from both ends. What word describes getting rid of excess material to make something neat?
 
-**`.trim()`** - Removes whitespace from both ends of a string:
-```javascript
-const messy = "  hello  ";
-const clean = messy.trim();  // "hello"
-```
-
-**`.toUpperCase()`** - Converts all letters to uppercase:
-```javascript
-const text = "hello";
-const loud = text.toUpperCase();  // "HELLO"
-```
-
-**`.toLowerCase()`** - Converts all letters to lowercase:
-```javascript
-const text = "HELLO";
-const quiet = text.toLowerCase();  // "hello"
-```
-
-**`.length`** - Property (not a method!) that gives the number of characters:
-```javascript
-const text = "hello";
-const size = text.length;  // 5
-```
-Note: `.length` doesn't have parentheses because it's a property, not a method!
 </details>
 
 <details>
-<summary>Hint 3: Clean the name first</summary>
+<summary>Hint 3: Changing letter case</summary>
 
-Start by trimming the name to remove those extra spaces:
-```javascript
-const cleanName = name.trim();
-```
+You need to transform text to all uppercase and all lowercase. Strings have built-in abilities for these transformations. Think about descriptive names for these actions - what would you call the process of making all letters uppercase? What about lowercase?
 
-Now `cleanName` will be "sarah chen" instead of "  sarah chen  "
 </details>
 
 <details>
-<summary>Hint 4: Transform the role and company</summary>
+<summary>Hint 4: Measuring text</summary>
 
-For the role:
-```javascript
-const roleUpper = role.toUpperCase();
-```
+To find out how many characters are in a string, you need to access information about the string rather than transform it. Unlike the transformation abilities (which are methods you call), this information is a property you can read. What property would tell you the size or count of characters?
 
-For the company:
-```javascript
-const companyLower = company.toLowerCase();
-```
 </details>
 
 <details>
-<summary>Hint 5: Get the length</summary>
+<summary>Hint 5: Order matters</summary>
 
-Remember to get the length of the *cleaned* name (after trimming):
-```javascript
-const nameLength = cleanName.length;
-```
+Make sure you clean the name first (removing spaces) before you measure its length. Why? Because the spaces count as characters! If you measure before cleaning, you'll get the wrong count.
 
-Then display it in a template literal:
-```javascript
-console.log(`Name length: ${nameLength}`);
-```
 </details>
 
 ## Test Your Code
@@ -140,66 +91,6 @@ After completing the exercise, think about:
 1. Why would you want to trim whitespace from user input?
 2. What are some real-world situations where you'd need to change text to uppercase or lowercase?
 3. What's the difference between `text.length` and `text.trim()` in terms of syntax?
-
-## Solution
-
-<details>
-<summary>Click to see the solution (try the exercise first!)</summary>
-
-```javascript
-export function formatProfile() {
-  // User information with some formatting issues
-  const name = "  sarah chen  ";
-  const role = "software engineer";
-  const company = "TECH CORP";
-
-  // Clean and format the data using string methods
-  const cleanName = name.trim();
-  const roleUpper = role.toUpperCase();
-  const companyLower = company.toLowerCase();
-  const nameLength = cleanName.length;
-
-  // Display the formatted profile
-  console.log(`Name: ${cleanName}`);
-  console.log(`Role: ${roleUpper}`);
-  console.log(`Company: ${companyLower}`);
-  console.log(`Name length: ${nameLength}`);
-}
-
-formatProfile();
-```
-
-**Why this works:**
-- `.trim()` removes the extra spaces from "  sarah chen  " → "sarah chen"
-- `.toUpperCase()` converts "software engineer" → "SOFTWARE ENGINEER"
-- `.toLowerCase()` converts "TECH CORP" → "tech corp"
-- `.length` counts the characters in "sarah chen" → 10 (including the space!)
-
-**Important concepts:**
-- String methods create new strings; they don't modify the original
-- Methods have parentheses `()`, properties don't
-- You can chain methods: `name.trim().toUpperCase()` (trim first, then uppercase)
-- `.length` includes spaces and special characters in the count
-
-**Method chaining example:**
-```javascript
-// You can apply multiple methods in sequence:
-const formatted = "  HELLO  ".trim().toLowerCase();
-console.log(formatted);  // Output: "hello"
-
-// This works because:
-// 1. "  HELLO  ".trim() → "HELLO"
-// 2. "HELLO".toLowerCase() → "hello"
-```
-
-**Why these methods matter:**
-In real applications, you'll constantly need to:
-- Clean user input (trim spaces, standardize case)
-- Format data for display (uppercase headers, lowercase emails)
-- Validate input (check length, compare case-insensitively)
-- Process text from APIs or databases (often needs cleaning)
-
-</details>
 
 ## Next Steps
 

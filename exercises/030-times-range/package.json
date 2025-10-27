@@ -1,0 +1,7 @@
+{
+  "name": "030-times-range",
+  "type": "module",
+  "scripts": {
+    "test": "node 030-times-range.test.js"
+  }
+}

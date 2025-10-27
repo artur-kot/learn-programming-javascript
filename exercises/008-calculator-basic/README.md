@@ -28,80 +28,42 @@ Division: 10 / 5 = 2
 ## Hints
 
 <details>
-<summary>Hint 1: JavaScript arithmetic operators</summary>
+<summary>Hint 1: Understanding arithmetic in JavaScript</summary>
 
-JavaScript uses these symbols for basic math:
-- `+` for addition
-- `-` for subtraction
-- `*` for multiplication
-- `/` for division
+JavaScript can perform calculations just like a regular calculator. Think about:
+- What happens when you combine two numbers?
+- How does a calculator know whether to add, subtract, multiply, or divide?
+- What symbols represent these operations in programming?
 
-Examples:
-```javascript
-5 + 3    // Results in 8
-10 - 4   // Results in 6
-6 * 7    // Results in 42
-20 / 4   // Results in 5
-```
+Every programming language has built-in ways to perform mathematical operations on numbers.
 </details>
 
 <details>
 <summary>Hint 2: Returning values from functions</summary>
 
-Functions can calculate a value and send it back using the `return` keyword:
+Functions can calculate a value and send it back to whoever called the function. Think about:
+- How does a function communicate its result back to the code that used it?
+- What happens after a function finishes its calculation?
+- Why might we want to send a value back instead of just printing it?
 
-```javascript
-function double(number) {
-  return number * 2;
-}
-
-const result = double(5);  // result is 10
-```
-
-The `return` keyword does two things:
-1. Sends a value back to whoever called the function
-2. Immediately exits the function
+The key is understanding how to pass calculated results from inside a function to outside it.
 </details>
 
 <details>
-<summary>Hint 3: Complete example for add</summary>
+<summary>Hint 3: The pattern for mathematical functions</summary>
 
-Here's how to make the `add` function work:
+Each arithmetic operation follows the same structure:
+- Accept two numbers as input
+- Perform a calculation on those numbers
+- Send the result back
 
-```javascript
-export function add(a, b) {
-  return a + b;
-}
-```
-
-That's it! The function:
-- Takes two parameters (a and b)
-- Adds them together with the `+` operator
-- Returns the result
+Think about what changes between addition, subtraction, multiplication, and division - it's just which mathematical operation you apply to the two numbers.
 </details>
 
 <details>
-<summary>Hint 4: All four functions</summary>
+<summary>Hint 4: Starting with one function</summary>
 
-Each function follows the same pattern, just with a different operator:
-
-```javascript
-export function add(a, b) {
-  return a + b;  // Use + for addition
-}
-
-export function subtract(a, b) {
-  return a - b;  // Use - for subtraction
-}
-
-export function multiply(a, b) {
-  return a * b;  // Use * for multiplication
-}
-
-export function divide(a, b) {
-  return a / b;  // Use / for division
-}
-```
+Try implementing just the first function to understand the pattern. Once you solve one, the others follow the same structure - you're just changing which mathematical operation is performed on the two input numbers.
 </details>
 
 ## Test Your Code
@@ -136,104 +98,6 @@ After completing the exercise, think about:
 2. What happens when you add a very large number to another large number?
 3. Why do we create separate functions instead of just writing the math directly?
 
-## Solution
-
-<details>
-<summary>Click to see the solution (try the exercise first!)</summary>
-
-```javascript
-export function add(a, b) {
-  return a + b;
-}
-
-export function subtract(a, b) {
-  return a - b;
-}
-
-export function multiply(a, b) {
-  return a * b;
-}
-
-export function divide(a, b) {
-  return a / b;
-}
-
-// Test your functions
-console.log("Addition: 10 + 5 =", add(10, 5));
-console.log("Subtraction: 10 - 5 =", subtract(10, 5));
-console.log("Multiplication: 10 * 5 =", multiply(10, 5));
-console.log("Division: 10 / 5 =", divide(10, 5));
-```
-
-**Why this works:**
-
-Each function is incredibly simple - it just takes two numbers and applies an arithmetic operator:
-
-- `add(10, 5)` calculates `10 + 5` and returns `15`
-- `subtract(10, 5)` calculates `10 - 5` and returns `5`
-- `multiply(10, 5)` calculates `10 * 5` and returns `50`
-- `divide(10, 5)` calculates `10 / 5` and returns `2`
-
-**Understanding the flow:**
-
-```javascript
-// When you call:
-const result = add(10, 5);
-
-// JavaScript does this:
-// 1. Calls the add function
-// 2. Sets a = 10 and b = 5
-// 3. Calculates a + b (which is 10 + 5 = 15)
-// 4. Returns 15
-// 5. Stores 15 in the result variable
-```
-
-**Why create functions?**
-
-You might wonder: "Why not just write `10 + 5` directly?" Great question! Functions are useful because:
-
-1. **Reusability**: Write once, use many times
-   ```javascript
-   add(5, 3)
-   add(100, 200)
-   add(userInput1, userInput2)
-   ```
-
-2. **Clarity**: `calculateTotal(price, tax)` is clearer than `price + tax`
-
-3. **Easy to test**: You can verify each function works correctly
-
-4. **Easy to modify**: Change the logic in one place, not everywhere you do math
-
-**Interesting facts about JavaScript numbers:**
-
-```javascript
-// JavaScript handles decimals automatically
-divide(7, 2)  // Returns 3.5 (not 3 like some languages)
-
-// Negative numbers work as expected
-subtract(5, 10)  // Returns -5
-
-// You can chain operations
-add(5, multiply(3, 4))  // Returns 5 + (3 * 4) = 5 + 12 = 17
-
-// Division by zero returns Infinity
-divide(10, 0)  // Returns Infinity (we'll handle this better later!)
-```
-
-**Real-world context:**
-
-These basic operations are the building blocks of:
-- Shopping cart totals in e-commerce sites
-- Score calculations in games
-- Financial calculations in banking apps
-- Statistical analysis in data science
-- Graphics and animation in visual applications
-
-Every complex calculation starts with these simple operations!
-
-</details>
-
 ## Next Steps
 
 Great start! You've created the basic operations for your calculator.
@@ -241,3 +105,4 @@ Great start! You've created the basic operations for your calculator.
 In **exercise 009-calculator-advanced**, you'll add more powerful math operations like exponents (powers), modulo (remainders), and square roots. These operations are used in everything from game physics to financial calculations!
 
 Keep coding!
+

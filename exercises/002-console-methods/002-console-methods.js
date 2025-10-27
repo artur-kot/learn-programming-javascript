@@ -4,11 +4,11 @@ export function logInfo(message) {
 }
 
 export function logWarning(message) {
-  // TODO: We can use console.warn to print a warning message:
+  // TODO: Display a warning message
 }
 
 export function logError(message) {
-  // TODO: We can use console.error to print an error message:
+  // TODO: Display an error message
 }
 
 // Try running this file to see the different console methods in action!
