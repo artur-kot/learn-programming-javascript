@@ -1,6 +1,6 @@
 ## Temperature Converter - Celsius to Fahrenheit
 
-Practice converting temperatures — a common task when working with international data and user inputs.
+Practice converting temperatures - a common task when working with international data and user inputs.
 
 In this exercise you'll create a function that converts temperatures from Celsius to Fahrenheit.
 
@@ -42,7 +42,7 @@ Remember to multiply Celsius by 9, then divide by 5, then add 32. Parentheses ca
 <details>
 <summary>Hint 3: Return value</summary>
 
-Make sure your function uses the `return` keyword to give the result back to the caller — tests will assert the returned number.
+Make sure your function uses the `return` keyword to give the result back to the caller - tests will assert the returned number.
 
 </details>
 
@@ -69,4 +69,4 @@ node 033-temp-c-to-f.test.js
 
 ## Next Steps
 
-Next, you'll implement the inverse conversion — Fahrenheit to Celsius — and then create a small utility that can convert both directions.
+Next, you'll implement the inverse conversion - Fahrenheit to Celsius - and then create a small utility that can convert both directions.

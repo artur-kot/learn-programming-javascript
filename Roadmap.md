@@ -91,11 +91,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 7: Temperature Converter
 *Build a temperature conversion tool to learn functions, parameters, and returns*
 
-33. [ ] **Temperature - Celsius to Fahrenheit** - Create function to convert C to F ([exercise 033](./exercises/033-temp-c-to-f))
-34. [ ] **Temperature - Fahrenheit to Celsius** - Add reverse conversion function ([exercise 034](./exercises/034-temp-f-to-c))
-35. [ ] **Temperature - Kelvin Conversions** - Add Kelvin to/from Celsius and Fahrenheit ([exercise 035](./exercises/035-temp-kelvin))
-36. [ ] **Temperature - Default Values** - Add default parameters for common temperatures ([exercise 036](./exercises/036-temp-defaults))
-37. [ ] **Temperature - Arrow Functions** - Refactor all functions to use arrow syntax ([exercise 037](./exercises/037-temp-arrows))
+33. [x] **Temperature - Celsius to Fahrenheit** - Create function to convert C to F ([exercise 033](./exercises/033-temp-c-to-f))
+34. [x] **Temperature - Fahrenheit to Celsius** - Add reverse conversion function ([exercise 034](./exercises/034-temp-f-to-c))
+35. [x] **Temperature - Kelvin Conversions** - Add Kelvin to/from Celsius and Fahrenheit ([exercise 035](./exercises/035-temp-kelvin))
+36. [x] **Temperature - Default Values** - Add default parameters for common temperatures ([exercise 036](./exercises/036-temp-defaults))
+37. [x] **Temperature - Arrow Functions** - Refactor all functions to use arrow syntax ([exercise 037](./exercises/037-temp-arrows))
 
 ### Series 8: Text Analyzer Tool
 *Build a text analysis utility to practice functions and callbacks*

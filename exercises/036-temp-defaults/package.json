@@ -1,0 +1,7 @@
+{
+  "name": "036-temp-defaults",
+  "type": "module",
+  "scripts": {
+    "test": "node 036-temp-defaults.test.js"
+  }
+}

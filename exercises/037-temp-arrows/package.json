@@ -1,0 +1,7 @@
+{
+  "name": "037-temp-arrows",
+  "type": "module",
+  "scripts": {
+    "test": "node 037-temp-arrows.test.js"
+  }
+}

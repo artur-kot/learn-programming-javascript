@@ -1,0 +1,14 @@
+{
+  "name": "034-temp-f-to-c",
+  "type": "module",
+  "scripts": {
+    "test": "node 034-temp-f-to-c.test.js"
+  }
+}
+{
+  "name": "034-temp-f-to-c",
+  "type": "module",
+  "scripts": {
+    "test": "node 034-temp-f-to-c.test.js"
+  }
+}
