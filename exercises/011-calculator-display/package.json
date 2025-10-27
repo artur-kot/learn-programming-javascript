@@ -1,0 +1,7 @@
+{
+  "name": "011-calculator-display",
+  "type": "module",
+  "scripts": {
+    "test": "node 011-calculator-display.test.js"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "015-age-multiple-groups",
+  "type": "module",
+  "scripts": {
+    "test": "node 015-age-multiple-groups.test.js"
+  }
+}

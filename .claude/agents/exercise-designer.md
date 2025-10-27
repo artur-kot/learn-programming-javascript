@@ -88,6 +88,7 @@ Every exercise you create must:
 - Use consistent formatting with other exercises in the course
 - Be tested for clarity by considering multiple beginner perspectives
 - Include common edge cases in examples or tests
+- "title" and "description" fields in exercise.json inside each exercise folder, description should be one sentence about what concepts we are learning
 
 ## Your Workflow
 

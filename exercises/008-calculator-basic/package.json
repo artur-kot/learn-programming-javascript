@@ -1,0 +1,7 @@
+{
+  "name": "008-calculator-basic",
+  "type": "module",
+  "scripts": {
+    "test": "node 008-calculator-basic.test.js"
+  }
+}

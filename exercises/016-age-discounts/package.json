@@ -1,0 +1,7 @@
+{
+  "name": "016-age-discounts",
+  "type": "module",
+  "scripts": {
+    "test": "node 016-age-discounts.test.js"
+  }
+}

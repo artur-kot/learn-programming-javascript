@@ -1,0 +1,7 @@
+{
+  "name": "014-age-if-else",
+  "type": "module",
+  "scripts": {
+    "test": "node 014-age-if-else.test.js"
+  }
+}

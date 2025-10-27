@@ -1,0 +1,7 @@
+{
+  "name": "012-calculator-validation",
+  "type": "module",
+  "scripts": {
+    "test": "node 012-calculator-validation.test.js"
+  }
+}

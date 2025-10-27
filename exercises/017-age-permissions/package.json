@@ -1,0 +1,7 @@
+{
+  "name": "017-age-permissions",
+  "type": "module",
+  "scripts": {
+    "test": "node 017-age-permissions.test.js"
+  }
+}

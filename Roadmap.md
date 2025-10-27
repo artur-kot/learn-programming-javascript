@@ -9,12 +9,6 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 - Don't skip ahead - the progression is carefully designed
 - Take breaks between series to consolidate learning
 
-**What makes this course unique:**
-- Each series creates ONE complete mini-project
-- You start simple and gradually add features
-- You see real projects grow from basic to advanced
-- You learn by building, not just reading
-
 ---
 
 ## Phase 1: Absolute Basics (Getting Started)
@@ -40,11 +34,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 2: Simple Calculator
 *Build a basic calculator to learn numbers, operators, and type conversion*
 
-8. [ ] **Calculator - Basic Operations** - Create functions for add, subtract, multiply, divide ([exercise 008](./exercises/008-calculator-basic))
-9. [ ] **Calculator - Advanced Math** - Add modulo, power, and square root operations ([exercise 009](./exercises/009-calculator-advanced))
-10. [ ] **Calculator - Handle User Input** - Accept string input and convert to numbers ([exercise 010](./exercises/010-calculator-input))
-11. [ ] **Calculator - Display Results** - Format output with proper decimal places and units ([exercise 011](./exercises/011-calculator-display))
-12. [ ] **Calculator - Input Validation** - Check for valid numbers and division by zero ([exercise 012](./exercises/012-calculator-validation))
+8. [x] **Calculator - Basic Operations** - Create functions for add, subtract, multiply, divide ([exercise 008](./exercises/008-calculator-basic))
+9. [x] **Calculator - Advanced Math** - Add modulo, power, and square root operations ([exercise 009](./exercises/009-calculator-advanced))
+10. [x] **Calculator - Handle User Input** - Accept string input and convert to numbers ([exercise 010](./exercises/010-calculator-input))
+11. [x] **Calculator - Display Results** - Format output with proper decimal places and units ([exercise 011](./exercises/011-calculator-display))
+12. [x] **Calculator - Input Validation** - Check for valid numbers and division by zero ([exercise 012](./exercises/012-calculator-validation))
 
 ---
 
@@ -53,11 +47,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 3: Age Checker App
 *Build an age verification system to learn conditionals and boolean logic*
 
-13. [ ] **Age Checker - Basic If Statement** - Check if user is 18 or older ([exercise 013](./exercises/013-age-basic-if))
-14. [ ] **Age Checker - If-Else for Categories** - Classify as child, teen, or adult ([exercise 014](./exercises/014-age-if-else))
-15. [ ] **Age Checker - Multiple Age Groups** - Use else-if for child, teen, adult, senior categories ([exercise 015](./exercises/015-age-multiple-groups))
-16. [ ] **Age Checker - Discount Calculator** - Calculate age-based discounts with nested conditions ([exercise 016](./exercises/016-age-discounts))
-17. [ ] **Age Checker - Permission System** - Use logical operators for complex permission rules ([exercise 017](./exercises/017-age-permissions))
+13. [x] **Age Checker - Basic If Statement** - Check if user is 18 or older ([exercise 013](./exercises/013-age-basic-if))
+14. [x] **Age Checker - If-Else for Categories** - Classify as child, teen, or adult ([exercise 014](./exercises/014-age-if-else))
+15. [x] **Age Checker - Multiple Age Groups** - Use else-if for child, teen, adult, senior categories ([exercise 015](./exercises/015-age-multiple-groups))
+16. [x] **Age Checker - Discount Calculator** - Calculate age-based discounts with nested conditions ([exercise 016](./exercises/016-age-discounts))
+17. [x] **Age Checker - Permission System** - Use logical operators for complex permission rules ([exercise 017](./exercises/017-age-permissions))
 
 ### Series 4: Grade Calculator
 *Build a student grade system to master conditionals and comparison operators*

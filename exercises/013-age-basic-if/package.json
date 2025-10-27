@@ -1,0 +1,7 @@
+{
+  "name": "013-age-basic-if",
+  "type": "module",
+  "scripts": {
+    "test": "node 013-age-basic-if.test.js"
+  }
+}

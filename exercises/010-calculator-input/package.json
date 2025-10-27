@@ -1,0 +1,7 @@
+{
+  "name": "010-calculator-input",
+  "type": "module",
+  "scripts": {
+    "test": "node 010-calculator-input.test.js"
+  }
+}
