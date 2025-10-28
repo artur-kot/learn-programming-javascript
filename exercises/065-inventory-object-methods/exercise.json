@@ -1,0 +1,10 @@
+{
+  "id": "065-inventory-object-methods",
+  "title": "Inventory - Object Methods",
+  "description": "Analyze objects using Object.keys, Object.values, and Object.entries.",
+  "series": "13",
+  "seriesName": "Product Inventory",
+  "difficulty": "intermediate",
+  "topics": ["objects", "Object.keys", "Object.values", "Object.entries", "iteration"],
+  "skills": ["object introspection", "array transformation", "data analysis"]
+}

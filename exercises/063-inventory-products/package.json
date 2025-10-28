@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 063-inventory-products.test.js"
+  }
+}

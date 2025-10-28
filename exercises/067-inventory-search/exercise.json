@@ -1,0 +1,10 @@
+{
+  "id": "067-inventory-search",
+  "title": "Inventory - Search Products",
+  "description": "Search and filter products with advanced queries combining multiple array methods.",
+  "series": "13",
+  "seriesName": "Product Inventory",
+  "difficulty": "intermediate",
+  "topics": ["arrays", "filter", "find", "reduce", "sorting"],
+  "skills": ["advanced filtering", "data analysis", "sorting algorithms"]
+}
