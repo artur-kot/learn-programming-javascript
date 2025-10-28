@@ -144,11 +144,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 12: Contact Manager
 *Build a contact management system to learn objects and object methods*
 
-58. [ ] **Contact Manager - Create Contact** - Build object with name, email, phone properties ([exercise 058](./exercises/058-contact-create))
-59. [ ] **Contact Manager - Access Info** - Use dot and bracket notation to read properties ([exercise 059](./exercises/059-contact-access))
-60. [ ] **Contact Manager - Update Contact** - Add and modify contact properties dynamically ([exercise 060](./exercises/060-contact-update))
-61. [ ] **Contact Manager - Add Methods** - Create methods to display and format contact info ([exercise 061](./exercises/061-contact-methods))
-62. [ ] **Contact Manager - Multiple Contacts** - Store contacts in array and iterate with for...in ([exercise 062](./exercises/062-contact-multiple))
+58. [x] **Contact Manager - Create Contact** - Build object with name, email, phone properties ([exercise 058](./exercises/058-contact-create))
+59. [x] **Contact Manager - Access Info** - Use dot and bracket notation to read properties ([exercise 059](./exercises/059-contact-access))
+60. [x] **Contact Manager - Update Contact** - Add and modify contact properties dynamically ([exercise 060](./exercises/060-contact-update))
+61. [x] **Contact Manager - Add Methods** - Create methods to display and format contact info ([exercise 061](./exercises/061-contact-methods))
+62. [x] **Contact Manager - Multiple Contacts** - Store contacts in array and iterate with for...in ([exercise 062](./exercises/062-contact-multiple))
 
 ### Series 13: Product Inventory
 *Build inventory system to master object operations and destructuring*

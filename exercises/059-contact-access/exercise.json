@@ -1,0 +1,10 @@
+{
+  "id": "059-contact-access",
+  "title": "Contact Manager - Access Info",
+  "description": "Read contact properties using dot and bracket notation.",
+  "series": "12",
+  "seriesName": "Contact Manager",
+  "difficulty": "beginner",
+  "topics": ["objects", "property access", "dot notation", "bracket notation"],
+  "skills": ["reading object properties", "dynamic property access"]
+}

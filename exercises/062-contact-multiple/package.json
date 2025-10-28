@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 062-contact-multiple.test.js"
+  }
+}

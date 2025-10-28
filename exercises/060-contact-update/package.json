@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 060-contact-update.test.js"
+  }
+}
