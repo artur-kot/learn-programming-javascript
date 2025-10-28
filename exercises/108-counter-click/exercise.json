@@ -1,0 +1,22 @@
+{
+  "id": "108-counter-click",
+  "number": 108,
+  "title": "Interactive Counter - Click Event",
+  "series": "22-interactive-counter",
+  "seriesNumber": 1,
+  "topic": "Click Events and Event Listeners",
+  "description": "Build a click counter to learn event listeners and basic event handling.",
+  "concepts": [
+    "Event listeners",
+    "Click events",
+    "addEventListener method",
+    "Event handlers",
+    "Function callbacks",
+    "DOM updates",
+    "State management"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "107-card-remove"
+  ]
+}

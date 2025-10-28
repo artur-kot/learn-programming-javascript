@@ -1,0 +1,26 @@
+{
+  "name": "109-counter-event-obj",
+  "version": "1.0.0",
+  "description": "Interactive Counter - Event Object",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "events",
+    "event object",
+    "event properties",
+    "target",
+    "type",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

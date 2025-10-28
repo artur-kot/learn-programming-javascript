@@ -358,15 +358,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a click counter to learn event listeners*
 
 <!-- TODO: to refine -->
-108. [ ] **Counter - Click Event** - Increment counter on button click ([exercise 108](./exercises/108-counter-click))
+108. [x] **Counter - Click Event** - Increment counter on button click ([exercise 108](./exercises/108-counter-click))
 <!-- TODO: to refine -->
-109. [ ] **Counter - Event Object** - Access event details (target, type, timestamp) ([exercise 109](./exercises/109-counter-event-obj))
+109. [x] **Counter - Event Object** - Access event details (target, type, timestamp) ([exercise 109](./exercises/109-counter-event-obj))
 <!-- TODO: to refine -->
-110. [ ] **Counter - Multiple Buttons** - Add increment, decrement, reset buttons ([exercise 110](./exercises/110-counter-multiple))
+110. [x] **Counter - Multiple Buttons** - Add increment, decrement, reset buttons ([exercise 110](./exercises/110-counter-multiple))
 <!-- TODO: to refine -->
-111. [ ] **Counter - Keyboard Events** - Use arrow keys to control counter ([exercise 111](./exercises/111-counter-keyboard))
+111. [x] **Counter - Keyboard Events** - Use arrow keys to control counter ([exercise 111](./exercises/111-counter-keyboard))
 <!-- TODO: to refine -->
-112. [ ] **Counter - Remove Listeners** - Disable buttons by removing event listeners ([exercise 112](./exercises/112-counter-remove))
+112. [x] **Counter - Remove Listeners** - Disable buttons by removing event listeners ([exercise 112](./exercises/112-counter-remove))
 
 ### Series 23: Live Search Filter
 *Build a search feature to master form and input events*

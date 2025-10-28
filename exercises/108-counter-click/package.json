@@ -1,0 +1,25 @@
+{
+  "name": "108-counter-click",
+  "version": "1.0.0",
+  "description": "Interactive Counter - Click Event",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "events",
+    "click",
+    "addEventListener",
+    "event listeners",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

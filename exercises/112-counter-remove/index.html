@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Counter - Remove Listeners</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .counter-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      text-align: center;
+      min-width: 400px;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .counter-display {
+      font-size: 72px;
+      font-weight: bold;
+      color: #667eea;
+      margin: 30px 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    .status-indicator {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-left: 10px;
+    }
+
+    .status-indicator.enabled {
+      background: #51cf66;
+      box-shadow: 0 0 10px rgba(81, 207, 102, 0.5);
+    }
+
+    .status-indicator.disabled {
+      background: #ff6b6b;
+      box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      min-width: 80px;
+    }
+
+    button:hover {
+      background: #764ba2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    #increment-btn {
+      background: #51cf66;
+    }
+
+    #increment-btn:hover:not(:disabled) {
+      background: #40c057;
+    }
+
+    #decrement-btn {
+      background: #ff6b6b;
+    }
+
+    #decrement-btn:hover:not(:disabled) {
+      background: #ff5252;
+    }
+
+    #reset-btn {
+      background: #ffa94d;
+    }
+
+    #reset-btn:hover:not(:disabled) {
+      background: #ff922b;
+    }
+
+    #enable-btn {
+      background: #51cf66;
+    }
+
+    #enable-btn:hover {
+      background: #40c057;
+    }
+
+    #disable-btn {
+      background: #ff6b6b;
+    }
+
+    #disable-btn:hover {
+      background: #ff5252;
+    }
+
+    .control-buttons {
+      border-top: 2px solid #eee;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    .info {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .status-message {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e3f2fd;
+      border-radius: 6px;
+      color: #1976d2;
+      border-left: 4px solid #1976d2;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-container">
+    <h1>
+      Counter - Event Management
+      <span class="status-indicator enabled" id="status"></span>
+    </h1>
+    
+    <div class="counter-display" id="display">0</div>
+
+    <div class="button-group">
+      <button id="decrement-btn">−</button>
+      <button id="increment-btn">+</button>
+      <button id="reset-btn">Reset</button>
+    </div>
+
+    <div class="control-buttons">
+      <p style="margin: 0 0 15px 0; color: #666; font-size: 14px;">
+        Enable/Disable counter controls:
+      </p>
+      <div class="button-group">
+        <button id="enable-btn">Enable Controls</button>
+        <button id="disable-btn">Disable Controls</button>
+      </div>
+    </div>
+
+    <div class="status-message" id="status-message">
+      Status: <strong id="status-text">Controls Enabled</strong>
+    </div>
+
+    <div class="info">
+      <p>This counter demonstrates event listener management:</p>
+      <ul style="text-align: left; display: inline-block;">
+        <li>Click <strong>Enable</strong> to attach event listeners</li>
+        <li>Click <strong>Disable</strong> to remove event listeners</li>
+        <li>Try clicking buttons when disabled - nothing happens!</li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      toggleCounterListeners
+    } from './112-counter-remove.js';
+
+    const incrementBtn = document.getElementById('increment-btn');
+    const decrementBtn = document.getElementById('decrement-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const enableBtn = document.getElementById('enable-btn');
+    const disableBtn = document.getElementById('disable-btn');
+    const display = document.getElementById('display');
+    const statusIndicator = document.getElementById('status');
+    const statusText = document.getElementById('status-text');
+
+    let counter = { count: 0 };
+    let isEnabled = true;
+
+    function incrementHandler() {
+      counter.count++;
+      display.textContent = counter.count;
+    }
+
+    function decrementHandler() {
+      counter.count--;
+      display.textContent = counter.count;
+    }
+
+    function resetHandler() {
+      counter.count = 0;
+      display.textContent = counter.count;
+    }
+
+    function keyboardHandler(event) {
+      if (event.key === 'ArrowUp' || event.key === 'ArrowRight') {
+        counter.count++;
+      } else if (event.key === 'ArrowDown' || event.key === 'ArrowLeft') {
+        counter.count--;
+      } else if (event.key.toLowerCase() === 'r') {
+        counter.count = 0;
+      }
+      display.textContent = counter.count;
+    }
+
+    const buttons = {
+      increment: { element: incrementBtn, handler: incrementHandler },
+      decrement: { element: decrementBtn, handler: decrementHandler },
+      reset: { element: resetBtn, handler: resetHandler }
+    };
+
+    // Initial setup - enable
+    toggleCounterListeners(buttons, keyboardHandler, true);
+
+    enableBtn.addEventListener('click', () => {
+      if (!isEnabled) {
+        toggleCounterListeners(buttons, keyboardHandler, true);
+        isEnabled = true;
+        statusIndicator.className = 'status-indicator enabled';
+        statusText.textContent = 'Controls Enabled';
+        incrementBtn.disabled = false;
+        decrementBtn.disabled = false;
+        resetBtn.disabled = false;
+      }
+    });
+
+    disableBtn.addEventListener('click', () => {
+      if (isEnabled) {
+        toggleCounterListeners(buttons, keyboardHandler, false);
+        isEnabled = false;
+        statusIndicator.className = 'status-indicator disabled';
+        statusText.textContent = 'Controls Disabled';
+        incrementBtn.disabled = true;
+        decrementBtn.disabled = true;
+        resetBtn.disabled = true;
+      }
+    });
+  </script>
+</body>
+</html>

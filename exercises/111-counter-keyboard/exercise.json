@@ -1,0 +1,22 @@
+{
+  "id": "111-counter-keyboard",
+  "number": 111,
+  "title": "Interactive Counter - Keyboard Events",
+  "series": "22-interactive-counter",
+  "seriesNumber": 4,
+  "topic": "Keyboard Event Handling",
+  "description": "Use arrow keys and other keyboard events to control the counter.",
+  "concepts": [
+    "Keyboard events",
+    "keydown event",
+    "Key codes and key properties",
+    "Arrow keys",
+    "Conditional keyboard handling",
+    "Event.key vs Event.code",
+    "Keyboard state management"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "110-counter-multiple"
+  ]
+}
