@@ -1,0 +1,17 @@
+{
+  "name": "073-recipe-ingredients",
+  "version": "1.0.0",
+  "description": "Recipe Organizer - Ingredients with Destructuring",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 073-recipe-ingredients.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "destructuring",
+    "recipes"
+  ],
+  "author": "",
+  "license": "MIT"
+}

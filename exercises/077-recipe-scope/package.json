@@ -1,0 +1,19 @@
+{
+  "name": "077-recipe-scope",
+  "version": "1.0.0",
+  "description": "Recipe Organizer - Block Scope and Let/Const",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 077-recipe-scope.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "let",
+    "const",
+    "scope",
+    "recipes"
+  ],
+  "author": "",
+  "license": "MIT"
+}

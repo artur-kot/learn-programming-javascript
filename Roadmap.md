@@ -162,11 +162,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 14: User Profile System
 *Build user profiles to practice complex nested data structures*
 
-68. [ ] **User Profile - Basic Info** - Create user object with nested address object ([exercise 068](./exercises/068-profile-nested))
-69. [ ] **User Profile - Preferences** - Add nested settings and preferences objects ([exercise 069](./exercises/069-profile-preferences))
-70. [ ] **User Profile - Optional Chaining** - Safely access deeply nested properties ([exercise 070](./exercises/070-profile-optional))
-71. [ ] **User Profile - Friends List** - Add array of friend objects to user profile ([exercise 071](./exercises/071-profile-friends))
-72. [ ] **User Profile - Export to JSON** - Convert to JSON and parse back to object ([exercise 072](./exercises/072-profile-json))
+68. [x] **User Profile - Basic Info** - Create user object with nested address object ([exercise 068](./exercises/068-profile-nested))
+69. [x] **User Profile - Preferences** - Add nested settings and preferences objects ([exercise 069](./exercises/069-profile-preferences))
+70. [x] **User Profile - Optional Chaining** - Safely access deeply nested properties ([exercise 070](./exercises/070-profile-optional))
+71. [x] **User Profile - Friends List** - Add array of friend objects to user profile ([exercise 071](./exercises/071-profile-friends))
+72. [x] **User Profile - Export to JSON** - Convert to JSON and parse back to object ([exercise 072](./exercises/072-profile-json))
 
 ---
 
@@ -175,11 +175,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 15: Recipe Organizer
 *Build a recipe app to learn ES6+ features and array destructuring*
 
-73. [ ] **Recipe - Store Ingredients** - Use arrays and destructuring to extract ingredients ([exercise 073](./exercises/073-recipe-ingredients))
-74. [ ] **Recipe - Rest Parameters** - Function accepting variable number of ingredients ([exercise 074](./exercises/074-recipe-rest))
-75. [ ] **Recipe - Spread Operator** - Combine multiple recipe arrays ([exercise 075](./exercises/075-recipe-spread))
-76. [ ] **Recipe - For...of Iteration** - Loop through ingredients using for...of ([exercise 076](./exercises/076-recipe-for-of))
-77. [ ] **Recipe - Block Scope** - Use let and const properly in recipe functions ([exercise 077](./exercises/077-recipe-scope))
+73. [x] **Recipe - Store Ingredients** - Use arrays and destructuring to extract ingredients ([exercise 073](./exercises/073-recipe-ingredients))
+74. [x] **Recipe - Rest Parameters** - Function accepting variable number of ingredients ([exercise 074](./exercises/074-recipe-rest))
+75. [x] **Recipe - Spread Operator** - Combine multiple recipe arrays ([exercise 075](./exercises/075-recipe-spread))
+76. [x] **Recipe - For...of Iteration** - Loop through ingredients using for...of ([exercise 076](./exercises/076-recipe-for-of))
+77. [x] **Recipe - Block Scope** - Use let and const properly in recipe functions ([exercise 077](./exercises/077-recipe-scope))
 
 ### Series 16: URL Slug Generator
 *Build a slug generator to master advanced string operations*

@@ -1,0 +1,17 @@
+{
+  "name": "075-recipe-spread",
+  "version": "1.0.0",
+  "description": "Recipe Organizer - Spread Operator",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 075-recipe-spread.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "spread-operator",
+    "recipes"
+  ],
+  "author": "",
+  "license": "MIT"
+}

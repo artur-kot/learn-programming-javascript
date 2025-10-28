@@ -1,0 +1,17 @@
+{
+  "name": "074-recipe-rest",
+  "version": "1.0.0",
+  "description": "Recipe Organizer - Rest Parameters",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 074-recipe-rest.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "rest-parameters",
+    "recipes"
+  ],
+  "author": "",
+  "license": "MIT"
+}
