@@ -1,0 +1,18 @@
+{
+  "name": "095-quote-catch",
+  "version": "1.0.0",
+  "description": "Quote Fetcher - Error Handling",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 095-quote-catch.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "promises",
+    "catch",
+    "error-handling"
+  ],
+  "author": "",
+  "license": "MIT"
+}

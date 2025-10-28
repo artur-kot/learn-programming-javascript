@@ -308,15 +308,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a random quote app to master promises and async/await*
 
 <!-- TODO: to refine -->
-93. [ ] **Quote Fetcher - Simulate API** - Create promise that returns quote after delay ([exercise 093](./exercises/093-quote-promise))
+93. [x] **Quote Fetcher - Simulate API** - Create promise that returns quote after delay ([exercise 093](./exercises/093-quote-promise))
 <!-- TODO: to refine -->
-94. [ ] **Quote Fetcher - Handle Success** - Use .then to display quote ([exercise 094](./exercises/094-quote-then))
+94. [x] **Quote Fetcher - Handle Success** - Use .then to display quote ([exercise 094](./exercises/094-quote-then))
 <!-- TODO: to refine -->
-95. [ ] **Quote Fetcher - Error Handling** - Use .catch for failed requests ([exercise 095](./exercises/095-quote-catch))
+95. [x] **Quote Fetcher - Error Handling** - Use .catch for failed requests ([exercise 095](./exercises/095-quote-catch))
 <!-- TODO: to refine -->
-96. [ ] **Quote Fetcher - Async/Await** - Refactor using async/await syntax ([exercise 096](./exercises/096-quote-async))
+96. [x] **Quote Fetcher - Async/Await** - Refactor using async/await syntax ([exercise 096](./exercises/096-quote-async))
 <!-- TODO: to refine -->
-97. [ ] **Quote Fetcher - Multiple Sources** - Use Promise.all to fetch from multiple sources ([exercise 097](./exercises/097-quote-all))
+97. [x] **Quote Fetcher - Multiple Sources** - Use Promise.all to fetch from multiple sources ([exercise 097](./exercises/097-quote-all))
 
 ---
 

@@ -1,0 +1,21 @@
+{
+  "id": "093-quote-promise",
+  "number": 93,
+  "title": "Quote Fetcher - Simulate API",
+  "series": "19-quote-fetcher",
+  "seriesNumber": 1,
+  "topic": "Promise Basics",
+  "description": "Create a mocked API that returns quotes as promises. Learn promise fundamentals by simulating async data fetching.",
+  "concepts": [
+    "Promise constructor",
+    "Resolving promises",
+    "Rejecting promises",
+    "Promise states",
+    "Simulated async operations",
+    "Mock API responses"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "092-pomodoro-notify"
+  ]
+}

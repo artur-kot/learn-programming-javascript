@@ -1,0 +1,21 @@
+{
+  "id": "096-quote-async",
+  "number": 96,
+  "title": "Quote Fetcher - Async/Await",
+  "series": "19-quote-fetcher",
+  "seriesNumber": 4,
+  "topic": "Async/Await Syntax",
+  "description": "Refactor to modern async/await syntax. Learn cleaner async code without .then() and .catch().",
+  "concepts": [
+    "async functions",
+    "await keyword",
+    "Synchronous-looking code",
+    "Error handling with try/catch",
+    "async function returns promise",
+    "Comparing promises vs async/await"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "095-quote-catch"
+  ]
+}

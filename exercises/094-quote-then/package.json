@@ -1,0 +1,18 @@
+{
+  "name": "094-quote-then",
+  "version": "1.0.0",
+  "description": "Quote Fetcher - Handle Success",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 094-quote-then.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "promises",
+    "then",
+    "promise-chaining"
+  ],
+  "author": "",
+  "license": "MIT"
+}
