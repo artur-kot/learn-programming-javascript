@@ -16,8 +16,8 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "vitest": "^1.0.4",
-    "@vitest/browser": "^1.0.4",
+    "vitest": "^4.0.4",
+    "@vitest/browser": "^4.0.4",
     "@testing-library/dom": "^9.3.3",
     "jsdom":"27.0.1"
   }

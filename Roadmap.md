@@ -276,7 +276,7 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a form validation library to learn error handling*
 
 <!-- TODO: to refine -->
-83. [x] **Validator - Try-Catch Basics** - Wrap validation in try-catch blocks ([exercise 083](./exercises/083-validator-try-catch))
+83. [x] **Validator - Try-Catch Basics** - Wrap validation in try-catch blocks ([exercise 083](./exercises/083-validator-try-catch))]
 <!-- TODO: to refine -->
 84. [x] **Validator - Custom Errors** - Throw specific errors for different validation failures ([exercise 084](./exercises/084-validator-custom-errors))
 <!-- TODO: to refine -->
@@ -340,15 +340,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a card creation tool to practice DOM manipulation*
 
 <!-- TODO: to refine -->
-103. [ ] **Card Generator - Create Element** - Use createElement to make card div ([exercise 103](./exercises/103-card-create))
+103. [x] **Card Generator - Create Element** - Use createElement to make card div ([exercise 103](./exercises/103-card-create))
 <!-- TODO: to refine -->
-104. [ ] **Card Generator - Set Content** - Add title, description with innerHTML ([exercise 104](./exercises/104-card-content))
+104. [x] **Card Generator - Set Content** - Add title, description with innerHTML ([exercise 104](./exercises/104-card-content))
 <!-- TODO: to refine -->
-105. [ ] **Card Generator - Set Attributes** - Add classes, IDs, data attributes ([exercise 105](./exercises/105-card-attributes))
+105. [x] **Card Generator - Set Attributes** - Add classes, IDs, data attributes ([exercise 105](./exercises/105-card-attributes))
 <!-- TODO: to refine -->
-106. [ ] **Card Generator - Append to Page** - Add cards to DOM with appendChild ([exercise 106](./exercises/106-card-append))
+106. [x] **Card Generator - Append to Page** - Add cards to DOM with appendChild ([exercise 106](./exercises/106-card-append))
 <!-- TODO: to refine -->
-107. [ ] **Card Generator - Remove Cards** - Delete cards from DOM ([exercise 107](./exercises/107-card-remove))
+107. [x] **Card Generator - Remove Cards** - Delete cards from DOM ([exercise 107](./exercises/107-card-remove))
 
 ---
 

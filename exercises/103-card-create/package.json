@@ -1,7 +1,7 @@
 {
-  "name": "100-theme-classes",
+  "name": "103-card-create",
   "version": "1.0.0",
-  "description": "Theme Switcher - Toggle Classes",
+  "description": "Card Generator - Create Element",
   "type": "module",
   "scripts": {
     "test": "vitest --run"
@@ -10,8 +10,7 @@
     "javascript",
     "exercises",
     "dom",
-    "classList",
-    "css-classes",
+    "createElement",
     "browser"
   ],
   "author": "",
@@ -19,6 +18,6 @@
   "devDependencies": {
     "vitest": "^4.0.4",
     "@vitest/browser": "^4.0.4",
-    "jsdom": "^27.1.0"
+    "jsdom": "^27.0.1"
   }
 }

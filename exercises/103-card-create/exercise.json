@@ -1,0 +1,21 @@
+{
+  "id": "103-card-create",
+  "number": 103,
+  "title": "Card Generator - Create Element",
+  "series": "21-card-generator",
+  "seriesNumber": 1,
+  "topic": "Creating DOM Elements",
+  "description": "Use createElement to create new DOM elements dynamically. Learn to build DOM structures from JavaScript.",
+  "concepts": [
+    "document.createElement()",
+    "Creating elements dynamically",
+    "Element constructors",
+    "Document fragments",
+    "Element types and tags",
+    "Returning elements"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "102-theme-storage"
+  ]
+}

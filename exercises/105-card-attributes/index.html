@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Generator - Set Attributes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .card.featured {
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      border: 2px solid #667eea;
+    }
+
+    .card.premium {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .card.premium .card-header {
+      background: rgba(0, 0, 0, 0.1);
+      color: white;
+    }
+
+    .card-content {
+      padding: 20px;
+      color: #333;
+    }
+
+    .card.premium .card-content {
+      color: white;
+    }
+
+    #cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card-info {
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+
+    .card.premium .card-info {
+      color: rgba(255, 255, 255, 0.8);
+      border-top-color: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Card Generator - Set Attributes</h1>
+    <p>Add classes, IDs, and data attributes to dynamically create styled cards.</p>
+
+    <button id="add-card-btn">Add Standard Card</button>
+    <button id="add-featured-btn">Add Featured Card</button>
+    <button id="add-premium-btn">Add Premium Card</button>
+
+    <div id="cards-container"></div>
+  </div>
+
+  <script type="module">
+    import {
+      createStyledCard,
+      getDataAttribute
+    } from './105-card-attributes.js';
+
+    const container = document.getElementById('cards-container');
+    let cardCount = 0;
+
+    function addCard(type) {
+      cardCount++;
+      let className = 'card';
+      let dataAttrs = { index: cardCount, type };
+
+      if (type === 'featured') {
+        className = 'card featured';
+        dataAttrs.featured = 'true';
+      } else if (type === 'premium') {
+        className = 'card premium';
+        dataAttrs.premium = 'true';
+      }
+
+      const card = createStyledCard(
+        `${type.charAt(0).toUpperCase() + type.slice(1)} Card ${cardCount}`,
+        `This is a ${type} card with attributes and styling.`,
+        `card-${cardCount}`,
+        className,
+        dataAttrs
+      );
+
+      const info = document.createElement('div');
+      info.className = 'card-info';
+      info.textContent = `ID: ${card.card.id} | Type: ${getDataAttribute(card.card, 'type')} | Index: ${getDataAttribute(card.card, 'index')}`;
+
+      card.content.parentElement.appendChild(info);
+      container.appendChild(card.card);
+    }
+
+    document.getElementById('add-card-btn').addEventListener('click', () => addCard('standard'));
+    document.getElementById('add-featured-btn').addEventListener('click', () => addCard('featured'));
+    document.getElementById('add-premium-btn').addEventListener('click', () => addCard('premium'));
+  </script>
+</body>
+</html>

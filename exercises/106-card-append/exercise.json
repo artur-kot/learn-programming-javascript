@@ -1,0 +1,22 @@
+{
+  "id": "106-card-append",
+  "number": 106,
+  "title": "Card Generator - Append to Page",
+  "series": "21-card-generator",
+  "seriesNumber": 4,
+  "topic": "Adding Elements to DOM",
+  "description": "Add cards to the DOM with appendChild. Render created elements to the page.",
+  "concepts": [
+    "appendChild method",
+    "insertBefore method",
+    "Adding to parent",
+    "DOM tree structure",
+    "Rendering elements",
+    "Batch insertion",
+    "Parent-child relationships"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "105-card-attributes"
+  ]
+}
