@@ -153,11 +153,11 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 13: Product Inventory
 *Build inventory system to master object operations and destructuring*
 
-63. [ ] **Inventory - Product Objects** - Create products with name, price, quantity, category ([exercise 063](./exercises/063-inventory-products))
-64. [ ] **Inventory - Object Destructuring** - Extract product properties using destructuring ([exercise 064](./exercises/064-inventory-destructuring))
-65. [ ] **Inventory - Object Methods** - Use Object.keys, values, entries for analysis ([exercise 065](./exercises/065-inventory-object-methods))
-66. [ ] **Inventory - Clone and Merge** - Use spread operator to clone and update products ([exercise 066](./exercises/066-inventory-spread))
-67. [ ] **Inventory - Search Products** - Filter and find products using array of objects ([exercise 067](./exercises/067-inventory-search))
+63. [x] **Inventory - Product Objects** - Create products with name, price, quantity, category ([exercise 063](./exercises/063-inventory-products))
+64. [x] **Inventory - Object Destructuring** - Extract product properties using destructuring ([exercise 064](./exercises/064-inventory-destructuring))
+65. [x] **Inventory - Object Methods** - Use Object.keys, values, entries for analysis ([exercise 065](./exercises/065-inventory-object-methods))
+66. [x] **Inventory - Clone and Merge** - Use spread operator to clone and update products ([exercise 066](./exercises/066-inventory-spread))
+67. [x] **Inventory - Search Products** - Filter and find products using array of objects ([exercise 067](./exercises/067-inventory-search))
 
 ### Series 14: User Profile System
 *Build user profiles to practice complex nested data structures*

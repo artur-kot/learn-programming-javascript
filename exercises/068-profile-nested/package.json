@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 068-profile-nested.test.js"
+  }
+}

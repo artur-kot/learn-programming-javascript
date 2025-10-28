@@ -1,0 +1,10 @@
+{
+  "id": "068-profile-nested",
+  "title": "User Profile - Basic Info",
+  "description": "Create user profiles with nested address objects and methods.",
+  "series": "14",
+  "seriesName": "User Profile System",
+  "difficulty": "intermediate",
+  "topics": ["nested objects", "object methods", "complex data structures"],
+  "skills": ["nested object management", "method chaining", "object composition"]
+}

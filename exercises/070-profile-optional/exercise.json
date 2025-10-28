@@ -1,0 +1,10 @@
+{
+  "id": "070-profile-optional",
+  "title": "User Profile - Optional Chaining",
+  "description": "Safely access deeply nested properties using optional chaining (?.).",
+  "series": "14",
+  "seriesName": "User Profile System",
+  "difficulty": "intermediate",
+  "topics": ["optional chaining", "nullish coalescing", "safe access"],
+  "skills": ["defensive programming", "error prevention", "null handling"]
+}
