@@ -1,0 +1,22 @@
+{
+  "id": "098-theme-select",
+  "number": 98,
+  "title": "Theme Switcher - Select Elements",
+  "series": "20-theme-switcher",
+  "seriesNumber": 1,
+  "topic": "DOM Selection with querySelector",
+  "description": "Welcome to the browser! Learn to select and access DOM elements using querySelector.",
+  "concepts": [
+    "document object",
+    "querySelector",
+    "querySelectorAll",
+    "getElementById",
+    "getElementByClass",
+    "DOM element properties",
+    "Null safety"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "097-quote-all"
+  ]
+}

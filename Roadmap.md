@@ -326,15 +326,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a dark/light theme toggle to learn DOM selection and styling*
 
 <!-- TODO: to refine -->
-98. [ ] **Theme Switcher - Select Elements** - Use querySelector to find theme button and body ([exercise 098](./exercises/098-theme-select))
+98. [x] **Theme Switcher - Select Elements** - Use querySelector to find theme button and body ([exercise 098](./exercises/098-theme-select))
 <!-- TODO: to refine -->
-99. [ ] **Theme Switcher - Change Text** - Modify button text with textContent ([exercise 099](./exercises/099-theme-text))
+99. [x] **Theme Switcher - Change Text** - Modify button text with textContent ([exercise 099](./exercises/099-theme-text))
 <!-- TODO: to refine -->
-100. [ ] **Theme Switcher - Toggle Classes** - Add/remove dark-theme class ([exercise 100](./exercises/100-theme-classes))
+100. [x] **Theme Switcher - Toggle Classes** - Add/remove dark-theme class ([exercise 100](./exercises/100-theme-classes))
 <!-- TODO: to refine -->
-101. [ ] **Theme Switcher - Inline Styles** - Change CSS properties with .style ([exercise 101](./exercises/101-theme-styles))
+101. [x] **Theme Switcher - Inline Styles** - Change CSS properties with .style ([exercise 101](./exercises/101-theme-styles))
 <!-- TODO: to refine -->
-102. [ ] **Theme Switcher - Save Preference** - Store theme choice in localStorage ([exercise 102](./exercises/102-theme-storage))
+102. [x] **Theme Switcher - Save Preference** - Store theme choice in localStorage ([exercise 102](./exercises/102-theme-storage))
 
 ### Series 21: Dynamic Card Generator
 *Build a card creation tool to practice DOM manipulation*

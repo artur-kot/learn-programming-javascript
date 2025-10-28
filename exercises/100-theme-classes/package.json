@@ -1,0 +1,24 @@
+{
+  "name": "100-theme-classes",
+  "version": "1.0.0",
+  "description": "Theme Switcher - Toggle Classes",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "dom",
+    "classList",
+    "css-classes",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.1.0"
+  }
+}

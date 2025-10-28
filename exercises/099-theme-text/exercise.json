@@ -1,0 +1,21 @@
+{
+  "id": "099-theme-text",
+  "number": 99,
+  "title": "Theme Switcher - Change Text",
+  "series": "20-theme-switcher",
+  "seriesNumber": 2,
+  "topic": "DOM Text Manipulation",
+  "description": "Modify element content with textContent and innerHTML. Learn to update what users see.",
+  "concepts": [
+    "textContent property",
+    "innerHTML property",
+    "innerText vs textContent",
+    "Setting element content",
+    "Text nodes",
+    "Security considerations"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "098-theme-select"
+  ]
+}

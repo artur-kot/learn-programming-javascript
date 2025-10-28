@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Switcher - Toggle Classes</title>
+  <style>
+    * {
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    body.dark {
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: white;
+    }
+
+    body.dark button {
+      background-color: #0056b3;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    body.dark button:hover {
+      background-color: #003d82;
+    }
+
+    .status {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      border-left: 4px solid #007bff;
+    }
+
+    body.dark .status {
+      background-color: #2a2a2a;
+      border-left-color: #0056b3;
+    }
+
+    .info {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Theme Switcher - Toggle Classes</h1>
+    <p>Toggle CSS classes to change the entire theme instantly.</p>
+    
+    <button id="theme-toggle">🌙 Toggle Theme</button>
+    
+    <div class="status info">
+      <strong>Current theme:</strong> <span id="theme-status">Light</span>
+    </div>
+    
+    <p>Click the button above to switch between light and dark themes.</p>
+  </div>
+
+  <script type="module">
+    import {
+      toggleClass,
+      hasClass
+    } from './100-theme-classes.js';
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeStatus = document.getElementById('theme-status');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      toggleClass('body', 'dark');
+      const isDark = hasClass('body', 'dark');
+      themeStatus.textContent = isDark ? 'Dark' : 'Light';
+      themeToggle.textContent = isDark ? '☀️ Toggle Theme' : '🌙 Toggle Theme';
+    });
+
+    // Note: The body element needs special handling since it's a tag name
+    // In real implementation, you'd select by ID or class
+  </script>
+</body>
+</html>

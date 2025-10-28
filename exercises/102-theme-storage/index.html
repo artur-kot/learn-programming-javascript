@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Switcher - Save Preference</title>
+  <style>
+    * {
+      transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    body.dark {
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: white;
+    }
+
+    body.dark button {
+      background-color: #0056b3;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    body.dark button:hover {
+      background-color: #003d82;
+    }
+
+    .card {
+      padding: 15px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+
+    body.dark .card {
+      background-color: #2a2a2a;
+    }
+
+    .info {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Theme Switcher - Complete</h1>
+    <p>Your theme preference is saved and will persist when you return to this page.</p>
+    
+    <button id="theme-toggle">🌙 Toggle Theme</button>
+    <button id="reset-btn">Reset to Light</button>
+    
+    <div class="card">
+      <strong>Current Theme:</strong> <span id="theme-status">Loading...</span>
+      <div class="info" id="storage-info"></div>
+    </div>
+
+    <p>Refresh the page to see your theme preference persist!</p>
+  </div>
+
+  <script type="module">
+    import {
+      saveTheme,
+      getTheme,
+      removeTheme,
+      getUserPreferences,
+      saveUserPreferences
+    } from './102-theme-storage.js';
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const resetBtn = document.getElementById('reset-btn');
+    const themeStatus = document.getElementById('theme-status');
+    const storageInfo = document.getElementById('storage-info');
+
+    // Apply saved theme on page load
+    const savedTheme = getTheme();
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark');
+      themeToggle.textContent = '☀️ Toggle Theme';
+    }
+
+    updateStatus();
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark');
+      const newTheme = isDark ? 'dark' : 'light';
+      saveTheme(newTheme);
+      themeToggle.textContent = isDark ? '☀️ Toggle Theme' : '🌙 Toggle Theme';
+      updateStatus();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      document.body.classList.remove('dark');
+      removeTheme();
+      themeToggle.textContent = '🌙 Toggle Theme';
+      updateStatus();
+    });
+
+    function updateStatus() {
+      const theme = getTheme() || 'light';
+      themeStatus.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
+      storageInfo.textContent = `Storage Key: 'theme' = '${theme}'`;
+    }
+  </script>
+</body>
+</html>

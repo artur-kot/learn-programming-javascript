@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Switcher - Select Elements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: white;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="theme-container" class="container">
+    <h1>Theme Switcher - Select Elements</h1>
+    <p>Learn how to select DOM elements using querySelector and querySelectorAll.</p>
+    
+    <div>
+      <button id="theme-toggle" class="theme-btn">Toggle Theme</button>
+      <button class="theme-btn">Light Theme</button>
+      <button class="theme-btn">Dark Theme</button>
+    </div>
+    
+    <p>Open the browser console to see the selected elements.</p>
+  </div>
+
+  <script type="module">
+    import {
+      selectThemeButton,
+      selectBody,
+      selectAllThemeButtons,
+      selectByIdAndClass,
+      validateElements
+    } from './098-theme-select.js';
+
+    console.log('Theme Button:', selectThemeButton());
+    console.log('Body:', selectBody());
+    console.log('All Theme Buttons:', selectAllThemeButtons());
+    console.log('Container:', selectByIdAndClass());
+    console.log('Validation:', validateElements());
+  </script>
+</body>
+</html>
