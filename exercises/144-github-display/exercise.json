@@ -1,0 +1,40 @@
+{
+  "id": 144,
+  "name": "GitHub User Display",
+  "series": 29,
+  "difficulty": "intermediate",
+  "description": "Master DOM manipulation by displaying GitHub user profiles",
+  "learningOutcomes": [
+    "Create DOM elements dynamically with template literals",
+    "Display user avatars and profile information",
+    "Build responsive profile card components",
+    "Style components with CSS classes and inline styles",
+    "Handle loading and error states in UI",
+    "Format data for human-readable display",
+    "Implement click handlers for profile actions"
+  ],
+  "prerequisites": [
+    "GitHub User Search (Exercise 143)",
+    "DOM Manipulation Basics (Series 21)",
+    "Event Handling (Series 22)"
+  ],
+  "functions": [
+    "createProfileCard(userData)",
+    "formatUserStats(user)",
+    "createStatsRow(label, value)",
+    "createProfileHeader(user)",
+    "createProfileBio(bio)",
+    "renderProfile(containerId, userData)",
+    "createLoadingState()",
+    "createErrorState(errorMessage)",
+    "displayUserProfile(userData, containerId)",
+    "attachProfileClickListener(element, callback)"
+  ],
+  "estimatedTime": "90 minutes",
+  "resources": [
+    "DOM Creation and Manipulation",
+    "Template Literals for HTML",
+    "CSS Styling Strategies",
+    "Loading and Error States"
+  ]
+}

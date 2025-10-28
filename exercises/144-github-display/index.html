@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 144: GitHub User Display</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 2.5em;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 1.1em;
+    }
+
+    .demo-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .demo-section h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+
+    .info-box {
+      background: #f9f9f9;
+      border-left: 4px solid #667eea;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .demo-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #5568d3;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    input {
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      flex: 1;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* Profile Card Styles */
+    .profile-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e8e8e8;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      border: 3px solid #667eea;
+      background: #f0f0f0;
+    }
+
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-name {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .profile-username {
+      font-size: 0.95em;
+      color: #999;
+      margin-bottom: 12px;
+    }
+
+    .profile-badge {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: 600;
+    }
+
+    .profile-bio {
+      text-align: center;
+      color: #666;
+      font-size: 0.95em;
+      margin: 20px 0;
+      line-height: 1.5;
+      padding: 0 10px;
+      min-height: 40px;
+    }
+
+    .profile-bio.placeholder {
+      color: #ccc;
+      font-style: italic;
+    }
+
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 25px 0;
+      padding: 20px 0;
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .stat-row {
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 0.85em;
+      color: #999;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #667eea;
+    }
+
+    .profile-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .info-icon {
+      margin-right: 8px;
+      font-size: 1.1em;
+    }
+
+    .profile-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .profile-actions a,
+    .profile-actions button {
+      flex: 1;
+      padding: 10px 16px;
+      text-align: center;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .profile-actions a:hover,
+    .profile-actions button:hover {
+      background: #5568d3;
+    }
+
+    /* Loading State */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .loading.active {
+      display: block;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f0f0f0;
+      border-top-color: #667eea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      color: #666;
+      font-size: 1.1em;
+    }
+
+    /* Error State */
+    .error-state {
+      background: #fef2f2;
+      border: 2px solid #fca5a5;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      color: #dc2626;
+    }
+
+    .error-icon {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .error-message {
+      font-size: 1.1em;
+      margin-bottom: 15px;
+    }
+
+    /* Component Showcase */
+    .component-showcase {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .component-showcase h3 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.1em;
+    }
+
+    .component-example {
+      background: white;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .component-example:last-child {
+      margin-bottom: 0;
+    }
+
+    code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.9em;
+      font-family: 'Monaco', 'Courier New', monospace;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      .profile-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎨 GitHub User Display</h1>
+      <p class="subtitle">Master DOM manipulation by displaying beautiful GitHub user profiles</p>
+    </header>
+
+    <!-- Section 1: Profile Card -->
+    <div class="demo-section">
+      <h2>1. Complete Profile Card</h2>
+      <div class="info-box">
+        Create a complete profile card component that displays all user information in a visually appealing format. This demonstrates combining multiple DOM elements into a cohesive component.
+      </div>
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="cardSearch" 
+          placeholder="Enter GitHub username (e.g., torvalds, gvanrossum)"
+        >
+        <button onclick="demoProfileCard()">Display Profile</button>
+      </div>
+      <div id="profileCardContainer"></div>
+    </div>
+
+    <!-- Section 2: Stats Formatting -->
+    <div class="demo-section">
+      <h2>2. Statistics Formatting</h2>
+      <div class="info-box">
+        Learn how to format large numbers for display. Numbers like 1000+ become "1K", 1000000+ become "1M". This improves readability.
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoFormatStats(100, 50, 25)">Small Numbers</button>
+        <button onclick="demoFormatStats(3938, 9, 8)">Real User Stats</button>
+        <button onclick="demoFormatStats(1000000, 50000, 5000)">Large Numbers</button>
+      </div>
+      <div id="statsOutput" class="component-showcase"></div>
+    </div>
+
+    <!-- Section 3: Header Component -->
+    <div class="demo-section">
+      <h2>3. Profile Header Component</h2>
+      <div class="info-box">
+        The header component includes avatar, display name, and username. It's the top portion of the profile card.
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoProfileHeader('octocat', 'The Octocat')">GitHub Octocat</button>
+        <button onclick="demoProfileHeader('torvalds', 'Linus Torvalds')">Linux Creator</button>
+      </div>
+      <div id="headerContainer" class="demo-grid"></div>
+    </div>
+
+    <!-- Section 4: Bio Component -->
+    <div class="demo-section">
+      <h2>4. Bio Section</h2>
+      <div class="info-box">
+        The bio section displays user information with graceful handling of missing data. Shows placeholder text when bio is not available.
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoBioSection('There once was...')">With Bio Text</button>
+        <button onclick="demoBioSection('')">Empty Bio (Placeholder)</button>
+        <button onclick="demoBioSection(null)">Null Bio (Placeholder)</button>
+      </div>
+      <div id="bioContainer" class="component-showcase"></div>
+    </div>
+
+    <!-- Section 5: Loading State -->
+    <div class="demo-section">
+      <h2>5. Loading State</h2>
+      <div class="info-box">
+        Show a loading indicator while fetching user data. This provides feedback to users that something is happening.
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoLoadingState()">Show Loading</button>
+        <button onclick="demoStopLoading()">Clear</button>
+      </div>
+      <div id="loadingContainer"></div>
+    </div>
+
+    <!-- Section 6: Error State -->
+    <div class="demo-section">
+      <h2>6. Error State</h2>
+      <div class="info-box">
+        Display user-friendly error messages when something goes wrong. Use distinct styling to alert users to problems.
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoErrorState('User not found')">Not Found Error</button>
+        <button onclick="demoErrorState('Network connection failed')">Network Error</button>
+        <button onclick="demoErrorState('Invalid username format')">Validation Error</button>
+      </div>
+      <div id="errorContainer" class="component-showcase"></div>
+    </div>
+
+    <!-- Section 7: Multi-Profile Display -->
+    <div class="demo-section">
+      <h2>7. Multiple Profiles Grid</h2>
+      <div class="info-box">
+        Display multiple user profiles in a responsive grid. This demonstrates rendering a collection of components.
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoMultipleProfiles(['torvalds', 'gvanrossum', 'octocat'])">3 Users</button>
+        <button onclick="demoMultipleProfiles(['mojombo', 'dhh', 'wycats', 'evanphx'])">4 Users</button>
+      </div>
+      <div id="multiProfileContainer" class="demo-grid"></div>
+    </div>
+
+    <!-- Section 8: Interactive Features -->
+    <div class="demo-section">
+      <h2>8. Interactive Profile</h2>
+      <div class="info-box">
+        Add click handlers to profiles for interactive features. Demonstrate event listeners and data attributes.
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoInteractiveProfile('torvalds')">Linus Torvalds</button>
+        <button onclick="demoInteractiveProfile('gvanrossum')">Guido van Rossum</button>
+      </div>
+      <div id="interactiveContainer"></div>
+      <div id="interactiveOutput" style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-radius: 6px; display: none;">
+        <strong>Clicked on:</strong> <span id="clickedUserName"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Helper functions for demonstration
+
+    function formatUserStats(followers, following, repos) {
+      const formatNumber = (num) => {
+        if (num >= 1000000) {
+          return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        }
+        if (num >= 1000) {
+          return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        }
+        return num.toString();
+      };
+
+      return {
+        followers: formatNumber(followers),
+        following: formatNumber(following),
+        repos: formatNumber(repos)
+      };
+    }
+
+    function createStatRow(label, value) {
+      const div = document.createElement('div');
+      div.className = 'stat-row';
+      div.innerHTML = `
+        <div class="stat-label">${label}</div>
+        <div class="stat-value">${value}</div>
+      `;
+      return div;
+    }
+
+    function createLoadingState() {
+      const div = document.createElement('div');
+      div.className = 'loading active';
+      div.innerHTML = `
+        <div class="spinner"></div>
+        <p class="loading-text">Fetching user data...</p>
+      `;
+      return div;
+    }
+
+    function createErrorState(message) {
+      const div = document.createElement('div');
+      div.className = 'error-state';
+      div.innerHTML = `
+        <div class="error-icon">⚠️</div>
+        <div class="error-message">${message}</div>
+      `;
+      return div;
+    }
+
+    async function createProfileCard(username) {
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}`, {
+          headers: { 'User-Agent': 'GitHub-Display-Demo' }
+        });
+
+        if (!response.ok) {
+          throw new Error('User not found');
+        }
+
+        const user = await response.json();
+        const stats = formatUserStats(user.followers, user.following, user.public_repos);
+
+        const card = document.createElement('div');
+        card.className = 'profile-card';
+
+        const header = document.createElement('div');
+        header.className = 'profile-header';
+        header.innerHTML = `
+          <div class="profile-avatar">
+            <img src="${user.avatar_url}" alt="${user.login}">
+          </div>
+          <div class="profile-name">${user.name || user.login}</div>
+          <div class="profile-username">@${user.login}</div>
+          <div class="profile-badge">GitHub User</div>
+        `;
+
+        const bio = document.createElement('div');
+        bio.className = 'profile-bio' + (user.bio ? '' : ' placeholder');
+        bio.textContent = user.bio || 'No bio available';
+
+        const statsDiv = document.createElement('div');
+        statsDiv.className = 'profile-stats';
+        statsDiv.appendChild(createStatRow('Followers', stats.followers));
+        statsDiv.appendChild(createStatRow('Following', stats.following));
+        statsDiv.appendChild(createStatRow('Repos', stats.repos));
+
+        const info = document.createElement('div');
+        info.className = 'profile-info';
+        if (user.location) {
+          info.innerHTML += `<div class="info-item"><span class="info-icon">📍</span>${user.location}</div>`;
+        }
+
+        const actions = document.createElement('div');
+        actions.className = 'profile-actions';
+        actions.innerHTML = `
+          <a href="https://github.com/${user.login}" target="_blank">Visit GitHub</a>
+          <button onclick="alert('Following ${user.name || user.login}')">Follow</button>
+        `;
+
+        card.appendChild(header);
+        card.appendChild(bio);
+        card.appendChild(statsDiv);
+        card.appendChild(info);
+        card.appendChild(actions);
+
+        return card;
+      } catch (error) {
+        return createErrorState(error.message);
+      }
+    }
+
+    // Demo functions
+
+    async function demoProfileCard() {
+      const username = document.getElementById('cardSearch').value.trim();
+      if (!username) {
+        alert('Please enter a GitHub username');
+        return;
+      }
+
+      const container = document.getElementById('profileCardContainer');
+      container.innerHTML = '';
+      container.appendChild(createLoadingState());
+
+      setTimeout(async () => {
+        const card = await createProfileCard(username);
+        container.innerHTML = '';
+        container.appendChild(card);
+      }, 500);
+    }
+
+    function demoFormatStats(followers, following, repos) {
+      const stats = formatUserStats(followers, following, repos);
+      const container = document.getElementById('statsOutput');
+      container.innerHTML = `
+        <h3>Formatted Statistics</h3>
+        <div class="component-example">
+          <strong>Input:</strong> Followers: ${followers}, Following: ${following}, Repos: ${repos}
+        </div>
+        <div class="component-example">
+          <strong>Formatted Output:</strong><br>
+          Followers: <code>${stats.followers}</code><br>
+          Following: <code>${stats.following}</code><br>
+          Repos: <code>${stats.repos}</code>
+        </div>
+      `;
+    }
+
+    function demoProfileHeader(login, name) {
+      const container = document.getElementById('headerContainer');
+      const header = document.createElement('div');
+      header.className = 'profile-header';
+      header.innerHTML = `
+        <div class="profile-avatar">
+          <img src="https://avatars.githubusercontent.com/u/${login === 'torvalds' ? 0 : 1}?v=4" alt="${login}">
+        </div>
+        <div class="profile-name">${name}</div>
+        <div class="profile-username">@${login}</div>
+      `;
+      container.innerHTML = '';
+      container.appendChild(header);
+    }
+
+    function demoBioSection(bio) {
+      const container = document.getElementById('bioContainer');
+      const bioEl = document.createElement('div');
+      bioEl.className = 'profile-bio' + (!bio ? ' placeholder' : '');
+      bioEl.textContent = bio || 'No bio available';
+      container.innerHTML = `<h3>Bio Section</h3><div class="component-example"></div>`;
+      container.querySelector('.component-example').appendChild(bioEl);
+    }
+
+    function demoLoadingState() {
+      const container = document.getElementById('loadingContainer');
+      container.innerHTML = '';
+      container.appendChild(createLoadingState());
+    }
+
+    function demoStopLoading() {
+      document.getElementById('loadingContainer').innerHTML = '';
+    }
+
+    function demoErrorState(message) {
+      const container = document.getElementById('errorContainer');
+      container.innerHTML = '';
+      container.appendChild(createErrorState(message));
+    }
+
+    async function demoMultipleProfiles(usernames) {
+      const container = document.getElementById('multiProfileContainer');
+      container.innerHTML = '';
+
+      for (const username of usernames) {
+        const card = await createProfileCard(username);
+        container.appendChild(card);
+      }
+    }
+
+    async function demoInteractiveProfile(username) {
+      const card = await createProfileCard(username);
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        document.getElementById('clickedUserName').textContent = username;
+        document.getElementById('interactiveOutput').style.display = 'block';
+      });
+
+      const container = document.getElementById('interactiveContainer');
+      container.innerHTML = '';
+      container.appendChild(card);
+    }
+
+    // Allow Enter key
+    document.getElementById('cardSearch')?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') demoProfileCard();
+    });
+  </script>
+</body>
+</html>

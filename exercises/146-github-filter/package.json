@@ -1,0 +1,17 @@
+{
+  "name": "146-github-filter",
+  "version": "1.0.0",
+  "description": "GitHub API integration - Advanced repository filtering",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": ["github", "api", "filter", "search", "repositories"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}

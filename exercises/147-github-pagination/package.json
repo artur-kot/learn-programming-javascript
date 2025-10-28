@@ -1,0 +1,17 @@
+{
+  "name": "147-github-pagination",
+  "version": "1.0.0",
+  "description": "GitHub API integration - Implement pagination for large result sets",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": ["github", "api", "pagination", "infinite-scroll", "loading"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}

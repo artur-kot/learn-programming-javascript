@@ -1,0 +1,17 @@
+{
+  "name": "143-github-search",
+  "version": "1.0.0",
+  "description": "GitHub API integration - User search functionality",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": ["github", "api", "fetch", "search"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}

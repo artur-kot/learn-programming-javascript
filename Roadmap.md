@@ -460,19 +460,19 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 <!-- TODO: to refine -->
 142. [x] **Weather - Multiple Cities** - Fetch and compare weather for multiple locations ([exercise 142](./exercises/142-weather-multiple))
 
-### Series 29: GitHub User Finder
+### Series 29: GitHub User Finder ✓
 *Build a GitHub profile viewer to master API integration*
 
 <!-- TODO: to refine -->
-143. [ ] **GitHub - User Search** - Fetch user data from GitHub API ([exercise 143](./exercises/143-github-search))
+143. [x] **GitHub - User Search** - Fetch user data from GitHub API ([exercise 143](./exercises/143-github-search))
 <!-- TODO: to refine -->
-144. [ ] **GitHub - Display Profile** - Show avatar, bio, stats in UI ([exercise 144](./exercises/144-github-display))
+144. [x] **GitHub - Display Profile** - Show avatar, bio, stats in UI ([exercise 144](./exercises/144-github-display))
 <!-- TODO: to refine -->
-145. [ ] **GitHub - Repository List** - Fetch and display user's repos ([exercise 145](./exercises/145-github-repos))
+145. [x] **GitHub - Repository List** - Fetch and display user's repos ([exercise 145](./exercises/145-github-repos))
 <!-- TODO: to refine -->
-146. [ ] **GitHub - Filter Repos** - Add search and filter for repositories ([exercise 146](./exercises/146-github-filter))
+146. [x] **GitHub - Filter Repos** - Add search and filter for repositories ([exercise 146](./exercises/146-github-filter))
 <!-- TODO: to refine -->
-147. [ ] **GitHub - Pagination** - Load repos with pagination support ([exercise 147](./exercises/147-github-pagination))
+147. [x] **GitHub - Pagination** - Load repos with pagination support ([exercise 147](./exercises/147-github-pagination))
 
 ---
 

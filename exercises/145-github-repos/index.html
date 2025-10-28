@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 145: GitHub Repositories</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 { color: #333; margin-bottom: 10px; font-size: 2.5em; }
+    .subtitle { color: #666; font-size: 1.1em; }
+    .demo-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+    .demo-section h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    .demo-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover { background: #5568d3; }
+    input {
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      flex: 1;
+    }
+    .search-box { display: flex; gap: 10px; margin-bottom: 20px; }
+    .info-box {
+      background: #f9f9f9;
+      border-left: 4px solid #667eea;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+    .repo-item {
+      background: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      transition: all 0.3s;
+    }
+    .repo-item:hover {
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+    .repo-name { font-size: 1.2em; font-weight: bold; color: #667eea; margin-bottom: 8px; }
+    .repo-description { color: #666; margin-bottom: 10px; font-size: 0.95em; }
+    .repo-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.85em;
+      color: #999;
+    }
+    .meta-item { display: flex; align-items: center; gap: 5px; }
+    .loading { text-align: center; padding: 40px 20px; }
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f0f0f0;
+      border-top-color: #667eea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .stat-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .stat-value { font-size: 2em; font-weight: bold; }
+    .stat-label { font-size: 0.85em; margin-top: 8px; opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📚 GitHub Repositories</h1>
+      <p class="subtitle">Fetch and display GitHub user repositories with sorting and filtering</p>
+    </header>
+
+    <!-- Section 1: Fetch Repositories -->
+    <div class="demo-section">
+      <h2>1. Fetch User Repositories</h2>
+      <div class="info-box">Fetch all public repositories for a GitHub user from the REST API.</div>
+      <div class="search-box">
+        <input type="text" id="userSearch" placeholder="Enter GitHub username">
+        <button onclick="demoFetchRepos()">Fetch Repos</button>
+      </div>
+      <div id="reposContainer"></div>
+    </div>
+
+    <!-- Section 2: Sort Repositories -->
+    <div class="demo-section">
+      <h2>2. Sort Repositories</h2>
+      <div class="info-box">Sort repositories by stars, forks, name, or update date.</div>
+      <div class="demo-buttons">
+        <button onclick="demoSort('stars')">By Stars ⭐</button>
+        <button onclick="demoSort('forks')">By Forks 🔀</button>
+        <button onclick="demoSort('updated')">By Updated 📅</button>
+        <button onclick="demoSort('name')">By Name 🔤</button>
+      </div>
+      <div id="sortContainer"></div>
+    </div>
+
+    <!-- Section 3: Filter by Language -->
+    <div class="demo-section">
+      <h2>3. Filter by Language</h2>
+      <div class="info-box">Filter repositories by programming language.</div>
+      <div class="demo-buttons">
+        <button onclick="demoFilterLanguage('JavaScript')">JavaScript</button>
+        <button onclick="demoFilterLanguage('Python')">Python</button>
+        <button onclick="demoFilterLanguage('C')">C</button>
+        <button onclick="demoFilterLanguage('Go')">Go</button>
+      </div>
+      <div id="filterContainer"></div>
+    </div>
+
+    <!-- Section 4: Repository Statistics -->
+    <div class="demo-section">
+      <h2>4. Repository Statistics</h2>
+      <div class="info-box">Calculate and display statistics about repositories.</div>
+      <div class="demo-buttons">
+        <button onclick="demoCalculateStats()">Calculate Stats</button>
+        <button onclick="demoClearStats()">Clear</button>
+      </div>
+      <div id="statsContainer"></div>
+    </div>
+
+    <!-- Section 5: Search Repositories -->
+    <div class="demo-section">
+      <h2>5. Search Repositories</h2>
+      <div class="info-box">Search repositories by name or description.</div>
+      <div class="search-box">
+        <input type="text" id="searchQuery" placeholder="Search repo name or description">
+        <button onclick="demoSearchRepos()">Search</button>
+      </div>
+      <div id="searchContainer"></div>
+    </div>
+
+    <!-- Section 6: Group by Language -->
+    <div class="demo-section">
+      <h2>6. Group by Language</h2>
+      <div class="info-box">Group repositories by programming language.</div>
+      <div class="demo-buttons">
+        <button onclick="demoGroupLanguages()">Group Repos</button>
+        <button onclick="demoClearGrouped()">Clear</button>
+      </div>
+      <div id="groupContainer"></div>
+    </div>
+
+    <!-- Section 7: Pagination -->
+    <div class="demo-section">
+      <h2>7. Pagination</h2>
+      <div class="info-box">Load repositories with pagination for large collections.</div>
+      <div class="demo-buttons">
+        <button onclick="demoPageRepos(1)">Page 1</button>
+        <button onclick="demoPageRepos(2)">Page 2</button>
+        <button onclick="demoPageRepos(3)">Page 3</button>
+      </div>
+      <div id="pageContainer"></div>
+    </div>
+
+    <!-- Section 8: Repository Details -->
+    <div class="demo-section">
+      <h2>8. Repository Details</h2>
+      <div class="info-box">Display detailed information about repositories.</div>
+      <div class="search-box">
+        <input type="text" id="ownerSearch" placeholder="Owner">
+        <input type="text" id="repoNameSearch" placeholder="Repository name">
+        <button onclick="demoRepoDetails()">Show Details</button>
+      </div>
+      <div id="detailContainer"></div>
+    </div>
+  </div>
+
+  <script>
+    let currentRepos = [];
+
+    // Helper functions
+    function formatNumber(num) {
+      if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+      if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+      return num.toString();
+    }
+
+    function sortRepositories(repos, sortBy) {
+      const sorted = [...repos];
+      if (sortBy === 'stars') sorted.sort((a, b) => b.stargazers_count - a.stargazers_count);
+      else if (sortBy === 'forks') sorted.sort((a, b) => b.forks_count - a.forks_count);
+      else if (sortBy === 'updated') sorted.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+      else if (sortBy === 'name') sorted.sort((a, b) => a.name.localeCompare(b.name));
+      return sorted;
+    }
+
+    function filterByLanguage(repos, language) {
+      return repos.filter(r => r.language && r.language.toLowerCase() === language.toLowerCase());
+    }
+
+    function renderRepos(repos, containerId, limit = 20) {
+      const container = document.querySelector(containerId);
+      container.innerHTML = '';
+      const toShow = repos.slice(0, limit);
+      toShow.forEach(repo => {
+        const div = document.createElement('div');
+        div.className = 'repo-item';
+        div.innerHTML = `
+          <div class="repo-name">${repo.name}</div>
+          <div class="repo-description">${repo.description || 'No description'}</div>
+          <div class="repo-meta">
+            <div class="meta-item">⭐ ${formatNumber(repo.stargazers_count)}</div>
+            <div class="meta-item">🔀 ${formatNumber(repo.forks_count)}</div>
+            ${repo.language ? `<div class="meta-item">💻 ${repo.language}</div>` : ''}
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // Demo functions
+    async function demoFetchRepos() {
+      const username = document.getElementById('userSearch').value.trim();
+      if (!username) return;
+      
+      const container = document.getElementById('reposContainer');
+      container.innerHTML = '<div class="loading"><div class="spinner"></div><p>Loading...</p></div>';
+
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=stars&per_page=30`, {
+          headers: { 'User-Agent': 'GitHub-Repos-Demo' }
+        });
+        if (!response.ok) throw new Error('User not found');
+        currentRepos = await response.json();
+        renderRepos(currentRepos, '#reposContainer');
+      } catch (error) {
+        container.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+      }
+    }
+
+    function demoSort(sortBy) {
+      if (currentRepos.length === 0) {
+        alert('Fetch repos first');
+        return;
+      }
+      const sorted = sortRepositories(currentRepos, sortBy);
+      renderRepos(sorted, '#sortContainer');
+    }
+
+    function demoFilterLanguage(language) {
+      if (currentRepos.length === 0) {
+        alert('Fetch repos first');
+        return;
+      }
+      const filtered = filterByLanguage(currentRepos, language);
+      renderRepos(filtered, '#filterContainer');
+    }
+
+    function demoCalculateStats() {
+      if (currentRepos.length === 0) {
+        alert('Fetch repos first');
+        return;
+      }
+
+      const stats = {
+        total: currentRepos.length,
+        totalStars: currentRepos.reduce((sum, r) => sum + r.stargazers_count, 0),
+        averageStars: Math.floor(currentRepos.reduce((sum, r) => sum + r.stargazers_count, 0) / currentRepos.length)
+      };
+
+      const container = document.getElementById('statsContainer');
+      container.innerHTML = `
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">${stats.total}</div>
+            <div class="stat-label">Total Repos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">${formatNumber(stats.totalStars)}</div>
+            <div class="stat-label">Total Stars</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">${formatNumber(stats.averageStars)}</div>
+            <div class="stat-label">Avg Stars</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function demoClearStats() {
+      document.getElementById('statsContainer').innerHTML = '';
+    }
+
+    function demoSearchRepos() {
+      const query = document.getElementById('searchQuery').value.trim();
+      if (!query || currentRepos.length === 0) return;
+      
+      const filtered = currentRepos.filter(r =>
+        r.name.toLowerCase().includes(query.toLowerCase()) ||
+        (r.description && r.description.toLowerCase().includes(query.toLowerCase()))
+      );
+      renderRepos(filtered, '#searchContainer');
+    }
+
+    function demoGroupLanguages() {
+      if (currentRepos.length === 0) {
+        alert('Fetch repos first');
+        return;
+      }
+
+      const grouped = {};
+      currentRepos.forEach(repo => {
+        const lang = repo.language || 'No Language';
+        if (!grouped[lang]) grouped[lang] = [];
+        grouped[lang].push(repo);
+      });
+
+      const container = document.getElementById('groupContainer');
+      container.innerHTML = '';
+      Object.entries(grouped).forEach(([lang, repos]) => {
+        const section = document.createElement('div');
+        section.innerHTML = `<h3>${lang} (${repos.length})</h3>`;
+        const reposList = document.createElement('div');
+        repos.forEach(repo => {
+          const item = document.createElement('div');
+          item.className = 'repo-item';
+          item.innerHTML = `<div class="repo-name">${repo.name}</div>⭐ ${formatNumber(repo.stargazers_count)}`;
+          reposList.appendChild(item);
+        });
+        container.appendChild(section);
+        container.appendChild(reposList);
+      });
+    }
+
+    function demoClearGrouped() {
+      document.getElementById('groupContainer').innerHTML = '';
+    }
+
+    async function demoPageRepos(page) {
+      const username = document.getElementById('userSearch').value.trim() || 'torvalds';
+      const container = document.getElementById('pageContainer');
+      container.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}/repos?page=${page}&per_page=10`, {
+          headers: { 'User-Agent': 'GitHub-Repos-Demo' }
+        });
+        if (!response.ok) throw new Error('Error loading page');
+        const repos = await response.json();
+        renderRepos(repos, '#pageContainer', 10);
+      } catch (error) {
+        container.innerHTML = `<p style="color: red;">${error.message}</p>`;
+      }
+    }
+
+    async function demoRepoDetails() {
+      const owner = document.getElementById('ownerSearch').value.trim();
+      const repo = document.getElementById('repoNameSearch').value.trim();
+      if (!owner || !repo) return;
+
+      const container = document.getElementById('detailContainer');
+      container.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+      try {
+        const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+          headers: { 'User-Agent': 'GitHub-Repos-Demo' }
+        });
+        if (!response.ok) throw new Error('Repository not found');
+        const data = await response.json();
+        container.innerHTML = `
+          <div class="repo-item" style="background: linear-gradient(135deg, #f9f9f9 0%, white 100%); border: 2px solid #667eea;">
+            <div class="repo-name">${data.name}</div>
+            <div class="repo-description">${data.description || 'No description'}</div>
+            <div class="repo-meta">
+              <div class="meta-item">⭐ ${formatNumber(data.stargazers_count)}</div>
+              <div class="meta-item">🔀 ${formatNumber(data.forks_count)}</div>
+              <div class="meta-item">👁️ ${formatNumber(data.watchers_count)}</div>
+              ${data.language ? `<div class="meta-item">💻 ${data.language}</div>` : ''}
+            </div>
+          </div>
+        `;
+      } catch (error) {
+        container.innerHTML = `<p style="color: red;">${error.message}</p>`;
+      }
+    }
+
+    document.getElementById('userSearch')?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') demoFetchRepos();
+    });
+  </script>
+</body>
+</html>

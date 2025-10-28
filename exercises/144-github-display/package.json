@@ -1,0 +1,17 @@
+{
+  "name": "144-github-display",
+  "version": "1.0.0",
+  "description": "GitHub API integration - Display user profile information",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": ["github", "api", "display", "ui", "profile"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}

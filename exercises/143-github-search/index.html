@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 143: GitHub User Search</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 2.5em;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 1.1em;
+    }
+
+    .search-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      flex: 1;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    button {
+      padding: 12px 24px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #5568d3;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .validation-message {
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      display: none;
+      font-size: 0.9em;
+    }
+
+    .validation-message.error {
+      display: block;
+      background: #fee;
+      border: 1px solid #fcc;
+      color: #c33;
+    }
+
+    .validation-message.success {
+      display: block;
+      background: #efe;
+      border: 1px solid #cfc;
+      color: #3c3;
+    }
+
+    .demo-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .demo-section h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+
+    .demo-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .demo-buttons button {
+      background: #667eea;
+      padding: 10px 16px;
+      font-size: 0.9em;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .loading.active {
+      display: block;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border: 3px solid #f0f0f0;
+      border-top-color: #667eea;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .output-section {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 20px;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.9em;
+      max-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border: 1px solid #e0e0e0;
+    }
+
+    .output-section:empty::before {
+      content: 'Results will appear here...';
+      color: #999;
+    }
+
+    .error-output {
+      color: #c33;
+      font-weight: bold;
+    }
+
+    .success-output {
+      color: #3c3;
+    }
+
+    .user-card {
+      background: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 15px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .user-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #e0e0e0;
+    }
+
+    .user-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .user-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .user-info-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user-info-label {
+      font-size: 0.8em;
+      color: #999;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .user-info-value {
+      font-size: 1em;
+      color: #333;
+      margin-top: 4px;
+    }
+
+    .cache-status {
+      background: #f0f8ff;
+      border-left: 4px solid #667eea;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin-top: 15px;
+      font-size: 0.9em;
+    }
+
+    .cache-status.cached {
+      background: #f0fff0;
+      border-left-color: #3c3;
+    }
+
+    code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.9em;
+      font-family: 'Monaco', 'Courier New', monospace;
+    }
+
+    .info-box {
+      background: #f9f9f9;
+      border-left: 4px solid #667eea;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .demo-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .user-card {
+        grid-template-columns: 1fr;
+      }
+
+      .user-info {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔍 GitHub User Search</h1>
+      <p class="subtitle">Learn GitHub API integration by building user search functionality</p>
+    </header>
+
+    <!-- Section 1: Basic User Search -->
+    <div class="demo-section">
+      <h2>1. Basic User Search</h2>
+      <div class="info-box">
+        Learn to search GitHub users by username using the GitHub REST API. The API returns comprehensive user profile data including name, avatar, bio, and statistics.
+      </div>
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="basicSearch" 
+          placeholder="Enter GitHub username (e.g., torvalds, gvanrossum, octocat)"
+        >
+        <button onclick="demoBasicSearch()">Search User</button>
+      </div>
+      <div class="validation-message" id="basicValidation"></div>
+      <div class="loading" id="basicLoading">
+        <div class="spinner"></div>
+        <p>Searching GitHub...</p>
+      </div>
+      <div class="output-section" id="basicOutput"></div>
+    </div>
+
+    <!-- Section 2: URL Building -->
+    <div class="demo-section">
+      <h2>2. API URL Construction</h2>
+      <div class="info-box">
+        Understand how to construct GitHub API URLs with query parameters. This is essential for building flexible API requests.
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoBuildUrl('torvalds', {})">Basic URL: torvalds</button>
+        <button onclick="demoBuildUrl('gvanrossum', { type: 'all' })">With Parameters</button>
+        <button onclick="demoBuildUrl('octocat', { per_page: 100, sort: 'updated' })">Multiple Params</button>
+      </div>
+      <div class="output-section" id="urlOutput"></div>
+    </div>
+
+    <!-- Section 3: Username Validation -->
+    <div class="demo-section">
+      <h2>3. Username Validation</h2>
+      <div class="info-box">
+        Validate GitHub usernames before making API requests. GitHub usernames must be 1-39 characters, alphanumeric with hyphens only.
+      </div>
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="validateInput" 
+          placeholder="Enter username to validate"
+        >
+        <button onclick="demoValidateUsername()">Validate</button>
+      </div>
+      <div class="output-section" id="validateOutput"></div>
+    </div>
+
+    <!-- Section 4: Response Formatting -->
+    <div class="demo-section">
+      <h2>4. API Response Formatting</h2>
+      <div class="info-box">
+        Learn to format raw API responses into consistent object structures. Add computed fields and handle missing data gracefully.
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoFormatResponse('complete')">Format Complete Response</button>
+        <button onclick="demoFormatResponse('missing')">Handle Missing Fields</button>
+      </div>
+      <div class="output-section" id="formatOutput"></div>
+    </div>
+
+    <!-- Section 5: Response Validation -->
+    <div class="demo-section">
+      <h2>5. API Response Validation</h2>
+      <div class="info-box">
+        Validate API responses to ensure they contain expected fields and data types before using them in your application.
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoCheckResponse('valid')">Check Valid Response</button>
+        <button onclick="demoCheckResponse('invalid')">Check Invalid Response</button>
+        <button onclick="demoCheckResponse('missing')">Check Missing Fields</button>
+      </div>
+      <div class="output-section" id="checkOutput"></div>
+    </div>
+
+    <!-- Section 6: Caching System -->
+    <div class="demo-section">
+      <h2>6. User Data Caching</h2>
+      <div class="info-box">
+        Implement caching to store user data locally and reduce API calls. This improves performance and respects rate limits.
+      </div>
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="cacheInput" 
+          placeholder="Enter username to cache"
+        >
+        <button onclick="demoCacheUser()">Cache User</button>
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoGetCached()">Get Cached Users</button>
+        <button onclick="demoClearCache()">Clear Cache</button>
+      </div>
+      <div class="output-section" id="cacheOutput"></div>
+    </div>
+
+    <!-- Section 7: Multiple Users Search -->
+    <div class="demo-section">
+      <h2>7. Search Multiple Users</h2>
+      <div class="info-box">
+        Use Promise.all() to search multiple GitHub users in parallel. This demonstrates efficient concurrent API requests.
+      </div>
+      <div class="demo-buttons">
+        <button onclick="demoMultipleUsers(['torvalds', 'gvanrossum'])">Linux & Python Creators</button>
+        <button onclick="demoMultipleUsers(['octocat', 'mojombo', 'defunkt'])">GitHub Legends</button>
+        <button onclick="demoMultipleUsers(['torvalds', 'gvanrossum', 'octocat', 'mojombo'])">All Combined</button>
+      </div>
+      <div class="loading" id="multipleLoading">
+        <div class="spinner"></div>
+        <p>Searching multiple users...</p>
+      </div>
+      <div class="output-section" id="multipleOutput"></div>
+    </div>
+  </div>
+
+  <script>
+    // Mock functions for demonstration (students will implement real versions)
+    
+    function buildGithubUrl(username, options = {}) {
+      let url = `https://api.github.com/users/${username}`;
+      const params = new URLSearchParams(options);
+      if (params.toString()) {
+        url += `?${params.toString()}`;
+      }
+      return url;
+    }
+
+    function validateUsername(username) {
+      if (!username || username.trim() === '') {
+        return { isValid: false, error: 'Username cannot be empty' };
+      }
+      if (username.includes(' ')) {
+        return { isValid: false, error: 'Username contains spaces' };
+      }
+      if (!/^[a-zA-Z0-9-]+$/.test(username)) {
+        return { isValid: false, error: 'Username contains invalid characters' };
+      }
+      if (username.length > 39) {
+        return { isValid: false, error: 'Username exceeds 39 characters' };
+      }
+      return { isValid: true, error: null };
+    }
+
+    function formatApiResponse(response) {
+      return {
+        login: response.login,
+        name: response.name || response.login,
+        avatar_url: response.avatar_url,
+        bio: response.bio || 'No bio available',
+        location: response.location || 'Not specified',
+        followers: response.followers || 0,
+        following: response.following || 0,
+        public_repos: response.public_repos || 0,
+        profile_url: `https://github.com/${response.login}`
+      };
+    }
+
+    function checkApiResponse(response) {
+      if (!response || typeof response !== 'object') {
+        return { isValid: false, error: 'Response must be an object' };
+      }
+      if (!response.login || typeof response.login !== 'string' || response.login === '') {
+        return { isValid: false, error: 'Response missing valid login field' };
+      }
+      if (!response.avatar_url) {
+        return { isValid: false, error: 'Response missing avatar_url field' };
+      }
+      return { isValid: true, error: null };
+    }
+
+    // Cache system
+    const userCache = {};
+
+    function cacheUserData(username, data) {
+      userCache[username] = data;
+    }
+
+    function getCachedUser(username) {
+      return userCache[username] || null;
+    }
+
+    function clearUserCache() {
+      Object.keys(userCache).forEach(key => delete userCache[key]);
+    }
+
+    // Demo functions
+
+    function showLoading(selector) {
+      document.querySelector(selector).classList.add('active');
+    }
+
+    function hideLoading(selector) {
+      document.querySelector(selector).classList.remove('active');
+    }
+
+    function displayOutput(selector, text, isError = false) {
+      const el = document.querySelector(selector);
+      el.textContent = text;
+      if (isError) {
+        el.className = 'output-section error-output';
+      } else {
+        el.className = 'output-section success-output';
+      }
+    }
+
+    function displayValidation(selector, message, isError = false) {
+      const el = document.querySelector(selector);
+      el.textContent = message;
+      el.className = 'validation-message ' + (isError ? 'error' : 'success');
+    }
+
+    async function demoBasicSearch() {
+      const username = document.getElementById('basicSearch').value.trim();
+      const validation = validateUsername(username);
+
+      if (!validation.isValid) {
+        displayValidation('#basicValidation', validation.error, true);
+        return;
+      }
+
+      displayValidation('#basicValidation', '', false);
+      showLoading('#basicLoading');
+
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}`, {
+          headers: { 'User-Agent': 'GitHub-User-Search-Demo' }
+        });
+
+        if (!response.ok) {
+          throw new Error(`User not found (Status: ${response.status})`);
+        }
+
+        const data = await response.json();
+        const formatted = formatApiResponse(data);
+        cacheUserData(username, formatted);
+
+        displayOutput('#basicOutput', JSON.stringify(formatted, null, 2));
+        displayValidation('#basicValidation', `✓ User "${username}" found and cached!`, false);
+      } catch (error) {
+        displayOutput('#basicOutput', `Error: ${error.message}`, true);
+      } finally {
+        hideLoading('#basicLoading');
+      }
+    }
+
+    function demoBuildUrl(username, options) {
+      const url = buildGithubUrl(username, options);
+      displayOutput('#urlOutput', `Generated URL:\n${url}\n\nQuery Parameters:\n${JSON.stringify(options, null, 2)}`);
+    }
+
+    function demoValidateUsername() {
+      const username = document.getElementById('validateInput').value.trim();
+      const validation = validateUsername(username);
+
+      const output = `Username: "${username}"\nValid: ${validation.isValid}\n${validation.error ? `Error: ${validation.error}` : 'Username format is correct'}`;
+      displayOutput('#validateOutput', output, !validation.isValid);
+    }
+
+    function demoFormatResponse(type) {
+      const mockResponse = {
+        login: 'octocat',
+        name: 'The Octocat',
+        avatar_url: 'https://avatars.githubusercontent.com/u/1?v=4',
+        bio: 'There once was...',
+        location: 'San Francisco',
+        followers: 3938,
+        following: 9,
+        public_repos: 8
+      };
+
+      if (type === 'missing') {
+        mockResponse.name = null;
+        mockResponse.location = null;
+      }
+
+      const formatted = formatApiResponse(mockResponse);
+      displayOutput('#formatOutput', JSON.stringify(formatted, null, 2));
+    }
+
+    function demoCheckResponse(type) {
+      let response = { login: 'octocat', avatar_url: 'https://...' };
+
+      if (type === 'invalid') {
+        response = 'not an object';
+      } else if (type === 'missing') {
+        response = { login: 'octocat' }; // missing avatar_url
+      }
+
+      const check = checkApiResponse(response);
+      const output = `Response: ${JSON.stringify(response)}\nValid: ${check.isValid}\n${check.error ? `Error: ${check.error}` : 'Response structure is valid'}`;
+      displayOutput('#checkOutput', output, !check.isValid);
+    }
+
+    async function demoCacheUser() {
+      const username = document.getElementById('cacheInput').value.trim();
+      const validation = validateUsername(username);
+
+      if (!validation.isValid) {
+        displayOutput('#cacheOutput', `Validation Error: ${validation.error}`, true);
+        return;
+      }
+
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}`, {
+          headers: { 'User-Agent': 'GitHub-User-Search-Demo' }
+        });
+
+        if (!response.ok) throw new Error('User not found');
+
+        const data = await response.json();
+        const formatted = formatApiResponse(data);
+        cacheUserData(username, formatted);
+
+        const output = `✓ Cached user: "${username}"\n\n${JSON.stringify(formatted, null, 2)}`;
+        displayOutput('#cacheOutput', output);
+      } catch (error) {
+        displayOutput('#cacheOutput', `Error: ${error.message}`, true);
+      }
+    }
+
+    function demoGetCached() {
+      const cached = Object.entries(userCache);
+      if (cached.length === 0) {
+        displayOutput('#cacheOutput', 'Cache is empty. Search for users first!');
+        return;
+      }
+
+      let output = `Cached Users (${cached.length}):\n\n`;
+      cached.forEach(([username, data]) => {
+        output += `${username}: ${data.name} (${data.followers} followers)\n`;
+      });
+
+      displayOutput('#cacheOutput', output);
+    }
+
+    function demoClearCache() {
+      clearUserCache();
+      displayOutput('#cacheOutput', '✓ Cache cleared successfully!');
+    }
+
+    async function demoMultipleUsers(usernames) {
+      showLoading('#multipleLoading');
+
+      try {
+        const responses = await Promise.all(
+          usernames.map(username =>
+            fetch(`https://api.github.com/users/${username}`, {
+              headers: { 'User-Agent': 'GitHub-User-Search-Demo' }
+            })
+              .then(r => {
+                if (!r.ok) throw new Error(`Failed to fetch ${username}`);
+                return r.json();
+              })
+              .then(data => formatApiResponse(data))
+          )
+        );
+
+        let output = `Found ${responses.length} users:\n\n`;
+        responses.forEach(user => {
+          output += `${user.name} (@${user.login})\n`;
+          output += `  Followers: ${user.followers} | Repos: ${user.public_repos}\n`;
+          output += `  ${user.profile_url}\n\n`;
+        });
+
+        displayOutput('#multipleOutput', output);
+      } catch (error) {
+        displayOutput('#multipleOutput', `Error: ${error.message}`, true);
+      } finally {
+        hideLoading('#multipleLoading');
+      }
+    }
+
+    // Allow Enter key in search boxes
+    document.getElementById('basicSearch')?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') demoBasicSearch();
+    });
+    document.getElementById('validateInput')?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') demoValidateUsername();
+    });
+    document.getElementById('cacheInput')?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') demoCacheUser();
+    });
+  </script>
+</body>
+</html>

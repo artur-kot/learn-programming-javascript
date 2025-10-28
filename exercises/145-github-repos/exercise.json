@@ -1,0 +1,38 @@
+{
+  "id": 145,
+  "name": "GitHub Repositories",
+  "series": 29,
+  "difficulty": "intermediate",
+  "description": "Fetch and display GitHub user repositories with sorting and filtering",
+  "learningOutcomes": [
+    "Fetch repository data from GitHub API",
+    "Handle paginated API responses",
+    "Sort repositories by different criteria",
+    "Filter repositories by language",
+    "Calculate repository statistics",
+    "Display repositories in list format",
+    "Handle large data sets efficiently"
+  ],
+  "prerequisites": [
+    "GitHub User Search (Exercise 143)",
+    "GitHub User Display (Exercise 144)"
+  ],
+  "functions": [
+    "fetchUserRepositories(username)",
+    "sortRepositories(repos, sortBy)",
+    "filterByLanguage(repos, language)",
+    "calculateRepoStats(repos)",
+    "formatRepoData(repo)",
+    "createRepoElement(repo)",
+    "renderRepositories(repos, containerId)",
+    "getRepositoriesByPage(username, page, perPage)",
+    "searchRepositories(repos, query)",
+    "groupRepositoriesByLanguage(repos)"
+  ],
+  "estimatedTime": "90 minutes",
+  "resources": [
+    "GitHub Repositories Endpoint",
+    "Pagination in REST APIs",
+    "Sorting and Filtering Data"
+  ]
+}

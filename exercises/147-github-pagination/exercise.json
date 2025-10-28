@@ -1,0 +1,40 @@
+{
+  "id": 147,
+  "name": "GitHub Pagination",
+  "series": 29,
+  "difficulty": "advanced",
+  "description": "Implement pagination for GitHub API results with state management and infinite scroll",
+  "learningOutcomes": [
+    "Implement pagination controls",
+    "Calculate total pages from API data",
+    "Navigate between pages",
+    "Handle infinite scroll patterns",
+    "Manage pagination state",
+    "Optimize API requests with pagination",
+    "Format pagination information",
+    "Create accessible pagination UI"
+  ],
+  "prerequisites": [
+    "GitHub Filter (Exercise 146)",
+    "Array slicing and state management",
+    "Pagination patterns"
+  ],
+  "functions": [
+    "buildPaginationControls(currentPage, totalPages, onPageChange)",
+    "calculateTotalPages(totalItems, itemsPerPage)",
+    "getCurrentPage(repos, page, itemsPerPage)",
+    "goToPage(repos, page, itemsPerPage)",
+    "nextPage(currentPage, totalPages)",
+    "prevPage(currentPage)",
+    "getPageItems(items, page, pageSize)",
+    "renderPagination(page, totalPages, onPageClick)",
+    "formatPaginationInfo(page, totalPages, totalItems, itemsPerPage)",
+    "createPageButtons(currentPage, totalPages, maxVisible)"
+  ],
+  "estimatedTime": "90 minutes",
+  "resources": [
+    "Pagination Patterns",
+    "State Management in Pagination",
+    "Infinite Scroll Implementation"
+  ]
+}
