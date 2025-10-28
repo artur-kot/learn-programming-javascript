@@ -1,0 +1,22 @@
+{
+  "id": "127-factory-advanced",
+  "number": 127,
+  "title": "Counter Factory - Advanced Features",
+  "series": "25-counter-factory",
+  "seriesNumber": 5,
+  "topic": "Closures and Factory Functions",
+  "description": "Add advanced features to factory functions: getters, setters, reset, and callbacks.",
+  "concepts": [
+    "Getters and setters",
+    "Advanced closures",
+    "Callbacks",
+    "Validation",
+    "State history",
+    "Computed properties",
+    "Event listeners"
+  ],
+  "difficulty": "advanced",
+  "prerequisites": [
+    "126-factory-module"
+  ]
+}

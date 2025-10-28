@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter Factory - Module Pattern</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
+    .demo-section {
+      background: #f5f5f5;
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .demo-section h2 {
+      color: #667eea;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .code-block {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 15px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .help-section {
+      background: #f5f5f5;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .help-section h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .help-section h3 {
+      color: #667eea;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .help-section p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .info-box {
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+
+    .info-box strong {
+      color: #1565c0;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      background: #667eea;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+    }
+
+    .output {
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+      border: 2px solid #ddd;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📦 Module Pattern with Closures</h1>
+    <p class="subtitle">Organize Factory Functions with the Revealing Module Pattern</p>
+
+    <div class="help-section">
+      <h2>Understanding the Module Pattern</h2>
+
+      <h3>What is the Module Pattern?</h3>
+      <p>
+        The module pattern is a way to organize and encapsulate code using closures and IIFE
+        (Immediately Invoked Function Expression). It creates a private scope and reveals only
+        what you want to be public.
+      </p>
+
+      <div class="code-block">
+// Module Pattern Structure
+const MyModule = (() => {
+  // Private variables - only accessible inside the module
+  let privateData = 'secret';
+  const privateArray = [];
+
+  // Private functions
+  function privateHelper() {
+    return 'only inside';
+  }
+
+  // Public interface (revealed)
+  return {
+    publicMethod() {
+      return privateData;
+    },
+
+    anotherPublic() {
+      return privateHelper();
+    }
+  };
+})();
+
+// Usage
+console.log(MyModule.publicMethod());  // ✅ Works
+// console.log(MyModule.privateData);  // ❌ undefined
+// console.log(MyModule.privateHelper()); // ❌ undefined
+      

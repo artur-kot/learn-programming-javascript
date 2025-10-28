@@ -1,0 +1,22 @@
+{
+  "id": "124-factory-private",
+  "number": 124,
+  "title": "Counter Factory - Private Variables",
+  "series": "25-counter-factory",
+  "seriesNumber": 2,
+  "topic": "Closures and Factory Functions",
+  "description": "Use closures to create truly private variables and methods in factory functions.",
+  "concepts": [
+    "Private variables",
+    "Encapsulation",
+    "Public interface",
+    "Closure scope",
+    "Data protection",
+    "Private methods",
+    "Information hiding"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "123-factory-closure"
+  ]
+}

@@ -404,15 +404,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a counter creation system to learn closures and scope*
 
 <!-- TODO: to refine -->
-123. [ ] **Counter Factory - Basic Closure** - Create function that returns counter ([exercise 123](./exercises/123-factory-closure))
+123. [x] **Counter Factory - Basic Closure** - Create function that returns counter ([exercise 123](./exercises/123-factory-closure))
 <!-- TODO: to refine -->
-124. [ ] **Counter Factory - Private Variables** - Use closures for private count value ([exercise 124](./exercises/124-factory-private))
+124. [x] **Counter Factory - Private Variables** - Use closures for private count value ([exercise 124](./exercises/124-factory-private))
 <!-- TODO: to refine -->
-125. [ ] **Counter Factory - Multiple Counters** - Create independent counter instances ([exercise 125](./exercises/125-factory-multiple))
+125. [x] **Counter Factory - Multiple Counters** - Create independent counter instances ([exercise 125](./exercises/125-factory-multiple))
 <!-- TODO: to refine -->
-126. [ ] **Counter Factory - Module Pattern** - Organize with revealing module pattern ([exercise 126](./exercises/126-factory-module))
+126. [x] **Counter Factory - Module Pattern** - Organize with revealing module pattern ([exercise 126](./exercises/126-factory-module))
 <!-- TODO: to refine -->
-127. [ ] **Counter Factory - Advanced Features** - Add getters, setters, and reset ([exercise 127](./exercises/127-factory-advanced))
+127. [x] **Counter Factory - Advanced Features** - Add getters, setters, and reset ([exercise 127](./exercises/127-factory-advanced))
 
 ### Series 26: RPG Character System
 *Build a game character creator to master OOP and classes*
