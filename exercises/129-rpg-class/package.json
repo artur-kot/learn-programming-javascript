@@ -1,0 +1,14 @@
+{
+  "name": "129-rpg-class",
+  "version": "1.0.0",
+  "description": "RPG Character System - ES6 Class Syntax",
+  "main": "129-rpg-class.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 129-rpg-class.test.js",
+    "test:watch": "node --test --watch 129-rpg-class.test.js"
+  },
+  "keywords": ["rpg", "class", "oop", "es6"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

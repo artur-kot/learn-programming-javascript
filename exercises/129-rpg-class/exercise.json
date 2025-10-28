@@ -1,0 +1,31 @@
+{
+  "id": 129,
+  "series": 26,
+  "title": "RPG Character System - ES6 Class Syntax",
+  "description": "Convert constructor functions to modern ES6 class syntax. Learn how classes work, class syntax fundamentals, and the relationship between classes and constructors.",
+  "difficulty": "intermediate",
+  "skills": [
+    "ES6 classes",
+    "class constructors",
+    "instance properties",
+    "class syntax",
+    "class vs constructor functions"
+  ],
+  "prerequisites": [
+    "128-rpg-constructor"
+  ],
+  "concepts": {
+    "class_syntax": "Modern ES6+ syntax for defining classes and creating objects",
+    "class_constructor": "Special method that runs when creating new instances",
+    "instance_properties": "Properties unique to each instance created from the class",
+    "class_vs_constructor": "ES6 classes are syntactic sugar over constructor functions"
+  },
+  "learning_outcomes": [
+    "Understand ES6 class syntax and its relationship to constructors",
+    "Create classes with constructor methods",
+    "Initialize instance properties in classes",
+    "Create specialized classes for different character types",
+    "Compare constructor functions vs class syntax"
+  ],
+  "estimated_time": "40 minutes"
+}

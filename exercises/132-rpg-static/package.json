@@ -1,0 +1,14 @@
+{
+  "name": "132-rpg-static",
+  "version": "1.0.0",
+  "description": "RPG Character System - Static Methods",
+  "main": "132-rpg-static.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 132-rpg-static.test.js",
+    "test:watch": "node --test --watch 132-rpg-static.test.js"
+  },
+  "keywords": ["rpg", "static", "class methods", "factories"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

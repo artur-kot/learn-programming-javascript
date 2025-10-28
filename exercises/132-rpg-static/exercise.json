@@ -1,0 +1,32 @@
+{
+  "id": 132,
+  "series": 26,
+  "title": "RPG Character System - Static Methods",
+  "description": "Master static methods - class-level methods that don't require instances. Use static methods for factories, utilities, and class-level operations.",
+  "difficulty": "intermediate",
+  "skills": [
+    "static methods",
+    "class-level operations",
+    "factory patterns",
+    "utility methods",
+    "class properties"
+  ],
+  "prerequisites": [
+    "131-rpg-inheritance"
+  ],
+  "concepts": {
+    "static_methods": "Methods that belong to the class itself, not instances",
+    "static_keyword": "Keyword to define class-level methods and properties",
+    "class_level_operations": "Operations that don't require instance state",
+    "factory_pattern": "Using static methods to create and configure instances",
+    "utility_methods": "Class methods for shared calculations and helpers"
+  },
+  "learning_outcomes": [
+    "Understand static methods and their use cases",
+    "Use static keyword for class-level operations",
+    "Create factory methods with static functions",
+    "Implement class-level utilities and helpers",
+    "Distinguish between instance and static methods"
+  ],
+  "estimated_time": "45 minutes"
+}

@@ -1,0 +1,31 @@
+{
+  "id": 128,
+  "series": 26,
+  "title": "RPG Character System - Constructor Function",
+  "description": "Create an RPG character using constructor functions. Learn how constructor functions work, instance creation, and property initialization.",
+  "difficulty": "intermediate",
+  "skills": [
+    "constructor functions",
+    "function invocation with 'new'",
+    "instance properties",
+    "this keyword",
+    "object-oriented programming basics"
+  ],
+  "prerequisites": [
+    "127-factory-advanced"
+  ],
+  "concepts": {
+    "constructor_functions": "Functions that create and initialize objects when called with 'new' keyword",
+    "this_keyword": "Refers to the object being created or the object that called the method",
+    "new_keyword": "Creates a new instance and sets up the prototype chain",
+    "instance_properties": "Properties unique to each object created by the constructor"
+  },
+  "learning_outcomes": [
+    "Understand constructor functions as object creation pattern",
+    "Use the 'new' keyword to create instances",
+    "Work with 'this' keyword to set instance properties",
+    "Compare constructor functions with factory functions",
+    "Initialize objects with proper state"
+  ],
+  "estimated_time": "45 minutes"
+}

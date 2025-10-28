@@ -418,15 +418,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a game character creator to master OOP and classes*
 
 <!-- TODO: to refine -->
-128. [ ] **RPG - Constructor Function** - Create character using constructor ([exercise 128](./exercises/128-rpg-constructor))
+128. [x] **RPG - Constructor Function** - Create character using constructor ([exercise 128](./exercises/128-rpg-constructor))
 <!-- TODO: to refine -->
-129. [ ] **RPG - Class Syntax** - Convert to modern class syntax ([exercise 129](./exercises/129-rpg-class))
+129. [x] **RPG - Class Syntax** - Convert to modern class syntax ([exercise 129](./exercises/129-rpg-class))
 <!-- TODO: to refine -->
-130. [ ] **RPG - Methods and Properties** - Add attack, defend, heal methods ([exercise 130](./exercises/130-rpg-methods))
+130. [x] **RPG - Methods and Properties** - Add attack, defend, heal methods ([exercise 130](./exercises/130-rpg-methods))
 <!-- TODO: to refine -->
-131. [ ] **RPG - Class Inheritance** - Create Warrior, Mage subclasses ([exercise 131](./exercises/131-rpg-inheritance))
+131. [x] **RPG - Class Inheritance** - Create Warrior, Mage subclasses ([exercise 131](./exercises/131-rpg-inheritance))
 <!-- TODO: to refine -->
-132. [ ] **RPG - Static Methods** - Add class-level utility methods ([exercise 132](./exercises/132-rpg-static))
+132. [x] **RPG - Static Methods** - Add class-level utility methods ([exercise 132](./exercises/132-rpg-static))
 
 ### Series 27: Data Pipeline
 *Build a data transformation system to practice functional programming*

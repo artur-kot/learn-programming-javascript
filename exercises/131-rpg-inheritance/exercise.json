@@ -1,0 +1,33 @@
+{
+  "id": 131,
+  "series": 26,
+  "title": "RPG Character System - Class Inheritance",
+  "description": "Master class inheritance using extends and super. Create specialized character subclasses (Warrior, Mage, Archer) that inherit from a base Character class.",
+  "difficulty": "intermediate",
+  "skills": [
+    "class inheritance",
+    "extends keyword",
+    "super keyword",
+    "method overriding",
+    "parent-child relationships",
+    "polymorphism basics"
+  ],
+  "prerequisites": [
+    "130-rpg-methods"
+  ],
+  "concepts": {
+    "inheritance": "Mechanism for classes to inherit properties and methods from parent classes",
+    "extends": "Keyword to create subclass that inherits from superclass",
+    "super": "Access parent class constructor and methods",
+    "method_override": "Subclass provides new implementation of parent method",
+    "polymorphism": "Different objects respond differently to same method call"
+  },
+  "learning_outcomes": [
+    "Understand class inheritance and parent-child relationships",
+    "Use extends to create subclasses",
+    "Use super to call parent constructor and methods",
+    "Override parent methods in subclasses",
+    "Implement polymorphism in game mechanics"
+  ],
+  "estimated_time": "50 minutes"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "128-rpg-constructor",
+  "version": "1.0.0",
+  "description": "RPG Character System - Constructor Functions",
+  "main": "128-rpg-constructor.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 128-rpg-constructor.test.js",
+    "test:watch": "node --test --watch 128-rpg-constructor.test.js"
+  },
+  "keywords": ["rpg", "constructor", "functions", "oop"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}
