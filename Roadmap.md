@@ -294,15 +294,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a productivity timer to learn timing functions*
 
 <!-- TODO: to refine -->
-88. [ ] **Pomodoro - Basic Countdown** - Use setTimeout for simple delay ([exercise 088](./exercises/088-pomodoro-settimeout))
+88. [x] **Pomodoro - Basic Countdown** - Use setTimeout for simple delay ([exercise 088](./exercises/088-pomodoro-settimeout))
 <!-- TODO: to refine -->
-89. [ ] **Pomodoro - Tick Every Second** - Use setInterval for countdown display ([exercise 089](./exercises/089-pomodoro-setinterval))
+89. [x] **Pomodoro - Tick Every Second** - Use setInterval for countdown display ([exercise 089](./exercises/089-pomodoro-setinterval))
 <!-- TODO: to refine -->
-90. [ ] **Pomodoro - Pause and Resume** - Clear and restart intervals ([exercise 090](./exercises/090-pomodoro-clear))
+90. [x] **Pomodoro - Pause and Resume** - Clear and restart intervals ([exercise 090](./exercises/090-pomodoro-clear))
 <!-- TODO: to refine -->
-91. [ ] **Pomodoro - Multiple Timers** - Manage work and break periods ([exercise 091](./exercises/091-pomodoro-multiple))
+91. [x] **Pomodoro - Multiple Timers** - Manage work and break periods ([exercise 091](./exercises/091-pomodoro-multiple))
 <!-- TODO: to refine -->
-92. [ ] **Pomodoro - Notification System** - Trigger alerts when timer completes ([exercise 092](./exercises/092-pomodoro-notify))
+92. [x] **Pomodoro - Notification System** - Trigger alerts when timer completes ([exercise 092](./exercises/092-pomodoro-notify))
 
 ### Series 19: Quote Fetcher
 *Build a random quote app to master promises and async/await*

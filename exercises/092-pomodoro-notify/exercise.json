@@ -1,0 +1,21 @@
+{
+  "id": "092-pomodoro-notify",
+  "number": 92,
+  "title": "Pomodoro Timer - Notification System",
+  "series": "18-pomodoro-timer",
+  "seriesNumber": 5,
+  "topic": "Events, Alerts, and Notifications",
+  "description": "Complete the Pomodoro timer with notifications. Add alerts when phases change and create a notification system.",
+  "concepts": [
+    "Notifications",
+    "Alerts and console output",
+    "Event emitters",
+    "Phase change events",
+    "Custom events",
+    "Callback patterns"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "091-pomodoro-multiple"
+  ]
+}

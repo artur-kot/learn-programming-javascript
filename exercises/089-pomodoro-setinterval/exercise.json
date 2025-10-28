@@ -1,0 +1,21 @@
+{
+  "id": "089-pomodoro-setinterval",
+  "number": 89,
+  "title": "Pomodoro Timer - Tick Every Second",
+  "series": "18-pomodoro-timer",
+  "seriesNumber": 2,
+  "topic": "setInterval and Repeated Execution",
+  "description": "Use setInterval to execute code repeatedly at fixed intervals. Build a countdown timer that ticks every second.",
+  "concepts": [
+    "setInterval function",
+    "Repeated execution",
+    "Countdown logic",
+    "Tracking elapsed time",
+    "Interval IDs",
+    "Timer state management"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "088-pomodoro-settimeout"
+  ]
+}

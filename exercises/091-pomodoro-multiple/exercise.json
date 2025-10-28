@@ -1,0 +1,21 @@
+{
+  "id": "091-pomodoro-multiple",
+  "number": 91,
+  "title": "Pomodoro Timer - Multiple Timers",
+  "series": "18-pomodoro-timer",
+  "seriesNumber": 4,
+  "topic": "Managing Multiple Timers",
+  "description": "Create a full Pomodoro cycle with work and break periods. Manage multiple timers and automatically transition between phases.",
+  "concepts": [
+    "Multiple independent timers",
+    "Phase transitions",
+    "Automatic cycling",
+    "State synchronization",
+    "Pomodoro methodology",
+    "Sequential timer management"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "090-pomodoro-clear"
+  ]
+}
