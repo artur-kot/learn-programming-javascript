@@ -1,0 +1,21 @@
+{
+  "id": "083-validator-try-catch",
+  "number": 83,
+  "title": "Form Validator - Try-Catch Basics",
+  "series": "17-form-validator",
+  "seriesNumber": 1,
+  "topic": "Error Handling Fundamentals",
+  "description": "Learn the fundamentals of error handling by wrapping validation logic in try-catch blocks. Create a basic form validator that gracefully handles errors.",
+  "concepts": [
+    "Try-catch blocks",
+    "Error objects",
+    "Error messages",
+    "Handling exceptions",
+    "Basic validation logic",
+    "Graceful error recovery"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "082-slug-regex"
+  ]
+}

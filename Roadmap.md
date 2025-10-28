@@ -258,15 +258,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a slug generator to master advanced string operations*
 
 <!-- TODO: to refine -->
-78. [ ] **Slug - Basic Conversion** - Convert title to lowercase with spaces replaced ([exercise 078](./exercises/078-slug-basic))
+78. [x] **Slug - Basic Conversion** - Convert title to lowercase with spaces replaced ([exercise 078](./exercises/078-slug-basic))
 <!-- TODO: to refine -->
-79. [ ] **Slug - Remove Special Characters** - Use replace to clean special characters ([exercise 079](./exercises/079-slug-replace))
+79. [x] **Slug - Remove Special Characters** - Use replace to clean special characters ([exercise 079](./exercises/079-slug-replace))
 <!-- TODO: to refine -->
-80. [ ] **Slug - Split and Join** - Convert string to array, clean, and rejoin ([exercise 080](./exercises/080-slug-split-join))
+80. [x] **Slug - Split and Join** - Convert string to array, clean, and rejoin ([exercise 080](./exercises/080-slug-split-join))
 <!-- TODO: to refine -->
-81. [ ] **Slug - Extract Parts** - Use string extraction methods (slice, substring) ([exercise 081](./exercises/081-slug-extract))
+81. [x] **Slug - Extract Parts** - Use string extraction methods (slice, substring) ([exercise 081](./exercises/081-slug-extract))
 <!-- TODO: to refine -->
-82. [ ] **Slug - Regex Pattern Matching** - Use regular expressions for advanced cleaning ([exercise 082](./exercises/082-slug-regex))
+82. [x] **Slug - Regex Pattern Matching** - Use regular expressions for advanced cleaning ([exercise 082](./exercises/082-slug-regex))
 
 ---
 
@@ -276,15 +276,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a form validation library to learn error handling*
 
 <!-- TODO: to refine -->
-83. [ ] **Validator - Try-Catch Basics** - Wrap validation in try-catch blocks ([exercise 083](./exercises/083-validator-try-catch))
+83. [x] **Validator - Try-Catch Basics** - Wrap validation in try-catch blocks ([exercise 083](./exercises/083-validator-try-catch))
 <!-- TODO: to refine -->
-84. [ ] **Validator - Custom Errors** - Throw specific errors for different validation failures ([exercise 084](./exercises/084-validator-custom-errors))
+84. [x] **Validator - Custom Errors** - Throw specific errors for different validation failures ([exercise 084](./exercises/084-validator-custom-errors))
 <!-- TODO: to refine -->
-85. [ ] **Validator - Finally Cleanup** - Use finally for cleanup and logging ([exercise 085](./exercises/085-validator-finally))
+85. [x] **Validator - Finally Cleanup** - Use finally for cleanup and logging ([exercise 085](./exercises/085-validator-finally))
 <!-- TODO: to refine -->
-86. [ ] **Validator - Error Messages** - Create user-friendly error message system ([exercise 086](./exercises/086-validator-messages))
+86. [x] **Validator - Error Messages** - Create user-friendly error message system ([exercise 086](./exercises/086-validator-messages))
 <!-- TODO: to refine -->
-87. [ ] **Validator - Debug Mode** - Add console debugging with table and group ([exercise 087](./exercises/087-validator-debug))
+87. [x] **Validator - Debug Mode** - Add console debugging with table and group ([exercise 087](./exercises/087-validator-debug))
 
 ---
 
