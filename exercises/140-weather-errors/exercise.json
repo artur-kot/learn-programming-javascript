@@ -1,0 +1,35 @@
+{
+  "id": 140,
+  "series": 28,
+  "title": "Weather Dashboard - Error Handling",
+  "description": "Learn comprehensive error handling for API requests. Handle network errors, validation, and graceful degradation.",
+  "difficulty": "intermediate",
+  "skills": [
+    "error handling",
+    "try-catch blocks",
+    "validation",
+    "error recovery",
+    "user feedback",
+    "logging"
+  ],
+  "prerequisites": [
+    "139-weather-json"
+  ],
+  "concepts": {
+    "try_catch": "Handle errors in async operations",
+    "error_types": "Different error categories",
+    "status_codes": "HTTP error responses",
+    "validation": "Check data before using",
+    "recovery": "Graceful fallback handling",
+    "logging": "Track errors for debugging"
+  },
+  "learning_outcomes": [
+    "Handle fetch and network errors",
+    "Validate API responses",
+    "Implement graceful error recovery",
+    "Provide useful error messages",
+    "Log errors for debugging",
+    "Build resilient applications"
+  ],
+  "estimated_time": "50 minutes"
+}

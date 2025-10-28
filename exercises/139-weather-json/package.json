@@ -1,0 +1,17 @@
+{
+  "name": "139-weather-json",
+  "version": "1.0.0",
+  "description": "Weather Dashboard - JSON Parsing",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run 139-weather-json.test.js",
+    "test:watch": "vitest watch 139-weather-json.test.js"
+  },
+  "dependencies": {
+    "vitest": "^1.0.0"
+  },
+  "keywords": ["json", "parsing", "api", "data extraction"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

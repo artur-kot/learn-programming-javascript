@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard - Multiple Cities</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 2.5em;
+    }
+
+    .subtitle {
+      color: #666;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 0.95em;
+    }
+
+    .demo-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+    }
+
+    .demo-section h2 {
+      color: #667eea;
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .demo-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #667eea;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 12px 25px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .output {
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 15px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      max-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    tr:hover {
+      background: #f5f5f5;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .stat-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .stat-card .label {
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .stat-card .value {
+      font-size: 2em;
+      font-weight: 700;
+    }
+
+    .info-box {
+      background: #e3f2fd;
+      border-left: 4px solid #2196F3;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      font-size: 0.95em;
+      color: #1565c0;
+    }
+
+    .console-output {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85em;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+
+    .console-line {
+      margin: 4px 0;
+    }
+
+    .console-info {
+      color: #9cdcfe;
+    }
+
+    .console-success {
+      color: #89d185;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌍 Multi-City Weather Dashboard</h1>
+    <p class="subtitle">Fetch and compare weather for multiple cities</p>
+
+    <!-- Fetch Multiple Cities -->
+    <div class="demo-section">
+      <h2>Fetch Multiple Cities</h2>
+      <button onclick="runFetchMultiple()">Fetch 5 Cities</button>
+      <div id="multiOutput" class="output">Ready...</div>
+    </div>
+
+    <!-- Find Hottest -->
+    <div class="demo-section">
+      <h2>Find Hottest City</h2>
+      <button onclick="runFindHottest()">Find Hottest</button>
+      <div id="hottestOutput" class="output">Ready...</div>
+    </div>
+
+    <!-- Find Coldest -->
+    <div class="demo-section">
+      <h2>Find Coldest City</h2>
+      <button onclick="runFindColdest()">Find Coldest</button>
+      <div id="coldestOutput" class="output">Ready...</div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="demo-section">
+      <h2>Weather Statistics</h2>
+      <button onclick="runCalculateStats()">Calculate Stats</button>
+      <div id="statsOutput" class="stat-box"></div>
+    </div>
+
+    <!-- Sorting -->
+    <div class="demo-section">
+      <h2>Sort by Temperature</h2>
+      <button onclick="runSortCities()">Sort Cities</button>
+      <div id="sortOutput" class="output">Ready...</div>
+    </div>
+
+    <!-- Grouping -->
+    <div class="demo-section">
+      <h2>Group by Weather Condition</h2>
+      <button onclick="runGroupCities()">Group by Condition</button>
+      <div id="groupOutput" class="output">Ready...</div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="demo-section">
+      <h2>Comparison Table</h2>
+      <button onclick="runComparisonTable()">Show Table</button>
+      <div id="tableOutput"></div>
+    </div>
+
+    <!-- Comprehensive Comparison -->
+    <div class="demo-section">
+      <h2>Complete Weather Comparison</h2>
+      <button onclick="runCompleteComparison()">Full Comparison</button>
+      <div id="comparisonOutput" class="output">Ready...</div>
+    </div>
+
+    <hr>
+
+    <!-- Learning Resources -->
+    <div class="info-box">
+      <strong>📚 Key Concepts:</strong>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>Promise.all()</strong> - Wait for multiple promises concurrently</li>
+        <li><strong>Parallel execution</strong> - Fetch multiple URLs simultaneously</li>
+        <li><strong>Data aggregation</strong> - Combine results from multiple sources</li>
+        <li><strong>Array methods</strong> - map, filter, reduce, sort, find</li>
+        <li><strong>Comparison logic</strong> - Find extremes and statistics</li>
+        <li><strong>Error handling</strong> - Promise.allSettled for partial failures</li>
+      </ul>
+    </div>
+
+    <!-- Console Output -->
+    <div style="margin-top: 30px;">
+      <h2 style="color: #333; margin-bottom: 15px;">📊 Console Output</h2>
+      <div class="console-output" id="console">
+        <div class="console-line console-info">Console ready. Run demos to see output...</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      fetchMultipleCities,
+      findHottestCity,
+      findColdestCity,
+      calculateAverageTemperature,
+      compareTemperatures,
+      sortCitiesByTemperature,
+      groupByWeatherCondition,
+      createComparisonTable,
+      fetchCitiesRobust,
+      buildWeatherComparisonObject
+    } from './142-weather-multiple.js';
+
+    const consoleEl = document.getElementById('console');
+
+    function log(message, type = 'info') {
+      const line = document.createElement('div');
+      line.className = `console-line console-${type}`;
+      line.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+      consoleEl.appendChild(line);
+      consoleEl.scrollTop = consoleEl.scrollHeight;
+    }
+
+    const sampleCities = [
+      { name: 'New York', temperature: 20, weather_code: 1 },
+      { name: 'London', temperature: 15, weather_code: 2 },
+      { name: 'Tokyo', temperature: 8, weather_code: 0 },
+      { name: 'Dubai', temperature: 35, weather_code: 0 },
+      { name: 'Sydney', temperature: 22, weather_code: 1 }
+    ];
+
+    window.runFetchMultiple = async () => {
+      try {
+        document.getElementById('multiOutput').textContent = 'Fetching...';
+        log('Fetching multiple cities in parallel...', 'info');
+
+        setTimeout(() => {
+          const output = sampleCities.map(c =>
+            `${c.name}: ${c.temperature}°C (Code: ${c.weather_code})`
+          ).join('\n');
+
+          document.getElementById('multiOutput').textContent = output;
+          log(`Fetched ${sampleCities.length} cities successfully`, 'success');
+        }, 500);
+      } catch (error) {
+        document.getElementById('multiOutput').textContent = `Error: ${error.message}`;
+        log(`Error: ${error.message}`, 'error');
+      }
+    };
+
+    window.runFindHottest = () => {
+      try {
+        const hottest = findHottestCity(sampleCities);
+        const output = `Hottest: ${hottest.name}\nTemperature: ${hottest.temperature}°C`;
+        document.getElementById('hottestOutput').textContent = output;
+        log(`Hottest: ${hottest.name} (${hottest.temperature}°C)`, 'success');
+      } catch (error) {
+        document.getElementById('hottestOutput').textContent = `Error: ${error.message}`;
+      }
+    };
+
+    window.runFindColdest = () => {
+      try {
+        const coldest = findColdestCity(sampleCities);
+        const output = `Coldest: ${coldest.name}\nTemperature: ${coldest.temperature}°C`;
+        document.getElementById('coldestOutput').textContent = output;
+        log(`Coldest: ${coldest.name} (${coldest.temperature}°C)`, 'success');
+      } catch (error) {
+        document.getElementById('coldestOutput').textContent = `Error: ${error.message}`;
+      }
+    };
+
+    window.runCalculateStats = () => {
+      try {
+        const avg = calculateAverageTemperature(sampleCities);
+        const hottest = findHottestCity(sampleCities);
+        const coldest = findColdestCity(sampleCities);
+
+        const statsHtml = `
+          <div class="stat-card">
+            <div class="label">Average Temperature</div>
+            <div class="value">${avg.toFixed(1)}°C</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">Hottest City</div>
+            <div class="value">${hottest.name}</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">Coldest City</div>
+            <div class="value">${coldest.name}</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">Temperature Range</div>
+            <div class="value">${(hottest.temperature - coldest.temperature).toFixed(0)}°C</div>
+          </div>
+        `;
+
+        document.getElementById('statsOutput').innerHTML = statsHtml;
+        log(`Stats calculated: Avg=${avg.toFixed(1)}°C, Range=${hottest.temperature - coldest.temperature}°C`, 'success');
+      } catch (error) {
+        log(`Error: ${error.message}`, 'error');
+      }
+    };
+
+    window.runSortCities = () => {
+      try {
+        const sorted = sortCitiesByTemperature(sampleCities);
+        const output = sorted.map((c, i) =>
+          `${i + 1}. ${c.name}: ${c.temperature}°C`
+        ).join('\n');
+
+        document.getElementById('sortOutput').textContent = output;
+        log(`Sorted ${sorted.length} cities by temperature`, 'success');
+      } catch (error) {
+        document.getElementById('sortOutput').textContent = `Error: ${error.message}`;
+      }
+    };
+
+    window.runGroupCities = () => {
+      try {
+        const grouped = groupByWeatherCondition(sampleCities);
+        let output = '';
+
+        Object.entries(grouped).forEach(([code, cities]) => {
+          output += `\nWeather Code ${code}:\n`;
+          cities.forEach(city => {
+            output += `  - ${city.name}: ${city.temperature}°C\n`;
+          });
+        });
+
+        document.getElementById('groupOutput').textContent = output;
+        log(`Grouped ${sampleCities.length} cities by weather condition`, 'success');
+      } catch (error) {
+        document.getElementById('groupOutput').textContent = `Error: ${error.message}`;
+      }
+    };
+
+    window.runComparisonTable = () => {
+      try {
+        const html = createComparisonTable(sampleCities);
+        document.getElementById('tableOutput').innerHTML = html;
+        log('Generated comparison table', 'success');
+      } catch (error) {
+        document.getElementById('tableOutput').textContent = `Error: ${error.message}`;
+      }
+    };
+
+    window.runCompleteComparison = () => {
+      try {
+        const comparison = buildWeatherComparisonObject(sampleCities);
+
+        let output = 'WEATHER COMPARISON REPORT\n';
+        output += '='.repeat(50) + '\n\n';
+        output += `Hottest: ${comparison.hottest.name} - ${comparison.hottest.temperature}°C\n`;
+        output += `Coldest: ${comparison.coldest.name} - ${comparison.coldest.temperature}°C\n`;
+        output += `Average: ${comparison.average.toFixed(1)}°C\n\n`;
+        output += 'Sorted by Temperature (Hottest First):\n';
+        comparison.sorted.forEach((city, i) => {
+          output += `${i + 1}. ${city.name}: ${city.temperature}°C\n`;
+        });
+
+        document.getElementById('comparisonOutput').textContent = output;
+        log('Generated complete comparison report', 'success');
+      } catch (error) {
+        document.getElementById('comparisonOutput').textContent = `Error: ${error.message}`;
+      }
+    };
+
+    log('Multi-city weather dashboard loaded!', 'success');
+  </script>
+</body>
+</html>

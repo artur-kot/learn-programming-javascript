@@ -1,0 +1,17 @@
+{
+  "name": "141-weather-display",
+  "version": "1.0.0",
+  "description": "Weather Dashboard - Display Data",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run 141-weather-display.test.js",
+    "test:watch": "vitest watch 141-weather-display.test.js"
+  },
+  "dependencies": {
+    "vitest": "^1.0.0"
+  },
+  "keywords": ["dom", "rendering", "display", "formatting", "ui"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

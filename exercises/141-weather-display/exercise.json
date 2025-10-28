@@ -1,0 +1,35 @@
+{
+  "id": 141,
+  "series": 28,
+  "title": "Weather Dashboard - Display Data",
+  "description": "Learn to render formatted weather data to the DOM. Create reusable UI components.",
+  "difficulty": "intermediate",
+  "skills": [
+    "dom manipulation",
+    "event handling",
+    "template rendering",
+    "css classes",
+    "html structure",
+    "responsive design"
+  ],
+  "prerequisites": [
+    "140-weather-errors"
+  ],
+  "concepts": {
+    "dom_elements": "Create and manipulate HTML elements",
+    "template_literal": "Use backticks for HTML strings",
+    "event_listeners": "Respond to user actions",
+    "classList": "Manage CSS classes dynamically",
+    "innerhtml": "Update element content",
+    "data_binding": "Link data to UI elements"
+  },
+  "learning_outcomes": [
+    "Render data to DOM elements",
+    "Create reusable display components",
+    "Handle user interactions",
+    "Format data for display",
+    "Update UI dynamically",
+    "Build responsive weather cards"
+  ],
+  "estimated_time": "50 minutes"
+}

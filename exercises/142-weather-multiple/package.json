@@ -1,0 +1,17 @@
+{
+  "name": "142-weather-multiple",
+  "version": "1.0.0",
+  "description": "Weather Dashboard - Multiple Cities",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run 142-weather-multiple.test.js",
+    "test:watch": "vitest watch 142-weather-multiple.test.js"
+  },
+  "dependencies": {
+    "vitest": "^1.0.0"
+  },
+  "keywords": ["promise.all", "parallel", "multiple requests", "comparison"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

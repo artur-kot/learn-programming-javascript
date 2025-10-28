@@ -446,19 +446,19 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## Phase 14: Working with APIs and Data
 
-### Series 28: Weather Dashboard
+### Series 28: Weather Dashboard ✓
 *Build a weather app to learn Fetch API and data handling*
 
 <!-- TODO: to refine -->
-138. [ ] **Weather - Basic Fetch** - Make GET request to weather API ([exercise 138](./exercises/138-weather-fetch))
+138. [x] **Weather - Basic Fetch** - Make GET request to weather API ([exercise 138](./exercises/138-weather-fetch))
 <!-- TODO: to refine -->
-139. [ ] **Weather - Parse JSON** - Extract temperature, conditions from response ([exercise 139](./exercises/139-weather-json))
+139. [x] **Weather - Parse JSON** - Extract temperature, conditions from response ([exercise 139](./exercises/139-weather-json))
 <!-- TODO: to refine -->
-140. [ ] **Weather - Error Handling** - Handle network errors and invalid locations ([exercise 140](./exercises/140-weather-errors))
+140. [x] **Weather - Error Handling** - Handle network errors and invalid locations ([exercise 140](./exercises/140-weather-errors))
 <!-- TODO: to refine -->
-141. [ ] **Weather - Display Data** - Show weather info in formatted cards ([exercise 141](./exercises/141-weather-display))
+141. [x] **Weather - Display Data** - Show weather info in formatted cards ([exercise 141](./exercises/141-weather-display))
 <!-- TODO: to refine -->
-142. [ ] **Weather - Multiple Cities** - Fetch and compare weather for multiple locations ([exercise 142](./exercises/142-weather-multiple))
+142. [x] **Weather - Multiple Cities** - Fetch and compare weather for multiple locations ([exercise 142](./exercises/142-weather-multiple))
 
 ### Series 29: GitHub User Finder
 *Build a GitHub profile viewer to master API integration*

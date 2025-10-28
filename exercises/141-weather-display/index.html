@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard - Display Data</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 2.5em;
+    }
+
+    .subtitle {
+      color: #666;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 0.95em;
+    }
+
+    .demo-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+    }
+
+    .demo-section h2 {
+      color: #667eea;
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .demo-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #667eea;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 12px 25px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Weather Card Styles */
+    .weather-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-width: 250px;
+      text-align: center;
+    }
+
+    .weather-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+    }
+
+    .weather-card .city {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .weather-card .icon {
+      font-size: 3em;
+      margin: 15px 0;
+    }
+
+    .weather-card .temperature {
+      font-size: 2.5em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .weather-card .condition {
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .error-message {
+      background: #ffebee;
+      border: 2px solid #ef5350;
+      border-radius: 8px;
+      padding: 15px 20px;
+      color: #c62828;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    .loading-message {
+      background: #e3f2fd;
+      border: 2px solid #2196F3;
+      border-radius: 8px;
+      padding: 15px 20px;
+      color: #1565c0;
+      font-weight: 600;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .loading-message::after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+      border: 3px solid transparent;
+      border-top-color: #1565c0;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .info-box {
+      background: #e3f2fd;
+      border-left: 4px solid #2196F3;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      font-size: 0.95em;
+      color: #1565c0;
+    }
+
+    .console-output {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85em;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+
+    .console-line {
+      margin: 4px 0;
+    }
+
+    .console-info {
+      color: #9cdcfe;
+    }
+
+    .console-success {
+      color: #89d185;
+    }
+
+    input {
+      padding: 10px 15px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.95em;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌤️ Weather Display Demo</h1>
+    <p class="subtitle">Learn to render data to the DOM</p>
+
+    <!-- Demo 1: Single Weather Card -->
+    <div class="demo-section">
+      <h2>Create Single Weather Card</h2>
+      <button onclick="runCreateCard()">Create Card</button>
+      <div id="singleCardContainer" class="card-container"></div>
+    </div>
+
+    <!-- Demo 2: Multiple Weather Cards -->
+    <div class="demo-section">
+      <h2>Render Multiple Cards</h2>
+      <button onclick="runRenderMultiple()">Render 3 Cities</button>
+      <button onclick="runClearCards()" style="margin-left: 10px;">Clear Cards</button>
+      <div id="multipleCardsContainer" class="card-container"></div>
+    </div>
+
+    <!-- Demo 3: Error Display -->
+    <div class="demo-section">
+      <h2>Display Error Message</h2>
+      <button onclick="runDisplayError()">Show Error</button>
+      <button onclick="runClearError()" style="margin-left: 10px;">Clear</button>
+      <div id="errorContainer"></div>
+    </div>
+
+    <!-- Demo 4: Loading State -->
+    <div class="demo-section">
+      <h2>Display Loading State</h2>
+      <button onclick="runDisplayLoading()">Show Loading</button>
+      <button onclick="runClearLoading()" style="margin-left: 10px;">Clear</button>
+      <div id="loadingContainer"></div>
+    </div>
+
+    <!-- Demo 5: Temperature Format -->
+    <div class="demo-section">
+      <h2>Temperature Formatting</h2>
+      <input type="number" id="tempInput" placeholder="Enter temperature..." value="20">
+      <button onclick="runFormatTemp()" style="margin-top: 10px;">Format Temperature</button>
+      <div id="tempOutput" style="background: white; border: 2px solid #ddd; border-radius: 8px; padding: 15px; margin-top: 15px; font-family: monospace; font-size: 1.2em;"></div>
+    </div>
+
+    <!-- Demo 6: Weather Icons -->
+    <div class="demo-section">
+      <h2>Weather Icons (by Code)</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 15px;">
+        <button onclick="runGetIcon(0)">Code 0 ☀️</button>
+        <button onclick="runGetIcon(1)">Code 1 🌤️</button>
+        <button onclick="runGetIcon(2)">Code 2 ☁️</button>
+        <button onclick="runGetIcon(3)">Code 3 🌧️</button>
+        <button onclick="runGetIcon(4)">Code 4 🌩️</button>
+      </div>
+      <div id="iconOutput" style="background: white; border: 2px solid #ddd; border-radius: 8px; padding: 15px; margin-top: 15px; font-size: 3em; text-align: center;"></div>
+    </div>
+
+    <!-- Demo 7: Interactive Cards -->
+    <div class="demo-section">
+      <h2>Interactive Cards</h2>
+      <p style="color: #666; margin-bottom: 15px;">Click on a card to see its data</p>
+      <button onclick="runInteractiveCards()">Create Interactive Cards</button>
+      <div id="interactiveContainer" class="card-container"></div>
+      <div id="clickOutput" style="background: white; border: 2px solid #ddd; border-radius: 8px; padding: 15px; margin-top: 15px; font-family: monospace; font-size: 0.9em; display: none;">
+        <strong>Card Data:</strong>
+        <pre id="clickData"></pre>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Learning Resources -->
+    <div class="info-box">
+      <strong>📚 Key DOM Methods:</strong>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>document.createElement()</strong> - Create DOM elements</li>
+        <li><strong>element.innerHTML</strong> - Set HTML content</li>
+        <li><strong>element.textContent</strong> - Set text content</li>
+        <li><strong>element.appendChild()</strong> - Add child element</li>
+        <li><strong>element.removeChild()</strong> - Remove child element</li>
+        <li><strong>element.addEventListener()</strong> - Add event listeners</li>
+      </ul>
+    </div>
+
+    <!-- Console Output -->
+    <div style="margin-top: 30px;">
+      <h2 style="color: #333; margin-bottom: 15px;">📊 Console Output</h2>
+      <div class="console-output" id="console">
+        <div class="console-line console-info">Console ready. Run demos to see output...</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      createWeatherCard,
+      formatTemperature,
+      getWeatherIcon,
+      renderWeatherCards,
+      clearContainer,
+      displayErrorMessage,
+      displayLoadingState,
+      updateTemperatureDisplay,
+      createWeatherCardHTML,
+      attachWeatherCardListener
+    } from './141-weather-display.js';
+
+    const consoleEl = document.getElementById('console');
+
+    function log(message, type = 'info') {
+      const line = document.createElement('div');
+      line.className = `console-line console-${type}`;
+      line.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+      consoleEl.appendChild(line);
+      consoleEl.scrollTop = consoleEl.scrollHeight;
+    }
+
+    window.runCreateCard = () => {
+      try {
+        const data = { city: 'New York', temperature: 20, condition: 'Sunny' };
+        const container = document.getElementById('singleCardContainer');
+        clearContainer(container);
+        
+        const card = createWeatherCard(data);
+        container.appendChild(card);
+        
+        log('Created single weather card', 'success');
+      } catch (error) {
+        log(`Error: ${error.message}`, 'error');
+      }
+    };
+
+    window.runRenderMultiple = () => {
+      try {
+        const cities = [
+          { city: 'New York', temperature: 20, condition: 'Sunny' },
+          { city: 'London', temperature: 15, condition: 'Rainy' },
+          { city: 'Tokyo', temperature: 8, condition: 'Cloudy' }
+        ];
+        
+        const container = document.getElementById('multipleCardsContainer');
+        const cards = renderWeatherCards(container, cities);
+        
+        log(`Rendered ${cards.length} weather cards`, 'success');
+      } catch (error) {
+        log(`Error: ${error.message}`, 'error');
+      }
+    };
+
+    window.runClearCards = () => {
+      const container = document.getElementById('multipleCardsContainer');
+      clearContainer(container);
+      log('Cleared weather cards', 'success');
+    };
+
+    window.runDisplayError = () => {
+      try {
+        const container = document.getElementById('errorContainer');
+        clearContainer(container);
+        
+        displayErrorMessage(container, 'Failed to fetch weather data. Please try again.');
+        log('Displayed error message', 'success');
+      } catch (error) {
+        log(`Error: ${error.message}`, 'error');
+      }
+    };
+
+    window.runClearError = () => {
+      const container = document.getElementById('errorContainer');
+      clearContainer(container);
+      log('Cleared error message', 'success');
+    };
+
+    window.runDisplayLoading = () => {
+      try {
+        const container = document.getElementById('loadingContainer');
+        clearContainer(container);
+        
+        displayLoadingState(container);
+        log('Displayed loading state', 'success');
+      } catch (error) {
+        log(`Error: ${error.message}`, 'error');
+      }
+    };
+
+    window.runClearLoading = () => {
+      const container = document.getElementById('loadingContainer');
+      clearContainer(container);
+      log('Cleared loading state', 'success');
+    };
+
+    window.runFormatTemp = () => {
+      try {
+        const temp = parseFloat(document.getElementById('tempInput').value);
+        const formatted = formatTemperature(temp);
+        document.getElementById('tempOutput').textContent = formatted;
+        log(`Formatted temperature: ${formatted}`, 'success');
+      } catch (error) {
+        log(`Error: ${error.message}`, 'error');
+      }
+    };
+
+    window.runGetIcon = (code) => {
+      try {
+        const icon = getWeatherIcon(code);
+        document.getElementById('iconOutput').textContent = icon;
+        log(`Weather code ${code}: ${icon}`, 'success');
+      } catch (error) {
+        log(`Error: ${error.message}`, 'error');
+      }
+    };
+
+    window.runInteractiveCards = () => {
+      try {
+        const cities = [
+          { city: 'New York', temperature: 20, condition: 'Sunny' },
+          { city: 'London', temperature: 15, condition: 'Rainy' },
+          { city: 'Tokyo', temperature: 8, condition: 'Cloudy' }
+        ];
+        
+        const container = document.getElementById('interactiveContainer');
+        clearContainer(container);
+        
+        const cards = renderWeatherCards(container, cities);
+        
+        cards.forEach((card, index) => {
+          attachWeatherCardListener(card, cities[index], (data) => {
+            const output = document.getElementById('clickOutput');
+            output.style.display = 'block';
+            document.getElementById('clickData').textContent = JSON.stringify(data, null, 2);
+            log(`Clicked: ${data.city}`, 'success');
+          });
+        });
+        
+        log(`Created ${cards.length} interactive cards (click to view)`, 'success');
+      } catch (error) {
+        log(`Error: ${error.message}`, 'error');
+      }
+    };
+
+    log('Weather display demos loaded!', 'success');
+  </script>
+</body>
+</html>
