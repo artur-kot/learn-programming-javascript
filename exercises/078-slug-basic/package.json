@@ -1,0 +1,18 @@
+{
+  "name": "078-slug-basic",
+  "version": "1.0.0",
+  "description": "URL Slug Generator - Basic Conversion",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 078-slug-basic.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "strings",
+    "slug",
+    "url"
+  ],
+  "author": "",
+  "license": "MIT"
+}

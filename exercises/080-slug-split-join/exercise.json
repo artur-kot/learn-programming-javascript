@@ -1,0 +1,20 @@
+{
+  "id": "080-slug-split-join",
+  "number": 80,
+  "title": "URL Slug Generator - Split and Join",
+  "series": "16-url-slug-generator",
+  "seriesNumber": 3,
+  "topic": "Array Methods with Strings",
+  "description": "Learn to split strings into arrays, clean array elements, and join them back to create robust slugs.",
+  "concepts": [
+    "String split() method",
+    "Array join() method",
+    "Working with arrays and strings",
+    "Array filtering with map",
+    "Combining operations on collections"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "079-slug-replace"
+  ]
+}

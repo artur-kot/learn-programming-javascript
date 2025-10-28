@@ -1,0 +1,20 @@
+{
+  "id": "079-slug-replace",
+  "number": 79,
+  "title": "URL Slug Generator - Remove Special Characters",
+  "series": "16-url-slug-generator",
+  "seriesNumber": 2,
+  "topic": "Advanced String Replacement",
+  "description": "Learn to use replace() with regular expressions to remove special characters and punctuation from slugs.",
+  "concepts": [
+    "Regular expression patterns",
+    "Replace with regex patterns",
+    "Removing special characters",
+    "Character classes in regex",
+    "String cleaning and normalization"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "078-slug-basic"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "082-slug-regex",
+  "version": "1.0.0",
+  "description": "URL Slug Generator - Regex Pattern Matching",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 082-slug-regex.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "strings",
+    "regex",
+    "pattern",
+    "slug"
+  ],
+  "author": "",
+  "license": "MIT"
+}

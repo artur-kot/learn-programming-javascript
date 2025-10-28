@@ -1,0 +1,20 @@
+{
+  "name": "080-slug-split-join",
+  "version": "1.0.0",
+  "description": "URL Slug Generator - Split and Join",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 080-slug-split-join.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "strings",
+    "arrays",
+    "slug",
+    "split",
+    "join"
+  ],
+  "author": "",
+  "license": "MIT"
+}

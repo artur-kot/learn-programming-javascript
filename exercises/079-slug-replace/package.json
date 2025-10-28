@@ -1,0 +1,19 @@
+{
+  "name": "079-slug-replace",
+  "version": "1.0.0",
+  "description": "URL Slug Generator - Remove Special Characters",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 079-slug-replace.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "strings",
+    "slug",
+    "url",
+    "replace"
+  ],
+  "author": "",
+  "license": "MIT"
+}
