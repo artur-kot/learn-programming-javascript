@@ -432,15 +432,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a data transformation system to practice functional programming*
 
 <!-- TODO: to refine -->
-133. [ ] **Pipeline - Method Chaining** - Chain filter, map, reduce operations ([exercise 133](./exercises/133-pipeline-chaining))
+133. [x] **Pipeline - Method Chaining** - Chain filter, map, reduce operations ([exercise 133](./exercises/133-pipeline-chaining))
 <!-- TODO: to refine -->
-134. [ ] **Pipeline - Flatten Data** - Use flat and flatMap for nested arrays ([exercise 134](./exercises/134-pipeline-flatten))
+134. [x] **Pipeline - Flatten Data** - Use flat and flatMap for nested arrays ([exercise 134](./exercises/134-pipeline-flatten))
 <!-- TODO: to refine -->
-135. [ ] **Pipeline - Array Construction** - Use Array.from and Array.of ([exercise 135](./exercises/135-pipeline-construction))
+135. [x] **Pipeline - Array Construction** - Use Array.from and Array.of ([exercise 135](./exercises/135-pipeline-construction))
 <!-- TODO: to refine -->
-136. [ ] **Pipeline - Custom Methods** - Build custom array transformation utilities ([exercise 136](./exercises/136-pipeline-custom))
+136. [x] **Pipeline - Custom Methods** - Build custom array transformation utilities ([exercise 136](./exercises/136-pipeline-custom))
 <!-- TODO: to refine -->
-137. [ ] **Pipeline - Compose Functions** - Create reusable transformation pipeline ([exercise 137](./exercises/137-pipeline-compose))
+137. [x] **Pipeline - Compose Functions** - Create reusable transformation pipeline ([exercise 137](./exercises/137-pipeline-compose))
 
 ---
 

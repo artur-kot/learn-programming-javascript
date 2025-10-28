@@ -1,0 +1,35 @@
+{
+  "id": 133,
+  "series": 27,
+  "title": "Data Pipeline - Method Chaining",
+  "description": "Master chaining filter, map, and reduce operations to create data transformation pipelines. Learn functional programming patterns and data flow.",
+  "difficulty": "intermediate",
+  "skills": [
+    "method chaining",
+    "filter operations",
+    "map transformations",
+    "reduce aggregations",
+    "functional programming",
+    "data pipelines"
+  ],
+  "prerequisites": [
+    "052-gradebook-reduce"
+  ],
+  "concepts": {
+    "method_chaining": "Calling multiple methods sequentially on the same object or array",
+    "filter": "Create new array with elements that pass a condition",
+    "map": "Transform array elements using a function",
+    "reduce": "Aggregate array values into a single result",
+    "pipeline": "Series of operations applied in sequence",
+    "functional_composition": "Combining functions to create complex operations"
+  },
+  "learning_outcomes": [
+    "Chain multiple array methods efficiently",
+    "Understand data flow through transformations",
+    "Use filter, map, reduce in combination",
+    "Recognize common data pipeline patterns",
+    "Write clean, readable transformation code",
+    "Optimize performance of chained operations"
+  ],
+  "estimated_time": "45 minutes"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "135-pipeline-construction",
+  "version": "1.0.0",
+  "description": "Data Pipeline - Array Construction",
+  "main": "135-pipeline-construction.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 135-pipeline-construction.test.js",
+    "test:watch": "node --test --watch 135-pipeline-construction.test.js"
+  },
+  "keywords": ["pipeline", "array construction", "Array.from", "Array.of", "array methods"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}
