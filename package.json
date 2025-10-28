@@ -1,0 +1,22 @@
+{
+  "name": "learn-programming-javascript",
+  "version": "1.0.0",
+  "description": "JavaScript course for learnp CLI",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "exercises:insert": "node scripts/exercise-manager.js insert",
+    "exercises:remove": "node scripts/exercise-manager.js remove",
+    "exercises:swap": "node scripts/exercise-manager.js swap",
+    "exercises:cleanup": "node scripts/exercise-manager.js cleanup",
+    "exercises:list": "node scripts/exercise-manager.js list"
+  },
+  "keywords": [
+    "javascript",
+    "learning",
+    "exercises",
+    "education"
+  ],
+  "author": "",
+  "license": "ISC"
+}
