@@ -386,15 +386,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a simple drawing app to practice mouse events*
 
 <!-- TODO: to refine -->
-118. [ ] **Canvas - Mouse Down/Up** - Start and stop drawing on click ([exercise 118](./exercises/118-canvas-mouse-click))
+118. [x] **Canvas - Mouse Down/Up** - Start and stop drawing on click ([exercise 118](./exercises/118-canvas-mouse-click))
 <!-- TODO: to refine -->
-119. [ ] **Canvas - Mouse Move** - Draw while mouse moves ([exercise 119](./exercises/119-canvas-mouse-move))
+119. [x] **Canvas - Mouse Move** - Draw while mouse moves ([exercise 119](./exercises/119-canvas-mouse-move))
 <!-- TODO: to refine -->
-120. [ ] **Canvas - Color Picker** - Change drawing color with event delegation ([exercise 120](./exercises/120-canvas-colors))
+120. [x] **Canvas - Color Picker** - Change drawing color with event delegation ([exercise 120](./exercises/120-canvas-colors))
 <!-- TODO: to refine -->
-121. [ ] **Canvas - Clear Button** - Reset canvas with custom event ([exercise 121](./exercises/121-canvas-custom-event))
+121. [x] **Canvas - Clear Button** - Reset canvas with custom event ([exercise 121](./exercises/121-canvas-custom-event))
 <!-- TODO: to refine -->
-122. [ ] **Canvas - Save Drawing** - Export canvas as image ([exercise 122](./exercises/122-canvas-save))
+122. [x] **Canvas - Save Drawing** - Export canvas as image ([exercise 122](./exercises/122-canvas-save))
 
 ---
 

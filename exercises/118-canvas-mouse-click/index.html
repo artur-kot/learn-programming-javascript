@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Drawing Canvas - Mouse Events</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .info-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background: #667eea;
+      color: white;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .canvas-wrapper {
+      margin: 20px 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    #drawing-canvas {
+      display: block;
+      width: 100%;
+      cursor: crosshair;
+      background: white;
+    }
+
+    .controls {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #667eea;
+      border: 2px solid #667eea;
+    }
+
+    .btn-secondary:hover {
+      background: #667eea;
+      color: white;
+    }
+
+    .status {
+      margin-top: 15px;
+      padding: 12px;
+      background: #e8f5e9;
+      border-radius: 6px;
+      border-left: 4px solid #4caf50;
+      color: #2e7d32;
+      font-size: 14px;
+    }
+
+    .status.drawing {
+      background: #fff3e0;
+      border-left-color: #ff9800;
+      color: #e65100;
+    }
+
+    .help-section {
+      margin-top: 30px;
+      padding: 20px;
+      background: #e3f2fd;
+      border-radius: 8px;
+      border-left: 4px solid #2196f3;
+    }
+
+    .help-section h2 {
+      color: #1976d2;
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .help-section p {
+      color: #0d47a1;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .code-block {
+      background: white;
+      padding: 12px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #333;
+      overflow-x: auto;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+    }
+
+    .tips {
+      margin-top: 15px;
+      padding: 12px;
+      background: white;
+      border-radius: 4px;
+      border-left: 3px solid #4caf50;
+    }
+
+    .tips strong {
+      color: #2e7d32;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Drawing Canvas <span class="info-badge">Mouse Events</span></h1>
+
+    <div class="canvas-wrapper">
+      <canvas id="drawing-canvas" width="800" height="600"></canvas>
+    </div>
+
+    <div class="controls">
+      <div class="button-group">
+        <button class="btn-secondary" id="clear-btn">Clear Canvas</button>
+        <button class="btn-secondary" id="undo-btn" disabled>Undo</button>
+      </div>
+      <div class="status" id="status">
+        Ready to draw! Click and drag on the canvas to start drawing.
+      </div>
+    </div>
+
+    <div class="help-section">
+      <h2>Understanding HTML5 Canvas</h2>
+      
+      <p><strong>What is Canvas?</strong></p>
+      <p>
+        Canvas is an HTML5 element that allows you to draw graphics directly on the page using JavaScript.
+        Unlike SVG, Canvas uses a 2D drawing API where you issue commands to draw pixels.
+      </p>
+
+      <p><strong>Getting the Canvas Context:</strong></p>
+      <p>
+        To draw on a canvas, you need to get its 2D context. This context object contains all the drawing methods.
+      </p>
+      <div class="code-block">
+const canvas = document.getElementById('drawing-canvas');
+const ctx = canvas.getContext('2D');
+
+// Now you can use ctx to draw!
+ctx.fillRect(0, 0, 100, 100); // Draw a square
+      </div>
+
+      <p><strong>Canvas Coordinates:</strong></p>
+      <p>
+        Canvas uses a coordinate system where (0, 0) is the top-left corner. X increases to the right,
+        Y increases downward. If canvas is 800×600, the bottom-right is (800, 600).
+      </p>
+
+      <p><strong>Drawing a Line:</strong></p>
+      <p>
+        To draw a line, you need to:
+        1. Call <code>beginPath()</code> to start a new path
+        2. Call <code>moveTo(x1, y1)</code> to set the starting point
+        3. Call <code>lineTo(x2, y2)</code> to set the ending point
+        4. Call <code>stroke()</code> to actually draw the line
+      </p>
+      <div class="code-block">
+ctx.beginPath();           // Start a new path
+ctx.moveTo(10, 10);        // Move to starting point
+ctx.lineTo(100, 100);      // Draw line to this point
+ctx.strokeStyle = '#000';  // Black color
+ctx.lineWidth = 2;         // 2 pixels thick
+ctx.stroke();              // Actually draw the line
+      </div>
+
+      <p><strong>Managing Drawing State:</strong></p>
+      <p>
+        We need to track when the user is actively drawing. This is done with a drawing state object
+        that tracks whether the mouse button is down or up.
+      </p>
+      <div class="code-block">
+const drawingState = {
+  isDrawing: false,
+  startX: 0,
+  startY: 0
+};
+
+canvas.addEventListener('mousedown', (event) => {
+  drawingState.isDrawing = true;
+  drawingState.startX = event.clientX;
+  drawingState.startY = event.clientY;
+});
+
+canvas.addEventListener('mouseup', () => {
+  drawingState.isDrawing = false;
+});
+      </div>
+
+      <p><strong>Mouse Event Coordinates:</strong></p>
+      <p>
+        Mouse events give you coordinates relative to the entire page (clientX, clientY).
+        To get coordinates relative to the canvas, you need to subtract the canvas position.
+      </p>
+      <div class="code-block">
+const rect = canvas.getBoundingClientRect();
+const x = event.clientX - rect.left;
+const y = event.clientY - rect.top;
+
+// Now x, y are relative to the canvas!
+      </div>
+
+      <div class="tips">
+        <strong>💡 Tip:</strong> The canvas must have width and height attributes set in HTML,
+        not just CSS. Setting only CSS will stretch the canvas content, not change its resolution.
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      initCanvas,
+      setCanvasSize
+    } from './118-canvas-mouse-click.js';
+
+    const canvas = document.getElementById('drawing-canvas');
+    const statusDiv = document.getElementById('status');
+    const clearBtn = document.getElementById('clear-btn');
+    const undoBtn = document.getElementById('undo-btn');
+
+    // Initialize canvas
+    const ctx = initCanvas(canvas);
+    
+    // Set canvas size
+    setCanvasSize(canvas, 800, 600);
+
+    // Drawing state
+    const drawingState = {
+      isDrawing: false,
+      startX: 0,
+      startY: 0
+    };
+
+    // History for undo
+    const history = [];
+
+    function saveHistory() {
+      history.push(canvas.toDataURL());
+      undoBtn.disabled = history.length === 0;
+    }
+
+    function drawLine(fromX, fromY, toX, toY) {
+      ctx.beginPath();
+      ctx.moveTo(fromX, fromY);
+      ctx.lineTo(toX, toY);
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.stroke();
+    }
+
+    canvas.addEventListener('mousedown', (event) => {
+      const rect = canvas.getBoundingClientRect();
+      
+      drawingState.isDrawing = true;
+      drawingState.startX = event.clientX - rect.left;
+      drawingState.startY = event.clientY - rect.top;
+      
+      saveHistory();
+      statusDiv.textContent = '✏️ Drawing...';
+      statusDiv.classList.add('drawing');
+    });
+
+    canvas.addEventListener('mousemove', (event) => {
+      if (!drawingState.isDrawing) return;
+
+      const rect = canvas.getBoundingClientRect();
+      const currentX = event.clientX - rect.left;
+      const currentY = event.clientY - rect.top;
+
+      drawLine(drawingState.startX, drawingState.startY, currentX, currentY);
+
+      drawingState.startX = currentX;
+      drawingState.startY = currentY;
+    });
+
+    canvas.addEventListener('mouseup', () => {
+      drawingState.isDrawing = false;
+      statusDiv.textContent = '✋ Drawing stopped. Ready for more!';
+      statusDiv.classList.remove('drawing');
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      drawingState.isDrawing = false;
+      statusDiv.textContent = 'Mouse left canvas. Ready to draw again!';
+      statusDiv.classList.remove('drawing');
+    });
+
+    clearBtn.addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      history.length = 0;
+      undoBtn.disabled = true;
+      statusDiv.textContent = '🗑️ Canvas cleared!';
+      statusDiv.classList.remove('drawing');
+    });
+
+    undoBtn.addEventListener('click', () => {
+      if (history.length > 0) {
+        history.pop();
+        
+        if (history.length > 0) {
+          const img = new Image();
+          img.src = history[history.length - 1];
+          img.onload = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0);
+          };
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        
+        undoBtn.disabled = history.length === 0;
+      }
+    });
+  </script>
+</body>
+</html>

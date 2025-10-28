@@ -1,0 +1,22 @@
+{
+  "id": "120-canvas-colors",
+  "number": 120,
+  "title": "Interactive Drawing Canvas - Color Picker",
+  "series": "24-interactive-drawing-canvas",
+  "seriesNumber": 3,
+  "topic": "Color Selection and Event Delegation",
+  "description": "Add color selection to the drawing canvas using event delegation.",
+  "concepts": [
+    "Event delegation",
+    "DOM traversal (closest, dataset)",
+    "Dynamic color selection",
+    "Attribute reading",
+    "Data attributes",
+    "Event target identification",
+    "State management"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "119-canvas-mouse-move"
+  ]
+}

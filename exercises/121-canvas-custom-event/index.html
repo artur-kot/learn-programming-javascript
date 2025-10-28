@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Drawing Canvas - Custom Events</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .info-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background: #667eea;
+      color: white;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .canvas-wrapper {
+      margin: 20px 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    #drawing-canvas {
+      display: block;
+      width: 100%;
+      cursor: crosshair;
+      background: white;
+    }
+
+    .controls {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .color-picker {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .color-btn {
+      padding: 10px 16px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: white;
+    }
+
+    .color-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .color-btn.active {
+      border-color: white;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: #f57c00;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #e65100;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(245, 124, 0, 0.4);
+    }
+
+    .btn-secondary:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .status {
+      margin-top: 15px;
+      padding: 12px;
+      background: #e8f5e9;
+      border-radius: 6px;
+      border-left: 4px solid #4caf50;
+      color: #2e7d32;
+      font-size: 14px;
+    }
+
+    .status.drawing {
+      background: #fff3e0;
+      border-left-color: #ff9800;
+      color: #e65100;
+    }
+
+    .status.cleared {
+      background: #c8e6c9;
+      border-left-color: #4caf50;
+      color: #1b5e20;
+    }
+
+    .status.event {
+      background: #bbdefb;
+      border-left-color: #2196f3;
+      color: #0d47a1;
+    }
+
+    .history-info {
+      display: inline-block;
+      padding: 4px 12px;
+      background: white;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 12px;
+      margin-left: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .help-section {
+      margin-top: 30px;
+      padding: 20px;
+      background: #e3f2fd;
+      border-radius: 8px;
+      border-left: 4px solid #2196f3;
+    }
+
+    .help-section h2 {
+      color: #1976d2;
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .help-section p {
+      color: #0d47a1;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .code-block {
+      background: white;
+      padding: 12px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #333;
+      overflow-x: auto;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+    }
+
+    .tips {
+      margin-top: 15px;
+      padding: 12px;
+      background: white;
+      border-radius: 4px;
+      border-left: 3px solid #4caf50;
+    }
+
+    .tips strong {
+      color: #2e7d32;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 15px 0;
+    }
+
+    .comparison-box {
+      padding: 12px;
+      background: white;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+
+    .comparison-box h4 {
+      margin-top: 0;
+      color: #1976d2;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .color-picker {
+        justify-content: center;
+      }
+
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Drawing with Events <span class="info-badge">Custom Events</span></h1>
+
+    <div class="canvas-wrapper">
+      <canvas id="drawing-canvas" width="800" height="600"></canvas>
+    </div>
+
+    <div class="controls">
+      <div>
+        <label style="font-weight: 600; color: #333;">Select Drawing Color:</label>
+        <div class="color-picker" id="color-container"></div>
+      </div>
+
+      <div class="button-group" style="margin-top: 15px;">
+        <button class="btn-primary" id="clear-btn">Clear Canvas</button>
+        <button class="btn-secondary" id="undo-btn">Undo</button>
+      </div>
+
+      <div class="status" id="status">
+        Ready to draw! Select a color and start drawing.
+        <span class="history-info" id="history-info">History: 0</span>
+      </div>
+    </div>
+
+    <div class="help-section">
+      <h2>Custom Events and Application Architecture</h2>
+
+      <p><strong>What Are Custom Events?</strong></p>
+      <p>
+        Custom events are events you create yourself (not browser built-in events like click or mousemove).
+        They let different parts of your application communicate without tight coupling.
+      </p>
+
+      <p><strong>Built-In vs Custom Events:</strong></p>
+      <div class="comparison">
+        <div class="comparison-box">
+          <h4>Built-In Events</h4>
+          <div class="code-block">
+// Browser creates these automatically
+canvas.addEventListener('click', () => {
+  // User clicked canvas
+});
+
+button.addEventListener('mousedown', () => {
+  // Mouse pressed button
+});
+          </div>
+        </div>
+
+        <div class="comparison-box">
+          <h4>Custom Events</h4>
+          <div class="code-block">
+// You create and dispatch these
+const event = new CustomEvent('canvasCleared');
+canvas.dispatchEvent(event);
+
+canvas.addEventListener('canvasCleared', () => {
+  // You dispatched the event
+});
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Creating Custom Events:</strong></p>
+      <div class="code-block">
+// Basic custom event
+const event = new CustomEvent('canvasCleared');
+
+// With options
+const event = new CustomEvent('canvasCleared', {
+  bubbles: true,      // Event bubbles up through parents
+  cancelable: true,   // Event can be canceled with preventDefault()
+  detail: {           // Custom data to pass with event
+    timestamp: Date.now(),
+    reason: 'user clicked clear'
+  }
+});
+      </div>
+
+      <p><strong>Dispatching Custom Events:</strong></p>
+      <div class="code-block">
+const event = new CustomEvent('canvasCleared');
+canvas.dispatchEvent(event);
+
+// Now any listener will fire
+      </div>
+
+      <p><strong>Listening to Custom Events:</strong></p>
+      <div class="code-block">
+canvas.addEventListener('canvasCleared', (event) => {
+  console.log('Canvas was cleared!');
+  console.log('Detail:', event.detail);
+});
+      </div>
+
+      <p><strong>Why Use Custom Events?</strong></p>
+      <p>
+        Custom events create loose coupling between components. Instead of calling functions directly,
+        components emit events and others listen to them:
+      </p>
+
+      <div class="comparison">
+        <div class="comparison-box">
+          <h4>❌ Tight Coupling</h4>
+          <div class="code-block">
+// clearButton directly calls updateUI
+clearBtn.addEventListener('click', () => {
+  ctx.clearRect(0, 0, 800, 600);
+  updateStatusUI(); // Direct call
+  updateHistoryUI(); // Direct call
+  logEvent(); // Direct call
+});
+
+// Problems:
+// - Hard to add new responses
+// - Components depend on each other
+// - Difficult to test
+          </div>
+        </div>
+
+        <div class="comparison-box">
+          <h4>✅ Loose Coupling</h4>
+          <div class="code-block">
+// clearButton emits event
+clearBtn.addEventListener('click', () => {
+  ctx.clearRect(0, 0, 800, 600);
+  dispatchCanvasClearedEvent();
+});
+
+// Multiple listeners respond
+canvas.addEventListener('canvasCleared', 
+  updateStatusUI);
+canvas.addEventListener('canvasCleared', 
+  updateHistoryUI);
+canvas.addEventListener('canvasCleared', 
+  logEvent);
+
+// Benefits:
+// - Easy to add/remove listeners
+// - Components independent
+// - Easy to test
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Canvas State Management Pattern:</strong></p>
+      <p>
+        A common pattern is to save canvas state (as an image) before each action,
+        so you can undo:
+      </p>
+
+      <div class="code-block">
+const history = [];
+
+// Save initial blank canvas
+saveCanvasState(canvas, history);
+
+// When user draws
+canvas.addEventListener('mouseup', () => {
+  // Save the new state
+  saveCanvasState(canvas, history);
+});
+
+// When user clicks undo
+undoBtn.addEventListener('click', () => {
+  // Restore previous state
+  undoCanvasAction(ctx, canvas, history);
+});
+      </div>
+
+      <p><strong>How to Save Canvas State:</strong></p>
+      <p>
+        Canvas drawing is destroyed when you clear it. To implement undo,
+        save the image data before changes:
+      </p>
+
+      <div class="code-block">
+function saveCanvasState(canvas, history) {
+  // Option 1: Save as image URL
+  const imageUrl = canvas.toDataURL('image/png');
+  history.push(imageUrl);
+  
+  // Option 2: Save raw pixels
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  history.push(imageData);
+}
+
+function undoCanvasAction(ctx, canvas, history) {
+  if (history.length <= 1) return; // Keep initial state
+  
+  history.pop(); // Remove current
+  const previousState = history[history.length - 1];
+  
+  // Restore from URL
+  const img = new Image();
+  img.onload = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+  };
+  img.src = previousState;
+}
+      </div>
+
+      <p><strong>Complete Custom Event Workflow:</strong></p>
+      <div class="code-block">
+// 1. Define events to emit
+function createCanvasClearedEvent() {
+  return new CustomEvent('canvasCleared', {
+    bubbles: true,
+    cancelable: true
+  });
+}
+
+// 2. Dispatch event when action happens
+function clearCanvas(ctx, canvas) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  dispatchCanvasClearedEvent(canvas);
+}
+
+// 3. Other components listen
+canvas.addEventListener('canvasCleared', () => {
+  updateUI();
+});
+
+canvas.addEventListener('canvasCleared', () => {
+  logAnalytics();
+});
+
+// 4. Everything works without tight coupling
+      </div>
+
+      <p><strong>Passing Data with Custom Events:</strong></p>
+      <div class="code-block">
+// Create event with data
+const event = new CustomEvent('colorChanged', {
+  detail: {
+    oldColor: '#000000',
+    newColor: '#FF0000',
+    timestamp: Date.now()
+  }
+});
+
+canvas.dispatchEvent(event);
+
+// Listen and access data
+canvas.addEventListener('colorChanged', (event) => {
+  console.log('Changed from', event.detail.oldColor);
+  console.log('To', event.detail.newColor);
+  console.log('At', new Date(event.detail.timestamp));
+});
+      </div>
+
+      <div class="tips">
+        <strong>💡 Event-Driven Architecture Benefits:</strong>
+        <ul style="color: #0d47a1; margin: 8px 0;">
+          <li>Components are independent and reusable</li>
+          <li>Easy to add new features (add new listeners)</li>
+          <li>Easy to debug (just trace the events)</li>
+          <li>Testable (can dispatch events manually)</li>
+          <li>Follows Observer pattern</li>
+        </ul>
+      </div>
+
+      <p><strong>Real-World Examples:</strong></p>
+      <p>
+        Many frameworks use custom events for component communication:
+      </p>
+
+      <div class="code-block">
+// React/Vue style
+element.dispatchEvent(new CustomEvent('itemAdded', {
+  detail: { item: newItem }
+}));
+
+// Web Components use events for communication
+customElement.addEventListener('selection-changed', (e) => {
+  console.log('Selected:', e.detail.selection);
+});
+
+// Analytics systems
+document.dispatchEvent(new CustomEvent('pageView', {
+  detail: { page: '/products' }
+}));
+      </div>
+
+      <p><strong>Best Practices:</strong></p>
+      <ul style="color: #0d47a1; line-height: 1.8;">
+        <li>Use descriptive event names (canvasCleared, not cc)</li>
+        <li>Set bubbles: true if event should propagate</li>
+        <li>Use detail object for passing data</li>
+        <li>Document what events your component emits</li>
+        <li>Don't overuse - sometimes direct calls are clearer</li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      clearCanvas,
+      createCanvasClearedEvent,
+      dispatchCanvasClearedEvent,
+      onCanvasCleared,
+      saveCanvasState,
+      undoCanvasAction
+    } from './121-canvas-custom-event.js';
+
+    const canvas = document.getElementById('drawing-canvas');
+    const ctx = canvas.getContext('2D');
+    const colorContainer = document.getElementById('color-container');
+    const statusDiv = document.getElementById('status');
+    const historyInfo = document.getElementById('history-info');
+    const clearBtn = document.getElementById('clear-btn');
+    const undoBtn = document.getElementById('undo-btn');
+
+    // Setup canvas
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#000000';
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    // History for undo
+    const history = [];
+
+    // Color palette
+    const colors = [
+      { hex: '#000000', name: 'Black' },
+      { hex: '#FF0000', name: 'Red' },
+      { hex: '#00FF00', name: 'Green' },
+      { hex: '#0000FF', name: 'Blue' },
+      { hex: '#FFFF00', name: 'Yellow' },
+      { hex: '#FF00FF', name: 'Magenta' },
+      { hex: '#00FFFF', name: 'Cyan' },
+      { hex: '#FFA500', name: 'Orange' }
+    ];
+
+    // Create color buttons
+    colors.forEach(color => {
+      const btn = document.createElement('button');
+      btn.className = 'color-btn';
+      btn.dataset.color = color.hex;
+      btn.textContent = color.name;
+      btn.style.backgroundColor = color.hex;
+      colorContainer.appendChild(btn);
+    });
+
+    // Color selection
+    colorContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+
+      colorContainer.querySelectorAll('button').forEach(b => {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+
+      ctx.strokeStyle = btn.dataset.color;
+    });
+
+    // Set first color as active
+    colorContainer.querySelector('button').classList.add('active');
+
+    // Save initial state
+    saveCanvasState(canvas, history);
+    updateHistoryDisplay();
+
+    // Drawing state
+    const drawing = {
+      isDrawing: false,
+      lastX: 0,
+      lastY: 0
+    };
+
+    canvas.addEventListener('mousedown', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      drawing.isDrawing = true;
+      drawing.lastX = e.clientX - rect.left;
+      drawing.lastY = e.clientY - rect.top;
+      statusDiv.textContent = '✏️ Drawing...';
+      statusDiv.classList.add('drawing');
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (!drawing.isDrawing) return;
+
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      ctx.beginPath();
+      ctx.moveTo(drawing.lastX, drawing.lastY);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+
+      drawing.lastX = x;
+      drawing.lastY = y;
+    });
+
+    canvas.addEventListener('mouseup', () => {
+      if (drawing.isDrawing) {
+        drawing.isDrawing = false;
+        saveCanvasState(canvas, history);
+        updateHistoryDisplay();
+        statusDiv.textContent = '✋ Drawing stopped. Ready for more!';
+        statusDiv.classList.remove('drawing');
+      }
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      if (drawing.isDrawing) {
+        drawing.isDrawing = false;
+        saveCanvasState(canvas, history);
+        updateHistoryDisplay();
+        statusDiv.textContent = 'Mouse left canvas. Ready to draw again!';
+        statusDiv.classList.remove('drawing');
+      }
+    });
+
+    // Clear button with custom event
+    clearBtn.addEventListener('click', () => {
+      clearCanvas(ctx, canvas, history);
+      dispatchCanvasClearedEvent(canvas);
+      updateHistoryDisplay();
+    });
+
+    // Listen for custom event
+    onCanvasCleared(canvas, () => {
+      statusDiv.textContent = '🗑️ Canvas cleared! (Event was dispatched)';
+      statusDiv.classList.remove('drawing');
+      statusDiv.classList.add('cleared');
+      setTimeout(() => statusDiv.classList.remove('cleared'), 2000);
+    });
+
+    // Undo button
+    undoBtn.addEventListener('click', () => {
+      undoCanvasAction(ctx, canvas, history);
+      updateHistoryDisplay();
+      statusDiv.textContent = '↩️ Undone one action!';
+      statusDiv.classList.remove('drawing');
+      statusDiv.classList.add('event');
+      setTimeout(() => statusDiv.classList.remove('event'), 2000);
+    });
+
+    function updateHistoryDisplay() {
+      historyInfo.textContent = `History: ${history.length}`;
+      undoBtn.disabled = history.length <= 1;
+    }
+  </script>
+</body>
+</html>
