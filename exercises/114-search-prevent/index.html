@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Search Filter - Prevent Default</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .search-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    #search-input {
+      flex: 1;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      transition: border-color 0.3s ease;
+    }
+
+    #search-input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .submit-btn {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .clear-btn {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #667eea;
+      background: white;
+      border: 2px solid #667eea;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .clear-btn:hover {
+      background: #667eea;
+      color: white;
+    }
+
+    .results-container {
+      margin-top: 20px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .result-item {
+      padding: 12px 16px;
+      background: #f9f9f9;
+      border-left: 4px solid #667eea;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .result-item:hover {
+      background: #f0f0f0;
+      transform: translateX(4px);
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      font-size: 16px;
+    }
+
+    .result-count {
+      padding: 10px 16px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .search-help {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f5e9;
+      border-radius: 6px;
+      color: #2e7d32;
+      font-size: 13px;
+      border-left: 4px solid #4caf50;
+    }
+
+    .info-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background: #4caf50;
+      color: white;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <h1>Form Search (No Reload) <span class="info-badge">preventDefault</span></h1>
+    
+    <form id="search-form" class="search-form">
+      <input
+        id="search-input"
+        type="text"
+        name="query"
+        placeholder="Search and press Enter..."
+        autocomplete="off"
+      >
+      <button type="submit" class="submit-btn">Search</button>
+      <button type="button" class="clear-btn" id="clear-btn">Clear</button>
+    </form>
+
+    <div id="results" class="results-container"></div>
+
+    <div class="search-help">
+      <strong>Tip:</strong> Press Enter or click Search to filter results. Notice the page doesn't reload thanks to <code>preventDefault()</code>.
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      setupFormListener,
+      clearSearchForm
+    } from './114-search-prevent.js';
+
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+    const clearBtn = document.getElementById('clear-btn');
+    const resultsContainer = document.getElementById('results');
+
+    const items = [
+      'JavaScript',
+      'Python',
+      'Java',
+      'C++',
+      'C#',
+      'Ruby',
+      'Go',
+      'Rust',
+      'PHP',
+      'Swift',
+      'Kotlin',
+      'TypeScript',
+      'React',
+      'Vue.js',
+      'Angular',
+      'Django',
+      'Flask',
+      'Express.js',
+      'Node.js',
+      'Svelte'
+    ];
+
+    setupFormListener(searchForm, items, resultsContainer);
+
+    clearBtn.addEventListener('click', () => {
+      clearSearchForm(searchForm);
+      resultsContainer.innerHTML = '';
+    });
+  </script>
+</body>
+</html>

@@ -372,15 +372,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a search feature to master form and input events*
 
 <!-- TODO: to refine -->
-113. [ ] **Search - Input Event** - Filter list as user types ([exercise 113](./exercises/113-search-input))
+113. [x] **Search - Input Event** - Filter list as user types ([exercise 113](./exercises/113-search-input))
 <!-- TODO: to refine -->
-114. [ ] **Search - Prevent Default** - Handle form submission without page reload ([exercise 114](./exercises/114-search-prevent))
+114. [x] **Search - Prevent Default** - Handle form submission without page reload ([exercise 114](./exercises/114-search-prevent))
 <!-- TODO: to refine -->
-115. [ ] **Search - Debounce Input** - Delay search until user stops typing ([exercise 115](./exercises/115-search-debounce))
+115. [x] **Search - Debounce Input** - Delay search until user stops typing ([exercise 115](./exercises/115-search-debounce))
 <!-- TODO: to refine -->
-116. [ ] **Search - Highlight Results** - Style matching items ([exercise 116](./exercises/116-search-highlight))
+116. [x] **Search - Highlight Results** - Style matching items ([exercise 116](./exercises/116-search-highlight))
 <!-- TODO: to refine -->
-117. [ ] **Search - Event Delegation** - Handle clicks on dynamic result items ([exercise 117](./exercises/117-search-delegation))
+117. [x] **Search - Event Delegation** - Handle clicks on dynamic result items ([exercise 117](./exercises/117-search-delegation))
 
 ### Series 24: Interactive Drawing Canvas
 *Build a simple drawing app to practice mouse events*

@@ -1,0 +1,22 @@
+{
+  "id": "117-search-delegation",
+  "number": 117,
+  "title": "Live Search Filter - Event Delegation",
+  "series": "23-live-search-filter",
+  "seriesNumber": 5,
+  "topic": "Event Delegation for Dynamic Elements",
+  "description": "Handle clicks on dynamically created result items using event delegation.",
+  "concepts": [
+    "Event delegation",
+    "Event bubbling",
+    "event.target",
+    "closest() method",
+    "Dynamic elements",
+    "Single listener pattern",
+    "Event propagation"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "116-search-highlight"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "115-search-debounce",
+  "number": 115,
+  "title": "Live Search Filter - Debounce Input",
+  "series": "23-live-search-filter",
+  "seriesNumber": 3,
+  "topic": "Debouncing for Performance",
+  "description": "Delay search execution until user stops typing using debounce.",
+  "concepts": [
+    "Debounce pattern",
+    "setTimeout",
+    "clearTimeout",
+    "Performance optimization",
+    "Delayed execution",
+    "Closure",
+    "Higher-order functions"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "114-search-prevent"
+  ]
+}

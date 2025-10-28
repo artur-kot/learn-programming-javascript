@@ -1,0 +1,22 @@
+{
+  "id": "113-search-input",
+  "number": 113,
+  "title": "Live Search Filter - Input Event",
+  "series": "23-live-search-filter",
+  "seriesNumber": 1,
+  "topic": "Input Events and Real-time Filtering",
+  "description": "Filter a list as the user types in an input field.",
+  "concepts": [
+    "Input event",
+    "Real-time filtering",
+    "Search functionality",
+    "String matching",
+    "Dynamic filtering",
+    "Input value access",
+    "List filtering"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "112-counter-remove"
+  ]
+}

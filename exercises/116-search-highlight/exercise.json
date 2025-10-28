@@ -1,0 +1,22 @@
+{
+  "id": "116-search-highlight",
+  "number": 116,
+  "title": "Live Search Filter - Highlight Results",
+  "series": "23-live-search-filter",
+  "seriesNumber": 4,
+  "topic": "Text Highlighting and DOM Manipulation",
+  "description": "Highlight matching search terms in results using HTML and regex.",
+  "concepts": [
+    "Text highlighting",
+    "Regular expressions",
+    "String replace",
+    "innerHTML",
+    "HTML escaping",
+    "Case-insensitive matching",
+    "DOM text manipulation"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "115-search-debounce"
+  ]
+}
