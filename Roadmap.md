@@ -11,6 +11,22 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ---
 
+## 📊 Progress Summary
+
+**Overall Progress:** 155/200 exercises completed (77.5%)
+
+**Completed Series:** 31/40 series ✅
+- Series 1-30: All complete (152 exercises)
+- Series 31: All complete (5 exercises) 🎉
+
+**Current Status:**
+- Phase 1-15: ✅ COMPLETE (Exercises 1-157)
+- Phase 16+: 🔄 In Progress (Exercises 158-200)
+
+**Next Series:** Series 32 - Tag Manager (Set and Map data structures)
+
+---
+
 ## Phase 1: Absolute Basics (Getting Started)
 
 ### Getting Started Exercises (Not part of a series)
@@ -492,19 +508,19 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 <!-- TODO: to refine -->
 152. [x] **Todo - Delete Items** - Remove todos and sync with localStorage ([exercise 152](./exercises/152-todo-delete-items))
 
-### Series 31: Note-Taking App
+### Series 31: Note-Taking App ✅ COMPLETE
 *Build a notes app to practice state management and storage*
 
 <!-- TODO: to refine -->
-153. [ ] **Notes - Create Notes** - Add notes with title and content ([exercise 153](./exercises/153-notes-create))
+153. [x] **Notes - Create Notes** - Add notes with title and content ([exercise 153](./exercises/153-notes-create))
 <!-- TODO: to refine -->
-154. [ ] **Notes - State Management** - Manage notes array as application state ([exercise 154](./exercises/154-notes-state))
+154. [x] **Notes - State Management** - Manage notes array as application state ([exercise 154](./exercises/154-notes-state))
 <!-- TODO: to refine -->
-155. [ ] **Notes - Edit Notes** - Update existing notes and sync UI ([exercise 155](./exercises/155-notes-edit))
+155. [x] **Notes - Edit Notes** - Update existing notes and sync UI ([exercise 155](./exercises/155-notes-edit))
 <!-- TODO: to refine -->
-156. [ ] **Notes - Persist Data** - Save notes to localStorage with JSON ([exercise 156](./exercises/156-notes-persist))
+156. [x] **Notes - Persist Data** - Save notes to localStorage with JSON ([exercise 156](./exercises/156-notes-persist))
 <!-- TODO: to refine -->
-157. [ ] **Notes - Undo/Redo** - Implement history with state snapshots ([exercise 157](./exercises/157-notes-undo))
+157. [x] **Notes - Undo/Redo** - Implement history with state snapshots ([exercise 157](./exercises/157-notes-undo))
 
 ---
 

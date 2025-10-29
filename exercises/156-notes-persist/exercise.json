@@ -1,0 +1,175 @@
+{
+  "id": "156-notes-persist",
+  "title": "Notes Persist & Storage",
+  "description": "Learn data persistence patterns using localStorage including saving, loading, managing, and synchronizing notes data",
+  "series": 31,
+  "exerciseNumber": 156,
+  "difficulty": "intermediate",
+  "functions": [
+    {
+      "name": "saveNotesToStorage",
+      "description": "Save notes array to localStorage as JSON",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects to save"
+        },
+        {
+          "name": "storageKey",
+          "type": "String",
+          "description": "localStorage key to store under (default: 'notes')"
+        }
+      ],
+      "returns": {
+        "type": "Boolean",
+        "description": "True if save successful, false if error"
+      }
+    },
+    {
+      "name": "loadNotesFromStorage",
+      "description": "Load notes array from localStorage",
+      "parameters": [
+        {
+          "name": "storageKey",
+          "type": "String",
+          "description": "localStorage key to load from (default: 'notes')"
+        }
+      ],
+      "returns": {
+        "type": "Array<Object>",
+        "description": "Array of notes or empty array if not found"
+      }
+    },
+    {
+      "name": "deleteNoteFromStorage",
+      "description": "Delete a specific note from localStorage by ID",
+      "parameters": [
+        {
+          "name": "noteId",
+          "type": "Number|String",
+          "description": "ID of note to delete"
+        },
+        {
+          "name": "storageKey",
+          "type": "String",
+          "description": "localStorage key (default: 'notes')"
+        }
+      ],
+      "returns": {
+        "type": "Boolean",
+        "description": "True if note deleted, false if not found"
+      }
+    },
+    {
+      "name": "clearAllNotes",
+      "description": "Delete all notes from localStorage",
+      "parameters": [
+        {
+          "name": "storageKey",
+          "type": "String",
+          "description": "localStorage key to clear (default: 'notes')"
+        }
+      ],
+      "returns": {
+        "type": "Boolean",
+        "description": "True if cleared successfully"
+      }
+    },
+    {
+      "name": "getStorageStats",
+      "description": "Get statistics about localStorage usage",
+      "parameters": [
+        {
+          "name": "storageKey",
+          "type": "String",
+          "description": "localStorage key to analyze"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "Object with noteCount, totalBytes, estimatedUsage"
+      }
+    },
+    {
+      "name": "validateStorageData",
+      "description": "Validate that stored data is valid",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "Any",
+          "description": "Data to validate"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "Object with isValid boolean and errors array"
+      }
+    },
+    {
+      "name": "exportNotesToJSON",
+      "description": "Export notes as JSON string for download/backup",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Notes to export"
+        }
+      ],
+      "returns": {
+        "type": "String",
+        "description": "JSON string representation of notes"
+      }
+    },
+    {
+      "name": "importNotesFromJSON",
+      "description": "Import notes from JSON string",
+      "parameters": [
+        {
+          "name": "jsonString",
+          "type": "String",
+          "description": "JSON string to import"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "Object with success boolean, notes array, and errors"
+      }
+    },
+    {
+      "name": "backupNotes",
+      "description": "Create timestamped backup of current notes",
+      "parameters": [
+        {
+          "name": "storageKey",
+          "type": "String",
+          "description": "localStorage key for notes"
+        }
+      ],
+      "returns": {
+        "type": "String",
+        "description": "Backup storage key created"
+      }
+    },
+    {
+      "name": "restoreNotesFromBackup",
+      "description": "Restore notes from a backup key",
+      "parameters": [
+        {
+          "name": "backupKey",
+          "type": "String",
+          "description": "Storage key of backup to restore"
+        },
+        {
+          "name": "targetKey",
+          "type": "String",
+          "description": "Key to restore to (default: 'notes')"
+        }
+      ],
+      "returns": {
+        "type": "Boolean",
+        "description": "True if restore successful"
+      }
+    }
+  ]
+}
