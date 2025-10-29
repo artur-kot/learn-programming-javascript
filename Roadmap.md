@@ -619,64 +619,7 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a production-grade shopping cart system with service-oriented architecture*
 
 <!-- TODO: to refine -->
-182. [ ] **E-commerce Cart - Complete System** - Build full cart system with product management, services layer, discounts, and persistence. 45 TODOs across models, services, and utilities. Entry point for extending with UI components ([exercise 182](./exercises/182-ecommerce-cart))
+182. [ ] **E-commerce Cart - Complete System** - Build full cart system with product management, services layer, discounts, and persistence. 45 TODOs across models, services, and utilities. Entry point for extending with UI components ([exercise 182](./exercises/182-ecommerce-cart)).
 
-### Series 40: Image Gallery
-*Build an interactive gallery with advanced UI features*
-
-<!-- TODO: to refine -->
-183. [ ] **Gallery - Grid Layout** - Display images in responsive grid ([exercise 183](./exercises/183-gallery-grid))
-<!-- TODO: to refine -->
-184. [ ] **Gallery - Lightbox View** - Click to view full-size image ([exercise 184](./exercises/184-gallery-lightbox))
-<!-- TODO: to refine -->
-185. [ ] **Gallery - Navigation** - Add prev/next buttons in lightbox ([exercise 185](./exercises/185-gallery-navigation))
-<!-- TODO: to refine -->
-186. [ ] **Gallery - Keyboard Controls** - Navigate with arrow keys and ESC ([exercise 186](./exercises/186-gallery-keyboard))
-<!-- TODO: to refine -->
-187. [ ] **Gallery - Lazy Loading** - Load images as user scrolls ([exercise 187](./exercises/187-gallery-lazy-load))
-
----
-
-### ⭐ Bonus Exercises
+### ⭐ Bonus
 188. [ ] **Your Own Project** - Design and build your own application using concepts from entire course
-
-### Skills You've Mastered
-
-- Variables, data types, operators
-- Control flow (conditionals, loops)
-- Functions (including arrow functions, callbacks, closures)
-- Arrays and array methods (map, filter, reduce, etc.)
-- Objects and object manipulation
-- DOM manipulation and event handling
-- Asynchronous programming (promises, async/await)
-- ES6+ features (destructuring, spread, rest, etc.)
-- Error handling and debugging
-- Regular expressions
-- Local storage and state management
-- Performance optimization
-- Modules and testing
-- Building complete applications
-
-### What's Next?
-
-**Continue Learning:**
-- Explore JavaScript frameworks (React, Vue, Angular)
-- Learn Node.js for backend development
-- Study TypeScript for type-safe JavaScript
-- Dive into advanced topics like design patterns
-- Build more complex projects to solidify your skills
-
-**Keep Practicing:**
-- Contribute to open-source projects
-- Build your own applications from scratch
-- Solve coding challenges on platforms like LeetCode or CodeWars
-- Read others' code to learn different approaches
-- Refactor and improve the projects you built in this course
-
-**Build Your Portfolio:**
-- Take your favorite mini-projects and expand them into full applications
-- Combine concepts from multiple series into larger projects
-- Deploy your applications online for others to use
-- Document your code and create case studies
-
-Remember: Programming is a journey, not a destination. You've built a solid foundation - now it's time to create something amazing! Keep coding, keep learning, and keep building!
