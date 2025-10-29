@@ -1,0 +1,70 @@
+{
+  "id": 164,
+  "title": "Iterator - Generator Functions",
+  "description": "Use generator functions with yield to create simple iterators",
+  "series": 33,
+  "difficulty": "intermediate",
+  "topics": ["generators", "yield", "function*"],
+  "functions": [
+    {
+      "name": "generateCounts",
+      "description": "Generator function that yields numbers from 1 to max",
+      "parameters": ["max"],
+      "returns": "Generator object"
+    },
+    {
+      "name": "generateFibonacci",
+      "description": "Generator function that yields Fibonacci sequence",
+      "parameters": ["count"],
+      "returns": "Generator yielding Fibonacci numbers"
+    },
+    {
+      "name": "generateRange",
+      "description": "Generator function for numeric range with step",
+      "parameters": ["start", "end", "step"],
+      "returns": "Generator yielding range values"
+    },
+    {
+      "name": "generateEvens",
+      "description": "Generator that yields only even numbers from array",
+      "parameters": ["array"],
+      "returns": "Generator yielding even values"
+    },
+    {
+      "name": "generateLetters",
+      "description": "Generator that yields characters from string",
+      "parameters": ["str"],
+      "returns": "Generator yielding each character"
+    },
+    {
+      "name": "generateWords",
+      "description": "Generator that yields words from text",
+      "parameters": ["text"],
+      "returns": "Generator yielding individual words"
+    },
+    {
+      "name": "generateMatches",
+      "description": "Generator that yields matching items from array",
+      "parameters": ["array", "predicate"],
+      "returns": "Generator yielding matching values"
+    },
+    {
+      "name": "generateMapped",
+      "description": "Generator that transforms items with function",
+      "parameters": ["array", "mapFn"],
+      "returns": "Generator yielding transformed values"
+    },
+    {
+      "name": "generatePairs",
+      "description": "Generator that yields adjacent pairs from array",
+      "parameters": ["array"],
+      "returns": "Generator yielding [current, next] pairs"
+    },
+    {
+      "name": "generateRepeated",
+      "description": "Generator that repeats value n times",
+      "parameters": ["value", "times"],
+      "returns": "Generator yielding repeated value"
+    }
+  ]
+}

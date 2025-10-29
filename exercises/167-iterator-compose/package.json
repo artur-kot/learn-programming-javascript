@@ -1,0 +1,17 @@
+{
+  "name": "167-iterator-compose",
+  "version": "1.0.0",
+  "description": "Compose and combine multiple generators",
+  "main": "167-iterator-compose.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "dev": "node 167-iterator-compose.js"
+  },
+  "keywords": ["generator", "composition", "functional"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}

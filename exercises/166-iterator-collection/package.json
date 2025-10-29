@@ -1,0 +1,17 @@
+{
+  "name": "166-iterator-collection",
+  "version": "1.0.0",
+  "description": "Create custom iterable collection classes",
+  "main": "166-iterator-collection.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "dev": "node 166-iterator-collection.js"
+  },
+  "keywords": ["iterator", "collection", "class"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}

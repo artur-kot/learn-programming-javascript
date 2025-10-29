@@ -1,0 +1,17 @@
+{
+  "name": "165-iterator-infinite",
+  "version": "1.0.0",
+  "description": "Create infinite generators and sequences",
+  "main": "165-iterator-infinite.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "dev": "node 165-iterator-infinite.js"
+  },
+  "keywords": ["generator", "infinite", "sequences"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}

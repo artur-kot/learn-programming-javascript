@@ -1,0 +1,17 @@
+{
+  "name": "164-iterator-generator",
+  "version": "1.0.0",
+  "description": "Learn generator functions and yield syntax",
+  "main": "164-iterator-generator.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "dev": "node 164-iterator-generator.js"
+  },
+  "keywords": ["generator", "yield", "iterator"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "163-iterator-basic",
+  "version": "1.0.0",
+  "description": "Learn Symbol.iterator for custom iteration",
+  "main": "163-iterator-basic.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "dev": "node 163-iterator-basic.js"
+  },
+  "keywords": ["iterator", "symbol", "iteration"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}

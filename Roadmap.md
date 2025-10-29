@@ -13,17 +13,17 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## 📊 Progress Summary
 
-**Overall Progress:** 160/200 exercises completed (80%)
+**Overall Progress:** 165/200 exercises completed (82.5%)
 
-**Completed Series:** 32/40 series ✅
-- Series 1-31: All complete (157 exercises)
-- Series 32: All complete (5 exercises) 🎉
+**Completed Series:** 33/40 series ✅
+- Series 1-32: All complete (162 exercises)
+- Series 33: All complete (5 exercises) 🎉
 
 **Current Status:**
-- Phase 1-16: ✅ COMPLETE (Exercises 1-162)
-- Phase 17+: 🔄 In Progress (Exercises 163-200)
+- Phase 1-17: ✅ COMPLETE (Exercises 1-167)
+- Phase 18+: 🔄 In Progress (Exercises 168-200)
 
-**Next Series:** Series 33 - Custom Iterator (Iterators and Generators)
+**Next Series:** Series 34 - Email Validator (Regular Expressions)
 
 ---
 
@@ -540,19 +540,19 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 <!-- TODO: to refine -->
 162. [x] **Tag Manager - Performance** - Compare Set/Map vs Array/Object performance ([exercise 162](./exercises/162-tags-performance))
 
-### Series 33: Custom Iterator
+### Series 33: Custom Iterator ✅ COMPLETE
 *Build a custom data structure with iteration to learn iterators and generators*
 
 <!-- TODO: to refine -->
-163. [ ] **Iterator - Basic Iterator** - Implement Symbol.iterator for custom object ([exercise 163](./exercises/163-iterator-basic))
+163. [x] **Iterator - Basic Iterator** - Implement Symbol.iterator for custom object ([exercise 163](./exercises/163-iterator-basic))
 <!-- TODO: to refine -->
-164. [ ] **Iterator - Range Generator** - Create generator function for number ranges ([exercise 164](./exercises/164-iterator-generator))
+164. [x] **Iterator - Generator Functions** - Create generator function for number ranges ([exercise 164](./exercises/164-iterator-generator))
 <!-- TODO: to refine -->
-165. [ ] **Iterator - Infinite Sequence** - Build generator for infinite sequences ([exercise 165](./exercises/165-iterator-infinite))
+165. [x] **Iterator - Infinite Sequences** - Build generator for infinite sequences ([exercise 165](./exercises/165-iterator-infinite))
 <!-- TODO: to refine -->
-166. [ ] **Iterator - Custom Collection** - Create iterable collection class ([exercise 166](./exercises/166-iterator-collection))
+166. [x] **Iterator - Custom Collection** - Create iterable collection class ([exercise 166](./exercises/166-iterator-collection))
 <!-- TODO: to refine -->
-167. [ ] **Iterator - Generator Composition** - Combine multiple generators ([exercise 167](./exercises/167-iterator-compose))
+167. [x] **Iterator - Generator Composition** - Combine multiple generators ([exercise 167](./exercises/167-iterator-compose))
 
 ### Series 34: Email Validator
 *Build email validation to master regular expressions*
