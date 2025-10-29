@@ -1,0 +1,40 @@
+{
+  "id": 180,
+  "title": "Calculator Tests - Jest Framework",
+  "description": "Master Jest, the industry-standard testing framework by Facebook. Learn mocking, coverage analysis, and advanced testing patterns used by professional teams.",
+  "series": 37,
+  "difficulty": "Intermediate",
+  "tags": ["testing", "jest", "unit-tests", "industry-standard", "coverage"],
+  "technologies": ["Jest", "Node.js", "ES6 Modules"],
+  "learningOutcomes": [
+    "Understand Jest testing framework",
+    "Write tests using describe/it (Jest style)",
+    "Learn about test coverage and coverage reports",
+    "Practice mocking and spying (intro)",
+    "Compare three testing frameworks",
+    "Understand meta-testing concepts"
+  ],
+  "skillsFocused": [
+    "Industry-standard testing",
+    "Test coverage analysis",
+    "Framework comparison",
+    "Professional testing practices",
+    "Meta-testing (testing your tests)"
+  ],
+  "estimatedHours": 1.5,
+  "prerequisitesContent": [
+    "Exercise 178: Node Test basics",
+    "Exercise 179: Vitest fundamentals",
+    "Testing concepts and patterns"
+  ],
+  "structure": {
+    "files": [
+      "calculator.js - Same calculator (reused from 178/179)",
+      "calculator.test.js - Jest tests with TODOs (YOUR JOB: complete)",
+      "jest.config.js - Jest configuration",
+      "test-validator.js - Meta-tests (tests that validate tests)",
+      "package.json - Project config with Jest",
+      "exercise.json, README.md - Documentation"
+    ]
+  }
+}

@@ -13,20 +13,21 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## 📊 Progress Summary
 
-**Overall Progress:** 178/200 exercises completed (89%)
+**Overall Progress:** 181/200 exercises completed (90.5%)
 
-**Completed Series:** 36/40 series ✅
+**Completed Series:** 37/40 series ✅
 - Series 1-32: All complete (162 exercises)
 - Series 33: All complete (5 exercises)
 - Series 34: All complete (5 exercises)
 - Series 35: All complete (2 exercises)
-- Series 36: All complete (3 exercises) 🎉
+- Series 36: All complete (3 exercises)
+- Series 37: All complete (3 exercises) 🎉
 
 **Current Status:**
-- Phase 1-19: ✅ COMPLETE (Exercises 1-178)
-- Phase 20+: 🔄 In Progress (Exercises 179-200)
+- Phase 1-20: ✅ COMPLETE (Exercises 1-181)
+- Phase 21+: 🔄 In Progress (Exercises 182-200)
 
-**Next Series:** Series 37 - Tested Calculator (Unit Testing)
+**Next Series:** Series 38 - Quiz Game
 
 ---
 
@@ -597,19 +598,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 <!-- TODO: to refine -->
 177. [x] **Math Library - Geometry Calculator** - Build practical geometry calculator with 14 shape functions and unit conversions using the library ([exercise 177](./exercises/177-geometry-calculator))
 
-### Series 37: Tested Calculator
-*Build a calculator with full test coverage to learn testing*
+### Series 37: Tested Calculator ✅ COMPLETE
+*Master unit testing with three frameworks - node:test, Vitest, and Jest. Learn by writing tests for a complete calculator, not by building the calculator. Includes meta-testing (testing your tests!) (3 focused exercises instead of 5)*
 
 <!-- TODO: to refine -->
-178. [ ] **Calculator Tests - First Test** - Write simple addition test ([exercise 178](./exercises/178-calc-first-test))
+178. [x] **Calculator Tests - Node.js Built-in (node:test)** - Write 27+ unit tests using node:test framework and node:assert library. Learn testing fundamentals with Node.js built-in tools, no dependencies required ([exercise 178](./exercises/178-calc-node-test))
 <!-- TODO: to refine -->
-179. [ ] **Calculator Tests - Test Functions** - Add tests for all operations ([exercise 179](./exercises/179-calc-test-functions))
+179. [x] **Calculator Tests - Vitest (Modern Framework)** - Port tests to Vitest, learning describe/it syntax, expect matchers, and advanced features like hooks and UI testing. Same calculator, different framework ([exercise 179](./exercises/179-calc-vitest))
 <!-- TODO: to refine -->
-180. [ ] **Calculator Tests - Edge Cases** - Test division by zero, negative numbers ([exercise 180](./exercises/180-calc-edge-cases))
-<!-- TODO: to refine -->
-181. [ ] **Calculator Tests - TDD Feature** - Add new feature using test-first approach ([exercise 181](./exercises/181-calc-tdd))
-<!-- TODO: to refine -->
-182. [ ] **Calculator Tests - Test Suite** - Organize tests with describe and it blocks ([exercise 182](./exercises/182-calc-suite))
+180. [x] **Calculator Tests - Jest (Industry Standard) + Meta-Testing** - Master Jest framework used by React teams worldwide. Learn professional testing with coverage analysis. NEW: Include meta-tests that validate your tests actually test the code (test-validator.js) ([exercise 180](./exercises/180-calc-jest))
 
 ---
 
@@ -619,48 +616,48 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a complete quiz application combining multiple skills*
 
 <!-- TODO: to refine -->
-183. [ ] **Quiz - Question Display** - Show questions with multiple choice answers ([exercise 183](./exercises/183-quiz-display))
+181. [ ] **Quiz - Question Display** - Show questions with multiple choice answers ([exercise 181](./exercises/181-quiz-display))
 <!-- TODO: to refine -->
-184. [ ] **Quiz - Score Tracking** - Track correct/incorrect answers ([exercise 184](./exercises/184-quiz-score))
+182. [ ] **Quiz - Score Tracking** - Track correct/incorrect answers ([exercise 182](./exercises/182-quiz-score))
 <!-- TODO: to refine -->
-185. [ ] **Quiz - Timer System** - Add countdown timer for each question ([exercise 185](./exercises/185-quiz-timer))
+183. [ ] **Quiz - Timer System** - Add countdown timer for each question ([exercise 183](./exercises/183-quiz-timer))
 <!-- TODO: to refine -->
-186. [ ] **Quiz - Progress Bar** - Show visual progress through quiz ([exercise 186](./exercises/186-quiz-progress))
+184. [ ] **Quiz - Progress Bar** - Show visual progress through quiz ([exercise 184](./exercises/184-quiz-progress))
 <!-- TODO: to refine -->
-187. [ ] **Quiz - Results Screen** - Display final score with review option ([exercise 187](./exercises/187-quiz-results))
+185. [ ] **Quiz - Results Screen** - Display final score with review option ([exercise 185](./exercises/185-quiz-results))
 
 ### Series 39: E-commerce Cart
 *Build a shopping cart system integrating advanced features*
 
 <!-- TODO: to refine -->
-188. [ ] **Cart - Product List** - Display products with add to cart buttons ([exercise 188](./exercises/188-cart-products))
+186. [ ] **Cart - Product List** - Display products with add to cart buttons ([exercise 186](./exercises/186-cart-products))
 <!-- TODO: to refine -->
-189. [ ] **Cart - Add/Remove Items** - Manage cart items with quantity ([exercise 189](./exercises/189-cart-manage))
+187. [ ] **Cart - Add/Remove Items** - Manage cart items with quantity ([exercise 187](./exercises/187-cart-manage))
 <!-- TODO: to refine -->
-190. [ ] **Cart - Calculate Totals** - Compute subtotal, tax, and total price ([exercise 190](./exercises/190-cart-calculate))
+188. [ ] **Cart - Calculate Totals** - Compute subtotal, tax, and total price ([exercise 188](./exercises/188-cart-calculate))
 <!-- TODO: to refine -->
-191. [ ] **Cart - Discount Codes** - Apply coupon codes and promotions ([exercise 191](./exercises/191-cart-discounts))
+189. [ ] **Cart - Discount Codes** - Apply coupon codes and promotions ([exercise 189](./exercises/189-cart-discounts))
 <!-- TODO: to refine -->
-192. [ ] **Cart - Persist Cart** - Save cart to localStorage between sessions ([exercise 192](./exercises/192-cart-persist))
+190. [ ] **Cart - Persist Cart** - Save cart to localStorage between sessions ([exercise 190](./exercises/190-cart-persist))
 
 ### Series 40: Image Gallery
 *Build an interactive gallery with advanced UI features*
 
 <!-- TODO: to refine -->
-193. [ ] **Gallery - Grid Layout** - Display images in responsive grid ([exercise 193](./exercises/193-gallery-grid))
+191. [ ] **Gallery - Grid Layout** - Display images in responsive grid ([exercise 191](./exercises/191-gallery-grid))
 <!-- TODO: to refine -->
-194. [ ] **Gallery - Lightbox View** - Click to view full-size image ([exercise 194](./exercises/194-gallery-lightbox))
+192. [ ] **Gallery - Lightbox View** - Click to view full-size image ([exercise 192](./exercises/192-gallery-lightbox))
 <!-- TODO: to refine -->
-195. [ ] **Gallery - Navigation** - Add prev/next buttons in lightbox ([exercise 195](./exercises/195-gallery-navigation))
+193. [ ] **Gallery - Navigation** - Add prev/next buttons in lightbox ([exercise 193](./exercises/193-gallery-navigation))
 <!-- TODO: to refine -->
-196. [ ] **Gallery - Keyboard Controls** - Navigate with arrow keys and ESC ([exercise 196](./exercises/196-gallery-keyboard))
+194. [ ] **Gallery - Keyboard Controls** - Navigate with arrow keys and ESC ([exercise 194](./exercises/194-gallery-keyboard))
 <!-- TODO: to refine -->
-197. [ ] **Gallery - Lazy Loading** - Load images as user scrolls ([exercise 197](./exercises/197-gallery-lazy-load))
+195. [ ] **Gallery - Lazy Loading** - Load images as user scrolls ([exercise 195](./exercises/195-gallery-lazy-load))
 
 ---
 
 ### ⭐ Bonus Exercises
-198. [ ] **Your Own Project** - Design and build your own application using concepts from entire course
+196. [ ] **Your Own Project** - Design and build your own application using concepts from entire course
 
 ### Skills You've Mastered
 

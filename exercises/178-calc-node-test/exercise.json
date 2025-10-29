@@ -1,0 +1,37 @@
+{
+  "id": 178,
+  "title": "Calculator Tests - Node Test + node:assert",
+  "description": "Learn testing with Node.js built-in testing framework (node:test) and assertions (node:assert). Complete the prefilled failing tests to implement the calculator.",
+  "series": 37,
+  "difficulty": "Intermediate",
+  "tags": ["testing", "node:test", "node:assert", "unit-tests", "tdd"],
+  "technologies": ["Node.js 18+", "Built-in node:test", "Built-in node:assert"],
+  "learningOutcomes": [
+    "Understand Node.js built-in testing framework",
+    "Write assertions using node:assert",
+    "Practice test-driven development (TDD)",
+    "Complete failing tests to drive implementation",
+    "Organize tests with test.describe and test.it"
+  ],
+  "skillsFocused": [
+    "Testing fundamentals",
+    "Test-driven development",
+    "Writing testable code",
+    "Debugging via tests",
+    "Code implementation from specifications"
+  ],
+  "estimatedHours": 1.5,
+  "prerequisitesContent": [
+    "Basic JavaScript functions",
+    "Understanding of operators",
+    "How to use Node.js"
+  ],
+  "structure": {
+    "files": [
+      "calculator.js - Complete calculator implementation (ready to use)",
+      "calculator.test.js - Test skeleton with TODOs (YOUR JOB: write the tests)",
+      "package.json - Project config",
+      "exercise.json, README.md - Documentation"
+    ]
+  }
+}
