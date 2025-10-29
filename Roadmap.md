@@ -13,7 +13,7 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## 📊 Progress Summary
 
-**Overall Progress:** 181/200 exercises completed (90.5%)
+**Overall Progress:** 181/196 exercises completed (92.3%)
 
 **Completed Series:** 37/40 series ✅
 - Series 1-32: All complete (162 exercises)
@@ -24,10 +24,10 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 - Series 37: All complete (3 exercises) 🎉
 
 **Current Status:**
-- Phase 1-20: ✅ COMPLETE (Exercises 1-181)
-- Phase 21+: 🔄 In Progress (Exercises 182-200)
+- Phase 1-20: ✅ COMPLETE (Exercises 1-180)
+- Phase 21+: 🔄 In Progress (Exercises 181-196)
 
-**Next Series:** Series 38 - Quiz Game
+**Next Series:** Series 39 - E-commerce Cart
 
 ---
 
@@ -612,52 +612,44 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## Phase 21: Capstone Projects
 
-### Series 38: Quiz Game
-*Build a complete quiz application combining multiple skills*
+### Series 38: Quiz Game ✅ COMPLETE ENTRY POINT
+*Build a complete quiz application combining multiple skills in one capstone project*
 
 <!-- TODO: to refine -->
-181. [ ] **Quiz - Question Display** - Show questions with multiple choice answers ([exercise 181](./exercises/181-quiz-display))
-<!-- TODO: to refine -->
-182. [ ] **Quiz - Score Tracking** - Track correct/incorrect answers ([exercise 182](./exercises/182-quiz-score))
-<!-- TODO: to refine -->
-183. [ ] **Quiz - Timer System** - Add countdown timer for each question ([exercise 183](./exercises/183-quiz-timer))
-<!-- TODO: to refine -->
-184. [ ] **Quiz - Progress Bar** - Show visual progress through quiz ([exercise 184](./exercises/184-quiz-progress))
-<!-- TODO: to refine -->
-185. [ ] **Quiz - Results Screen** - Display final score with review option ([exercise 185](./exercises/185-quiz-results))
+181. [ ] **Quiz Game - Complete Application** - Build full quiz system with question display, scoring, timer, progress, and results in one exercise. Entry point for extending with additional features ([exercise 181](./exercises/181-quiz-game))
 
 ### Series 39: E-commerce Cart
 *Build a shopping cart system integrating advanced features*
 
 <!-- TODO: to refine -->
-186. [ ] **Cart - Product List** - Display products with add to cart buttons ([exercise 186](./exercises/186-cart-products))
+182. [ ] **Cart - Product List** - Display products with add to cart buttons ([exercise 182](./exercises/182-cart-products))
 <!-- TODO: to refine -->
-187. [ ] **Cart - Add/Remove Items** - Manage cart items with quantity ([exercise 187](./exercises/187-cart-manage))
+183. [ ] **Cart - Add/Remove Items** - Manage cart items with quantity ([exercise 183](./exercises/183-cart-manage))
 <!-- TODO: to refine -->
-188. [ ] **Cart - Calculate Totals** - Compute subtotal, tax, and total price ([exercise 188](./exercises/188-cart-calculate))
+184. [ ] **Cart - Calculate Totals** - Compute subtotal, tax, and total price ([exercise 184](./exercises/184-cart-calculate))
 <!-- TODO: to refine -->
-189. [ ] **Cart - Discount Codes** - Apply coupon codes and promotions ([exercise 189](./exercises/189-cart-discounts))
+185. [ ] **Cart - Discount Codes** - Apply coupon codes and promotions ([exercise 185](./exercises/185-cart-discounts))
 <!-- TODO: to refine -->
-190. [ ] **Cart - Persist Cart** - Save cart to localStorage between sessions ([exercise 190](./exercises/190-cart-persist))
+186. [ ] **Cart - Persist Cart** - Save cart to localStorage between sessions ([exercise 186](./exercises/186-cart-persist))
 
 ### Series 40: Image Gallery
 *Build an interactive gallery with advanced UI features*
 
 <!-- TODO: to refine -->
-191. [ ] **Gallery - Grid Layout** - Display images in responsive grid ([exercise 191](./exercises/191-gallery-grid))
+187. [ ] **Gallery - Grid Layout** - Display images in responsive grid ([exercise 187](./exercises/187-gallery-grid))
 <!-- TODO: to refine -->
-192. [ ] **Gallery - Lightbox View** - Click to view full-size image ([exercise 192](./exercises/192-gallery-lightbox))
+188. [ ] **Gallery - Lightbox View** - Click to view full-size image ([exercise 188](./exercises/188-gallery-lightbox))
 <!-- TODO: to refine -->
-193. [ ] **Gallery - Navigation** - Add prev/next buttons in lightbox ([exercise 193](./exercises/193-gallery-navigation))
+189. [ ] **Gallery - Navigation** - Add prev/next buttons in lightbox ([exercise 189](./exercises/189-gallery-navigation))
 <!-- TODO: to refine -->
-194. [ ] **Gallery - Keyboard Controls** - Navigate with arrow keys and ESC ([exercise 194](./exercises/194-gallery-keyboard))
+190. [ ] **Gallery - Keyboard Controls** - Navigate with arrow keys and ESC ([exercise 190](./exercises/190-gallery-keyboard))
 <!-- TODO: to refine -->
-195. [ ] **Gallery - Lazy Loading** - Load images as user scrolls ([exercise 195](./exercises/195-gallery-lazy-load))
+191. [ ] **Gallery - Lazy Loading** - Load images as user scrolls ([exercise 191](./exercises/191-gallery-lazy-load))
 
 ---
 
 ### ⭐ Bonus Exercises
-196. [ ] **Your Own Project** - Design and build your own application using concepts from entire course
+192. [ ] **Your Own Project** - Design and build your own application using concepts from entire course
 
 ### Skills You've Mastered
 

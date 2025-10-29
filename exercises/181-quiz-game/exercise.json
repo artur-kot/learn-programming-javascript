@@ -1,0 +1,92 @@
+{
+  "id": 181,
+  "title": "Quiz Game - Complete Application",
+  "description": "Build a complete quiz application combining question display, score tracking, timer system, progress visualization, and results screen. This is your entry point to extend with additional features.",
+  "series": 38,
+  "difficulty": "Intermediate",
+  "tags": [
+    "quiz-game",
+    "game-development",
+    "state-management",
+    "ui-ux",
+    "timer",
+    "scoring-system",
+    "capstone-project"
+  ],
+  "technologies": [
+    "JavaScript",
+    "Object-Oriented Programming",
+    "DOM Manipulation",
+    "Timer/Intervals",
+    "Event Handling"
+  ],
+  "learningOutcomes": [
+    "Build a complete interactive application from scratch",
+    "Manage complex application state",
+    "Implement timer and countdown functionality",
+    "Track user progress and scores",
+    "Create engaging user feedback systems",
+    "Build extensible architecture for future features"
+  ],
+  "skillsFocused": [
+    "Application architecture",
+    "State management patterns",
+    "Asynchronous operations with timers",
+    "User experience design",
+    "Code organization and maintainability",
+    "Testing complex interactive systems"
+  ],
+  "estimatedHours": 3.0,
+  "prerequisitesContent": [
+    "Object-oriented programming (Classes)",
+    "DOM manipulation and event handling",
+    "setTimeout and setInterval",
+    "Array methods (map, filter, reduce)",
+    "State management concepts"
+  ],
+  "structure": {
+    "files": [
+      "quiz.js - Main QuizGame class with 7 TODOs to complete",
+      "quiz.test.js - Comprehensive test suite with 30+ tests",
+      "index.html - Browser interface (HTML boilerplate)",
+      "styles.css - Styling for quiz UI",
+      "app.js - Browser integration code",
+      "package.json - Project configuration",
+      "exercise.json, README.md - Documentation"
+    ]
+  },
+  "todos": [
+    {
+      "number": 1,
+      "description": "Implement getCurrentQuestion() - Return current question or undefined if quiz complete"
+    },
+    {
+      "number": 2,
+      "description": "Implement answerQuestion(userAnswerIndex) - Record answer, update score, move to next question"
+    },
+    {
+      "number": 3,
+      "description": "Implement getProgress() - Return {current, total, percentage} of quiz progress"
+    },
+    {
+      "number": 4,
+      "description": "Implement startTimer() - Create countdown timer with callbacks for tick and time-up events"
+    },
+    {
+      "number": 5,
+      "description": "Implement getResults() - Calculate and return final quiz results with statistics"
+    },
+    {
+      "number": 6,
+      "description": "Implement isQuizComplete() - Check if all questions have been answered"
+    },
+    {
+      "number": 7,
+      "description": "Implement getAnswerReview() - Return detailed review of specific question and user's answer"
+    },
+    {
+      "number": 8,
+      "description": "BONUS: Add your own features - Consider shuffle, difficulty levels, hints, streaks, or skipping"
+    }
+  ]
+}
