@@ -14,4 +14,5 @@ I am pretty sure that amount of exercises should change, some of topics like *ge
 
 ## Goal
 The best way to learn programming - **read and write a lot of code**.
+
 The best way to learn **something** in IT - **implement it**.
