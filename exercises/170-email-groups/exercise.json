@@ -1,0 +1,130 @@
+{
+  "id": 170,
+  "title": "Email Validator - Capture Groups",
+  "description": "Master capture groups to extract and transform email parts with parentheses and $1, $2 references",
+  "series": 34,
+  "level": "intermediate-advanced",
+  "concepts": ["capture groups", "parentheses", "extraction", "references", "$1 $2", "groups"],
+  "functions": [
+    {
+      "name": "extractLocalPart",
+      "description": "Extract local part (before @) using capture groups",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email address"
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "name": "extractDomainName",
+      "description": "Extract domain name (between @ and first dot) using capture group",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email address"
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "name": "extractTLD",
+      "description": "Extract top-level domain (after last dot) using capture group",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email address"
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "name": "parseEmailParts",
+      "description": "Extract all 3 parts (local, domain, tld) as object using capture groups",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email address"
+        }
+      ],
+      "returns": "object with local, domain, tld properties"
+    },
+    {
+      "name": "swapEmailParts",
+      "description": "Swap local and domain parts: 'user@example' becomes 'example@user'",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to swap"
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "name": "formatEmailParts",
+      "description": "Format email as 'local [at] domain.tld' using capture groups",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to format"
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "name": "maskWithGroups",
+      "description": "Mask local part using capture groups: keep first char, mask rest, show domain",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to mask"
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "name": "rebuildEmailNormalized",
+      "description": "Extract and rebuild email normalized (lowercase, trimmed)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to normalize"
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "name": "countGroupMatches",
+      "description": "Count how many capture groups matched in a regex pattern for email",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to test"
+        }
+      ],
+      "returns": "number"
+    },
+    {
+      "name": "extractWithOptionalSubdomain",
+      "description": "Extract domain including optional subdomain (mail.example.com)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email with possible subdomain"
+        }
+      ],
+      "returns": "string"
+    }
+  ]
+}

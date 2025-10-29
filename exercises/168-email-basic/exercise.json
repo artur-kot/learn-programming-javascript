@@ -1,0 +1,144 @@
+{
+  "id": 168,
+  "title": "Email Validator - Basic Pattern",
+  "description": "Master regular expressions by validating simple email formats with basic regex patterns",
+  "series": 34,
+  "level": "intermediate",
+  "concepts": ["regular expressions", "regex patterns", "character classes", "anchors"],
+  "functions": [
+    {
+      "name": "isSimpleEmail",
+      "description": "Check if string matches basic email pattern (text@domain.extension)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email string to validate"
+        }
+      ],
+      "returns": "boolean",
+      "examples": [
+        {
+          "input": "user@example.com",
+          "output": true
+        },
+        {
+          "input": "john.doe@company.org",
+          "output": true
+        },
+        {
+          "input": "notanemail",
+          "output": false
+        }
+      ]
+    },
+    {
+      "name": "hasAtSymbol",
+      "description": "Check if email contains exactly one @ symbol",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email string to check"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "hasDotAfterAt",
+      "description": "Check if email has @ followed by at least one character and then a dot",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email string to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "isValidBasicFormat",
+      "description": "Validate email with pattern: letters/numbers before @, domain, dot, extension",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "countAtSymbols",
+      "description": "Count how many @ symbols appear in the string",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email string to analyze"
+        }
+      ],
+      "returns": "number"
+    },
+    {
+      "name": "checkLocalPart",
+      "description": "Check if part before @ contains only alphanumeric and dots",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to check"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "checkDomainPart",
+      "description": "Check if part after @ contains only alphanumeric, dots, and hyphens",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "extractDomain",
+      "description": "Extract domain name (part between @ and first dot after @)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email string to parse"
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "name": "extractExtension",
+      "description": "Extract top-level domain extension (part after last dot)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email string to parse"
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "name": "isValidExtension",
+      "description": "Check if extension is 2-6 letters (like com, org, co.uk)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to validate"
+        }
+      ],
+      "returns": "boolean"
+    }
+  ]
+}

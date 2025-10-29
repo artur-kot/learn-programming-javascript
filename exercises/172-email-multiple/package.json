@@ -1,0 +1,15 @@
+{
+  "name": "email-validator-multiple",
+  "version": "1.0.0",
+  "description": "Email Validator - Multiple Formats Exercise",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": ["regex", "email", "phone", "URL", "multiple formats"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node": ">=18.0.0"
+  }
+}

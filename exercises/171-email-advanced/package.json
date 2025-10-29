@@ -1,0 +1,15 @@
+{
+  "name": "email-validator-advanced",
+  "version": "1.0.0",
+  "description": "Email Validator - Advanced Patterns Exercise",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": ["regex", "lookahead", "lookbehind", "advanced patterns"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node": ">=18.0.0"
+  }
+}
