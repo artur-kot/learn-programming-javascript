@@ -13,21 +13,18 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## 📊 Progress Summary
 
-**Overall Progress:** 181/196 exercises completed (92.3%)
+**Overall Progress:** 182/192 exercises completed (94.8%)
 
-**Completed Series:** 37/40 series ✅
-- Series 1-32: All complete (162 exercises)
-- Series 33: All complete (5 exercises)
-- Series 34: All complete (5 exercises)
-- Series 35: All complete (2 exercises)
-- Series 36: All complete (3 exercises)
-- Series 37: All complete (3 exercises) 🎉
+**Completed Series:** 38/40 series ✅
+- Series 1-37: All complete (180 exercises)
+- Series 38: Complete - Consolidated capstone (1 exercise: Quiz Game)
+- Series 39: Complete - Consolidated capstone (1 exercise: E-commerce Cart)
 
 **Current Status:**
 - Phase 1-20: ✅ COMPLETE (Exercises 1-180)
-- Phase 21+: 🔄 In Progress (Exercises 181-196)
+- Phase 21: 🔄 In Progress (Exercises 181-188)
 
-**Next Series:** Series 39 - E-commerce Cart
+**Next Series:** Series 40 - Image Gallery
 
 ---
 
@@ -612,44 +609,36 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## Phase 21: Capstone Projects
 
-### Series 38: Quiz Game ✅ COMPLETE ENTRY POINT
+### Series 38: Quiz Game
 *Build a complete quiz application combining multiple skills in one capstone project*
 
 <!-- TODO: to refine -->
 181. [ ] **Quiz Game - Complete Application** - Build full quiz system with question display, scoring, timer, progress, and results in one exercise. Entry point for extending with additional features ([exercise 181](./exercises/181-quiz-game))
 
 ### Series 39: E-commerce Cart
-*Build a shopping cart system integrating advanced features*
+*Build a production-grade shopping cart system with service-oriented architecture*
 
 <!-- TODO: to refine -->
-182. [ ] **Cart - Product List** - Display products with add to cart buttons ([exercise 182](./exercises/182-cart-products))
-<!-- TODO: to refine -->
-183. [ ] **Cart - Add/Remove Items** - Manage cart items with quantity ([exercise 183](./exercises/183-cart-manage))
-<!-- TODO: to refine -->
-184. [ ] **Cart - Calculate Totals** - Compute subtotal, tax, and total price ([exercise 184](./exercises/184-cart-calculate))
-<!-- TODO: to refine -->
-185. [ ] **Cart - Discount Codes** - Apply coupon codes and promotions ([exercise 185](./exercises/185-cart-discounts))
-<!-- TODO: to refine -->
-186. [ ] **Cart - Persist Cart** - Save cart to localStorage between sessions ([exercise 186](./exercises/186-cart-persist))
+182. [ ] **E-commerce Cart - Complete System** - Build full cart system with product management, services layer, discounts, and persistence. 45 TODOs across models, services, and utilities. Entry point for extending with UI components ([exercise 182](./exercises/182-ecommerce-cart))
 
 ### Series 40: Image Gallery
 *Build an interactive gallery with advanced UI features*
 
 <!-- TODO: to refine -->
-187. [ ] **Gallery - Grid Layout** - Display images in responsive grid ([exercise 187](./exercises/187-gallery-grid))
+183. [ ] **Gallery - Grid Layout** - Display images in responsive grid ([exercise 183](./exercises/183-gallery-grid))
 <!-- TODO: to refine -->
-188. [ ] **Gallery - Lightbox View** - Click to view full-size image ([exercise 188](./exercises/188-gallery-lightbox))
+184. [ ] **Gallery - Lightbox View** - Click to view full-size image ([exercise 184](./exercises/184-gallery-lightbox))
 <!-- TODO: to refine -->
-189. [ ] **Gallery - Navigation** - Add prev/next buttons in lightbox ([exercise 189](./exercises/189-gallery-navigation))
+185. [ ] **Gallery - Navigation** - Add prev/next buttons in lightbox ([exercise 185](./exercises/185-gallery-navigation))
 <!-- TODO: to refine -->
-190. [ ] **Gallery - Keyboard Controls** - Navigate with arrow keys and ESC ([exercise 190](./exercises/190-gallery-keyboard))
+186. [ ] **Gallery - Keyboard Controls** - Navigate with arrow keys and ESC ([exercise 186](./exercises/186-gallery-keyboard))
 <!-- TODO: to refine -->
-191. [ ] **Gallery - Lazy Loading** - Load images as user scrolls ([exercise 191](./exercises/191-gallery-lazy-load))
+187. [ ] **Gallery - Lazy Loading** - Load images as user scrolls ([exercise 187](./exercises/187-gallery-lazy-load))
 
 ---
 
 ### ⭐ Bonus Exercises
-192. [ ] **Your Own Project** - Design and build your own application using concepts from entire course
+188. [ ] **Your Own Project** - Design and build your own application using concepts from entire course
 
 ### Skills You've Mastered
 
