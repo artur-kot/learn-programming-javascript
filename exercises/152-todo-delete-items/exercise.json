@@ -1,0 +1,62 @@
+{
+  "id": 152,
+  "series": 30,
+  "title": "Todo Delete Items",
+  "description": "Master deleting todos, implementing undo/recovery, and managing deletion lifecycle with proper cleanup",
+  "difficulty": "intermediate",
+  "prerequisites": ["Exercise 151: Todo Mark Complete"],
+  "learningOutcomes": [
+    "Delete individual todos by ID",
+    "Remove multiple todos with bulk operations",
+    "Implement soft delete (trash) for recovery",
+    "Restore deleted todos from trash",
+    "Implement permanent deletion (empty trash)",
+    "Support undo of deletion actions",
+    "Manage deletion history and recovery",
+    "Update DOM when todos are deleted",
+    "Clear storage when todos are removed",
+    "Handle edge cases in deletion operations"
+  ],
+  "functions": [
+    {
+      "name": "deleteTodo",
+      "description": "Delete a specific todo by ID from the list"
+    },
+    {
+      "name": "removeTodoById",
+      "description": "Remove todo and return updated array"
+    },
+    {
+      "name": "softDeleteTodo",
+      "description": "Move todo to trash instead of permanent deletion"
+    },
+    {
+      "name": "restoreDeletedTodo",
+      "description": "Restore a todo from trash back to active todos"
+    },
+    {
+      "name": "emptyTrash",
+      "description": "Permanently delete all todos in trash"
+    },
+    {
+      "name": "getDeletedTodos",
+      "description": "Get array of todos in trash"
+    },
+    {
+      "name": "undoLastDelete",
+      "description": "Undo the last deletion operation"
+    },
+    {
+      "name": "permanentlyDeleteTodo",
+      "description": "Permanently delete todo, not in trash"
+    },
+    {
+      "name": "deleteMultipleTodos",
+      "description": "Delete multiple todos by array of IDs"
+    },
+    {
+      "name": "deleteByQuery",
+      "description": "Delete todos matching a query or criteria"
+    }
+  ]
+}

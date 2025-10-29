@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 152: Todo Delete Items - Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🗑️ Todo Delete Items</h1>
+      <p>Master deletion, recovery, and undo patterns for safe data removal</p>
+    </div>
+
+    <div class="main-content">
+      <!-- Section 1: Basic Deletion -->
+      <div class="section">
+        <div class="section-title">1. Delete Todo by ID</div>
+        <p>Remove a specific todo from the list:</p>
+        
+        <div class="demo-section">
+          <button class="action-button danger" onclick="demoDelete()">Delete Todo 1</button>
+          <button class="action-button danger" onclick="demoDeleteMultiple()">Delete Multiple</button>
+          <div id="deleteResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Behavior:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Remove specific todo by ID</li>
+          <li>Return updated array</li>
+          <li>Don't modify original</li>
+          <li>Handle non-existent IDs</li>
+        </ul>
+      </div>
+
+      <!-- Section 2: Soft Delete (Trash) -->
+      <div class="section">
+        <div class="section-title">2. Soft Delete (Move to Trash)</div>
+        <p>Mark for deletion but keep recoverable:</p>
+        
+        <div class="demo-section">
+          <button class="action-button warning" onclick="demoSoftDelete()">Soft Delete Todo 2</button>
+          <button class="action-button warning" onclick="demoViewTrash()">View Trash</button>
+          <div id="softDeleteResult" class="data-display"></div>
+          <ul id="trashList" class="trash-list"></ul>
+        </div>
+
+        <p><strong>Features:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Move to trash instead of delete</li>
+          <li>Keep deleted flag and timestamp</li>
+          <li>Allow recovery/restore</li>
+          <li>User-friendly deletion</li>
+        </ul>
+      </div>
+
+      <!-- Section 3: Restore from Trash -->
+      <div class="section">
+        <div class="section-title">3. Restore from Trash</div>
+        <p>Recover accidentally deleted todos:</p>
+        
+        <div class="demo-section">
+          <button class="action-button success" onclick="demoRestore()">Restore First Item</button>
+          <div id="restoreResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Restore Workflow:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Move from trash to active</li>
+          <li>Remove deletion metadata</li>
+          <li>Return to normal state</li>
+          <li>Update storage</li>
+        </ul>
+      </div>
+
+      <!-- Section 4: Get Deleted Todos -->
+      <div class="section">
+        <div class="section-title">4. View Deleted Todos</div>
+        <p>Display trash contents:</p>
+        
+        <div class="demo-section">
+          <button class="action-button" onclick="demoShowTrash()">Show Trash Contents</button>
+          <ul id="trashContents" class="trash-list"></ul>
+        </div>
+
+        <p><strong>Features:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>View all deleted items</li>
+          <li>Show deletion time</li>
+          <li>Option to restore or empty</li>
+          <li>Count deleted items</li>
+        </ul>
+      </div>
+
+      <!-- Section 5: Empty Trash -->
+      <div class="section">
+        <div class="section-title">5. Empty Trash Permanently</div>
+        <p>Permanently delete all trashed items:</p>
+        
+        <div class="demo-section">
+          <button class="action-button danger" onclick="demoEmptyTrash()">Empty Trash</button>
+          <div id="emptyTrashResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Behavior:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Remove all items in trash</li>
+          <li>Cannot be undone (permanent)</li>
+          <li>Usually shows confirmation</li>
+          <li>Update UI to show empty trash</li>
+        </ul>
+      </div>
+
+      <!-- Section 6: Permanent Delete -->
+      <div class="section">
+        <div class="section-title">6. Permanent Delete (Skip Trash)</div>
+        <p>Delete immediately without trash:</p>
+        
+        <div class="demo-section">
+          <button class="action-button danger" onclick="demoPermanentDelete()">Permanent Delete</button>
+          <div id="permanentResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Features:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Delete without recovery option</li>
+          <li>No trash step</li>
+          <li>Irreversible</li>
+          <li>Different from soft delete</li>
+        </ul>
+      </div>
+
+      <!-- Section 7: Undo Deletion -->
+      <div class="section">
+        <div class="section-title">7. Undo Last Deletion</div>
+        <p>Restore the last deleted item:</p>
+        
+        <div class="demo-section">
+          <button class="action-button success" onclick="demoUndo()">Undo Last Delete</button>
+          <div id="undoResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Undo Features:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Maintain deletion history</li>
+          <li>Restore last deleted item</li>
+          <li>Limited to most recent</li>
+          <li>Works on soft delete</li>
+        </ul>
+      </div>
+
+      <!-- Section 8: Interactive Deletion Demo -->
+      <div class="section">
+        <div class="section-title">8. Interactive Todo Management</div>
+        <p>Try deleting, restoring, and managing todos:</p>
+        
+        <div class="demo-section">
+          <div class="action-buttons">
+            <button class="action-button secondary" onclick="addSampleTodos()">Load Todos</button>
+            <button class="action-button secondary" onclick="clearAllDemo()">Clear All</button>
+          </div>
+
+          <h4>Active Todos:</h4>
+          <ul id="activeTodos" class="todo-list"></ul>
+
+          <h4 style="margin-top: 20px;">🗑️ Trash Items:</h4>
+          <ul id="trashDemo" class="trash-list"></ul>
+
+          <div class="stats-grid" style="margin-top: 20px;">
+            <div class="stat-card active">
+              <div class="stat-label">Active Todos</div>
+              <div class="stat-value" id="activeCount">0</div>
+            </div>
+            <div class="stat-card trash">
+              <div class="stat-label">Trashed Items</div>
+              <div class="stat-value" id="trashCount">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // State management
+    let appTodos = [
+      { id: 1, title: 'Learn deletion patterns', description: 'Master safe deletion' },
+      { id: 2, title: 'Implement soft delete', description: 'Move to trash' },
+      { id: 3, title: 'Add recovery options', description: 'Restore from trash' },
+      { id: 4, title: 'Support undo', description: 'Restore last delete' },
+      { id: 5, title: 'Handle bulk deletion', description: 'Delete multiple' }
+    ];
+
+    let appTrash = [];
+    let deleteHistory = [];
+
+    // Helper Functions
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function formatJson(obj) {
+      return JSON.stringify(obj, null, 2);
+    }
+
+    function displayResult(elementId, title, data, className = '') {
+      const element = document.getElementById(elementId);
+      const formatted = typeof data === 'string' ? data : formatJson(data);
+      element.innerHTML = `
+        <strong>${title}:</strong>
+        <pre>${escapeHtml(formatted)}</pre>
+      `;
+      element.className = `data-display ${className}`;
+    }
+
+    // Core Functions
+    function deleteTodo(todos, id) {
+      return todos.filter(todo => todo.id !== id);
+    }
+
+    function softDelete(todos, trash, id) {
+      const todoToDelete = todos.find(t => t.id === id);
+      if (!todoToDelete) return { todos, trash };
+      
+      const deleted = {
+        ...todoToDelete,
+        deletedAt: new Date().toISOString()
+      };
+      
+      return {
+        todos: todos.filter(t => t.id !== id),
+        trash: [...trash, deleted]
+      };
+    }
+
+    function restore(todos, trash, id) {
+      const todoToRestore = trash.find(t => t.id === id);
+      if (!todoToRestore) return { todos, trash };
+      
+      const restored = { ...todoToRestore };
+      delete restored.deletedAt;
+      
+      return {
+        todos: [...todos, restored],
+        trash: trash.filter(t => t.id !== id)
+      };
+    }
+
+    function emptyTrash() {
+      return [];
+    }
+
+    function deleteMultiple(todos, ids) {
+      return todos.filter(todo => !ids.includes(todo.id));
+    }
+
+    function deleteByQuery(todos, query) {
+      if (query.completed) {
+        return todos.filter(t => !t.completed);
+      }
+      return todos;
+    }
+
+    // Demo Functions
+    function demoDelete() {
+      deleteHistory.push([...appTodos]);
+      appTodos = deleteTodo(appTodos, 1);
+      
+      displayResult('deleteResult', 'After Deletion', {
+        deleted: 1,
+        remaining: appTodos.length,
+        todos: appTodos.map(t => ({ id: t.id, title: t.title }))
+      });
+    }
+
+    function demoDeleteMultiple() {
+      deleteHistory.push([...appTodos]);
+      appTodos = deleteMultiple(appTodos, [1, 3]);
+      
+      displayResult('deleteResult', 'Multiple Deleted', {
+        deletedIds: [1, 3],
+        remaining: appTodos.length,
+        remaining_todos: appTodos.map(t => t.id)
+      });
+    }
+
+    function demoSoftDelete() {
+      deleteHistory.push([...appTodos]);
+      const result = softDelete(appTodos, appTrash, 2);
+      appTodos = result.todos;
+      appTrash = result.trash;
+      
+      displayResult('softDeleteResult', 'Soft Deleted (Moved to Trash)', {
+        action: 'Soft delete',
+        movedToTrash: 2,
+        activeTodos: appTodos.length,
+        trashItems: appTrash.length
+      });
+      
+      updateStats();
+    }
+
+    function demoRestore() {
+      if (appTrash.length > 0) {
+        deleteHistory.push([...appTodos]);
+        const result = restore(appTodos, appTrash, appTrash[0].id);
+        appTodos = result.todos;
+        appTrash = result.trash;
+        
+        displayResult('restoreResult', 'Restored from Trash', {
+          restoredId: appTrash[0]?.id || 'none',
+          activeTodos: appTodos.length,
+          trashItems: appTrash.length
+        });
+        
+        updateStats();
+      }
+    }
+
+    function demoViewTrash() {
+      demoShowTrash();
+    }
+
+    function demoShowTrash() {
+      if (appTrash.length === 0) {
+        document.getElementById('trashContents').innerHTML = `
+          <li style="padding: 20px; text-align: center; color: #999;">
+            🗑️ Trash is empty
+          </li>
+        `;
+        return;
+      }
+      
+      const list = document.getElementById('trashContents');
+      list.innerHTML = appTrash.map(todo => `
+        <li class="trash-item">
+          <div>
+            <strong>${escapeHtml(todo.title)}</strong>
+            <div style="font-size: 0.85em; color: #999;">
+              Deleted: ${new Date(todo.deletedAt).toLocaleString()}
+            </div>
+          </div>
+          <button class="restore-button" onclick="demoRestoreItem(${todo.id})">Restore</button>
+        </li>
+      `).join('');
+    }
+
+    function demoRestoreItem(id) {
+      const result = restore(appTodos, appTrash, id);
+      appTodos = result.todos;
+      appTrash = result.trash;
+      
+      updateStats();
+      demoShowTrash();
+      updateActiveTodos();
+    }
+
+    function demoEmptyTrash() {
+      if (appTrash.length === 0) {
+        displayResult('emptyTrashResult', 'Empty Trash', {
+          message: 'Trash is already empty'
+        });
+        return;
+      }
+      
+      appTrash = emptyTrash();
+      
+      displayResult('emptyTrashResult', 'Trash Emptied', {
+        message: 'All trashed items permanently deleted',
+        trashItems: appTrash.length
+      });
+      
+      updateStats();
+      demoShowTrash();
+    }
+
+    function demoPermanentDelete() {
+      if (appTodos.length === 0) {
+        displayResult('permanentResult', 'No Todos', { message: 'Nothing to delete' });
+        return;
+      }
+      
+      deleteHistory.push([...appTodos]);
+      const idToDelete = appTodos[0].id;
+      appTodos = deleteTodo(appTodos, idToDelete);
+      
+      displayResult('permanentResult', 'Permanent Delete', {
+        deleted: idToDelete,
+        message: 'Item permanently deleted (not in trash)',
+        remaining: appTodos.length
+      });
+      
+      updateStats();
+    }
+
+    function demoUndo() {
+      if (deleteHistory.length === 0) {
+        displayResult('undoResult', 'No History', { message: 'Nothing to undo' });
+        return;
+      }
+      
+      appTodos = deleteHistory.pop();
+      
+      displayResult('undoResult', 'Undo Successful', {
+        message: 'Last deletion undone',
+        todos: appTodos.length,
+        history_remaining: deleteHistory.length
+      });
+      
+      updateStats();
+    }
+
+    function updateStats() {
+      document.getElementById('activeCount').textContent = appTodos.length;
+      document.getElementById('trashCount').textContent = appTrash.length;
+    }
+
+    function updateActiveTodos() {
+      const list = document.getElementById('activeTodos');
+      if (appTodos.length === 0) {
+        list.innerHTML = `<li style="padding: 20px; text-align: center; color: #999;">No active todos</li>`;
+        return;
+      }
+      
+      list.innerHTML = appTodos.map(todo => `
+        <li class="todo-item">
+          <div class="todo-content">
+            <div class="todo-title">${escapeHtml(todo.title)}</div>
+            <div class="todo-description">${escapeHtml(todo.description || '')}</div>
+          </div>
+          <button class="delete-button" onclick="trashTodo(${todo.id})">Delete</button>
+        </li>
+      `).join('');
+    }
+
+    function updateTrashUI() {
+      const list = document.getElementById('trashDemo');
+      if (appTrash.length === 0) {
+        list.innerHTML = `<li style="padding: 20px; text-align: center; color: #999;">Trash is empty</li>`;
+        return;
+      }
+      
+      list.innerHTML = appTrash.map(todo => `
+        <li class="trash-item">
+          <div>
+            <strong>${escapeHtml(todo.title)}</strong>
+            <div style="font-size: 0.85em; color: #999;">
+              ${new Date(todo.deletedAt).toLocaleString()}
+            </div>
+          </div>
+          <button class="restore-button" onclick="restoreTodo(${todo.id})">Restore</button>
+        </li>
+      `).join('');
+    }
+
+    function trashTodo(id) {
+      const result = softDelete(appTodos, appTrash, id);
+      appTodos = result.todos;
+      appTrash = result.trash;
+      
+      updateStats();
+      updateActiveTodos();
+      updateTrashUI();
+    }
+
+    function restoreTodo(id) {
+      const result = restore(appTodos, appTrash, id);
+      appTodos = result.todos;
+      appTrash = result.trash;
+      
+      updateStats();
+      updateActiveTodos();
+      updateTrashUI();
+    }
+
+    function addSampleTodos() {
+      appTodos = [
+        { id: 1, title: 'Learn deletion patterns', description: 'Master safe deletion' },
+        { id: 2, title: 'Implement soft delete', description: 'Move to trash' },
+        { id: 3, title: 'Add recovery options', description: 'Restore from trash' },
+        { id: 4, title: 'Support undo', description: 'Restore last delete' },
+        { id: 5, title: 'Handle bulk deletion', description: 'Delete multiple' }
+      ];
+      appTrash = [];
+      deleteHistory = [];
+      
+      updateStats();
+      updateActiveTodos();
+      updateTrashUI();
+    }
+
+    function clearAllDemo() {
+      appTodos = [];
+      appTrash = [];
+      deleteHistory = [];
+      
+      updateStats();
+      updateActiveTodos();
+      updateTrashUI();
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      addSampleTodos();
+    });
+  </script>
+</body>
+</html>

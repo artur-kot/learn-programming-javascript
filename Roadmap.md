@@ -478,19 +478,19 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## Phase 15: Local Storage and State
 
-### Series 30: Todo List App
+### Series 30: Todo List App ✓
 *Build a complete todo app to master localStorage and state management*
 
 <!-- TODO: to refine -->
-148. [ ] **Todo - Add and Display** - Create todos and render to page ([exercise 148](./exercises/148-todo-add-display))
+148. [x] **Todo - Add and Display** - Create todos and render to page ([exercise 148](./exercises/148-todo-add-display))
 <!-- TODO: to refine -->
-149. [ ] **Todo - Save to Storage** - Store todos in localStorage ([exercise 149](./exercises/149-todo-save))
+149. [x] **Todo - Save to Storage** - Store todos in localStorage ([exercise 149](./exercises/149-todo-save-storage))
 <!-- TODO: to refine -->
-150. [ ] **Todo - Load from Storage** - Retrieve and display saved todos on page load ([exercise 150](./exercises/150-todo-load))
+150. [x] **Todo - Load from Storage** - Retrieve and display saved todos on page load ([exercise 150](./exercises/150-todo-load-storage))
 <!-- TODO: to refine -->
-151. [ ] **Todo - Mark Complete** - Toggle completion status and update storage ([exercise 151](./exercises/151-todo-complete))
+151. [x] **Todo - Mark Complete** - Toggle completion status and update storage ([exercise 151](./exercises/151-todo-mark-complete))
 <!-- TODO: to refine -->
-152. [ ] **Todo - Delete Items** - Remove todos and sync with localStorage ([exercise 152](./exercises/152-todo-delete))
+152. [x] **Todo - Delete Items** - Remove todos and sync with localStorage ([exercise 152](./exercises/152-todo-delete-items))
 
 ### Series 31: Note-Taking App
 *Build a notes app to practice state management and storage*

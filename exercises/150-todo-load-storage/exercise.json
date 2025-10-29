@@ -1,0 +1,42 @@
+{
+  "id": 150,
+  "name": "Todo List - Load from Storage",
+  "series": 30,
+  "difficulty": "intermediate",
+  "description": "Load persisted todos from localStorage on app startup and display them",
+  "learningOutcomes": [
+    "Load todos on app initialization",
+    "Handle missing or corrupted storage data",
+    "Initialize app state from storage",
+    "Implement app lifecycle patterns",
+    "Combine loading with rendering",
+    "Handle empty initial state",
+    "Create initialization hooks",
+    "Manage app setup and startup"
+  ],
+  "prerequisites": [
+    "Exercise 149: Todo Save Storage",
+    "App initialization patterns",
+    "localStorage API",
+    "DOM readiness events"
+  ],
+  "functions": [
+    "initializeApp()",
+    "loadTodosOnStartup()",
+    "getInitialAppState()",
+    "restoreTodosFromStorage()",
+    "setupAppState(todos)",
+    "renderInitialTodos(todos, container)",
+    "handleStorageError(error)",
+    "checkStorageOnLoad()",
+    "migrateOldStorage()",
+    "logStorageStatus()"
+  ],
+  "estimatedTime": "75 minutes",
+  "resources": [
+    "App Initialization Patterns",
+    "Storage State Recovery",
+    "Error Handling on Startup",
+    "DOM Ready Events"
+  ]
+}

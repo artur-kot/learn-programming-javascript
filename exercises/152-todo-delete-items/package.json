@@ -1,0 +1,21 @@
+{
+  "name": "152-todo-delete-items",
+  "version": "1.0.0",
+  "description": "Exercise 152: Delete and remove todos with undo/recovery patterns",
+  "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [
+    "todos",
+    "deletion",
+    "undo",
+    "recovery",
+    "vitest"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^0.34.0"
+  }
+}

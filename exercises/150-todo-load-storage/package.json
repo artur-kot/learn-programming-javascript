@@ -1,0 +1,17 @@
+{
+  "name": "150-todo-load-storage",
+  "version": "1.0.0",
+  "description": "Todo List App - Load and display persisted todos",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": ["todo", "localstorage", "initialization", "app-startup"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": 149,
+  "name": "Todo List - Save to Storage",
+  "series": 30,
+  "difficulty": "intermediate",
+  "description": "Persist todos to localStorage so they survive page reloads",
+  "learningOutcomes": [
+    "Save data to localStorage",
+    "Serialize objects to JSON",
+    "Handle storage errors",
+    "Implement persistence patterns",
+    "Manage storage quota",
+    "Update storage on data changes",
+    "Parse JSON back to objects",
+    "Coordinate storage with state"
+  ],
+  "prerequisites": [
+    "Exercise 148: Todo Add and Display",
+    "localStorage API basics",
+    "JSON.stringify and JSON.parse",
+    "Event handling"
+  ],
+  "functions": [
+    "saveTodosToStorage(todos)",
+    "getTodosFromStorage()",
+    "clearAllStorage()",
+    "isStorageAvailable()",
+    "getStorageSize()",
+    "serializeTodos(todos)",
+    "deserializeTodos(jsonString)",
+    "updateStorageOnAdd(todos, newTodo)",
+    "getStorageKey()",
+    "validateStoredTodos(todos)"
+  ],
+  "estimatedTime": "75 minutes",
+  "resources": [
+    "localStorage API",
+    "JSON Serialization",
+    "Storage Persistence Patterns",
+    "Error Handling for Storage"
+  ]
+}

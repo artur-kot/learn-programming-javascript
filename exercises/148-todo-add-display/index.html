@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 148: Todo List - Add and Display</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📝 Exercise 148: Todo List - Add and Display</h1>
+      <p class="subtitle">Build a todo list app with core add and display functionality</p>
+    </header>
+
+    <!-- Section 1: Create Todo -->
+    <div class="demo-section">
+      <h2>1. Create Todo Objects</h2>
+      <p>Generate todo objects with unique IDs and metadata.</p>
+      <div class="code-example">
+const todo = createTodo('Buy milk', '2L bottle');
+// Returns: {id: 1, title: 'Buy milk', description: '2L bottle', completed: false, createdAt: ...}
+      </div>
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" id="createTitle" placeholder="What needs to be done?" value="Buy groceries">
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea id="createDesc" placeholder="Add details...">Milk, eggs, bread</textarea>
+      </div>
+      <button onclick="demoCreateTodo()">Create Todo</button>
+      <div class="result-box" id="createResult"></div>
+    </div>
+
+    <!-- Section 2: Validate Input -->
+    <div class="demo-section">
+      <h2>2. Validate Todo Input</h2>
+      <p>Check that todo titles are valid before adding.</p>
+      <div class="code-example">
+validateTodoInput('Buy milk')  // true
+validateTodoInput('')          // false
+validateTodoInput('   ')       // false
+      </div>
+      <div class="form-group">
+        <label>Title to Validate:</label>
+        <input type="text" id="validateInput" placeholder="Enter title..." value="Valid task">
+      </div>
+      <button onclick="demoValidate()">Validate</button>
+      <div class="result-box" id="validateResult"></div>
+    </div>
+
+    <!-- Section 3: Generate IDs -->
+    <div class="demo-section">
+      <h2>3. Generate Unique Todo IDs</h2>
+      <p>Create unique IDs that don't conflict with existing todos.</p>
+      <div class="code-example">
+generateTodoId([])                    // 1
+generateTodoId([{id:1}, {id:2}])     // 3
+generateTodoId([{id:5}, {id:10}])    // 11
+      </div>
+      <div class="form-group">
+        <label>Number of Existing Todos:</label>
+        <input type="number" id="todoCount" value="3" min="0" max="100">
+      </div>
+      <button onclick="demoGenerateId()">Generate Next ID</button>
+      <div class="result-box" id="idResult"></div>
+    </div>
+
+    <!-- Section 4: Add Todos -->
+    <div class="demo-section">
+      <h2>4. Add Todos to List</h2>
+      <p>Add new todos to a list without modifying the original.</p>
+      <div class="code-example">
+const todos = [];
+const newTodo = {id: 1, title: '...', ...};
+const updated = addTodo(todos, newTodo);
+// todos unchanged, updated has the new item
+      </div>
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" id="addTitle" placeholder="New todo..." value="Review code">
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea id="addDesc" placeholder="Details...">Check pull request #42</textarea>
+      </div>
+      <button onclick="demoAddTodo()">Add Todo</button>
+      <div class="result-box" id="addResult"></div>
+    </div>
+
+    <!-- Section 5: Find Todo -->
+    <div class="demo-section">
+      <h2>5. Find Todo by ID</h2>
+      <p>Search for a specific todo in the list.</p>
+      <div class="code-example">
+getTodoById(todos, 1)   // {id: 1, title: '...'}
+getTodoById(todos, 999) // null
+      </div>
+      <div class="form-group">
+        <label>Todo ID to Find:</label>
+        <input type="number" id="findId" value="1" min="1">
+      </div>
+      <button onclick="demoFindTodo()">Find Todo</button>
+      <div class="result-box" id="findResult"></div>
+    </div>
+
+    <!-- Section 6: Format Todo Display -->
+    <div class="demo-section">
+      <h2>6. Format Todo for Display</h2>
+      <p>Create readable text representation of a todo.</p>
+      <div class="code-example">
+formatTodoDisplay({title: 'Buy milk', description: '2L', completed: false})
+// Returns: "Buy milk - 2L"
+      </div>
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" id="formatTitle" placeholder="Task title..." value="Complete project">
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea id="formatDesc" placeholder="Details...">Finish documentation</textarea>
+      </div>
+      <div class="form-group">
+        <label>
+          <input type="checkbox" id="formatCompleted">
+          Completed
+        </label>
+      </div>
+      <button onclick="demoFormatTodo()">Format Todo</button>
+      <div class="result-box" id="formatResult"></div>
+    </div>
+
+    <!-- Section 7: Interactive Todo List -->
+    <div class="demo-section">
+      <h2>7. Interactive Todo List</h2>
+      <p>Complete demo: add todos and display them in a list.</p>
+      
+      <form id="todoForm">
+        <div class="form-group">
+          <label>Todo Title:</label>
+          <input type="text" id="todoTitle" placeholder="What needs to be done?" required>
+        </div>
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea id="todoDescription" placeholder="Add details..."></textarea>
+        </div>
+        <div class="form-controls">
+          <button type="submit">Add Todo</button>
+          <button type="button" onclick="clearAllTodos()">Clear All</button>
+        </div>
+      </form>
+
+      <div id="todoStatsContainer" class="stats"></div>
+
+      <ul id="todoListContainer" class="todo-list"></ul>
+    </div>
+
+    <!-- Section 8: Todo Statistics -->
+    <div class="demo-section">
+      <h2>8. Todo Statistics</h2>
+      <p>Analyze and display statistics about todos.</p>
+      <button onclick="demoStats()">Calculate Stats</button>
+      <div class="stats" id="statsContainer"></div>
+    </div>
+  </div>
+
+  <script>
+    // Helper functions (same as exercises)
+    
+    function createTodo(title, description) {
+      return {
+        id: Math.random(),
+        title,
+        description,
+        completed: false,
+        createdAt: new Date()
+      };
+    }
+
+    function addTodo(todos, newTodo) {
+      return [...todos, newTodo];
+    }
+
+    function getTodos() {
+      return [];
+    }
+
+    function getTodoById(todos, id) {
+      return todos.find(t => t.id === id || t.id === parseInt(id)) || null;
+    }
+
+    function generateTodoId(todos) {
+      if (todos.length === 0) return 1;
+      const maxId = Math.max(...todos.map(t => t.id || 0));
+      return maxId + 1;
+    }
+
+    function validateTodoInput(title) {
+      return title.trim().length > 0;
+    }
+
+    function formatTodoDisplay(todo) {
+      const status = todo.completed ? '✓' : '○';
+      const desc = todo.description ? ` - ${todo.description}` : '';
+      return `${status} ${todo.title}${desc}`;
+    }
+
+    function renderTodo(todo) {
+      const li = document.createElement('li');
+      li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+      li.setAttribute('data-id', todo.id);
+      
+      const date = new Date(todo.createdAt).toLocaleDateString();
+      li.innerHTML = `
+        <div class="todo-content">
+          <div class="todo-title">${escapeHtml(todo.title)}</div>
+          ${todo.description ? `<div class="todo-description">${escapeHtml(todo.description)}</div>` : ''}
+          <div class="todo-meta">Created: ${date}</div>
+        </div>
+      `;
+      
+      return li;
+    }
+
+    function renderTodos(todos, container) {
+      container.innerHTML = '';
+      if (todos.length === 0) {
+        container.innerHTML = '<div class="empty-state"><p>No todos yet. Add one to get started!</p></div>';
+        return;
+      }
+      todos.forEach(todo => {
+        container.appendChild(renderTodo(todo));
+      });
+    }
+
+    function clearTodoInput(formElement) {
+      const inputs = formElement.querySelectorAll('input[type="text"], textarea');
+      inputs.forEach(input => input.value = '');
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Demo functions
+
+    function demoCreateTodo() {
+      const title = document.getElementById('createTitle').value;
+      const desc = document.getElementById('createDesc').value;
+      
+      const todo = createTodo(title, desc);
+      
+      document.getElementById('createResult').innerHTML = `
+        <strong>Created Todo:</strong><br>
+        ID: ${todo.id}<br>
+        Title: ${todo.title}<br>
+        Description: ${todo.description}<br>
+        Completed: ${todo.completed}<br>
+        Created: ${todo.createdAt.toLocaleString()}
+      `;
+    }
+
+    function demoValidate() {
+      const input = document.getElementById('validateInput').value;
+      const isValid = validateTodoInput(input);
+      
+      document.getElementById('validateResult').innerHTML = `
+        <strong>Input:</strong> "${input}"<br>
+        <strong>Valid:</strong> ${isValid ? '✓ Yes' : '✗ No'}<br>
+        ${!isValid ? '<em>Title must not be empty or only whitespace</em>' : ''}
+      `;
+    }
+
+    function demoGenerateId() {
+      const count = parseInt(document.getElementById('todoCount').value) || 0;
+      const todos = Array.from({length: count}, (_, i) => ({id: i + 1}));
+      const nextId = generateTodoId(todos);
+      
+      const existingIds = todos.map(t => t.id).join(', ') || 'none';
+      document.getElementById('idResult').innerHTML = `
+        <strong>Existing IDs:</strong> ${existingIds}<br>
+        <strong>Next ID:</strong> ${nextId}
+      `;
+    }
+
+    let demoTodos = [];
+
+    function demoAddTodo() {
+      const title = document.getElementById('addTitle').value;
+      const desc = document.getElementById('addDesc').value;
+      
+      if (!validateTodoInput(title)) {
+        document.getElementById('addResult').innerHTML = '<em>Please enter a valid title</em>';
+        return;
+      }
+      
+      const newTodo = createTodo(title, desc);
+      demoTodos = addTodo(demoTodos, newTodo);
+      
+      document.getElementById('addResult').innerHTML = `
+        <strong>Added Todo:</strong><br>
+        ID: ${newTodo.id.toFixed(4)}<br>
+        Title: ${newTodo.title}<br>
+        Total Todos: ${demoTodos.length}
+      `;
+    }
+
+    function demoFindTodo() {
+      if (demoTodos.length === 0) {
+        document.getElementById('findResult').innerHTML = '<em>No todos yet. Add some first.</em>';
+        return;
+      }
+      
+      const id = parseInt(document.getElementById('findId').value);
+      const firstTodo = demoTodos[0];
+      const found = getTodoById([firstTodo], firstTodo.id);
+      
+      if (found) {
+        document.getElementById('findResult').innerHTML = `
+          <strong>Found:</strong><br>
+          ID: ${found.id.toFixed(4)}<br>
+          Title: ${found.title}<br>
+          Description: ${found.description || '(none)'}
+        `;
+      } else {
+        document.getElementById('findResult').innerHTML = '<em>Todo not found</em>';
+      }
+    }
+
+    function demoFormatTodo() {
+      const title = document.getElementById('formatTitle').value;
+      const desc = document.getElementById('formatDesc').value;
+      const completed = document.getElementById('formatCompleted').checked;
+      
+      const todo = {title, description: desc, completed};
+      const formatted = formatTodoDisplay(todo);
+      
+      document.getElementById('formatResult').innerHTML = `
+        <strong>Formatted:</strong><br>
+        ${formatted}
+      `;
+    }
+
+    function demoStats() {
+      if (demoTodos.length === 0) {
+        document.getElementById('statsContainer').innerHTML = '<p class="info-text">Add some todos first</p>';
+        return;
+      }
+      
+      const total = demoTodos.length;
+      const completed = demoTodos.filter(t => t.completed).length;
+      const pending = total - completed;
+      
+      document.getElementById('statsContainer').innerHTML = `
+        <div class="stat-box">
+          <div class="stat-label">Total</div>
+          <div class="stat-value">${total}</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Pending</div>
+          <div class="stat-value">${pending}</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Completed</div>
+          <div class="stat-value">${completed}</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Progress</div>
+          <div class="stat-value">${total > 0 ? Math.round((completed / total) * 100) : 0}%</div>
+        </div>
+      `;
+    }
+
+    // Interactive todo list
+    let todos = [];
+
+    document.getElementById('todoForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const title = document.getElementById('todoTitle').value;
+      const desc = document.getElementById('todoDescription').value;
+      
+      if (!validateTodoInput(title)) {
+        alert('Please enter a title');
+        return;
+      }
+      
+      const newTodo = createTodo(title, desc);
+      todos = addTodo(todos, newTodo);
+      
+      renderTodos(todos, document.getElementById('todoListContainer'));
+      updateTodoStats();
+      clearTodoInput(document.getElementById('todoForm'));
+    });
+
+    function updateTodoStats() {
+      const total = todos.length;
+      const completed = todos.filter(t => t.completed).length;
+      
+      const statsHtml = `
+        <div class="stat-box">
+          <div class="stat-label">Total Todos</div>
+          <div class="stat-value">${total}</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Completed</div>
+          <div class="stat-value">${completed}</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Pending</div>
+          <div class="stat-value">${total - completed}</div>
+        </div>
+      `;
+      
+      document.getElementById('todoStatsContainer').innerHTML = statsHtml;
+    }
+
+    function clearAllTodos() {
+      if (confirm('Clear all todos?')) {
+        todos = [];
+        renderTodos(todos, document.getElementById('todoListContainer'));
+        updateTodoStats();
+      }
+    }
+
+    // Initialize
+    updateTodoStats();
+  </script>
+</body>
+</html>

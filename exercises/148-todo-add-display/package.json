@@ -1,0 +1,17 @@
+{
+  "name": "148-todo-add-display",
+  "version": "1.0.0",
+  "description": "Todo List App - Add and display todos with interactive UI",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": ["todo", "list", "state-management", "dom"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}
