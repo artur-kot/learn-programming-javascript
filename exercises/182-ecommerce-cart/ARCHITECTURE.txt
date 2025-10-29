@@ -1,0 +1,323 @@
+/**
+ * ARCHITECTURE DIAGRAM - E-commerce Cart System
+ * 
+ * This file explains the architecture visually using ASCII art
+ */
+
+================================================================================
+LAYERED ARCHITECTURE
+================================================================================
+
+                            ┌─────────────────────┐
+                            │   UI Components     │
+                            │ (Exercises 183-186) │
+                            └──────────┬──────────┘
+                                       ↑ ↓
+                            ┌──────────────────────┐
+                            │  CartService Layer   │  ← Orchestrator
+                            │  (Orchestration)     │
+                            └──────────┬───────────┘
+                                  ↑ ↓ ↓ ↓
+         ┌────────────────────────────┼─────────────────────────────┐
+         │                            │                             │
+    ┌────┴──────┐         ┌──────────┴────┐          ┌─────────────┴────┐
+    │ ProductSvc│         │  CouponSvc    │          │  StorageSvc      │
+    │(Filtering,│         │(Discounts)    │          │(Persistence)    │
+    │ searching)│         │               │          │                  │
+    └────┬──────┘         └──────────┬────┘          └─────────────┬────┘
+         │                           │                            │
+         ↓                           ↓                            ↓
+    ┌──────────────────────────────────────┐        ┌─────────────────┐
+    │           DATA MODELS                │        │  localStorage   │
+    │                                      │        │                 │
+    │  ┌─────────┐  ┌────────┐           │        └─────────────────┘
+    │  │ Product │  │  Cart  │ ─────────────────────→ Persistence
+    │  └────┬────┘  └───┬────┘           │
+    │       │           ↑                 │
+    │  ┌────┴─────┐ ┌──┴───────┐        │
+    │  │ CartItem │ │  Coupon  │        │
+    │  └──────────┘ └──────────┘        │
+    │                                    │
+    └──────────────────────────────────────┘
+
+================================================================================
+DATA FLOW EXAMPLE: Adding Product to Cart
+================================================================================
+
+User clicks "Add to Cart" button (productId=123, quantity=2)
+              ↓
+        CartService.addProductToCart(productId, quantity)
+              ↓
+        ProductService.getProduct(productId) ← Validate exists
+              ↓
+        product.isInStock()? ← Validate in stock
+              ↓
+        Cart.addItem(product, quantity) ← Add to cart
+              ↓
+        CartItem.getTotalPrice() ← Calculate item price
+              ↓
+        StorageService.saveCart(cart) ← Persist
+              ↓
+        Return CartItem to UI ← Display updated cart
+
+================================================================================
+CART TOTAL CALCULATION FLOW
+================================================================================
+
+User views cart summary:
+
+    Cart.getTotal()
+         ↓
+    ├─→ getSubtotal()
+    │   └─→ Sum all CartItem.getTotalPrice()
+    │
+    ├─→ getDiscountAmount()
+    │   ├─→ coupon.isActive()?
+    │   └─→ coupon.calculateDiscount(subtotal)
+    │
+    ├─→ getShippingCost()
+    │   └─→ subtotal >= threshold? ? 0 : cost
+    │
+    ├─→ getTaxAmount()
+    │   └─→ (subtotal - discount) * taxRate
+    │
+    └─→ TOTAL = subtotal - discount + tax + shipping
+
+    Result: {
+      subtotal: $199.99,
+      discount: -$40.00,
+      shipping: $0.00,
+      tax: $12.80,
+      total: $172.79
+    }
+
+================================================================================
+COUPON APPLICATION FLOW
+================================================================================
+
+User enters coupon code: "SAVE20"
+              ↓
+    CartService.applyCouponCode("SAVE20")
+              ↓
+    CouponService.validateCouponCode("SAVE20")
+              ├─→ getCouponByCode() ← Find coupon
+              ├─→ coupon.isActive() ← Check expiration & uses
+              └─→ coupon.isApplicable(cartTotal, categories) ← Check conditions
+              ↓
+    Cart.applyCoupon(coupon)
+              ├─→ Validate again
+              ├─→ coupon.apply() ← Increment usage counter
+              └─→ Store coupon in cart
+              ↓
+    StorageService.saveCart(cart) ← Persist
+              ↓
+    Return success with updated totals
+
+================================================================================
+PRODUCT SEARCH & FILTER EXAMPLE
+================================================================================
+
+User searches for "laptop" in "Electronics" with price $500-$2000:
+
+    ProductService.getProductsByCategory("Electronics")
+              ↓
+    ProductService.searchProducts("laptop")
+              ↓
+    ProductService.getProductsByPriceRange(50000, 200000)  [in cents]
+              ↓
+    Result: [Product, Product, Product] ← Filtered list
+
+Alternative method chaining (functional programming):
+    
+    const results = productService
+        .getProductsByCategory("Electronics")
+        .filter(p => p.name.includes("laptop"))
+        .filter(p => p.price >= 50000 && p.price <= 200000)
+        .sort((a, b) => a.price - b.price);
+
+================================================================================
+SERVICE DEPENDENCIES
+================================================================================
+
+CartService depends on:
+    ↓
+    ├─→ ProductService
+    │   └─→ Uses: Product model
+    │       Provides: getProduct(), searchProducts(), etc.
+    │
+    ├─→ CouponService
+    │   └─→ Uses: Coupon model
+    │       Provides: getCouponByCode(), validateCouponCode(), etc.
+    │
+    └─→ StorageService
+        └─→ Uses: localStorage API
+            Provides: saveCart(), loadCart(), etc.
+
+Dependency Injection Pattern:
+    
+    cartService = new CartService(
+        productService,    ← Injected dependency
+        couponService,     ← Injected dependency
+        storageService     ← Injected dependency
+    );
+
+Benefits:
+    ✓ Easy to test (inject mock services)
+    ✓ Loose coupling
+    ✓ Easy to replace implementations
+    ✓ Clear dependencies
+
+================================================================================
+ERROR HANDLING & VALIDATION FLOW
+================================================================================
+
+User adds invalid item to cart:
+
+    addProductToCart(productId, quantity)
+         ↓ [Check 1]
+    Is product valid?
+         NO → throw Error("Product not found")
+         ↓ YES
+    Is product in stock?
+         NO → throw Error("Out of stock")
+         ↓ YES
+    Is quantity positive?
+         NO → throw Error("Invalid quantity")
+         ↓ YES
+    Add to cart ✓
+         ↓
+    Can save to storage?
+         NO → console.error("Storage quota exceeded")
+         ↓ YES
+    Return CartItem ✓
+
+Multiple validation points ensure data integrity at each layer.
+
+================================================================================
+STATE MANAGEMENT
+================================================================================
+
+Application State (in CartService):
+
+    cartService.cart = {
+        id: "uuid...",
+        items: [
+            CartItem { product, quantity, pricePerUnit, ... },
+            CartItem { product, quantity, pricePerUnit, ... }
+        ],
+        coupon: Coupon { code, value, type, ... } || null,
+        createdAt: Date,
+        updatedAt: Date
+    }
+
+State Updates:
+    
+    addItem() → Mutate cart.items → Save to storage
+    removeItem() → Mutate cart.items → Save to storage
+    applyCoupon() → Mutate cart.coupon → Save to storage
+    
+Retrieve State:
+    
+    getSummary() → Calculate derived data (totals, tax, etc.)
+    getCartDetails() → Include product details + recommendations
+
+Restore State:
+    
+    restoreCartFromStorage() → Load from localStorage → Validate → Return Cart
+
+================================================================================
+MODEL RELATIONSHIPS
+================================================================================
+
+Product
+    └── 1 or many → CartItem → Cart
+
+Cart
+    ├── Contains: CartItem[] (products in cart)
+    ├── Contains: Coupon? (optional discount)
+    └── Uses: ProductService, CouponService for lookups
+
+CartItem
+    ├── References: Product (one-to-one)
+    └── Extends: Quantity, price snapshot, notes
+
+Coupon
+    ├── Type: "percentage" | "fixed"
+    ├── Conditions: minPurchase, applicableCategories, expiresAt
+    └── Limits: maxUses, timesUsed
+
+================================================================================
+TESTING STRATEGY
+================================================================================
+
+Unit Tests (by layer):
+
+    Models Layer:
+        ✓ Product validation
+        ✓ CartItem calculations
+        ✓ Coupon applicability
+        ✓ Cart totals
+
+    Services Layer:
+        ✓ ProductService filtering
+        ✓ CouponService validation
+        ✓ CartService orchestration
+        ✓ StorageService persistence
+
+    Integration Tests:
+        ✓ Add product → Apply coupon → Checkout
+        ✓ Save cart → Restore cart → Verify data
+        ✓ Multiple operations in sequence
+
+Test Coverage Goals:
+    ✓ Happy paths (normal operations)
+    ✓ Edge cases (empty cart, expired coupon, etc.)
+    ✓ Error paths (invalid data, quota exceeded, etc.)
+
+================================================================================
+PERFORMANCE CONSIDERATIONS
+================================================================================
+
+Data Structures:
+    ✓ Use Map/Set for O(1) lookups (if scaling to 1000+ items)
+    ✓ Array for small datasets (current approach)
+    ✓ Lazy loading for large product catalogs
+
+Optimization Techniques:
+    ✓ Debounce search queries (lodash debounce)
+    ✓ Cache search results
+    ✓ Pagination for large result sets
+    ✓ Memoization for expensive calculations
+
+Storage Optimization:
+    ✓ Compress JSON before localStorage
+    ✓ Archive old orders
+    ✓ Clean up expired coupons
+    ✓ Monitor storage quota (5MB limit)
+
+================================================================================
+SECURITY CONSIDERATIONS
+================================================================================
+
+Input Validation:
+    ✓ Validate all user inputs
+    ✓ Type checking for numeric values
+    ✓ String sanitization
+    ✓ Price validation (no negative values)
+
+Storage Security:
+    ✓ Never store sensitive payment info in localStorage
+    ✓ Validate data structure on restore
+    ✓ Use HTTPS for API calls (future)
+    ✓ Implement CSRF protection (future)
+
+Business Logic:
+    ✓ Verify coupon on server before applying (future)
+    ✓ Validate stock on checkout (future)
+    ✓ Prevent double-spending coupons (maxUses)
+    ✓ Track coupon usage
+
+================================================================================
+
+Ready to build? Start with the models, then move to services!
+Follow the IMPLEMENTATION_GUIDE.txt for step-by-step instructions.
