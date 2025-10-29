@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 159: Tags - Set Operations</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      min-height: 100vh;
+      padding: 2rem 0;
+    }
+    .tag-display {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .tag-item {
+      background: #f5576c;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    .operation-box {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <h1 class="text-white mb-5">Tags - Set Operations</h1>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <div class="operation-box">
+          <h5>Set 1 Tags</h5>
+          <div id="set1" class="tag-display"></div>
+          <button class="btn btn-sm btn-primary" onclick="exampleSet1()">Load Example</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="operation-box">
+          <h5>Set 2 Tags</h5>
+          <div id="set2" class="tag-display"></div>
+          <button class="btn btn-sm btn-primary" onclick="exampleSet2()">Load Example</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="operation-box mt-4">
+      <h5>Operations</h5>
+      <div class="row g-2">
+        <div class="col-md-4">
+          <button class="btn btn-info w-100" onclick="showCombine()">Combine (Union)</button>
+          <div id="resultCombine" class="mt-2"></div>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-info w-100" onclick="showCommon()">Common (Intersection)</button>
+          <div id="resultCommon" class="mt-2"></div>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-info w-100" onclick="showUnique()">Unique</button>
+          <div id="resultUnique" class="mt-2"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-5">
+      <div class="card-header bg-primary text-white">
+        <h6 class="mb-0">Code Examples</h6>
+      </div>
+      <div class="card-body">
+        <pre><code>// Union: combine all tags
+const all = combineTags(set1, set2);
+
+// Intersection: common tags
+const common = getCommonTags(set1, set2);
+
+// Difference: unique to set1
+const unique = getUniqueTags(set1, set2);
+
+// Bulk operations
+addMultipleTags(tags, ['a', 'b', 'c']);
+removeMultipleTags(tags, ['x', 'y']);
+
+// Check operations
+hasAllTags(tags, ['a', 'b']);
+hasAnyTag(tags, ['a', 'c']);
+
+// Toggle and filter
+toggleTag(tags, 'value');
+getAllExcept(tags, ['exclude']);
+
+// Superset check
+isSupersetOf(tags, subset);</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { combineTags, getCommonTags, getUniqueTags } from './159-tags-operations.js';
+
+    let set1Data = new Set(['javascript', 'python']);
+    let set2Data = new Set(['java', 'ruby']);
+
+    function renderTags(elementId, set) {
+      const elem = document.getElementById(elementId);
+      elem.innerHTML = Array.from(set).map(tag => `<span class="tag-item">${tag}</span>`).join('');
+    }
+
+    window.exampleSet1 = () => {
+      set1Data = new Set(['javascript', 'python', 'java']);
+      renderTags('set1', set1Data);
+    };
+
+    window.exampleSet2 = () => {
+      set2Data = new Set(['java', 'ruby', 'go']);
+      renderTags('set2', set2Data);
+    };
+
+    window.showCombine = () => {
+      const result = combineTags(set1Data, set2Data);
+      const elem = document.getElementById('resultCombine');
+      elem.innerHTML = `<strong>Result:</strong> ${Array.from(result).sort().join(', ')}`;
+    };
+
+    window.showCommon = () => {
+      const result = getCommonTags(set1Data, set2Data);
+      const elem = document.getElementById('resultCommon');
+      elem.innerHTML = `<strong>Result:</strong> ${result.size > 0 ? Array.from(result).join(', ') : 'No common tags'}`;
+    };
+
+    window.showUnique = () => {
+      const result = getUniqueTags(set1Data, set2Data);
+      const elem = document.getElementById('resultUnique');
+      elem.innerHTML = `<strong>Result:</strong> ${result.size > 0 ? Array.from(result).sort().join(', ') : 'No unique tags'}`;
+    };
+
+    renderTags('set1', set1Data);
+    renderTags('set2', set2Data);
+  </script>
+</body>
+</html>

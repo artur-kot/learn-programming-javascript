@@ -1,0 +1,179 @@
+{
+  "series": 32,
+  "exercise": 158,
+  "title": "Tags - Set Basics",
+  "description": "Learn Set data structure to store unique tags without duplicates",
+  "difficulty": "Intermediate",
+  "functions": [
+    {
+      "name": "createTagSet",
+      "description": "Create a new Set for storing unique tags",
+      "parameters": [
+        {
+          "name": "initialTags",
+          "type": "Array<string>",
+          "description": "Optional array of initial tags"
+        }
+      ],
+      "returns": {
+        "type": "Set",
+        "description": "Set containing unique tags"
+      }
+    },
+    {
+      "name": "addTag",
+      "description": "Add a tag to the set",
+      "parameters": [
+        {
+          "name": "tags",
+          "type": "Set",
+          "description": "The tag set"
+        },
+        {
+          "name": "tag",
+          "type": "string",
+          "description": "Tag to add"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "True if added, false if already exists"
+      }
+    },
+    {
+      "name": "hasTag",
+      "description": "Check if a tag exists in the set",
+      "parameters": [
+        {
+          "name": "tags",
+          "type": "Set",
+          "description": "The tag set"
+        },
+        {
+          "name": "tag",
+          "type": "string",
+          "description": "Tag to check"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "True if tag exists, false otherwise"
+      }
+    },
+    {
+      "name": "removeTag",
+      "description": "Remove a tag from the set",
+      "parameters": [
+        {
+          "name": "tags",
+          "type": "Set",
+          "description": "The tag set"
+        },
+        {
+          "name": "tag",
+          "type": "string",
+          "description": "Tag to remove"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "True if removed, false if didn't exist"
+      }
+    },
+    {
+      "name": "getAllTags",
+      "description": "Get all tags as an array",
+      "parameters": [
+        {
+          "name": "tags",
+          "type": "Set",
+          "description": "The tag set"
+        }
+      ],
+      "returns": {
+        "type": "Array<string>",
+        "description": "Array of all tags, sorted alphabetically"
+      }
+    },
+    {
+      "name": "getTagCount",
+      "description": "Get the number of unique tags",
+      "parameters": [
+        {
+          "name": "tags",
+          "type": "Set",
+          "description": "The tag set"
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "Count of unique tags"
+      }
+    },
+    {
+      "name": "clearAllTags",
+      "description": "Remove all tags from the set",
+      "parameters": [
+        {
+          "name": "tags",
+          "type": "Set",
+          "description": "The tag set"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "True if cleared (had tags), false if already empty"
+      }
+    },
+    {
+      "name": "filterTags",
+      "description": "Filter tags matching a search term",
+      "parameters": [
+        {
+          "name": "tags",
+          "type": "Set",
+          "description": "The tag set"
+        },
+        {
+          "name": "searchTerm",
+          "type": "string",
+          "description": "Term to search for (case-insensitive)"
+        }
+      ],
+      "returns": {
+        "type": "Array<string>",
+        "description": "Array of matching tags"
+      }
+    },
+    {
+      "name": "normalizeTag",
+      "description": "Normalize a tag (lowercase, trim, no special chars)",
+      "parameters": [
+        {
+          "name": "tag",
+          "type": "string",
+          "description": "Tag to normalize"
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "Normalized tag"
+      }
+    },
+    {
+      "name": "getTagStats",
+      "description": "Get statistics about the tag set",
+      "parameters": [
+        {
+          "name": "tags",
+          "type": "Set",
+          "description": "The tag set"
+        }
+      ],
+      "returns": {
+        "type": "object",
+        "description": "Stats object with count, isEmpty, tags array"
+      }
+    }
+  ]
+}

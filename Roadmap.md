@@ -13,17 +13,17 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## 📊 Progress Summary
 
-**Overall Progress:** 155/200 exercises completed (77.5%)
+**Overall Progress:** 160/200 exercises completed (80%)
 
-**Completed Series:** 31/40 series ✅
-- Series 1-30: All complete (152 exercises)
-- Series 31: All complete (5 exercises) 🎉
+**Completed Series:** 32/40 series ✅
+- Series 1-31: All complete (157 exercises)
+- Series 32: All complete (5 exercises) 🎉
 
 **Current Status:**
-- Phase 1-15: ✅ COMPLETE (Exercises 1-157)
-- Phase 16+: 🔄 In Progress (Exercises 158-200)
+- Phase 1-16: ✅ COMPLETE (Exercises 1-162)
+- Phase 17+: 🔄 In Progress (Exercises 163-200)
 
-**Next Series:** Series 32 - Tag Manager (Set and Map data structures)
+**Next Series:** Series 33 - Custom Iterator (Iterators and Generators)
 
 ---
 
@@ -526,19 +526,19 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## Phase 16: Advanced Topics
 
-### Series 32: Tag Manager
+### Series 32: Tag Manager ✅ COMPLETE
 *Build a tag/category system to learn Sets and Maps*
 
 <!-- TODO: to refine -->
-158. [ ] **Tag Manager - Set Basics** - Store unique tags in a Set ([exercise 158](./exercises/158-tags-set))
+158. [x] **Tag Manager - Set Basics** - Store unique tags in a Set ([exercise 158](./exercises/158-tags-set))
 <!-- TODO: to refine -->
-159. [ ] **Tag Manager - Set Operations** - Add, delete, check tag existence ([exercise 159](./exercises/159-tags-operations))
+159. [x] **Tag Manager - Set Operations** - Add, delete, check tag existence ([exercise 159](./exercises/159-tags-operations))
 <!-- TODO: to refine -->
-160. [ ] **Tag Manager - Map for Counts** - Track tag usage counts with Map ([exercise 160](./exercises/160-tags-map))
+160. [x] **Tag Manager - Map for Counts** - Track tag usage counts with Map ([exercise 160](./exercises/160-tags-map))
 <!-- TODO: to refine -->
-161. [ ] **Tag Manager - Tag Categories** - Use Map with Set values for categorization ([exercise 161](./exercises/161-tags-categories))
+161. [x] **Tag Manager - Tag Categories** - Use Map with Set values for categorization ([exercise 161](./exercises/161-tags-categories))
 <!-- TODO: to refine -->
-162. [ ] **Tag Manager - Performance** - Compare Set/Map vs Array/Object performance ([exercise 162](./exercises/162-tags-performance))
+162. [x] **Tag Manager - Performance** - Compare Set/Map vs Array/Object performance ([exercise 162](./exercises/162-tags-performance))
 
 ### Series 33: Custom Iterator
 *Build a custom data structure with iteration to learn iterators and generators*

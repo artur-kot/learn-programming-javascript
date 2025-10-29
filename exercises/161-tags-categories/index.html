@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 161: Tags - Categories</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+  </style>
+</head>
+<body class="py-5">
+  <div class="container">
+    <h1 class="text-white mb-4">Tags - Categories</h1>
+    <div class="card">
+      <div class="card-body">
+        <h5>Organize tags with categories</h5>
+        <p>Learn Map with Set values for categorized tag systems</p>
+        <pre><code>// Create system
+const system = createCategorySystem();
+
+// Add categories
+addCategory(system, 'frontend');
+addCategory(system, 'backend');
+
+// Add tags to categories
+addTagToCategory(system, 'frontend', 'javascript');
+addTagToCategory(system, 'frontend', 'css');
+
+// Get category tags
+getCategoryTags(system, 'frontend');  // ['css', 'javascript']</code></pre>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

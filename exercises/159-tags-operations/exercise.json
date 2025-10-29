@@ -1,0 +1,69 @@
+{
+  "series": 32,
+  "exercise": 159,
+  "title": "Tags - Set Operations",
+  "description": "Master Set operations: union, intersection, difference, and bulk operations",
+  "difficulty": "Intermediate",
+  "functions": [
+    {
+      "name": "combineTags",
+      "description": "Combine two tag sets into one (union)",
+      "parameters": [{"name": "set1", "type": "Set"}, {"name": "set2", "type": "Set"}],
+      "returns": {"type": "Set", "description": "Combined tags"}
+    },
+    {
+      "name": "getCommonTags",
+      "description": "Find tags in both sets (intersection)",
+      "parameters": [{"name": "set1", "type": "Set"}, {"name": "set2", "type": "Set"}],
+      "returns": {"type": "Set", "description": "Common tags"}
+    },
+    {
+      "name": "getUniqueTags",
+      "description": "Find tags only in first set (difference)",
+      "parameters": [{"name": "set1", "type": "Set"}, {"name": "set2", "type": "Set"}],
+      "returns": {"type": "Set", "description": "Unique tags"}
+    },
+    {
+      "name": "addMultipleTags",
+      "description": "Add multiple tags at once",
+      "parameters": [{"name": "tags", "type": "Set"}, {"name": "newTags", "type": "Array"}],
+      "returns": {"type": "number", "description": "Count added"}
+    },
+    {
+      "name": "removeMultipleTags",
+      "description": "Remove multiple tags at once",
+      "parameters": [{"name": "tags", "type": "Set"}, {"name": "tagsToRemove", "type": "Array"}],
+      "returns": {"type": "number", "description": "Count removed"}
+    },
+    {
+      "name": "hasAllTags",
+      "description": "Check if all tags exist",
+      "parameters": [{"name": "tags", "type": "Set"}, {"name": "toCheck", "type": "Array"}],
+      "returns": {"type": "boolean", "description": "All exist"}
+    },
+    {
+      "name": "hasAnyTag",
+      "description": "Check if any tag exists",
+      "parameters": [{"name": "tags", "type": "Set"}, {"name": "toCheck", "type": "Array"}],
+      "returns": {"type": "boolean", "description": "At least one exists"}
+    },
+    {
+      "name": "getAllExcept",
+      "description": "Get all tags except specified ones",
+      "parameters": [{"name": "tags", "type": "Set"}, {"name": "exclude", "type": "Array"}],
+      "returns": {"type": "Array", "description": "Filtered tags"}
+    },
+    {
+      "name": "toggleTag",
+      "description": "Add tag if missing, remove if exists",
+      "parameters": [{"name": "tags", "type": "Set"}, {"name": "tag", "type": "string"}],
+      "returns": {"type": "boolean", "description": "True if added, false if removed"}
+    },
+    {
+      "name": "isSupersetOf",
+      "description": "Check if one set contains all of another",
+      "parameters": [{"name": "tags", "type": "Set"}, {"name": "subset", "type": "Set"}],
+      "returns": {"type": "boolean", "description": "Is superset"}
+    }
+  ]
+}
