@@ -1,0 +1,35 @@
+{
+  "id": 142,
+  "series": 28,
+  "title": "Weather Dashboard - Multiple Cities",
+  "description": "Learn to fetch and compare weather data for multiple cities simultaneously using Promise.all().",
+  "difficulty": "intermediate",
+  "skills": [
+    "promise.all",
+    "parallel requests",
+    "data aggregation",
+    "comparison",
+    "performance",
+    "scale handling"
+  ],
+  "prerequisites": [
+    "141-weather-display"
+  ],
+  "concepts": {
+    "promise_all": "Wait for multiple promises concurrently",
+    "parallel_execution": "Run requests simultaneously",
+    "aggregation": "Combine results from multiple sources",
+    "comparison": "Analyze and compare data sets",
+    "performance": "Optimize with concurrent requests",
+    "error_handling": "Handle individual and batch errors"
+  },
+  "learning_outcomes": [
+    "Use Promise.all() for parallel requests",
+    "Fetch from multiple URLs efficiently",
+    "Aggregate and compare results",
+    "Handle partial failures",
+    "Build scalable data fetching",
+    "Optimize performance with concurrency"
+  ],
+  "estimated_time": "50 minutes"
+}

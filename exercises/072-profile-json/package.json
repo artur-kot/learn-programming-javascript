@@ -1,0 +1,17 @@
+{
+  "name": "072-profile-json",
+  "version": "1.0.0",
+  "description": "User Profile - JSON Serialization",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 072-profile-json.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "json",
+    "serialization"
+  ],
+  "author": "",
+  "license": "MIT"
+}

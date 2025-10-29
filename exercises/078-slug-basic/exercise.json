@@ -1,0 +1,20 @@
+{
+  "id": "078-slug-basic",
+  "number": 78,
+  "title": "URL Slug Generator - Basic Conversion",
+  "series": "16-url-slug-generator",
+  "seriesNumber": 1,
+  "topic": "String Conversion and Replacement",
+  "description": "Learn to convert titles to URL-friendly slugs by making strings lowercase and replacing spaces with hyphens.",
+  "concepts": [
+    "String case conversion (toLowerCase)",
+    "String replacement (replace method)",
+    "Creating URL-friendly identifiers",
+    "Basic string transformations",
+    "Understanding slugs in web development"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "077-recipe-scope"
+  ]
+}

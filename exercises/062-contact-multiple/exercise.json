@@ -1,0 +1,10 @@
+{
+  "id": "062-contact-multiple",
+  "title": "Contact Manager - Multiple Contacts",
+  "description": "Store multiple contacts and iterate through them with array methods.",
+  "series": "12",
+  "seriesName": "Contact Manager",
+  "difficulty": "intermediate",
+  "topics": ["objects", "arrays", "iteration", "object composition"],
+  "skills": ["managing collections", "array iteration", "method composition"]
+}

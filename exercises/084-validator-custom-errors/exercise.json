@@ -1,0 +1,21 @@
+{
+  "id": "084-validator-custom-errors",
+  "number": 84,
+  "title": "Form Validator - Custom Errors",
+  "series": "17-form-validator",
+  "seriesNumber": 2,
+  "topic": "Custom Error Types",
+  "description": "Create custom error classes for specific validation failures. Learn to throw specific error types instead of generic errors.",
+  "concepts": [
+    "Custom error classes",
+    "Extending Error",
+    "Error type checking",
+    "instanceof operator",
+    "Throwing specific errors",
+    "Better error context"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "083-validator-try-catch"
+  ]
+}

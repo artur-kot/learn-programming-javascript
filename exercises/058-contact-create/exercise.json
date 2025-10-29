@@ -1,0 +1,10 @@
+{
+  "id": "058-contact-create",
+  "title": "Contact Manager - Create Contact",
+  "description": "Build a contact object with name, email, and phone properties.",
+  "series": "12",
+  "seriesName": "Contact Manager",
+  "difficulty": "beginner",
+  "topics": ["objects", "properties", "object literals"],
+  "skills": ["object creation", "property initialization"]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "calc-jest",
+  "version": "1.0.0",
+  "description": "Calculator testing with Jest framework + meta-testing",
+  "type": "module",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:validate": "jest test-validator.js"
+  },
+  "keywords": ["testing", "jest", "meta-testing"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "@babel/preset-env": "^7.22.0",
+    "babel-jest": "^29.0.0"
+  }
+}

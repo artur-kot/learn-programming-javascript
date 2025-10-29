@@ -1,0 +1,21 @@
+{
+  "id": "095-quote-catch",
+  "number": 95,
+  "title": "Quote Fetcher - Error Handling",
+  "series": "19-quote-fetcher",
+  "seriesNumber": 3,
+  "topic": ".catch() and Error Handling",
+  "description": "Use .catch() to handle promise rejections. Learn error handling in promise chains.",
+  "concepts": [
+    ".catch() method",
+    "Error handling in chains",
+    "Falling back to default values",
+    "Error recovery",
+    "Finally blocks",
+    "Error propagation"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "094-quote-then"
+  ]
+}

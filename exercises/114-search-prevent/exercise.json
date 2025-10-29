@@ -1,0 +1,22 @@
+{
+  "id": "114-search-prevent",
+  "number": 114,
+  "title": "Live Search Filter - Prevent Default",
+  "series": "23-live-search-filter",
+  "seriesNumber": 2,
+  "topic": "Form Submission and preventDefault",
+  "description": "Handle form submission without page reload using preventDefault.",
+  "concepts": [
+    "preventDefault()",
+    "Form submission",
+    "Submit event",
+    "Event prevention",
+    "Form handling",
+    "Page reload prevention",
+    "Event.preventDefault"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "113-search-input"
+  ]
+}

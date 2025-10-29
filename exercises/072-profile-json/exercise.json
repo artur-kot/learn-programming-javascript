@@ -1,0 +1,32 @@
+{
+  "id": "072-profile-json",
+  "number": 72,
+  "title": "User Profile - JSON Serialization",
+  "series": "14-user-profile-system",
+  "seriesNumber": 5,
+  "topic": "JSON Serialization and Deserialization",
+  "description": "Learn how to serialize user profiles to JSON format and deserialize them back. Practice using JSON.stringify with replacer functions to exclude methods and custom reviver patterns for safe parsing.",
+  "concepts": [
+    "JSON.stringify with replacer functions",
+    "JSON.parse error handling",
+    "Data export and import patterns",
+    "Method exclusion from serialization",
+    "Data preservation and integrity"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "070-profile-optional",
+    "071-profile-friends"
+  ],
+  "estimatedTime": 20,
+  "keywords": [
+    "JSON",
+    "serialization",
+    "deserialization",
+    "replacer",
+    "stringify",
+    "parse",
+    "data-export",
+    "error-handling"
+  ]
+}

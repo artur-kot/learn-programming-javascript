@@ -1,0 +1,34 @@
+{
+  "id": 136,
+  "series": 27,
+  "title": "Data Pipeline - Custom Methods",
+  "description": "Build custom array transformation utilities and helper functions. Create reusable, chainable methods for data processing pipelines.",
+  "difficulty": "advanced",
+  "skills": [
+    "utility functions",
+    "helper methods",
+    "reusable functions",
+    "function composition",
+    "higher-order functions",
+    "data transformation"
+  ],
+  "prerequisites": [
+    "135-pipeline-construction"
+  ],
+  "concepts": {
+    "utility_functions": "Reusable functions for common tasks",
+    "helper_methods": "Functions that support other operations",
+    "composition": "Combining functions to create new functionality",
+    "higher_order": "Functions that work with other functions",
+    "chainable": "Functions that return appropriate types for chaining"
+  },
+  "learning_outcomes": [
+    "Create custom array transformation utilities",
+    "Build helper functions for common patterns",
+    "Implement higher-order functions",
+    "Compose functions for complex operations",
+    "Write reusable, testable utility code",
+    "Understand function design patterns"
+  ],
+  "estimated_time": "50 minutes"
+}

@@ -1,0 +1,105 @@
+{
+  "title": "Notes - Create Notes",
+  "description": "Add notes with title and content",
+  "difficulty": "Intermediate",
+  "series": 31,
+  "exerciseNumber": 153,
+  "prerequisites": ["localStorage basics", "DOM manipulation", "state management"],
+  "learningOutcomes": [
+    "Create note objects with structured data",
+    "Generate unique IDs for notes",
+    "Validate note input",
+    "Handle form submission",
+    "Render notes to the DOM",
+    "Implement CRUD operations - Create"
+  ],
+  "keyTopics": [
+    "Object creation patterns",
+    "UUID generation",
+    "Form handling and validation",
+    "DOM rendering with template literals",
+    "Event handling"
+  ],
+  "functions": [
+    {
+      "name": "createNote",
+      "description": "Create a new note object with title, content, and metadata",
+      "parameters": [
+        {"name": "title", "type": "string", "description": "Note title"},
+        {"name": "content", "type": "string", "description": "Note content"}
+      ],
+      "returns": "object: Note object with id, title, content, createdAt, updatedAt"
+    },
+    {
+      "name": "generateNoteId",
+      "description": "Generate a unique ID for a new note",
+      "parameters": [],
+      "returns": "string: Unique note ID"
+    },
+    {
+      "name": "validateNoteInput",
+      "description": "Validate note title and content before creation",
+      "parameters": [
+        {"name": "title", "type": "string", "description": "Note title"},
+        {"name": "content", "type": "string", "description": "Note content"}
+      ],
+      "returns": "object: {isValid: boolean, error: string|null}"
+    },
+    {
+      "name": "addNoteToList",
+      "description": "Add a note to the notes array",
+      "parameters": [
+        {"name": "notesList", "type": "array", "description": "Current notes array"},
+        {"name": "note", "type": "object", "description": "Note to add"}
+      ],
+      "returns": "array: Updated notes array"
+    },
+    {
+      "name": "renderNoteElement",
+      "description": "Create DOM element for a note",
+      "parameters": [
+        {"name": "note", "type": "object", "description": "Note object"}
+      ],
+      "returns": "HTMLElement: Note element"
+    },
+    {
+      "name": "renderAllNotes",
+      "description": "Render all notes to the notes container",
+      "parameters": [
+        {"name": "notesList", "type": "array", "description": "Array of notes"},
+        {"name": "containerId", "type": "string", "description": "Container element ID"}
+      ],
+      "returns": "void"
+    },
+    {
+      "name": "clearNoteForm",
+      "description": "Clear the note creation form",
+      "parameters": [
+        {"name": "formId", "type": "string", "description": "Form element ID"}
+      ],
+      "returns": "void"
+    },
+    {
+      "name": "getNoteCount",
+      "description": "Get total number of notes",
+      "parameters": [
+        {"name": "notesList", "type": "array", "description": "Array of notes"}
+      ],
+      "returns": "number: Total notes count"
+    },
+    {
+      "name": "formatNoteDate",
+      "description": "Format date object to readable string",
+      "parameters": [
+        {"name": "date", "type": "Date", "description": "Date to format"}
+      ],
+      "returns": "string: Formatted date string"
+    },
+    {
+      "name": "initializeNoteApp",
+      "description": "Initialize the note app with event listeners and initial state",
+      "parameters": [],
+      "returns": "void"
+    }
+  ]
+}

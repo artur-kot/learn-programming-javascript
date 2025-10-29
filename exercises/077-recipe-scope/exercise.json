@@ -1,0 +1,31 @@
+{
+  "id": "077-recipe-scope",
+  "number": 77,
+  "title": "Recipe Organizer - Block Scope",
+  "series": "15-recipe-organizer",
+  "seriesNumber": 5,
+  "topic": "Let and Const Block Scope",
+  "description": "Learn to properly use let and const to create predictable block-scoped variables. Understand scope boundaries and how to avoid common variable shadowing issues.",
+  "concepts": [
+    "Block scope with let and const",
+    "Global vs block scope",
+    "Scope boundaries",
+    "Variable shadowing",
+    "Const immutability",
+    "Best practices for variable declaration"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "076-recipe-for-of"
+  ],
+  "estimatedTime": 20,
+  "keywords": [
+    "let",
+    "const",
+    "scope",
+    "block-scope",
+    "closure",
+    "recipes",
+    "best-practices"
+  ]
+}

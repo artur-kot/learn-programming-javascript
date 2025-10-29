@@ -1,0 +1,10 @@
+{
+  "id": "057-playlist-duplicates",
+  "title": "Playlist Duplicates",
+  "description": "Detect duplicate songs in playlists using includes() and some() methods.",
+  "series": "11",
+  "seriesName": "Playlist Manager",
+  "difficulty": "intermediate",
+  "topics": ["arrays", "array methods", "some", "includes", "filter"],
+  "skills": ["duplicate detection", "predicate functions", "array searching"]
+}

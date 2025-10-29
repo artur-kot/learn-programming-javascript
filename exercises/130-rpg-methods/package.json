@@ -1,0 +1,14 @@
+{
+  "name": "130-rpg-methods",
+  "version": "1.0.0",
+  "description": "RPG Character System - Methods and Properties",
+  "main": "130-rpg-methods.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 130-rpg-methods.test.js",
+    "test:watch": "node --test --watch 130-rpg-methods.test.js"
+  },
+  "keywords": ["rpg", "methods", "properties", "classes"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

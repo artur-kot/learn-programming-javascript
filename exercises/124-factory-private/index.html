@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter Factory - Private Variables</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 32px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
+    .demo-section {
+      background: #f5f5f5;
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .demo-section h2 {
+      color: #667eea;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .input-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 14px;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      background: #f9f9ff;
+    }
+
+    textarea {
+      grid-column: 1 / -1;
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .button-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-success {
+      background: #4caf50;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #45a049;
+      transform: translateY(-2px);
+    }
+
+    .btn-danger {
+      background: #f44336;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #da190b;
+      transform: translateY(-2px);
+    }
+
+    .output-box {
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+      border: 2px solid #ddd;
+      margin-top: 15px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #333;
+      min-height: 50px;
+    }
+
+    .output-box.success {
+      background: #e8f5e9;
+      border-color: #4caf50;
+      color: #2e7d32;
+    }
+
+    .output-box.error {
+      background: #ffebee;
+      border-color: #f44336;
+      color: #c62828;
+    }
+
+    .help-section {
+      background: #f5f5f5;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .help-section h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .help-section h3 {
+      color: #667eea;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .help-section p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .code-block {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 15px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .info-box {
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+
+    .info-box strong {
+      color: #1565c0;
+    }
+
+    .info-box p {
+      color: #0d47a1;
+      margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .input-group {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 Private Variables in Factory Functions</h1>
+    <p class="subtitle">Master Data Encapsulation with Closures</p>
+
+    <div class="demo-section">
+      <h2>User Account Demo</h2>
+      <div class="input-group">
+        <input type="text" id="username" placeholder="Username" value="alice">
+        <input type="email" id="email" placeholder="Email" value="alice@example.com">
+      </div>
+      <div class="button-group">
+        <button class="btn-primary" onclick="createUserDemo()">Create User</button>
+        <button class="btn-success" onclick="getUserInfo()">Get Info</button>
+        <button class="btn-danger" onclick="tryDirectAccess()">Try Direct Access</button>
+      </div>
+      <div class="output-box" id="user-output"></div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Bank Account Demo</h2>
+      <div class="input-group">
+        <input type="text" id="owner" placeholder="Account Owner" value="Bob">
+        <input type="number" id="balance" placeholder="Initial Balance" value="1000">
+        <input type="number" id="amount" placeholder="Amount" value="100">
+      </div>
+      <div class="button-group">
+        <button class="btn-primary" onclick="createAccountDemo()">Create Account</button>
+        <button class="btn-success" onclick="deposit()">Deposit</button>
+        <button class="btn-success" onclick="withdraw()">Withdraw</button>
+        <button class="btn-danger" onclick="tryBalanceHack()">Try to Hack</button>
+      </div>
+      <div class="output-box" id="account-output"></div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Secure Note Demo</h2>
+      <div class="input-group">
+        <textarea id="note-content" placeholder="Secret content"></textarea>
+        <input type="password" id="note-password" placeholder="Password" value="secret123">
+        <input type="password" id="note-verify-password" placeholder="Password to verify" value="secret123">
+      </div>
+      <div class="button-group">
+        <button class="btn-primary" onclick="createNoteDemo()">Create Note</button>
+        <button class="btn-success" onclick="readNote()">Read Note</button>
+        <button class="btn-danger" onclick="tryWrongPassword()">Try Wrong Password</button>
+      </div>
+      <div class="output-box" id="note-output"></div>
+    </div>
+
+    <div class="help-section">
+      <h2>Understanding Private Variables</h2>
+
+      <h3>What Makes Variables Private?</h3>
+      <p>
+        In JavaScript, variables declared with <code>let</code> or <code>const</code> inside a function
+        are private to that function. When you return methods that use these variables, those methods
+        form closures that have permanent access to the private data.
+      </p>
+
+      <div class="info-box">
+        <strong>Key Principle:</strong>
+        <p>Variables declared inside a function can ONLY be accessed from within that function or from functions defined inside it.</p>
+      </div>
+
+      <h3>Private vs Public</h3>
+      <div class="code-block">
+// ❌ BAD: email is public
+function createUser(username, email) {
+  return {
+    username: username,
+    email: email  // Anyone can read or modify this!
+  };
+}
+
+const user = createUser('alice', 'alice@example.com');
+console.log(user.email); // ✅ Works
+user.email = 'hacker@evil.com'; // ❌ Easy to hack!
+
+// ✅ GOOD: email is private
+function createUser(username, email) {
+  // email is private - locked inside the closure
+  
+  return {
+    username: username,
+    
+    // Only way to access email is through these methods
+    getEmail() {
+      return email;
+    },
+    
+    updateEmail(newEmail) {
+      email = newEmail;
+    }
+  };
+}
+
+const user = createUser('alice', 'alice@example.com');
+console.log(user.email); // ❌ undefined - it's private!
+console.log(user.getEmail()); // ✅ 'alice@example.com'
+user.email = 'hacker@evil.com'; // ❌ Doesn't affect the private email
+console.log(user.getEmail()); // Still 'alice@example.com'
+      </div>
+
+      <h3>The Power of Encapsulation</h3>
+      <p>
+        Private variables create a clear contract between the object and its user. The user can only
+        interact with the object through the public methods you provide. This gives you control over:
+      </p>
+      <ul style="color: #555; margin-left: 20px; line-height: 2;">
+        <li><strong>Validation:</strong> Check data before allowing changes</li>
+        <li><strong>Side Effects:</strong> Trigger actions when data changes</li>
+        <li><strong>Access Control:</strong> Decide who can read/write what</li>
+        <li><strong>Immutability:</strong> Prevent accidental modifications</li>
+        <li><strong>Implementation Changes:</strong> Update internals without breaking user code</li>
+      </ul>
+
+      <h3>Practical Example: Bank Account</h3>
+      <div class="code-block">
+function createBankAccount(owner, initialBalance) {
+  // Private variables - completely hidden from outside
+  let balance = initialBalance;
+  const transactions = [];
+
+  // Private function - only used internally
+  function recordTransaction(type, amount) {
+    transactions.push({
+      type,
+      amount,
+      date: new Date(),
+      balanceAfter: balance
+    });
+  }
+
+  // Public interface
+  return {
+    getOwner() {
+      return owner;
+    },
+
+    getBalance() {
+      return balance;
+    },
+
+    deposit(amount) {
+      // Validation happens here!
+      if (amount <= 0) {
+        throw new Error('Deposit must be positive');
+      }
+      balance += amount;
+      recordTransaction('Deposit', amount);
+      return balance;
+    },
+
+    withdraw(amount) {
+      // Control access here!
+      if (amount > balance) {
+        throw new Error('Insufficient funds');
+      }
+      if (amount <= 0) {
+        throw new Error('Withdrawal must be positive');
+      }
+      balance -= amount;
+      recordTransaction('Withdrawal', amount);
+      return balance;
+    },
+
+    getTransactionHistory() {
+      // Return copy to prevent external modification
+      return [...transactions];
+    }
+  };
+}
+
+const account = createBankAccount('Alice', 1000);
+
+// Users interact through the public interface
+account.deposit(500);    // ✅ Works
+account.withdraw(200);   // ✅ Works
+account.withdraw(2000);  // ❌ Error: Insufficient funds
+
+// They CANNOT:
+// account.balance = 999999;              // ❌ Doesn't work
+// account.transactions.push(...);        // ❌ Doesn't work
+// account.recordTransaction('hack', ...); // ❌ Doesn't exist
+
+console.log(account.getBalance()); // 1300
+console.log(account.getTransactionHistory()); // Full history
+      </div>
+
+      <h3>Private Methods</h3>
+      <p>
+        You can also have private functions that are only used internally. These can do internal work
+        that users don't need to know about.
+      </p>
+
+      <div class="code-block">
+function createPasswordManager() {
+  const credentials = {};
+
+  // Private function - not accessible from outside
+  function hashPassword(password) {
+    // Simple hash for demo - use real hashing in production!
+    return password
+      .split('')
+      .reduce((hash, char) => hash + char.charCodeAt(0), 0)
+      .toString(16);
+  }
+
+  return {
+    store(service, password) {
+      credentials[service] = hashPassword(password);
+    },
+
+    verify(service, password) {
+      if (!(service in credentials)) return false;
+      return credentials[service] === hashPassword(password);
+    },
+
+    // Users cannot access the password hashing!
+    // They can only use the public verify() method
+  };
+}
+
+const manager = createPasswordManager();
+manager.store('email', 'mypassword123');
+
+console.log(manager.verify('email', 'mypassword123')); // ✅ true
+console.log(manager.verify('email', 'wrong'));         // ❌ false
+
+// You cannot access the hashing function:
+// manager.hashPassword('test'); // ❌ undefined - it's private!
+// You cannot access stored credentials:
+// manager.credentials;          // ❌ undefined - it's private!
+      </div>
+
+      <h3>Protecting Complex Data</h3>
+      <p>
+        When you have private arrays or objects, be careful about how you expose them. A common mistake
+        is returning the array/object directly, which allows external code to modify it.
+      </p>
+
+      <div class="code-block">
+// ❌ BAD: Exposes private array directly
+function createCart() {
+  const items = [];
+
+  return {
+    addItem(item) {
+      items.push(item);
+    },
+
+    getItems() {
+      return items; // ❌ Returns reference to private array!
+    }
+  };
+}
+
+const cart = createCart();
+cart.addItem('Book');
+const items = cart.getItems();
+items.push('Unauthorized item'); // ❌ Hacked! Modified the private array!
+
+// ✅ GOOD: Returns copy of array
+function createCart() {
+  const items = [];
+
+  return {
+    addItem(item) {
+      items.push(item);
+    },
+
+    getItems() {
+      return [...items]; // ✅ Returns copy, not reference
+    }
+  };
+}
+
+const cart = createCart();
+cart.addItem('Book');
+const items = cart.getItems();
+items.push('Unauthorized item'); // ✅ Only modifies the copy
+console.log(cart.getItems()); // Still just ['Book']
+      </div>
+
+      <h3>Pattern: Read-Only Properties</h3>
+      <p>
+        Sometimes you want properties that can be read but never written. Closures make this easy:
+      </p>
+
+      <div class="code-block">
+function createImmutableUser(username, email) {
+  // These are truly immutable - can never be changed!
+  
+  return {
+    // Getter - can read, but cannot write
+    get username() {
+      return username;
+    },
+
+    // Another getter
+    get email() {
+      return email;
+    },
+
+    // Trying to set them does nothing
+    set username(value) {
+      // Silently ignored or throw error
+      console.log('Cannot change username');
+    }
+  };
+}
+
+const user = createImmutableUser('alice', 'alice@example.com');
+
+console.log(user.username); // 'alice'
+user.username = 'bob';      // ❌ Fails - ignored
+console.log(user.username); // Still 'alice'
+      </div>
+
+      <div class="info-box">
+        <strong>Pro Tip:</strong>
+        <p>Always think about what data should be public and what should be private. Default to private - only expose what you need to!</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      createUser,
+      createBankAccount,
+      createSecureNote,
+      createPasswordManager
+    } from './124-factory-private.js';
+
+    let currentUser = null;
+    let currentAccount = null;
+    let currentNote = null;
+
+    window.createUserDemo = () => {
+      const username = document.getElementById('username').value || 'user';
+      const email = document.getElementById('email').value || 'user@example.com';
+      
+      currentUser = createUser(username, email);
+      
+      const output = document.getElementById('user-output');
+      output.className = 'output-box success';
+      output.innerHTML = `✅ User created successfully!<br>Username: ${currentUser.getUsername()}<br>Email: ${currentUser.getEmail()}`;
+    };
+
+    window.getUserInfo = () => {
+      if (!currentUser) {
+        document.getElementById('user-output').className = 'output-box error';
+        document.getElementById('user-output').innerHTML = '❌ Create a user first!';
+        return;
+      }
+
+      const output = document.getElementById('user-output');
+      output.className = 'output-box success';
+      output.innerHTML = `Username: ${currentUser.getUsername()}<br>Email: ${currentUser.getEmail()}`;
+    };
+
+    window.tryDirectAccess = () => {
+      if (!currentUser) {
+        document.getElementById('user-output').className = 'output-box error';
+        document.getElementById('user-output').innerHTML = '❌ Create a user first!';
+        return;
+      }
+
+      const output = document.getElementById('user-output');
+      output.className = 'output-box error';
+      output.innerHTML = `❌ Cannot access private variables directly!<br>currentUser.email = ${currentUser.email}<br>currentUser.username = ${currentUser.username}<br><br>✅ But you CAN use getters:<br>currentUser.getEmail() = ${currentUser.getEmail()}`;
+    };
+
+    window.createAccountDemo = () => {
+      const owner = document.getElementById('owner').value || 'Owner';
+      const balance = parseFloat(document.getElementById('balance').value) || 1000;
+      
+      currentAccount = createBankAccount(owner, balance);
+      
+      const output = document.getElementById('account-output');
+      output.className = 'output-box success';
+      output.innerHTML = `✅ Account created!<br>Owner: ${owner}<br>Balance: $${currentAccount.getBalance()}`;
+    };
+
+    window.deposit = () => {
+      if (!currentAccount) {
+        document.getElementById('account-output').className = 'output-box error';
+        document.getElementById('account-output').innerHTML = '❌ Create an account first!';
+        return;
+      }
+
+      const amount = parseFloat(document.getElementById('amount').value) || 0;
+      currentAccount.deposit(amount);
+      
+      const output = document.getElementById('account-output');
+      output.className = 'output-box success';
+      output.innerHTML = `✅ Deposited $${amount}<br>New Balance: $${currentAccount.getBalance()}`;
+    };
+
+    window.withdraw = () => {
+      if (!currentAccount) {
+        document.getElementById('account-output').className = 'output-box error';
+        document.getElementById('account-output').innerHTML = '❌ Create an account first!';
+        return;
+      }
+
+      const amount = parseFloat(document.getElementById('amount').value) || 0;
+      currentAccount.withdraw(amount);
+      
+      const output = document.getElementById('account-output');
+      output.className = 'output-box success';
+      output.innerHTML = `✅ Withdrew $${amount}<br>New Balance: $${currentAccount.getBalance()}`;
+    };
+
+    window.tryBalanceHack = () => {
+      if (!currentAccount) {
+        document.getElementById('account-output').className = 'output-box error';
+        document.getElementById('account-output').innerHTML = '❌ Create an account first!';
+        return;
+      }
+
+      const originalBalance = currentAccount.getBalance();
+      currentAccount.balance = 999999;
+      const newBalance = currentAccount.getBalance();
+      
+      const output = document.getElementById('account-output');
+      output.className = 'output-box error';
+      output.innerHTML = `❌ Attempted to set balance to 999999!<br>Balance before: $${originalBalance}<br>Balance after: $${newBalance}<br><br>✅ Private variables are safe from hacking!`;
+    };
+
+    window.createNoteDemo = () => {
+      const content = document.getElementById('note-content').value || 'Secret message';
+      const password = document.getElementById('note-password').value || 'secret';
+      
+      currentNote = createSecureNote(content, password);
+      
+      const output = document.getElementById('note-output');
+      output.className = 'output-box success';
+      output.innerHTML = `✅ Secure note created!<br>Content: ${content}<br>Password: ${password}`;
+    };
+
+    window.readNote = () => {
+      if (!currentNote) {
+        document.getElementById('note-output').className = 'output-box error';
+        document.getElementById('note-output').innerHTML = '❌ Create a note first!';
+        return;
+      }
+
+      const password = document.getElementById('note-verify-password').value || '';
+      const content = currentNote.read(password);
+      
+      const output = document.getElementById('note-output');
+      if (content) {
+        output.className = 'output-box success';
+        output.innerHTML = `✅ Access granted!<br>Content: ${content}`;
+      } else {
+        output.className = 'output-box error';
+        output.innerHTML = `❌ Wrong password! Access denied.`;
+      }
+    };
+
+    window.tryWrongPassword = () => {
+      if (!currentNote) {
+        document.getElementById('note-output').className = 'output-box error';
+        document.getElementById('note-output').innerHTML = '❌ Create a note first!';
+        return;
+      }
+
+      const content = currentNote.read('wrongpassword');
+      
+      const output = document.getElementById('note-output');
+      output.className = 'output-box error';
+      output.innerHTML = `❌ Wrong password used<br>Access result: ${content}<br><br>✅ Passwords are protected by closures!`;
+    };
+  </script>
+</body>
+</html>

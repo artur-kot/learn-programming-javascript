@@ -1,0 +1,29 @@
+{
+  "id": "073-recipe-ingredients",
+  "number": 73,
+  "title": "Recipe Organizer - Ingredients",
+  "series": "15-recipe-organizer",
+  "seriesNumber": 1,
+  "topic": "Array Destructuring",
+  "description": "Learn to use destructuring to extract ingredient properties from recipe objects. Practice breaking down arrays and objects into individual variables.",
+  "concepts": [
+    "Array destructuring",
+    "Object destructuring",
+    "Destructuring in for...of loops",
+    "Extracting specific properties",
+    "Default values in destructuring"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "072-profile-json"
+  ],
+  "estimatedTime": 20,
+  "keywords": [
+    "destructuring",
+    "arrays",
+    "objects",
+    "recipes",
+    "ingredients",
+    "es6"
+  ]
+}

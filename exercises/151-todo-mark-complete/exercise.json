@@ -1,0 +1,62 @@
+{
+  "id": 151,
+  "series": 30,
+  "title": "Todo Mark Complete",
+  "description": "Master toggling todo completion status, visual feedback, and state synchronization with storage",
+  "difficulty": "intermediate",
+  "prerequisites": ["Exercise 150: Todo Load Storage"],
+  "learningOutcomes": [
+    "Toggle completion status of individual todos",
+    "Manage visual feedback for completed vs pending states",
+    "Update todos immutably while preserving other properties",
+    "Synchronize completion changes with localStorage",
+    "Filter todos by completion status",
+    "Count completed vs pending todos",
+    "Handle bulk completion operations",
+    "Provide undo/redo for completion changes",
+    "Display completion statistics and progress",
+    "Manage UI state during transitions"
+  ],
+  "functions": [
+    {
+      "name": "markTodoComplete",
+      "description": "Mark a specific todo as complete by ID"
+    },
+    {
+      "name": "toggleTodoStatus",
+      "description": "Toggle completion status (complete → pending or pending → complete)"
+    },
+    {
+      "name": "uncompleteTodo",
+      "description": "Mark a completed todo back as pending"
+    },
+    {
+      "name": "getCompletedTodos",
+      "description": "Get array of all completed todos"
+    },
+    {
+      "name": "getPendingTodos",
+      "description": "Get array of all pending (not completed) todos"
+    },
+    {
+      "name": "renderCompletedState",
+      "description": "Render a todo with visual feedback based on completion status"
+    },
+    {
+      "name": "updateCompletionInStorage",
+      "description": "Save updated completion status to localStorage"
+    },
+    {
+      "name": "filterByCompletion",
+      "description": "Filter todos by completion status or criteria"
+    },
+    {
+      "name": "countCompleted",
+      "description": "Get count of completed todos and total todos"
+    },
+    {
+      "name": "getTodoCompletionStats",
+      "description": "Get comprehensive completion statistics"
+    }
+  ]
+}

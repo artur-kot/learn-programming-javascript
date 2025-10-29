@@ -1,0 +1,23 @@
+{
+  "id": "122-canvas-save",
+  "number": 122,
+  "title": "Interactive Drawing Canvas - Save Drawing",
+  "series": "24-interactive-drawing-canvas",
+  "seriesNumber": 5,
+  "topic": "Canvas Export and Image Saving",
+  "description": "Export canvas drawings as images and implement download functionality.",
+  "concepts": [
+    "Canvas.toDataURL()",
+    "Image export",
+    "Blob creation",
+    "File download",
+    "Data URLs",
+    "Link manipulation",
+    "Image formats (PNG, JPEG)",
+    "File naming"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "121-canvas-custom-event"
+  ]
+}

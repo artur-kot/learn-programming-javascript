@@ -1,0 +1,16 @@
+{
+  "name": "053-playlist-init",
+  "title": "Playlist - Initialize Songs",
+  "description": "Create a basic playlist with song objects",
+  "series": "Series 11: Playlist Manager",
+  "seriesIndex": 1,
+  "difficulty": "Beginner",
+  "topics": ["arrays", "objects", "object literals"],
+  "skills": [
+    "Creating arrays of objects",
+    "Object shorthand notation",
+    "Storing structured data",
+    "Array operations"
+  ],
+  "keywords": ["playlist", "songs", "objects", "array", "music"]
+}

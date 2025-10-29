@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 157: Notes Undo/Redo & History</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gradient-to-br from-pink-900 via-purple-900 to-indigo-900 min-h-screen text-white py-8">
+  <div class="max-w-6xl mx-auto p-4">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-5xl font-bold mb-4">Notes Undo/Redo & History</h1>
+      <p class="text-xl text-pink-200">Master state history management and time travel</p>
+    </div>
+
+    <!-- History Controls -->
+    <div class="card bg-base-100 shadow-xl mb-8">
+      <div class="card-body">
+        <h2 class="card-title mb-6">History Management</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Current State -->
+          <div class="space-y-4">
+            <h3 class="font-bold text-lg">Current State</h3>
+            <textarea id="currentState" readonly class="textarea textarea-bordered w-full" rows="4"></textarea>
+          </div>
+
+          <!-- Actions -->
+          <div class="space-y-4">
+            <h3 class="font-bold text-lg">Actions</h3>
+            <button class="btn btn-primary w-full" id="addStateBtn">Add State</button>
+            <button class="btn btn-secondary w-full" id="undoBtn">Undo</button>
+            <button class="btn btn-secondary w-full" id="redoBtn">Redo</button>
+            <button class="btn btn-ghost w-full" id="clearBtn">Clear History</button>
+          </div>
+
+          <!-- Stats -->
+          <div class="space-y-4">
+            <h3 class="font-bold text-lg">History Stats</h3>
+            <div class="bg-gray-800 p-4 rounded border border-gray-700 space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Position:</span>
+                <span class="font-bold" id="position">0</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Total States:</span>
+                <span class="font-bold" id="totalStates">1</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Can Undo:</span>
+                <span class="font-bold" id="canUndoStat">No</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Can Redo:</span>
+                <span class="font-bold" id="canRedoStat">No</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Undo Steps:</span>
+                <span class="font-bold" id="undoSteps">0</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Redo Steps:</span>
+                <span class="font-bold" id="redoSteps">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- History Timeline -->
+    <div class="card bg-base-100 shadow-xl mb-8">
+      <div class="card-body">
+        <h2 class="card-title mb-6">History Timeline</h2>
+        <div id="timeline" class="overflow-x-auto">
+          <div class="flex gap-2">
+            <div class="timeline-item cursor-pointer" data-index="0">
+              <div class="badge badge-primary">Initial</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo Sections -->
+    <div class="space-y-8">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 1: Create History Manager</h2>
+          <p class="text-sm text-gray-300 mb-4">Initialize history tracking</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Create history manager<br>
+const history = createHistoryManager(initialState);<br>
+// Can optionally set max history size<br>
+const history = createHistoryManager([], 50);
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 2: Push State</h2>
+          <p class="text-sm text-gray-300 mb-4">Add state to history</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Push new state<br>
+const success = pushState(history, newNotes);<br>
+// Current state is now newNotes<br>
+// Undo/redo becomes available
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 3: Undo & Redo</h2>
+          <p class="text-sm text-gray-300 mb-4">Navigate through history</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Check if can undo<br>
+if (canUndo(history)) {<br>
+&nbsp;&nbsp;const previous = undo(history);<br>
+}<br>
+<br>
+// After undo, check for redo<br>
+if (canRedo(history)) {<br>
+&nbsp;&nbsp;const next = redo(history);<br>
+}
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 4: Get Current State</h2>
+          <p class="text-sm text-gray-300 mb-4">Retrieve current state</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Get current state at history position<br>
+const current = getCurrentState(history);<br>
+// Use current for rendering UI
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 5: Get Full History</h2>
+          <p class="text-sm text-gray-300 mb-4">View all historical states</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Get all states from start to current<br>
+const allStates = getHistory(history);<br>
+// Returns: [initial, state1, state2, current]<br>
+// Does not include redo states
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 6: History Statistics</h2>
+          <p class="text-sm text-gray-300 mb-4">Analyze history state</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Get stats<br>
+const stats = getHistoryStats(history);<br>
+// {<br>
+// &nbsp;&nbsp;currentIndex: 2,<br>
+// &nbsp;&nbsp;totalStates: 4,<br>
+// &nbsp;&nbsp;undoCount: 2,<br>
+// &nbsp;&nbsp;redoCount: 1<br>
+// }
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 7: Check Capabilities</h2>
+          <p class="text-sm text-gray-300 mb-4">Know when undo/redo available</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Check before undo/redo<br>
+if (canUndo(history)) {<br>
+&nbsp;&nbsp;undoButton.disabled = false;<br>
+} else {<br>
+&nbsp;&nbsp;undoButton.disabled = true;<br>
+}<br>
+<br>
+if (canRedo(history)) {<br>
+&nbsp;&nbsp;redoButton.disabled = false;<br>
+}
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 8: Clear History</h2>
+          <p class="text-sm text-gray-300 mb-4">Reset history state</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Clear all history<br>
+clearHistory(history);<br>
+// Now at initial state<br>
+// No undo or redo available
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple history manager for demo
+    const history = {
+      states: [{ id: 1, title: 'Initial Note' }],
+      currentIndex: 0,
+      maxHistory: 50
+    };
+
+    let stateCounter = 1;
+
+    function updateDisplay() {
+      const current = history.states[history.currentIndex];
+      document.getElementById('currentState').value = JSON.stringify(current, null, 2);
+      
+      const canUndo = history.currentIndex > 0;
+      const canRedo = history.currentIndex < history.states.length - 1;
+      const undoCount = history.currentIndex;
+      const redoCount = history.states.length - history.currentIndex - 1;
+      
+      document.getElementById('position').textContent = history.currentIndex + 1;
+      document.getElementById('totalStates').textContent = history.states.length;
+      document.getElementById('canUndoStat').textContent = canUndo ? 'Yes' : 'No';
+      document.getElementById('canRedoStat').textContent = canRedo ? 'Yes' : 'No';
+      document.getElementById('undoSteps').textContent = undoCount;
+      document.getElementById('redoSteps').textContent = redoCount;
+      
+      document.getElementById('undoBtn').disabled = !canUndo;
+      document.getElementById('redoBtn').disabled = !canRedo;
+      
+      updateTimeline();
+    }
+
+    function updateTimeline() {
+      const timeline = document.getElementById('timeline');
+      timeline.innerHTML = history.states.map((state, index) => `
+        <div class="timeline-item cursor-pointer ${index === history.currentIndex ? 'active' : ''}" data-index="${index}">
+          <div class="badge ${index === history.currentIndex ? 'badge-primary' : 'badge-ghost'}">
+            State ${index + 1}
+          </div>
+        </div>
+      `).join('');
+      
+      document.querySelectorAll('.timeline-item').forEach(item => {
+        item.addEventListener('click', () => {
+          history.currentIndex = parseInt(item.dataset.index);
+          updateDisplay();
+        });
+      });
+    }
+
+    document.getElementById('addStateBtn').addEventListener('click', () => {
+      stateCounter++;
+      const newState = {
+        id: stateCounter,
+        title: `Note ${stateCounter}`,
+        timestamp: new Date().toLocaleTimeString()
+      };
+      
+      // Remove any redo states
+      history.states = history.states.slice(0, history.currentIndex + 1);
+      
+      // Add new state
+      history.states.push(newState);
+      history.currentIndex = history.states.length - 1;
+      
+      // Enforce max history
+      if (history.states.length > history.maxHistory) {
+        history.states.shift();
+        history.currentIndex--;
+      }
+      
+      updateDisplay();
+    });
+
+    document.getElementById('undoBtn').addEventListener('click', () => {
+      if (history.currentIndex > 0) {
+        history.currentIndex--;
+        updateDisplay();
+      }
+    });
+
+    document.getElementById('redoBtn').addEventListener('click', () => {
+      if (history.currentIndex < history.states.length - 1) {
+        history.currentIndex++;
+        updateDisplay();
+      }
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      if (confirm('Clear all history?')) {
+        history.states = [history.states[history.currentIndex]];
+        history.currentIndex = 0;
+        updateDisplay();
+      }
+    });
+
+    // Initialize
+    updateDisplay();
+  </script>
+</body>
+</html>

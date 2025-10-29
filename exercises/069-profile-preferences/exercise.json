@@ -1,0 +1,10 @@
+{
+  "id": "069-profile-preferences",
+  "title": "User Profile - Preferences",
+  "description": "Add deeply nested settings and preferences objects to user profiles.",
+  "series": "14",
+  "seriesName": "User Profile System",
+  "difficulty": "intermediate",
+  "topics": ["nested objects", "complex data structures", "object manipulation"],
+  "skills": ["deeply nested object access", "toggling state", "data summarization"]
+}

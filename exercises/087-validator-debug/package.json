@@ -1,0 +1,19 @@
+{
+  "name": "087-validator-debug",
+  "version": "1.0.0",
+  "description": "Form Validator - Debug Mode",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 087-validator-debug.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "debugging",
+    "console",
+    "validation",
+    "performance"
+  ],
+  "author": "",
+  "license": "MIT"
+}

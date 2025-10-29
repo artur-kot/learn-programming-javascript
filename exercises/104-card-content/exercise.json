@@ -1,0 +1,21 @@
+{
+  "id": "104-card-content",
+  "number": 104,
+  "title": "Card Generator - Set Content",
+  "series": "21-card-generator",
+  "seriesNumber": 2,
+  "topic": "Adding Content to Elements",
+  "description": "Add title and description to cards using innerHTML and textContent. Populate created elements.",
+  "concepts": [
+    "Setting textContent",
+    "Setting innerHTML",
+    "Populating elements",
+    "Content creation",
+    "Nested HTML",
+    "Creating cards with data"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "103-card-create"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "email-validator-groups",
+  "version": "1.0.0",
+  "description": "Email Validator - Capture Groups Exercise",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": ["regex", "capture groups", "email", "extraction"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node": ">=18.0.0"
+  }
+}

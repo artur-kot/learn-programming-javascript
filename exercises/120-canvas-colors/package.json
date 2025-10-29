@@ -1,0 +1,26 @@
+{
+  "name": "120-canvas-colors",
+  "version": "1.0.0",
+  "description": "Interactive Drawing Canvas - Color Picker",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "canvas",
+    "color picker",
+    "event delegation",
+    "drawing",
+    "colors",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

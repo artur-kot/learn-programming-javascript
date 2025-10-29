@@ -1,0 +1,14 @@
+{
+  "name": "137-pipeline-compose",
+  "version": "1.0.0",
+  "description": "Data Pipeline - Compose Functions",
+  "main": "137-pipeline-compose.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 137-pipeline-compose.test.js",
+    "test:watch": "node --test --watch 137-pipeline-compose.test.js"
+  },
+  "keywords": ["pipeline", "composition", "function composition", "higher-order functions", "reusable"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

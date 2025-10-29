@@ -1,0 +1,225 @@
+{
+  "id": "155-notes-edit",
+  "title": "Notes Edit & Update",
+  "description": "Learn state mutation and update patterns for note applications including editing, updating, and modifying existing notes",
+  "series": 31,
+  "exerciseNumber": 155,
+  "difficulty": "intermediate",
+  "functions": [
+    {
+      "name": "updateNote",
+      "description": "Update properties of an existing note while preserving immutability",
+      "parameters": [
+        {
+          "name": "note",
+          "type": "Object",
+          "description": "Note object to update"
+        },
+        {
+          "name": "updates",
+          "type": "Object",
+          "description": "Object containing properties to update"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "New note object with updated properties"
+      }
+    },
+    {
+      "name": "updateNoteInList",
+      "description": "Update a specific note in a list of notes by ID",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects"
+        },
+        {
+          "name": "noteId",
+          "type": "Number|String",
+          "description": "ID of the note to update"
+        },
+        {
+          "name": "updates",
+          "type": "Object",
+          "description": "Properties to update"
+        }
+      ],
+      "returns": {
+        "type": "Array<Object>",
+        "description": "New array with the updated note"
+      }
+    },
+    {
+      "name": "updateNoteTitle",
+      "description": "Update only the title of a note",
+      "parameters": [
+        {
+          "name": "note",
+          "type": "Object",
+          "description": "Note object to update"
+        },
+        {
+          "name": "newTitle",
+          "type": "String",
+          "description": "New title value"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "New note object with updated title"
+      }
+    },
+    {
+      "name": "updateNoteContent",
+      "description": "Update only the content of a note",
+      "parameters": [
+        {
+          "name": "note",
+          "type": "Object",
+          "description": "Note object to update"
+        },
+        {
+          "name": "newContent",
+          "type": "String",
+          "description": "New content value"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "New note object with updated content and modified timestamp"
+      }
+    },
+    {
+      "name": "addTagToNote",
+      "description": "Add a single tag to a note's tags array",
+      "parameters": [
+        {
+          "name": "note",
+          "type": "Object",
+          "description": "Note object with tags property"
+        },
+        {
+          "name": "tag",
+          "type": "String",
+          "description": "Tag to add"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "New note object with the tag added (no duplicates)"
+      }
+    },
+    {
+      "name": "removeTagFromNote",
+      "description": "Remove a tag from a note's tags array",
+      "parameters": [
+        {
+          "name": "note",
+          "type": "Object",
+          "description": "Note object with tags property"
+        },
+        {
+          "name": "tag",
+          "type": "String",
+          "description": "Tag to remove"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "New note object without the specified tag"
+      }
+    },
+    {
+      "name": "replaceTagInNote",
+      "description": "Replace one tag with another tag in a note",
+      "parameters": [
+        {
+          "name": "note",
+          "type": "Object",
+          "description": "Note object with tags property"
+        },
+        {
+          "name": "oldTag",
+          "type": "String",
+          "description": "Tag to replace"
+        },
+        {
+          "name": "newTag",
+          "type": "String",
+          "description": "New tag value"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "New note object with tag replaced"
+      }
+    },
+    {
+      "name": "updateNotesInList",
+      "description": "Update multiple notes in a list based on a condition",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects"
+        },
+        {
+          "name": "condition",
+          "type": "Function",
+          "description": "Function that returns true for notes to update"
+        },
+        {
+          "name": "updates",
+          "type": "Object",
+          "description": "Properties to update"
+        }
+      ],
+      "returns": {
+        "type": "Array<Object>",
+        "description": "New array with updated notes"
+      }
+    },
+    {
+      "name": "validateNoteUpdate",
+      "description": "Validate that updates are valid before applying them",
+      "parameters": [
+        {
+          "name": "note",
+          "type": "Object",
+          "description": "Current note object"
+        },
+        {
+          "name": "updates",
+          "type": "Object",
+          "description": "Proposed updates"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "Object with isValid (boolean) and errors (array of error messages)"
+      }
+    },
+    {
+      "name": "mergeNotes",
+      "description": "Combine content from multiple notes into one",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects to merge"
+        },
+        {
+          "name": "targetNote",
+          "type": "Object",
+          "description": "Base note to merge into"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "New note with combined content and merged tags"
+      }
+    }
+  ]
+}

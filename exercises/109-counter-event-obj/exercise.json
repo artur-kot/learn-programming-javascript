@@ -1,0 +1,22 @@
+{
+  "id": "109-counter-event-obj",
+  "number": 109,
+  "title": "Interactive Counter - Event Object",
+  "series": "22-interactive-counter",
+  "seriesNumber": 2,
+  "topic": "Accessing Event Properties",
+  "description": "Access event object properties like target, type, and timestamp.",
+  "concepts": [
+    "Event object",
+    "event.target",
+    "event.type",
+    "event.timestamp",
+    "Event properties",
+    "Event details",
+    "Debugging events"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "108-counter-click"
+  ]
+}

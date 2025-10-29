@@ -1,0 +1,35 @@
+{
+  "id": 137,
+  "series": 27,
+  "title": "Data Pipeline - Compose Functions",
+  "description": "Master function composition for building powerful, reusable data transformation pipelines. Combine functions to create complex operations.",
+  "difficulty": "advanced",
+  "skills": [
+    "function composition",
+    "function chaining",
+    "higher-order functions",
+    "pipeline building",
+    "reusable transformations",
+    "functional programming"
+  ],
+  "prerequisites": [
+    "136-pipeline-custom"
+  ],
+  "concepts": {
+    "compose": "Combining functions: f(g(x)) pattern",
+    "pipe": "Left-to-right function application",
+    "higher_order": "Functions that work with other functions",
+    "pipeline": "Sequence of transformations",
+    "currying": "Functions that return functions",
+    "partial_application": "Pre-filling function arguments"
+  },
+  "learning_outcomes": [
+    "Create compose function for right-to-left composition",
+    "Create pipe function for left-to-right application",
+    "Build chainable pipeline objects",
+    "Combine multiple transformations",
+    "Understand function composition patterns",
+    "Create reusable transformation pipelines"
+  ],
+  "estimated_time": "50 minutes"
+}

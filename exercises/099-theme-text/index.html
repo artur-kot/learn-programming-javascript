@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Switcher - Change Text</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: white;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .status {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Theme Switcher - Change Text</h1>
+    <p>Learn how to modify element content using textContent and innerHTML.</p>
+    
+    <div>
+      <button id="theme-toggle">Toggle Theme</button>
+      <button id="light-btn">Light</button>
+      <button id="dark-btn">Dark</button>
+    </div>
+    
+    <div class="status">
+      <div id="status">Current theme: Light</div>
+      <div id="info"></div>
+    </div>
+    
+    <p>Click the buttons to see text changes.</p>
+  </div>
+
+  <script type="module">
+    import {
+      updateButtonText,
+      getButtonText,
+      updateWithHTML,
+      toggleThemeText,
+      updateMultipleElements
+    } from './099-theme-text.js';
+
+    const themeToggle = document.getElementById('theme-toggle');
+    let isDark = false;
+
+    themeToggle.addEventListener('click', () => {
+      isDark = !isDark;
+      toggleThemeText('theme-toggle', 'Light Theme', 'Dark Theme');
+      updateButtonText('status', `Current theme: ${isDark ? 'Dark' : 'Light'}`);
+    });
+  </script>
+</body>
+</html>

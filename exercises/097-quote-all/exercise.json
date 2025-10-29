@@ -1,0 +1,22 @@
+{
+  "id": "097-quote-all",
+  "number": 97,
+  "title": "Quote Fetcher - Promise.all",
+  "series": "19-quote-fetcher",
+  "seriesNumber": 5,
+  "topic": "Parallel Operations with Promise.all",
+  "description": "Fetch from multiple sources in parallel. Master concurrency with Promise.all and compare to sequential execution.",
+  "concepts": [
+    "Promise.all()",
+    "Parallel execution",
+    "Sequential vs parallel",
+    "Handling multiple promises",
+    "All or nothing behavior",
+    "Promise.allSettled()",
+    "Concurrency patterns"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "096-quote-async"
+  ]
+}

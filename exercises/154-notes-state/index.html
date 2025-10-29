@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 154: Notes State Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 min-h-screen text-white py-8">
+  <div class="max-w-6xl mx-auto p-4">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-5xl font-bold mb-4">Notes State Management</h1>
+      <p class="text-xl text-blue-200">Search, filter, sort, and analyze your notes collection</p>
+    </div>
+
+    <!-- Stats Overview -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title text-lg">Total Notes</h2>
+          <p class="text-3xl font-bold text-primary" id="totalNotes">0</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title text-lg">Total Characters</h2>
+          <p class="text-3xl font-bold text-secondary" id="totalChars">0</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title text-lg">Average Length</h2>
+          <p class="text-3xl font-bold text-accent" id="avgLength">0</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title text-lg">Unique Tags</h2>
+          <p class="text-3xl font-bold text-info" id="uniqueTags">0</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search & Filter Controls -->
+    <div class="card bg-base-100 shadow-xl mb-8">
+      <div class="card-body">
+        <h2 class="card-title mb-6">Search & Filter</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Search Query</span>
+            </label>
+            <input type="text" id="searchInput" placeholder="Search by title or content..." class="input input-bordered" />
+          </div>
+          
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Filter by Tag</span>
+            </label>
+            <select id="tagFilter" class="select select-bordered">
+              <option value="">All Tags</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Min Length</span>
+            </label>
+            <input type="number" id="minLength" placeholder="0" min="0" class="input input-bordered" value="0" />
+          </div>
+          
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Max Length</span>
+            </label>
+            <input type="number" id="maxLength" placeholder="9999" min="0" class="input input-bordered" value="9999" />
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Sort By</span>
+            </label>
+            <select id="sortBy" class="select select-bordered">
+              <option value="date">Date (Newest)</option>
+              <option value="date-asc">Date (Oldest)</option>
+              <option value="title">Title (A-Z)</option>
+              <option value="length">Length (Longest)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+          <button class="btn btn-ghost" id="clearFilters">Clear All</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notes Display Area -->
+    <div class="card bg-base-100 shadow-xl mb-8">
+      <div class="card-body">
+        <h2 class="card-title mb-6">Filtered Results</h2>
+        <div id="notesContainer" class="space-y-4">
+          <p class="text-center text-gray-400">No notes to display</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo Sections -->
+    <div class="space-y-8">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 1: Search Functionality</h2>
+          <p class="text-sm text-gray-300 mb-4">Search through notes by title or content (case-insensitive)</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Find all notes containing "javascript"<br>
+const results = searchNotes(notes, 'javascript');<br>
+// Returns: [note1, note3] - matching title or content
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 2: Sorting Operations</h2>
+          <p class="text-sm text-gray-300 mb-4">Sort notes by date or title in ascending/descending order</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Sort by date, newest first<br>
+const sorted = sortNotesByDate(notes, false);<br>
+<br>
+// Sort by title, alphabetically A-Z<br>
+const byTitle = sortNotesByTitle(notes, true);
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 3: Filtering by Length</h2>
+          <p class="text-sm text-gray-300 mb-4">Get notes within a specific character range</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Find notes between 50-200 characters<br>
+const medium = filterNotesByLength(notes, 50, 200);<br>
+<br>
+// Find short notes (less than 20 chars)<br>
+const short = filterNotesByLength(notes, 0, 20);
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 4: Tag-Based Filtering</h2>
+          <p class="text-sm text-gray-300 mb-4">Get notes with specific tags or tag combinations</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Get all notes with 'javascript' tag<br>
+const jsTags = getNotesByTag(notes, 'javascript');<br>
+<br>
+// Get notes with ALL these tags<br>
+const tagged = filterByMultipleTags(notes, ['work', 'urgent']);
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 5: Statistical Analysis</h2>
+          <p class="text-sm text-gray-300 mb-4">Get statistics about the notes collection</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Get comprehensive statistics<br>
+const stats = getNotesStatistics(notes);<br>
+// stats.totalNotes<br>
+// stats.averageLength<br>
+// stats.longestNote<br>
+// stats.mostRecentDate
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 6: Grouping by Date</h2>
+          <p class="text-sm text-gray-300 mb-4">Organize notes by their creation date</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Group notes by date (YYYY-MM-DD)<br>
+const grouped = getNotesGroupedByDate(notes);<br>
+// grouped['2024-01-15'] = [note1, note2]<br>
+// grouped['2024-01-14'] = [note3]
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 7: Recent Notes</h2>
+          <p class="text-sm text-gray-300 mb-4">Get the most recently created notes</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Get 5 most recent notes<br>
+const recent = getRecentNotes(notes, 5);<br>
+<br>
+// Get 10 most recent<br>
+const topTen = getRecentNotes(notes, 10);
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 8: Complex Filtered Views</h2>
+          <p class="text-sm text-gray-300 mb-4">Combine multiple filters in a single operation</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Complex filtering and sorting<br>
+const view = createFilteredView(notes, {<br>
+&nbsp;&nbsp;searchQuery: 'javascript',<br>
+&nbsp;&nbsp;minLength: 50,<br>
+&nbsp;&nbsp;tags: ['tutorial'],<br>
+&nbsp;&nbsp;sortBy: 'date',<br>
+&nbsp;&nbsp;sortOrder: 'desc'<br>
+});
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sample data for demo
+    const sampleNotes = [
+      { id: 1, title: 'JavaScript Tips', content: 'Learn arrow functions and destructuring for cleaner code', createdAt: new Date('2024-01-15'), tags: ['javascript', 'tutorial', 'important'] },
+      { id: 2, title: 'Python Guide', content: 'Python for beginners', createdAt: new Date('2024-01-10'), tags: ['python', 'guide'] },
+      { id: 3, title: 'Web Development', content: 'HTML CSS JavaScript basics and advanced techniques for modern web apps', createdAt: new Date('2024-01-20'), tags: ['web', 'javascript', 'important'] },
+      { id: 4, title: 'AI Basics', content: 'ML', createdAt: new Date('2024-01-05'), tags: ['ai'] },
+      { id: 5, title: 'Database Design', content: 'Learning SQL queries and optimization techniques for performance', createdAt: new Date('2024-01-12'), tags: ['database', 'sql'] }
+    ];
+
+    function updateStats() {
+      const totalNotes = sampleNotes.length;
+      const totalChars = sampleNotes.reduce((sum, n) => sum + n.content.length, 0);
+      const avgLength = Math.round(totalChars / totalNotes);
+      const allTags = new Set(sampleNotes.flatMap(n => n.tags));
+
+      document.getElementById('totalNotes').textContent = totalNotes;
+      document.getElementById('totalChars').textContent = totalChars;
+      document.getElementById('avgLength').textContent = avgLength;
+      document.getElementById('uniqueTags').textContent = allTags.size;
+    }
+
+    function populateTagFilter() {
+      const tagFilter = document.getElementById('tagFilter');
+      const allTags = new Set(sampleNotes.flatMap(n => n.tags));
+      
+      allTags.forEach(tag => {
+        const option = document.createElement('option');
+        option.value = tag;
+        option.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+        tagFilter.appendChild(option);
+      });
+    }
+
+    function displayNotes(notes) {
+      const container = document.getElementById('notesContainer');
+      
+      if (notes.length === 0) {
+        container.innerHTML = '<p class="text-center text-gray-400">No notes match your filters</p>';
+        return;
+      }
+
+      container.innerHTML = notes.map(note => `
+        <div class="card bg-gray-800 border border-gray-700">
+          <div class="card-body">
+            <h3 class="card-title text-lg">${note.title}</h3>
+            <p class="text-sm text-gray-300">${note.content}</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              ${note.tags.map(tag => `<span class="badge badge-primary">${tag}</span>`).join('')}
+            </div>
+            <div class="text-xs text-gray-400 mt-3">
+              ${note.createdAt.toLocaleDateString()} • ${note.content.length} chars
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    document.getElementById('applyFilters').addEventListener('click', () => {
+      // Demo: Just show all notes or filtered subset
+      displayNotes(sampleNotes);
+    });
+
+    document.getElementById('clearFilters').addEventListener('click', () => {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('tagFilter').value = '';
+      document.getElementById('minLength').value = '0';
+      document.getElementById('maxLength').value = '9999';
+      document.getElementById('sortBy').value = 'date';
+      displayNotes(sampleNotes);
+    });
+
+    // Initialize
+    updateStats();
+    populateTagFilter();
+    displayNotes(sampleNotes);
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 071-profile-friends.test.js"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "075-recipe-spread",
+  "number": 75,
+  "title": "Recipe Organizer - Spread Operator",
+  "series": "15-recipe-organizer",
+  "seriesNumber": 3,
+  "topic": "Spread Operator",
+  "description": "Learn to use the spread operator (...) to unpack arrays and objects. Practice combining arrays, cloning objects, and creating new data structures from existing ones.",
+  "concepts": [
+    "Spread operator with arrays",
+    "Spread operator with objects",
+    "Combining collections",
+    "Cloning and copying",
+    "Immutable data operations"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "074-recipe-rest"
+  ],
+  "estimatedTime": 20,
+  "keywords": [
+    "spread-operator",
+    "immutability",
+    "cloning",
+    "combining",
+    "recipes",
+    "es6"
+  ]
+}

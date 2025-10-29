@@ -1,0 +1,17 @@
+{
+  "name": "046-shopping-quantities",
+  "title": "Shopping List - Item Quantities",
+  "description": "Track quantities for items using objects in your shopping list",
+  "series": "Series 9: Shopping List Manager",
+  "seriesIndex": 4,
+  "difficulty": "Intermediate",
+  "topics": ["objects", "arrays", "object properties", "aggregation"],
+  "skills": [
+    "Working with objects and properties",
+    "Arrays of objects",
+    "Iterating with for-of loops",
+    "Object creation with shorthand",
+    "Aggregation and calculations"
+  ],
+  "keywords": ["shopping", "quantity", "objects", "tracking", "aggregation"]
+}

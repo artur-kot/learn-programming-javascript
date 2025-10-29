@@ -1,0 +1,130 @@
+{
+  "id": 172,
+  "title": "Email Validator - Multiple Formats",
+  "description": "Master regex by validating phone numbers, URLs, and emails using integrated patterns",
+  "series": 34,
+  "level": "advanced",
+  "concepts": ["phone validation", "URL validation", "format detection", "pattern selection"],
+  "functions": [
+    {
+      "name": "validatePhone",
+      "description": "Validate US phone format: 123-456-7890 or (123) 456-7890",
+      "parameters": [
+        {
+          "name": "phone",
+          "type": "string",
+          "description": "Phone number to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "validateURL",
+      "description": "Validate basic URL format: http(s)://domain.tld",
+      "parameters": [
+        {
+          "name": "url",
+          "type": "string",
+          "description": "URL to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "detectFormat",
+      "description": "Detect whether input is email, phone, or URL",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "string",
+          "description": "Input to classify"
+        }
+      ],
+      "returns": "string: 'email', 'phone', 'url', or 'unknown'"
+    },
+    {
+      "name": "validateAny",
+      "description": "Return true if input matches any format (email, phone, URL)",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "string",
+          "description": "Input to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "extractContacts",
+      "description": "Extract all emails, phones, URLs from text",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text to search"
+        }
+      ],
+      "returns": "object with emails, phones, urls arrays"
+    },
+    {
+      "name": "formatPhone",
+      "description": "Convert phone number to standard format: (123) 456-7890",
+      "parameters": [
+        {
+          "name": "phone",
+          "type": "string",
+          "description": "Phone digits or formatted phone"
+        }
+      ],
+      "returns": "string in (XXX) XXX-XXXX format"
+    },
+    {
+      "name": "normalizePhone",
+      "description": "Extract only digits from phone, return as string",
+      "parameters": [
+        {
+          "name": "phone",
+          "type": "string",
+          "description": "Phone in any format"
+        }
+      ],
+      "returns": "string of 10 digits or empty"
+    },
+    {
+      "name": "validatePhoneStrict",
+      "description": "Validate phone with exactly 10 digits (US format only)",
+      "parameters": [
+        {
+          "name": "phone",
+          "type": "string",
+          "description": "Phone to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "extractURLDomain",
+      "description": "Extract domain from URL using capture groups",
+      "parameters": [
+        {
+          "name": "url",
+          "type": "string",
+          "description": "Full URL"
+        }
+      ],
+      "returns": "string: domain name only"
+    },
+    {
+      "name": "validateContactInfo",
+      "description": "Validate mixed object with any combo of email, phone, url",
+      "parameters": [
+        {
+          "name": "contact",
+          "type": "object",
+          "description": "Object with optional email, phone, url properties"
+        }
+      ],
+      "returns": "boolean: true if at least one valid field"
+    }
+  ]
+}

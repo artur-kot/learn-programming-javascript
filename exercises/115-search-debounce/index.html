@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Search Filter - Debounce Input</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .search-input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    #search-input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+
+    #search-input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      font-size: 18px;
+    }
+
+    .status-indicator {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+      min-height: 20px;
+    }
+
+    .status-indicator.searching {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .results-container {
+      margin-top: 20px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .result-item {
+      padding: 12px 16px;
+      background: #f9f9f9;
+      border-left: 4px solid #667eea;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .result-item:hover {
+      background: #f0f0f0;
+      transform: translateX(4px);
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      font-size: 16px;
+    }
+
+    .result-count {
+      padding: 10px 16px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .search-help {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff3e0;
+      border-radius: 6px;
+      color: #e65100;
+      font-size: 13px;
+      border-left: 4px solid #ff9800;
+    }
+
+    .info-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background: #ff9800;
+      color: white;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .delay-control {
+      margin-top: 15px;
+      padding: 12px;
+      background: #f5f5f5;
+      border-radius: 6px;
+    }
+
+    .delay-control label {
+      display: block;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .delay-control input[type="range"] {
+      width: 100%;
+    }
+
+    .delay-value {
+      font-weight: 600;
+      color: #667eea;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <h1>Debounced Search <span class="info-badge">Optimized</span></h1>
+    
+    <div class="search-input-group">
+      <input
+        id="search-input"
+        type="text"
+        placeholder="Type to search (debounced)..."
+        autocomplete="off"
+      >
+      <span class="search-icon">🔍</span>
+    </div>
+
+    <div id="status" class="status-indicator">Ready to search...</div>
+
+    <div class="delay-control">
+      <label>
+        Debounce Delay: <span class="delay-value" id="delay-value">300ms</span>
+      </label>
+      <input
+        type="range"
+        id="delay-slider"
+        min="100"
+        max="1000"
+        step="100"
+        value="300"
+      >
+    </div>
+
+    <div id="results" class="results-container"></div>
+
+    <div class="search-help">
+      <strong>Performance Tip:</strong> Debouncing delays search execution until you stop typing, reducing unnecessary searches and improving performance with large datasets.
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      setupDebouncedInput,
+      getDebounceDelay
+    } from './115-search-debounce.js';
+
+    const searchInput = document.getElementById('search-input');
+    const resultsContainer = document.getElementById('results');
+    const statusIndicator = document.getElementById('status');
+    const delaySlider = document.getElementById('delay-slider');
+    const delayValue = document.getElementById('delay-value');
+
+    // Large dataset to demonstrate debounce benefits
+    const items = [
+      'JavaScript', 'Python', 'Java', 'C++', 'C#', 'Ruby', 'Go', 'Rust',
+      'PHP', 'Swift', 'Kotlin', 'TypeScript', 'Scala', 'Haskell', 'Perl',
+      'R', 'MATLAB', 'Dart', 'Lua', 'Elixir', 'Clojure', 'F#', 'Groovy',
+      'React', 'Vue.js', 'Angular', 'Svelte', 'Next.js', 'Nuxt.js',
+      'Django', 'Flask', 'Express.js', 'Node.js', 'Deno', 'Spring Boot',
+      'Ruby on Rails', 'Laravel', 'ASP.NET', 'FastAPI', 'NestJS',
+      'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'SQLite', 'MariaDB',
+      'Cassandra', 'DynamoDB', 'Firebase', 'Supabase'
+    ];
+
+    let currentDelay = 300;
+
+    function initSearch() {
+      setupDebouncedInput(searchInput, items, resultsContainer, currentDelay);
+    }
+
+    // Update delay when slider changes
+    delaySlider.addEventListener('input', (e) => {
+      currentDelay = parseInt(e.target.value);
+      delayValue.textContent = `${currentDelay}ms`;
+      
+      // Reinitialize with new delay
+      const oldInput = searchInput.cloneNode(true);
+      searchInput.parentNode.replaceChild(oldInput, searchInput);
+      searchInput = oldInput;
+      
+      initSearch();
+    });
+
+    // Show typing indicator
+    searchInput.addEventListener('input', () => {
+      statusIndicator.textContent = 'Typing...';
+      statusIndicator.classList.add('searching');
+      
+      setTimeout(() => {
+        statusIndicator.textContent = 'Searching...';
+      }, currentDelay - 50);
+      
+      setTimeout(() => {
+        statusIndicator.textContent = 'Ready to search...';
+        statusIndicator.classList.remove('searching');
+      }, currentDelay + 50);
+    });
+
+    initSearch();
+  </script>
+</body>
+</html>

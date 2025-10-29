@@ -1,0 +1,359 @@
+// EXERCISE 182: E-COMMERCE CART SYSTEM - QUICK REFERENCE GUIDE
+
+================================================================================
+PROJECT STRUCTURE
+================================================================================
+
+182-ecommerce-cart/
+├── src/                          # Source code
+│   ├── models/                   # Data models (4 classes)
+│   │   ├── Product.js            # 4 TODOs - validate, stock check, reduce, reviews
+│   │   ├── CartItem.js           # 4 TODOs - validate, update qty, increment, decrement
+│   │   ├── Coupon.js             # 3 TODOs - validate, active check, applicability
+│   │   ├── Cart.js               # 10 TODOs - add/remove/update items, totals, coupon
+│   │   └── index.js              # Export all models
+│   │
+│   ├── services/                 # Business logic (4 services)
+│   │   ├── ProductService.js     # 6 TODOs - search, filter, price range, ratings
+│   │   ├── CouponService.js      # 5 TODOs - get by code, validate, available, expiring
+│   │   ├── CartService.js        # 7 TODOs - add/remove, apply coupon, checkout, restore
+│   │   ├── StorageService.js     # 5 TODOs - save/load cart, order history, delete
+│   │   └── index.js              # Export all services
+│   │
+│   ├── utils/                    # Utilities (pre-filled)
+│   │   ├── helpers.js            # Formatting, validation, lodash helpers
+│   │   └── validators.js         # Data validation functions
+│   │
+│   └── index.js                  # 1 TODO - Initialize sample data
+│
+├── tests/
+│   └── cart.test.js              # 30+ test stubs to implement
+│
+├── dist/                         # Build output
+├── package.json                  # npm config with dependencies
+├── exercise.json                 # Exercise metadata
+└── README.md                     # Full documentation
+
+================================================================================
+45 TODOs ORGANIZED BY CATEGORY
+================================================================================
+
+MODELS (21 TODOs)
+─────────────────
+Product.js (4)
+  TODO 1:  Validate product data
+  TODO 2:  Check if product is in stock
+  TODO 3:  Reduce stock when purchased
+  TODO 4:  Add product reviews
+
+CartItem.js (4)
+  TODO 5:  Validate cart item data
+  TODO 6:  Update item quantity
+  TODO 7:  Increment quantity
+  TODO 8:  Decrement quantity
+
+Coupon.js (3)
+  TODO 9:  Validate coupon data
+  TODO 10: Check if coupon is active
+  TODO 11: Check if coupon applies to cart
+
+Cart.js (10)
+  TODO 12: Add item to cart
+  TODO 13: Remove item from cart
+  TODO 14: Update item quantity
+  TODO 15: Calculate subtotal
+  TODO 16: Calculate discount amount
+  TODO 17: Apply coupon to cart
+  TODO 18: Remove coupon from cart
+  TODO 19: Calculate shipping cost
+  TODO 20: Calculate tax amount
+  TODO 21: Calculate final total
+
+SERVICES (23 TODOs)
+──────────────────
+ProductService.js (6)
+  TODO 22: Filter products by category
+  TODO 23: Search products by name/description
+  TODO 24: Get in-stock products
+  TODO 25: Get products by price range
+  TODO 26: Get top-rated products
+  TODO 27: Get similar products
+
+CouponService.js (5)
+  TODO 28: Get coupon by code
+  TODO 29: Validate coupon code
+  TODO 30: Get available coupons
+  TODO 31: Get expiring soon coupons
+  TODO 32: Deactivate coupon
+
+CartService.js (7)
+  TODO 33: Add product to cart with validation
+  TODO 34: Remove item from cart
+  TODO 35: Update item quantity
+  TODO 36: Apply coupon code
+  TODO 37: Remove coupon
+  TODO 38: Checkout process
+  TODO 39: Restore cart from storage
+
+StorageService.js (5)
+  TODO 40: Save cart to localStorage
+  TODO 41: Load cart from localStorage
+  TODO 42: Save order to storage
+  TODO 43: Get order history
+  TODO 44: Delete cart
+
+MAIN ENTRY POINT (1 TODO)
+──────────────────────────
+  TODO 45: Initialize sample data (products and coupons)
+
+================================================================================
+RECOMMENDED IMPLEMENTATION ORDER
+================================================================================
+
+PHASE 1: MODELS (Complete validation and basic operations)
+┌─────────────────────────────────────────────────────────┐
+│ 1. Product (TODO 1-4)         → Test with ProductService
+│ 2. CartItem (TODO 5-8)        → Test with Cart
+│ 3. Coupon (TODO 9-11)         → Test with CartService
+│ 4. Cart (TODO 12-21)          → Test complete flow
+└─────────────────────────────────────────────────────────┘
+     Tests: Run tests/cart.test.js after each model
+
+PHASE 2: SERVICES (Add business logic)
+┌─────────────────────────────────────────────────────────┐
+│ 5. ProductService (TODO 22-27) → Test search/filter
+│ 6. CouponService (TODO 28-32)   → Test coupon management
+│ 7. CartService (TODO 33-39)     → Test end-to-end flow
+│ 8. StorageService (TODO 40-44)  → Test persistence
+└─────────────────────────────────────────────────────────┘
+
+PHASE 3: INTEGRATION
+┌─────────────────────────────────────────────────────────┐
+│ 9. Main index.js (TODO 45)     → Initialize sample data
+│ 10. Complete tests/cart.test.js → All tests passing
+└─────────────────────────────────────────────────────────┘
+
+================================================================================
+KEY CONCEPTS
+================================================================================
+
+SERVICE-ORIENTED ARCHITECTURE
+────────────────────────────
+Models ────────── Classes that represent entities
+Services ─────── Business logic orchestration layer
+Utilities ────── Helper and validation functions
+Components ──── UI layer (future exercises 183-186)
+
+DEPENDENCY FLOW
+───────────────
+UI ↓
+CartService ←─ Orchestrator that uses:
+  ├─→ ProductService
+  ├─→ CouponService
+  ├─→ StorageService
+  └─→ Models (Product, Cart, CartItem, Coupon)
+
+REAL-WORLD PATTERNS USED
+─────────────────────────
+✓ Model-driven design
+✓ Service layer pattern
+✓ Dependency injection
+✓ Separation of concerns
+✓ Data persistence layer
+✓ Validation at multiple levels
+✓ Factory patterns (model creation)
+✓ Repository pattern (StorageService)
+
+================================================================================
+NPM PACKAGES USED
+================================================================================
+
+uuid              - Generate unique IDs
+lodash-es         - Utility functions (debounce, clone, grouping)
+date-fns          - Date manipulation and formatting
+jest              - Testing framework
+babel-jest        - ES6+ transpiling for tests
+
+Install: npm install
+Run tests: npm test
+
+================================================================================
+EXAMPLE IMPLEMENTATION SNIPPETS
+================================================================================
+
+PRODUCT VALIDATION (TODO 1)
+────────────────────────────
+validate(data) {
+  if (typeof data.name !== 'string' || data.name.trim() === '') {
+    throw new Error('Product name is required');
+  }
+  if (typeof data.price !== 'number' || data.price <= 0) {
+    throw new Error('Product price must be positive');
+  }
+  // Add more validations...
+}
+
+CART ITEM QUANTITY UPDATE (TODO 6)
+──────────────────────────────────
+updateQuantity(newQuantity) {
+  this.validate(this.product, newQuantity);
+  this.quantity = newQuantity;
+  return this.quantity;
+}
+
+CALCULATE TOTAL (TODO 21)
+────────────────────────
+getTotal() {
+  const subtotal = this.getSubtotal();
+  const discount = this.getDiscountAmount();
+  const tax = this.getTaxAmount();
+  const shipping = this.getShippingCost();
+  return subtotal - discount + tax + shipping;
+}
+
+SERVICE: GET BY CODE (TODO 28)
+──────────────────────────────
+getCouponByCode(code) {
+  return this.coupons.find(c => 
+    c.code.toUpperCase() === code.toUpperCase()
+  ) || null;
+}
+
+PERSISTENCE: SAVE CART (TODO 40)
+─────────────────────────────────
+saveCart(cart, cartId = "current") {
+  try {
+    const data = JSON.stringify(cart);
+    localStorage.setItem(this.cartKeyPrefix + cartId, data);
+    return true;
+  } catch (e) {
+    console.error('Storage quota exceeded', e);
+    return false;
+  }
+}
+
+================================================================================
+SUCCESS CRITERIA CHECKLIST
+================================================================================
+
+✅ PROJECT STRUCTURE
+    □ All files created in correct directories
+    □ No syntax errors in any file
+    □ All TODOs clearly marked with comments
+
+✅ MODELS COMPLETE (21 TODOs)
+    □ Product validates and manages stock
+    □ CartItem tracks quantity and prices
+    □ Coupon validates and applies discounts
+    □ Cart manages items and calculates totals
+
+✅ SERVICES COMPLETE (23 TODOs)
+    □ ProductService searches and filters
+    □ CouponService validates coupons
+    □ CartService orchestrates operations
+    □ StorageService persists data
+
+✅ TESTS PASSING
+    □ npm test runs successfully
+    □ All assertions pass
+    □ No console errors or warnings
+
+✅ DATA FLOW WORKS
+    □ Products can be added to cart
+    □ Cart calculates accurate totals
+    □ Coupons apply and reduce price
+    □ Cart saves to localStorage
+    □ Cart loads from localStorage
+
+✅ CODE QUALITY
+    □ Follows separation of concerns
+    □ Clear responsibility boundaries
+    □ Consistent error handling
+    □ Comprehensive documentation
+
+================================================================================
+BONUS FEATURES (After Completing All TODOs)
+================================================================================
+
+Add any of these to enhance the system:
+
+□ Product variants (size, color, configurations)
+□ Gift card system
+□ Loyalty points and rewards
+□ Wishlists and "save for later"
+□ Abandoned cart recovery
+□ Personalized recommendations
+□ Advanced search filters
+□ Analytics and reporting
+□ One-click repurchase
+□ Bulk operations
+□ Inventory reservations
+□ Seasonal sales/promotions
+
+================================================================================
+QUICK COMMANDS
+================================================================================
+
+# Install dependencies
+npm install
+
+# Run all tests
+npm test
+
+# Watch mode (re-run on file changes)
+npm run test:watch
+
+# Coverage report
+npm run test:coverage
+
+# ESLint (if configured)
+npm run lint
+
+================================================================================
+NEXT EXERCISES IN SERIES 39
+================================================================================
+
+Exercise 183: UI Components
+  - Build React or DOM components using this cart system
+  - Create ProductList, CartWidget, CheckoutForm
+
+Exercise 184: Product Display
+  - Product detail pages
+  - Image galleries
+  - Reviews and ratings display
+
+Exercise 185: Discount Management
+  - Admin interface for creating/managing coupons
+  - Coupon analytics and performance tracking
+
+Exercise 186: Cart Persistence
+  - Full localStorage integration
+  - Cart recovery and history
+  - Order management UI
+
+================================================================================
+LEARNING RESOURCES
+================================================================================
+
+Architecture & Design Patterns
+  https://www.patterns.dev/posts/classic-design-patterns/
+
+Service Layer Pattern
+  https://martinfowler.com/eaaCatalog/serviceLayer.html
+
+Separation of Concerns
+  https://en.wikipedia.org/wiki/Separation_of_concerns
+
+npm Packages
+  https://www.npmjs.com/
+
+localStorage API
+  https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
+Jest Testing
+  https://jestjs.io/
+
+================================================================================
+
+Start with Product model (TODO 1-4), then work your way up to services!
+Each model/service builds on the previous ones. Good luck! 🚀

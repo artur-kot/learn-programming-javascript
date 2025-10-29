@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard - Error Handling</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 2.5em;
+    }
+
+    .subtitle {
+      color: #666;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 0.95em;
+    }
+
+    .demo-section {
+      margin-bottom: 25px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+    }
+
+    .demo-section h2 {
+      color: #667eea;
+      font-size: 1.2em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+
+    .demo-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #667eea;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95em;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    button.danger {
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    }
+
+    .output {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 15px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      max-height: 250px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    .output.error {
+      background: #ffebee;
+      color: #c62828;
+      border-color: #ef5350;
+    }
+
+    .output.success {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-color: #66bb6a;
+    }
+
+    input {
+      padding: 10px 15px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.95em;
+      width: 100%;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .input-group input {
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .info-box {
+      background: #e3f2fd;
+      border-left: 4px solid #2196F3;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      font-size: 0.95em;
+      color: #1565c0;
+    }
+
+    .console-output {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85em;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+
+    .console-line {
+      margin: 4px 0;
+    }
+
+    .console-info {
+      color: #9cdcfe;
+    }
+
+    .console-error {
+      color: #f48771;
+    }
+
+    .console-success {
+      color: #89d185;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 30px 0;
+    }
+
+    .error-types {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .error-type-btn {
+      padding: 8px 15px;
+      font-size: 0.9em;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⚠️ Error Handling Demo</h1>
+    <p class="subtitle">Learn to handle API errors gracefully</p>
+
+    <!-- Fetch with Error Handling -->
+    <div class="demo-section">
+      <h2>Fetch with Error Handling</h2>
+      <div class="input-group">
+        <input type="text" id="fetchUrl" placeholder="Enter URL..." value="https://api.open-meteo.com/v1/forecast?latitude=40.7128&longitude=-74.0060&current=temperature_2m">
+        <button onclick="runFetchWithErrorHandling()">Fetch</button>
+      </div>
+      <div id="fetchOutput" class="output">Ready...</div>
+    </div>
+
+    <!-- Validation Demos -->
+    <div class="demo-section">
+      <h2>Validation</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <button onclick="runValidateWeather()">Validate Weather Data</button>
+        <button onclick="runValidateCoordinates()">Validate Coordinates</button>
+      </div>
+      <div id="validationOutput" class="output">Ready...</div>
+    </div>
+
+    <!-- Safe Parsing -->
+    <div class="demo-section">
+      <h2>Safe JSON Parsing</h2>
+      <textarea id="jsonInput" style="width: 100%; height: 80px; padding: 10px; border: 2px solid #ddd; border-radius: 8px; font-family: monospace; font-size: 0.9em;" placeholder="Enter JSON to parse...">{"name": "test", "value": 123}</textarea>
+      <button onclick="runSafeJsonParse()" style="margin-top: 10px;">Parse JSON</button>
+      <div id="parseOutput" class="output">Ready...</div>
+    </div>
+
+    <!-- Safe Nested Access -->
+    <div class="demo-section">
+      <h2>Safe Nested Access</h2>
+      <div class="input-group">
+        <input type="text" id="pathInput" placeholder="Enter path (e.g., 'current.temperature_2m')" value="current.temperature_2m">
+        <button onclick="runSafeNested()">Get Property</button>
+      </div>
+      <div id="nestedOutput" class="output">Ready...</div>
+    </div>
+
+    <!-- Error Transformation -->
+    <div class="demo-section">
+      <h2>Error Types</h2>
+      <div class="error-types">
+        <button class="error-type-btn danger" onclick="runNetworkError()">Network Error</button>
+        <button class="error-type-btn danger" onclick="runParseError()">Parse Error</button>
+        <button class="error-type-btn danger" onclick="runValidationError()">Validation Error</button>
+        <button class="error-type-btn danger" onclick="runTimeoutError()">Timeout Error</button>
+      </div>
+      <div id="errorOutput" class="output">Ready...</div>
+    </div>
+
+    <!-- Multiple with Errors -->
+    <div class="demo-section">
+      <h2>Multiple Requests with Errors</h2>
+      <button onclick="runMultipleWithErrors()">Test Multiple (Some Fail)</button>
+      <div id="multipleOutput" class="output">Ready...</div>
+    </div>
+
+    <hr>
+
+    <!-- Learning Resources -->
+    <div class="info-box">
+      <strong>📚 Error Handling Patterns:</strong>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>try-catch</strong> - Catch network and parse errors</li>
+        <li><strong>response.ok</strong> - Check HTTP status (200-299)</li>
+        <li><strong>Validation</strong> - Check data structure before use</li>
+        <li><strong>Default values</strong> - Provide sensible defaults</li>
+        <li><strong>Retry logic</strong> - Recover from transient errors</li>
+        <li><strong>User feedback</strong> - Show helpful error messages</li>
+      </ul>
+    </div>
+
+    <!-- Console Output -->
+    <div style="margin-top: 30px;">
+      <h2 style="color: #333; margin-bottom: 15px;">📊 Console Output</h2>
+      <div class="console-output" id="console">
+        <div class="console-line console-info">Console ready. Run demos to see output...</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      fetchWithErrorHandling,
+      validateWeatherData,
+      fetchWithStatusCheck,
+      safeJsonParse,
+      getNestedValue,
+      fetchWithDefaultValue,
+      validateCoordinates,
+      handleApiError,
+      retryOnError,
+      fetchMultipleWithErrorHandling
+    } from './140-weather-errors.js';
+
+    const consoleEl = document.getElementById('console');
+
+    function log(message, type = 'info') {
+      const line = document.createElement('div');
+      line.className = `console-line console-${type}`;
+      line.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+      consoleEl.appendChild(line);
+      consoleEl.scrollTop = consoleEl.scrollHeight;
+    }
+
+    function setOutput(elementId, content, type = 'info') {
+      const el = document.getElementById(elementId);
+      el.className = `output ${type}`;
+      if (typeof content === 'object') {
+        el.textContent = JSON.stringify(content, null, 2);
+      } else {
+        el.textContent = content;
+      }
+    }
+
+    window.runFetchWithErrorHandling = async () => {
+      const url = document.getElementById('fetchUrl').value;
+      try {
+        setOutput('fetchOutput', 'Fetching...', 'info');
+        const result = await fetchWithErrorHandling(url);
+        
+        if (result.error) {
+          setOutput('fetchOutput', `Error: ${result.message}`, 'error');
+          log(`Fetch error handled: ${result.message}`, 'error');
+        } else {
+          setOutput('fetchOutput', JSON.stringify(result.data, null, 2), 'success');
+          log('Fetch successful', 'success');
+        }
+      } catch (error) {
+        setOutput('fetchOutput', `Unexpected error: ${error.message}`, 'error');
+        log(`Unexpected error: ${error.message}`, 'error');
+      }
+    };
+
+    window.runValidateWeather = () => {
+      const goodData = { current: { temperature_2m: 20 } };
+      const badData = { current: {} };
+
+      const result1 = validateWeatherData(goodData);
+      const result2 = validateWeatherData(badData);
+
+      const output = `Good data: ${result1.valid ? '✓ Valid' : '✗ Invalid'}\nBad data: ${result2.valid ? '✓ Valid' : '✗ Invalid - ' + result2.message}`;
+      setOutput('validationOutput', output, result1.valid ? 'success' : 'error');
+      log('Validation check completed', 'success');
+    };
+
+    window.runValidateCoordinates = () => {
+      const result1 = validateCoordinates(40.7128, -74.0060);
+      const result2 = validateCoordinates(95, 0);
+      const result3 = validateCoordinates(0, 190);
+
+      const output = `NYC (40.7128, -74.0060): ${result1.valid ? '✓' : '✗'}\nInvalid lat (95, 0): ${result2.valid ? '✓' : '✗ - ' + result2.message}\nInvalid lon (0, 190): ${result3.valid ? '✓' : '✗ - ' + result3.message}`;
+      setOutput('validationOutput', output);
+      log('Coordinate validation completed', 'success');
+    };
+
+    window.runSafeJsonParse = () => {
+      const jsonStr = document.getElementById('jsonInput').value;
+      const result = safeJsonParse(jsonStr);
+
+      if (result) {
+        setOutput('parseOutput', JSON.stringify(result, null, 2), 'success');
+        log('JSON parsed successfully', 'success');
+      } else {
+        setOutput('parseOutput', 'Invalid JSON - returned null safely', 'error');
+        log('Invalid JSON caught and handled', 'error');
+      }
+    };
+
+    window.runSafeNested = () => {
+      const path = document.getElementById('pathInput').value;
+      const testData = {
+        current: { temperature_2m: 20.5, weather_code: 1 },
+        latitude: 40.7128
+      };
+
+      const value = getNestedValue(testData, path);
+      
+      if (value !== undefined) {
+        setOutput('nestedOutput', `Path: "${path}"\nValue: ${value}`, 'success');
+        log(`Property found: ${path} = ${value}`, 'success');
+      } else {
+        setOutput('nestedOutput', `Path: "${path}"\nProperty not found (undefined)`, 'error');
+        log(`Property not found: ${path}`, 'info');
+      }
+    };
+
+    window.runNetworkError = () => {
+      const error = new Error('Failed to fetch: Network request failed');
+      const message = handleApiError(error);
+      setOutput('errorOutput', `Error Type: Network\nMessage: ${message}`, 'error');
+      log('Network error handled', 'error');
+    };
+
+    window.runParseError = () => {
+      const error = new SyntaxError('Unexpected token < in JSON at position 0');
+      const message = handleApiError(error);
+      setOutput('errorOutput', `Error Type: Parse\nMessage: ${message}`, 'error');
+      log('Parse error handled', 'error');
+    };
+
+    window.runValidationError = () => {
+      const error = new Error('Missing required field: current.temperature_2m');
+      const message = handleApiError(error);
+      setOutput('errorOutput', `Error Type: Validation\nMessage: ${message}`, 'error');
+      log('Validation error handled', 'error');
+    };
+
+    window.runTimeoutError = () => {
+      const error = new Error('Request timeout after 5000ms');
+      const message = handleApiError(error);
+      setOutput('errorOutput', `Error Type: Timeout\nMessage: ${message}`, 'error');
+      log('Timeout error handled', 'error');
+    };
+
+    window.runMultipleWithErrors = async () => {
+      try {
+        setOutput('multipleOutput', 'Testing multiple requests...', 'info');
+        
+        // Simulate results
+        const results = [
+          { success: true, data: { temperature: 20 }, error: null },
+          { success: false, data: null, error: 'Network error' },
+          { success: true, data: { temperature: 15 }, error: null }
+        ];
+
+        let output = 'Results:\n\n';
+        results.forEach((result, i) => {
+          if (result.success) {
+            output += `[${i + 1}] ✓ Success: ${JSON.stringify(result.data)}\n`;
+          } else {
+            output += `[${i + 1}] ✗ Failed: ${result.error}\n`;
+          }
+        });
+
+        setOutput('multipleOutput', output, 'success');
+        log('Multiple requests handled (1 failed, 2 succeeded)', 'success');
+      } catch (error) {
+        setOutput('multipleOutput', error.message, 'error');
+      }
+    };
+
+    log('Error handling demos ready!', 'success');
+  </script>
+</body>
+</html>

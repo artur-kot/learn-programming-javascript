@@ -1,0 +1,22 @@
+{
+  "id": "087-validator-debug",
+  "number": 87,
+  "title": "Form Validator - Debug Mode",
+  "series": "17-form-validator",
+  "seriesNumber": 5,
+  "topic": "Debugging and Advanced Logging",
+  "description": "Complete the validator with advanced debugging capabilities. Use console methods for structured logging, performance tracking, and development insights.",
+  "concepts": [
+    "console.log, warn, error",
+    "console.table for structured data",
+    "console.group for organization",
+    "console.time for performance",
+    "Debug mode patterns",
+    "Performance metrics",
+    "Structured logging"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "086-validator-messages"
+  ]
+}

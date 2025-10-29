@@ -1,0 +1,35 @@
+{
+  "id": 135,
+  "series": 27,
+  "title": "Data Pipeline - Array Construction",
+  "description": "Master Array.from() and Array.of() for creating and converting arrays. Transform various data types into arrays for processing.",
+  "difficulty": "intermediate",
+  "skills": [
+    "Array.from",
+    "Array.of",
+    "array creation",
+    "type conversion",
+    "iterable handling",
+    "array-like objects"
+  ],
+  "prerequisites": [
+    "134-pipeline-flatten"
+  ],
+  "concepts": {
+    "Array.from": "Convert iterables and array-like objects to arrays",
+    "Array.of": "Create array from arguments",
+    "iterable": "Objects that can be iterated (arrays, strings, sets)",
+    "array_like": "Objects with length property but not arrays",
+    "mapping": "Transforming values during array creation",
+    "constructor": "Different ways to construct arrays"
+  },
+  "learning_outcomes": [
+    "Use Array.from() for converting iterables",
+    "Use Array.from() with mapping function",
+    "Use Array.of() to create arrays",
+    "Convert strings to character arrays",
+    "Convert Set and Map to arrays",
+    "Handle array-like objects"
+  ],
+  "estimated_time": "45 minutes"
+}

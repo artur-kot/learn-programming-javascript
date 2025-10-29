@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 149: Todo Save Storage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>💾 Exercise 149: Todo List - Save to Storage</h1>
+      <p class="subtitle">Persist todos using localStorage and JSON serialization</p>
+    </header>
+
+    <!-- Section 1: Check Storage Availability -->
+    <div class="demo-section">
+      <h2>1. Check Storage Availability</h2>
+      <p>Verify localStorage is available before using it.</p>
+      <div class="code-example">
+if (isStorageAvailable()) {
+  localStorage.setItem('key', 'value');
+}
+      </div>
+      <button onclick="demoCheckStorage()">Check Storage</button>
+      <div class="result-box" id="storageCheckResult"></div>
+    </div>
+
+    <!-- Section 2: Serialize Todos -->
+    <div class="demo-section">
+      <h2>2. Serialize Todos to JSON</h2>
+      <p>Convert todo objects to JSON string format.</p>
+      <div class="code-example">
+const todos = [{id: 1, title: 'Task', ...}];
+const json = serializeTodos(todos);
+// Returns: '[{"id":1,"title":"Task",...}]'
+      </div>
+      <button onclick="demoSerialize()">Serialize Sample Todos</button>
+      <div class="result-box" id="serializeResult"></div>
+    </div>
+
+    <!-- Section 3: Deserialize JSON -->
+    <div class="demo-section">
+      <h2>3. Deserialize JSON to Todos</h2>
+      <p>Convert JSON string back to todo objects.</p>
+      <div class="code-example">
+const json = '[{"id":1,"title":"Task"}]';
+const todos = deserializeTodos(json);
+// Returns: [{id: 1, title: 'Task'}]
+      </div>
+      <div class="form-group">
+        <label>JSON to Deserialize:</label>
+        <textarea id="jsonInput" placeholder="Paste JSON here...">[{"id":1,"title":"Buy groceries","description":"Milk, eggs","completed":false}]</textarea>
+      </div>
+      <button onclick="demoDeserialize()">Deserialize</button>
+      <div class="result-box" id="deserializeResult"></div>
+    </div>
+
+    <!-- Section 4: Validate Stored Todos -->
+    <div class="demo-section">
+      <h2>4. Validate Todo Structure</h2>
+      <p>Check if todos have all required properties.</p>
+      <div class="code-example">
+validateStoredTodos([{id: 1, title: '...', completed: false}]) // true
+validateStoredTodos([{id: 1}]) // false
+      </div>
+      <button onclick="demoValidate()">Validate Sample Todos</button>
+      <button onclick="demoValidateInvalid()">Validate Invalid Todos</button>
+      <div class="result-box" id="validateResult"></div>
+    </div>
+
+    <!-- Section 5: Save to Storage -->
+    <div class="demo-section">
+      <h2>5. Save Todos to Storage</h2>
+      <p>Save todos array to localStorage with JSON serialization.</p>
+      <div class="code-example">
+const success = saveTodosToStorage(todos);
+// Returns: true if successful
+      </div>
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" id="saveTitle" placeholder="Enter todo title..." value="Complete project">
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea id="saveDesc" placeholder="Enter description...">Finish documentation and testing</textarea>
+      </div>
+      <button onclick="demoSave()">Save to Storage</button>
+      <div class="result-box" id="saveResult"></div>
+    </div>
+
+    <!-- Section 6: Retrieve from Storage -->
+    <div class="demo-section">
+      <h2>6. Retrieve Todos from Storage</h2>
+      <p>Load todos from localStorage.</p>
+      <div class="code-example">
+const todos = getTodosFromStorage();
+// Returns: [todos] or []
+      </div>
+      <button onclick="demoRetrieve()">Retrieve from Storage</button>
+      <div class="result-box" id="retrieveResult"></div>
+    </div>
+
+    <!-- Section 7: Storage Statistics -->
+    <div class="demo-section">
+      <h2>7. Storage Statistics</h2>
+      <p>Monitor storage size and usage.</p>
+      <button onclick="demoStats()">Show Stats</button>
+      <div class="storage-info" id="statsInfo"></div>
+    </div>
+
+    <!-- Section 8: Clear Storage -->
+    <div class="demo-section">
+      <h2>8. Clear Storage</h2>
+      <p>Remove all todos from localStorage.</p>
+      <button onclick="demoClear()" class="danger">Clear All Storage</button>
+      <div class="result-box" id="clearResult"></div>
+    </div>
+
+    <!-- Section 9: Interactive Todo Manager -->
+    <div class="demo-section">
+      <h2>9. Interactive Todo Storage Manager</h2>
+      <p>Complete demo: save and manage todos with storage.</p>
+      
+      <div class="form-group">
+        <label>Todo Title:</label>
+        <input type="text" id="managerTitle" placeholder="What needs to be done?">
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea id="managerDesc" placeholder="Add details..."></textarea>
+      </div>
+      
+      <div class="form-controls">
+        <button onclick="managerAddTodo()">Add & Save</button>
+        <button onclick="managerRefresh()">Refresh</button>
+        <button onclick="managerClearAll()" class="danger">Clear All</button>
+      </div>
+
+      <div class="storage-info">
+        <div class="info-box">
+          <div class="info-label">Total Todos</div>
+          <div class="info-value" id="managerCount">0</div>
+        </div>
+        <div class="info-box">
+          <div class="info-label">Storage Used</div>
+          <div class="info-value" id="managerSize">0 B</div>
+        </div>
+      </div>
+
+      <ul class="todo-list" id="managerList"></ul>
+    </div>
+  </div>
+
+  <script>
+    // Helper functions
+    
+    const STORAGE_KEY = 'exercise149_todos';
+
+    function getStorageKey() {
+      return STORAGE_KEY;
+    }
+
+    function isStorageAvailable() {
+      try {
+        const test = '__storage_test__';
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+      } catch(e) {
+        return false;
+      }
+    }
+
+    function serializeTodos(todos) {
+      return JSON.stringify(todos);
+    }
+
+    function deserializeTodos(jsonString) {
+      try {
+        if (!jsonString) return [];
+        return JSON.parse(jsonString);
+      } catch(e) {
+        return [];
+      }
+    }
+
+    function validateStoredTodos(todos) {
+      if (!Array.isArray(todos)) return false;
+      return todos.every(todo =>
+        todo.id !== undefined &&
+        todo.title !== undefined &&
+        todo.completed !== undefined
+      );
+    }
+
+    function saveTodosToStorage(todos) {
+      try {
+        if (!isStorageAvailable()) return false;
+        const json = serializeTodos(todos);
+        localStorage.setItem(getStorageKey(), json);
+        return true;
+      } catch(e) {
+        return false;
+      }
+    }
+
+    function getTodosFromStorage() {
+      try {
+        const json = localStorage.getItem(getStorageKey());
+        if (!json) return [];
+        const todos = deserializeTodos(json);
+        return validateStoredTodos(todos) ? todos : [];
+      } catch(e) {
+        return [];
+      }
+    }
+
+    function getStorageSize() {
+      try {
+        const json = localStorage.getItem(getStorageKey());
+        if (!json) return 0;
+        return new Blob([json]).size;
+      } catch(e) {
+        return 0;
+      }
+    }
+
+    function clearAllStorage() {
+      try {
+        localStorage.removeItem(getStorageKey());
+      } catch(e) {
+        console.error(e);
+      }
+    }
+
+    function createTodo(title, description) {
+      return {
+        id: Date.now(),
+        title,
+        description,
+        completed: false,
+        createdAt: new Date().toISOString()
+      };
+    }
+
+    function formatBytes(bytes) {
+      if (bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+    }
+
+    // Demo functions
+
+    function demoCheckStorage() {
+      const available = isStorageAvailable();
+      document.getElementById('storageCheckResult').innerHTML = `
+        <strong>Storage Available:</strong> ${available ? '✓ Yes' : '✗ No'}<br>
+        ${available ? '<p class="success-text">localStorage is available and working</p>' : '<p class="warning-text">localStorage is not available</p>'}
+      `;
+    }
+
+    function demoSerialize() {
+      const todos = [
+        {id: 1, title: 'Buy groceries', description: 'Milk, eggs, bread', completed: false},
+        {id: 2, title: 'Review code', description: 'Check PR #42', completed: false},
+        {id: 3, title: 'Meeting prep', description: 'Prepare slides', completed: true}
+      ];
+      
+      const json = serializeTodos(todos);
+      
+      document.getElementById('serializeResult').innerHTML = `
+        <strong>Serialized JSON:</strong><br>
+        <div class="json-display">${escapeHtml(json)}</div>
+        <strong>Size:</strong> ${json.length} bytes
+      `;
+    }
+
+    function demoDeserialize() {
+      const jsonInput = document.getElementById('jsonInput').value;
+      const todos = deserializeTodos(jsonInput);
+      
+      if (todos.length === 0) {
+        document.getElementById('deserializeResult').innerHTML = `
+          <p class="warning-text">Invalid JSON or empty array</p>
+        `;
+      } else {
+        let html = '<strong>Deserialized Todos:</strong><br>';
+        todos.forEach((todo, i) => {
+          html += `${i + 1}. <strong>${escapeHtml(todo.title)}</strong> - ${escapeHtml(todo.description)}<br>`;
+        });
+        document.getElementById('deserializeResult').innerHTML = html;
+      }
+    }
+
+    function demoValidate() {
+      const todos = [
+        {id: 1, title: 'Task 1', description: '', completed: false},
+        {id: 2, title: 'Task 2', description: 'Desc', completed: false}
+      ];
+      
+      const valid = validateStoredTodos(todos);
+      
+      document.getElementById('validateResult').innerHTML = `
+        <strong>Todos:</strong> Valid = ${valid ? '✓ Yes' : '✗ No'}<br>
+        ${valid ? '<p class="success-text">All todos have required properties</p>' : '<p class="warning-text">Missing required properties</p>'}
+      `;
+    }
+
+    function demoValidateInvalid() {
+      const todos = [
+        {id: 1},
+        {title: 'Missing ID'}
+      ];
+      
+      const valid = validateStoredTodos(todos);
+      
+      document.getElementById('validateResult').innerHTML = `
+        <strong>Invalid Todos:</strong> Valid = ${valid ? '✓ Yes' : '✗ No'}<br>
+        <p class="warning-text">These todos are missing required properties (id, title, completed)</p>
+      `;
+    }
+
+    let savedTodos = [];
+
+    function demoSave() {
+      const title = document.getElementById('saveTitle').value;
+      const desc = document.getElementById('saveDesc').value;
+      
+      if (!title.trim()) {
+        document.getElementById('saveResult').innerHTML = '<p class="warning-text">Please enter a title</p>';
+        return;
+      }
+      
+      const newTodo = createTodo(title, desc);
+      savedTodos.push(newTodo);
+      
+      const success = saveTodosToStorage(savedTodos);
+      
+      if (success) {
+        document.getElementById('saveResult').innerHTML = `
+          <p class="success-text">✓ Saved ${savedTodos.length} todo(s) to storage</p>
+          <strong>Latest todo:</strong><br>
+          Title: ${escapeHtml(title)}<br>
+          Size: ${getStorageSize()} bytes
+        `;
+        document.getElementById('saveTitle').value = '';
+        document.getElementById('saveDesc').value = '';
+      } else {
+        document.getElementById('saveResult').innerHTML = `
+          <p class="warning-text">✗ Failed to save (quota exceeded or storage unavailable)</p>
+        `;
+      }
+    }
+
+    function demoRetrieve() {
+      const todos = getTodosFromStorage();
+      
+      if (todos.length === 0) {
+        document.getElementById('retrieveResult').innerHTML = `
+          <p class="info-text">No todos in storage. Save some first!</p>
+        `;
+      } else {
+        let html = `<strong>Retrieved ${todos.length} todos:</strong><br>`;
+        todos.forEach((todo, i) => {
+          const date = new Date(todo.createdAt).toLocaleDateString();
+          html += `${i + 1}. ${escapeHtml(todo.title)} (${date})<br>`;
+        });
+        document.getElementById('retrieveResult').innerHTML = html;
+      }
+    }
+
+    function demoStats() {
+      const todos = getTodosFromStorage();
+      const size = getStorageSize();
+      
+      document.getElementById('statsInfo').innerHTML = `
+        <div class="info-box">
+          <div class="info-label">Total Todos</div>
+          <div class="info-value">${todos.length}</div>
+        </div>
+        <div class="info-box">
+          <div class="info-label">Storage Size</div>
+          <div class="info-value">${formatBytes(size)}</div>
+        </div>
+        <div class="info-box">
+          <div class="info-label">Avg Per Todo</div>
+          <div class="info-value">${todos.length > 0 ? formatBytes(size / todos.length) : 'N/A'}</div>
+        </div>
+      `;
+    }
+
+    function demoClear() {
+      if (confirm('Clear all todos from storage?')) {
+        clearAllStorage();
+        savedTodos = [];
+        document.getElementById('clearResult').innerHTML = `
+          <p class="success-text">✓ Cleared all storage</p>
+        `;
+      }
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Manager functions
+    
+    function updateManager() {
+      const todos = getTodosFromStorage();
+      const container = document.getElementById('managerList');
+      
+      document.getElementById('managerCount').textContent = todos.length;
+      document.getElementById('managerSize').textContent = formatBytes(getStorageSize());
+      
+      container.innerHTML = '';
+      if (todos.length === 0) {
+        container.innerHTML = '<div class="empty-state"><p style="padding: 20px; text-align: center; color: #999;">No todos saved yet</p></div>';
+        return;
+      }
+      
+      todos.forEach(todo => {
+        const li = document.createElement('li');
+        li.className = 'todo-item';
+        li.innerHTML = `
+          <div class="todo-content">
+            <div class="todo-title">${escapeHtml(todo.title)}</div>
+            <div class="todo-desc">${escapeHtml(todo.description)}</div>
+            <div class="todo-meta">Created: ${new Date(todo.createdAt).toLocaleString()}</div>
+          </div>
+        `;
+        container.appendChild(li);
+      });
+    }
+
+    function managerAddTodo() {
+      const title = document.getElementById('managerTitle').value;
+      const desc = document.getElementById('managerDesc').value;
+      
+      if (!title.trim()) {
+        alert('Please enter a title');
+        return;
+      }
+      
+      let todos = getTodosFromStorage();
+      const newTodo = createTodo(title, desc);
+      todos.push(newTodo);
+      
+      if (saveTodosToStorage(todos)) {
+        document.getElementById('managerTitle').value = '';
+        document.getElementById('managerDesc').value = '';
+        updateManager();
+      } else {
+        alert('Failed to save');
+      }
+    }
+
+    function managerRefresh() {
+      updateManager();
+    }
+
+    function managerClearAll() {
+      if (confirm('Clear all todos?')) {
+        clearAllStorage();
+        updateManager();
+      }
+    }
+
+    // Initialize
+    window.addEventListener('load', () => {
+      demoCheckStorage();
+      updateManager();
+    });
+  </script>
+</body>
+</html>

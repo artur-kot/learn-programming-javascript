@@ -1,0 +1,14 @@
+{
+  "name": "131-rpg-inheritance",
+  "version": "1.0.0",
+  "description": "RPG Character System - Class Inheritance",
+  "main": "131-rpg-inheritance.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 131-rpg-inheritance.test.js",
+    "test:watch": "node --test --watch 131-rpg-inheritance.test.js"
+  },
+  "keywords": ["rpg", "inheritance", "extends", "super", "classes"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

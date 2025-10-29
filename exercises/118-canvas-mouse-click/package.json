@@ -1,0 +1,25 @@
+{
+  "name": "118-canvas-mouse-click",
+  "version": "1.0.0",
+  "description": "Interactive Drawing Canvas - Mouse Down/Up Events",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "canvas",
+    "mouse events",
+    "drawing",
+    "graphics",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

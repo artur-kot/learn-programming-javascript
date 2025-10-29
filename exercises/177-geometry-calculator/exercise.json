@@ -1,0 +1,40 @@
+{
+  "id": 177,
+  "title": "Math Library - Geometry Calculator",
+  "description": "Build a practical geometry calculator for measuring shapes, distances, and spatial calculations using the math library from Exercise 175.",
+  "series": 36,
+  "difficulty": "Intermediate",
+  "tags": ["modules", "geometry", "calculations", "real-world", "library-usage"],
+  "technologies": ["JavaScript ES6 Modules", "Math Library", "Geometry"],
+  "learningOutcomes": [
+    "Apply trigonometry library to solve real geometry problems",
+    "Build a practical calculation tool",
+    "Validate and handle user input",
+    "Create reusable geometry utilities",
+    "Generate formatted calculation reports"
+  ],
+  "skillsFocused": [
+    "Library integration",
+    "Geometric problem solving",
+    "Mathematical accuracy",
+    "Input validation",
+    "Application design"
+  ],
+  "estimatedHours": 2.5,
+  "prerequisitesContent": [
+    "Exercise 175: Math Library - Setup & Basics",
+    "Exercise 176: Math Library - Statistics Analyzer",
+    "Basic geometry concepts",
+    "Trigonometry functions"
+  ],
+  "structure": {
+    "files": [
+      "calculator.js - Main geometry calculator",
+      "shapes.js - Shape calculation functions",
+      "conversions.js - Unit conversion utilities",
+      "test.js - Test suite",
+      "example.js - Real-world geometry examples",
+      "package.json, exercise.json, README.md"
+    ]
+  }
+}

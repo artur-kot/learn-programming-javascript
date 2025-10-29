@@ -1,0 +1,23 @@
+{
+  "id": "121-canvas-custom-event",
+  "number": 121,
+  "title": "Interactive Drawing Canvas - Custom Events",
+  "series": "24-interactive-drawing-canvas",
+  "seriesNumber": 4,
+  "topic": "Custom Events and Canvas Operations",
+  "description": "Implement custom events for canvas clearing and other operations.",
+  "concepts": [
+    "Custom events",
+    "Event creation",
+    "Event dispatching",
+    "Event listeners",
+    "Canvas clearing",
+    "Undo/redo patterns",
+    "Application events",
+    "Event-driven architecture"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "120-canvas-colors"
+  ]
+}

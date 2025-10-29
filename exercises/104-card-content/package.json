@@ -1,0 +1,24 @@
+{
+  "name": "104-card-content",
+  "version": "1.0.0",
+  "description": "Card Generator - Set Content",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "dom",
+    "innerHTML",
+    "content",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^4.0.4",
+    "@vitest/browser": "^4.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

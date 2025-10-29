@@ -1,0 +1,10 @@
+{
+  "id": "063-inventory-products",
+  "title": "Inventory - Product Objects",
+  "description": "Create and manage product objects with multiple properties and methods.",
+  "series": "13",
+  "seriesName": "Product Inventory",
+  "difficulty": "intermediate",
+  "topics": ["objects", "properties", "methods", "arrays of objects"],
+  "skills": ["object management", "array operations", "calculation methods"]
+}

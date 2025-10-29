@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 158: Tags - Set Basics</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem 0;
+    }
+    .tag-badge {
+      display: inline-block;
+      margin: 0.25rem;
+      padding: 0.5rem 0.75rem;
+      background-color: #667eea;
+      color: white;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    .tag-badge .remove-btn {
+      cursor: pointer;
+      margin-left: 0.5rem;
+      font-weight: bold;
+    }
+    .tag-input-group {
+      margin-bottom: 1.5rem;
+    }
+    .stats-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <!-- Header -->
+    <div class="text-center mb-5">
+      <h1 class="text-white mb-3">Tags - Set Basics</h1>
+      <p class="text-white-50">Master Set data structure for storing unique tags</p>
+    </div>
+
+    <!-- Main Card -->
+    <div class="card shadow-lg">
+      <div class="card-body p-4">
+        <!-- Add Tag Section -->
+        <div class="tag-input-group">
+          <label class="form-label fw-bold">Add New Tag</label>
+          <div class="input-group">
+            <input 
+              type="text" 
+              id="tagInput" 
+              class="form-control form-control-lg" 
+              placeholder="Enter a tag..."
+              autocomplete="off"
+            >
+            <button id="addBtn" class="btn btn-primary btn-lg">Add Tag</button>
+          </div>
+          <small class="form-text text-muted mt-2">
+            Tags are automatically normalized (lowercase, trimmed, no special chars)
+          </small>
+        </div>
+
+        <!-- Tags Display -->
+        <div class="mb-4">
+          <label class="form-label fw-bold">Current Tags</label>
+          <div id="tagsContainer" class="p-3 bg-light rounded" style="min-height: 60px;">
+            <span class="text-muted">No tags yet</span>
+          </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="mb-4">
+          <label class="form-label fw-bold">Search Tags</label>
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="form-control" 
+            placeholder="Type to filter tags..."
+          >
+          <div id="searchResults" class="mt-2"></div>
+        </div>
+
+        <!-- Stats Card -->
+        <div class="stats-card">
+          <h6 class="fw-bold mb-3">Tag Statistics</h6>
+          <div class="row g-3">
+            <div class="col-md-3 text-center">
+              <div class="h4 text-primary mb-1" id="tagCount">0</div>
+              <small class="text-muted">Total Tags</small>
+            </div>
+            <div class="col-md-3 text-center">
+              <div id="emptyStatus" class="h4 text-success mb-1">Yes</div>
+              <small class="text-muted">Is Empty</small>
+            </div>
+            <div class="col-md-3 text-center">
+              <button class="btn btn-warning btn-sm" id="clearBtn">Clear All</button>
+            </div>
+            <div class="col-md-3 text-end">
+              <small id="statsInfo" class="text-muted d-block">Ready</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Examples -->
+        <div class="mt-5 pt-4 border-top">
+          <h6 class="fw-bold mb-3">Example: Add Multiple Tags</h6>
+          <button class="btn btn-outline-secondary btn-sm me-2" onclick="addExampleTags()">
+            Load Examples
+          </button>
+          <small class="text-muted d-block mt-2">
+            Adds: JavaScript, Python, Java, TypeScript, Ruby
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Code Examples -->
+    <div class="row mt-5 g-3">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h6 class="mb-0">Example 1: Create and Add</h6>
+          </div>
+          <div class="card-body">
+            <pre><code class="language-javascript">// Create tag set
+const tags = createTagSet();
+
+// Add tags
+addTag(tags, 'javascript');
+addTag(tags, 'python');
+
+// Check for duplicates
+addTag(tags, 'javascript');  // false</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h6 class="mb-0">Example 2: Query and Filter</h6>
+          </div>
+          <div class="card-body">
+            <pre><code class="language-javascript">// Check existence
+if (hasTag(tags, 'javascript')) {
+  console.log('Found!');
+}
+
+// Get all tags
+const all = getAllTags(tags);
+// ['javascript', 'python']</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h6 class="mb-0">Example 3: Remove and Filter</h6>
+          </div>
+          <div class="card-body">
+            <pre><code class="language-javascript">// Remove tag
+removeTag(tags, 'python');
+
+// Filter tags
+const results = filterTags(tags, 'script');
+// ['javascript', 'typescript']</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h6 class="mb-0">Example 4: Statistics</h6>
+          </div>
+          <div class="card-body">
+            <pre><code class="language-javascript">// Get count
+const count = getTagCount(tags);
+
+// Get stats
+const stats = getTagStats(tags);
+// { count: 2, isEmpty: false, 
+//   tags: ['javascript', 'python'] }</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      createTagSet,
+      addTag,
+      hasTag,
+      removeTag,
+      getAllTags,
+      getTagCount,
+      clearAllTags,
+      filterTags,
+      normalizeTag,
+      getTagStats
+    } from './158-tags-set.js';
+
+    let tags = createTagSet();
+
+    function updateDisplay() {
+      const container = document.getElementById('tagsContainer');
+      const tagList = getAllTags(tags);
+      
+      if (tagList.length === 0) {
+        container.innerHTML = '<span class="text-muted">No tags yet</span>';
+      } else {
+        container.innerHTML = tagList.map(tag => `
+          <span class="tag-badge">
+            ${tag}
+            <span class="remove-btn" onclick="removeTagHandler('${tag}')">×</span>
+          </span>
+        `).join('');
+      }
+      
+      updateStats();
+    }
+
+    function updateStats() {
+      const stats = getTagStats(tags);
+      document.getElementById('tagCount').textContent = stats.count;
+      document.getElementById('emptyStatus').textContent = stats.isEmpty ? 'Yes' : 'No';
+      document.getElementById('statsInfo').textContent = 
+        stats.isEmpty ? 'No tags stored' : `Storing ${stats.count} unique tag${stats.count !== 1 ? 's' : ''}`;
+    }
+
+    window.addTagHandler = function() {
+      const input = document.getElementById('tagInput');
+      const tag = input.value.trim();
+      
+      if (tag) {
+        const added = addTag(tags, tag);
+        if (!added) {
+          alert('Tag already exists!');
+        }
+        input.value = '';
+        input.focus();
+        updateDisplay();
+      }
+    };
+
+    window.removeTagHandler = function(tag) {
+      removeTag(tags, tag);
+      updateDisplay();
+    };
+
+    document.getElementById('addBtn').addEventListener('click', window.addTagHandler);
+    document.getElementById('tagInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') window.addTagHandler();
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      if (getTagCount(tags) > 0 && confirm('Clear all tags?')) {
+        clearAllTags(tags);
+        updateDisplay();
+      }
+    });
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const search = e.target.value.trim();
+      const results = document.getElementById('searchResults');
+      
+      if (!search) {
+        results.innerHTML = '';
+        return;
+      }
+      
+      const filtered = filterTags(tags, search);
+      if (filtered.length === 0) {
+        results.innerHTML = '<small class="text-muted">No matches found</small>';
+      } else {
+        results.innerHTML = `
+          <small class="text-muted d-block mb-2">Found ${filtered.length} match${filtered.length !== 1 ? 'es' : ''}:</small>
+          <div>${filtered.map(tag => `<span class="tag-badge">${tag}</span>`).join('')}</div>
+        `;
+      }
+    });
+
+    window.addExampleTags = function() {
+      const examples = ['javascript', 'python', 'java', 'typescript', 'ruby'];
+      examples.forEach(tag => addTag(tags, tag));
+      updateDisplay();
+    };
+
+    updateDisplay();
+  </script>
+</body>
+</html>

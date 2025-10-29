@@ -1,0 +1,41 @@
+{
+  "id": 148,
+  "name": "Todo List - Add and Display",
+  "series": 30,
+  "difficulty": "intermediate",
+  "description": "Build a todo list app to manage tasks with add and display functionality",
+  "learningOutcomes": [
+    "Create and manage todo objects",
+    "Render todos to the DOM",
+    "Handle form input for new todos",
+    "Manage application state",
+    "Create dynamic list items",
+    "Implement unique todo IDs",
+    "Clear form after submission",
+    "Validate todo input"
+  ],
+  "prerequisites": [
+    "DOM manipulation",
+    "Event handling",
+    "Array methods",
+    "Object creation"
+  ],
+  "functions": [
+    "createTodo(title, description)",
+    "addTodo(todos, newTodo)",
+    "getTodos()",
+    "getTodoById(todos, id)",
+    "renderTodo(todo)",
+    "renderTodos(todos, container)",
+    "formatTodoDisplay(todo)",
+    "clearTodoInput(formElement)",
+    "validateTodoInput(title)",
+    "generateTodoId(todos)"
+  ],
+  "estimatedTime": "75 minutes",
+  "resources": [
+    "Todo List State Management",
+    "DOM Rendering Patterns",
+    "Form Input Handling"
+  ]
+}

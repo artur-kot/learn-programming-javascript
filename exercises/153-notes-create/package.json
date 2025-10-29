@@ -1,0 +1,17 @@
+{
+  "name": "153-notes-create",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Note-Taking App: Create Notes",
+  "scripts": {
+    "test": "vitest",
+    "dev": "vite",
+    "vite": "vite"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0"
+  },
+  "dependencies": {
+    "daisyui": "^4.10.1"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 054-playlist-sort.test.js"
+  }
+}

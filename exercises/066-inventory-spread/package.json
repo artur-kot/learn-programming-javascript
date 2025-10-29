@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 066-inventory-spread.test.js"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "112-counter-remove",
+  "version": "1.0.0",
+  "description": "Interactive Counter - Remove Listeners",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "events",
+    "removeEventListener",
+    "event removal",
+    "disabling events",
+    "listener management",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

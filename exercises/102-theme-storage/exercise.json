@@ -1,0 +1,22 @@
+{
+  "id": "102-theme-storage",
+  "number": 102,
+  "title": "Theme Switcher - Save Preference",
+  "series": "20-theme-switcher",
+  "seriesNumber": 5,
+  "topic": "localStorage for Persistent Preferences",
+  "description": "Save theme preference to localStorage. Learn to persist user choices across sessions.",
+  "concepts": [
+    "localStorage API",
+    "setItem() method",
+    "getItem() method",
+    "removeItem() method",
+    "JSON serialization",
+    "Persistent data",
+    "Session persistence"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "101-theme-styles"
+  ]
+}

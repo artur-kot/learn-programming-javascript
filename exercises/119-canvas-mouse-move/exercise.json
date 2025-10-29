@@ -1,0 +1,22 @@
+{
+  "id": "119-canvas-mouse-move",
+  "number": 119,
+  "title": "Interactive Drawing Canvas - Mouse Move Events",
+  "series": "24-interactive-drawing-canvas",
+  "seriesNumber": 2,
+  "topic": "Continuous Drawing with Mouse Movement",
+  "description": "Implement continuous drawing as the mouse moves over the canvas.",
+  "concepts": [
+    "Mouse move events",
+    "Continuous drawing",
+    "Drawing line segments",
+    "Mouse tracking",
+    "Event throttling concepts",
+    "Smooth drawing paths",
+    "Path continuation"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "118-canvas-mouse-click"
+  ]
+}

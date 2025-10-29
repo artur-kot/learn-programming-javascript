@@ -1,0 +1,21 @@
+{
+  "id": "081-slug-extract",
+  "number": 81,
+  "title": "URL Slug Generator - Extract Parts",
+  "series": "16-url-slug-generator",
+  "seriesNumber": 4,
+  "topic": "String Extraction Methods",
+  "description": "Learn to use slice() and substring() to extract and truncate strings for slug generation.",
+  "concepts": [
+    "String slice() method",
+    "String substring() method",
+    "Positive and negative indexes",
+    "Truncating strings",
+    "Extracting substrings",
+    "String length property"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "080-slug-split-join"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "066-inventory-spread",
+  "title": "Inventory - Clone and Merge",
+  "description": "Use the spread operator to clone and update product objects without mutating the originals.",
+  "series": "13",
+  "seriesName": "Product Inventory",
+  "difficulty": "intermediate",
+  "topics": ["spread operator", "object cloning", "immutability"],
+  "skills": ["cloning objects", "merging updates", "default values"]
+}

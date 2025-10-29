@@ -1,0 +1,22 @@
+{
+  "id": "126-factory-module",
+  "number": 126,
+  "title": "Counter Factory - Module Pattern",
+  "series": "25-counter-factory",
+  "seriesNumber": 4,
+  "topic": "Closures and Factory Functions",
+  "description": "Organize factory functions using the revealing module pattern.",
+  "concepts": [
+    "Module pattern",
+    "Revealing module",
+    "Organization",
+    "Public interface",
+    "Private utilities",
+    "IIFE",
+    "Namespace"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "125-factory-multiple"
+  ]
+}

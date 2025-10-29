@@ -1,0 +1,316 @@
+{
+  "id": 182,
+  "title": "E-commerce Cart System - Professional Architecture",
+  "description": "Build a production-grade e-commerce cart system with real-world architecture, npm packages, and professional code organization. Implement 45 TODOs across models, services, and persistence layer.",
+  "series": 39,
+  "difficulty": "Advanced",
+  "tags": [
+    "ecommerce",
+    "cart-system",
+    "project-architecture",
+    "service-oriented",
+    "npm-packages",
+    "state-management",
+    "real-world-patterns",
+    "localStorage",
+    "testing",
+    "capstone"
+  ],
+  "technologies": [
+    "JavaScript (ES6+)",
+    "Object-Oriented Programming",
+    "Design Patterns",
+    "npm Packages (uuid, lodash, date-fns)",
+    "localStorage",
+    "Jest Testing",
+    "Project Organization"
+  ],
+  "learningOutcomes": [
+    "Understand professional JavaScript project structure",
+    "Learn service-oriented architecture",
+    "Master separation of concerns principle",
+    "Use popular npm packages effectively",
+    "Implement complex state management",
+    "Write comprehensive tests",
+    "Build production-ready code",
+    "Implement real-world features"
+  ],
+  "skillsFocused": [
+    "Architecture and design patterns",
+    "Service layer development",
+    "Model-driven design",
+    "Dependency injection",
+    "State management",
+    "Data persistence",
+    "Testing practices",
+    "Real-world development patterns"
+  ],
+  "estimatedHours": 6.0,
+  "prerequisites": [
+    "Object-oriented programming and classes",
+    "Array methods and data structures",
+    "localStorage API",
+    "Date and time handling",
+    "JSON serialization",
+    "Unit testing with Jest"
+  ],
+  "structure": {
+    "files": [
+      "src/models/ - 4 model classes with 21 TODOs",
+      "  - Product.js - 4 TODOs",
+      "  - CartItem.js - 4 TODOs",
+      "  - Coupon.js - 3 TODOs",
+      "  - Cart.js - 10 TODOs",
+      "src/services/ - 4 service classes with 23 TODOs",
+      "  - ProductService.js - 6 TODOs",
+      "  - CouponService.js - 5 TODOs",
+      "  - CartService.js - 7 TODOs",
+      "  - StorageService.js - 5 TODOs",
+      "src/utils/ - Helper and validator utilities (pre-filled)",
+      "  - helpers.js - Formatting, validation, utility functions",
+      "  - validators.js - Data validation functions",
+      "src/index.js - Main entry point with 1 TODO",
+      "tests/cart.test.js - Test suite with 30+ test stubs",
+      "package.json - npm configuration with dependencies",
+      "README.md - Comprehensive documentation"
+    ]
+  },
+  "todos": [
+    {
+      "number": 1,
+      "category": "Product Model",
+      "description": "Validate product data (name, price, category, stock, description)"
+    },
+    {
+      "number": 2,
+      "category": "Product Model",
+      "description": "Implement isInStock() - check if product has available quantity"
+    },
+    {
+      "number": 3,
+      "category": "Product Model",
+      "description": "Implement reduceStock(quantity) - decrease stock with validation"
+    },
+    {
+      "number": 4,
+      "category": "Product Model",
+      "description": "Implement addReview(rating, comment, author) - add product reviews"
+    },
+    {
+      "number": 5,
+      "category": "CartItem Model",
+      "description": "Validate cart item data (valid product, positive quantity)"
+    },
+    {
+      "number": 6,
+      "category": "CartItem Model",
+      "description": "Implement updateQuantity(newQuantity) - change item quantity"
+    },
+    {
+      "number": 7,
+      "category": "CartItem Model",
+      "description": "Implement increment() - add one more of this item"
+    },
+    {
+      "number": 8,
+      "category": "CartItem Model",
+      "description": "Implement decrement() - remove one of this item"
+    },
+    {
+      "number": 9,
+      "category": "Coupon Model",
+      "description": "Validate coupon data (code, type, value, expiration)"
+    },
+    {
+      "number": 10,
+      "category": "Coupon Model",
+      "description": "Implement isActive() - check if coupon is valid and usable"
+    },
+    {
+      "number": 11,
+      "category": "Coupon Model",
+      "description": "Implement isApplicable() - check if coupon applies to cart"
+    },
+    {
+      "number": 12,
+      "category": "Cart Model",
+      "description": "Implement addItem() - add product to cart or increase quantity"
+    },
+    {
+      "number": 13,
+      "category": "Cart Model",
+      "description": "Implement removeItem(cartItemId) - remove item from cart"
+    },
+    {
+      "number": 14,
+      "category": "Cart Model",
+      "description": "Implement updateItemQuantity() - change quantity of cart item"
+    },
+    {
+      "number": 15,
+      "category": "Cart Model",
+      "description": "Implement getSubtotal() - sum of all item totals"
+    },
+    {
+      "number": 16,
+      "category": "Cart Model",
+      "description": "Implement getDiscountAmount() - calculate discount if coupon applied"
+    },
+    {
+      "number": 17,
+      "category": "Cart Model",
+      "description": "Implement applyCoupon() - apply coupon with validation"
+    },
+    {
+      "number": 18,
+      "category": "Cart Model",
+      "description": "Implement removeCoupon() - remove applied coupon"
+    },
+    {
+      "number": 19,
+      "category": "Cart Model",
+      "description": "Implement getShippingCost() - calculate shipping with free threshold"
+    },
+    {
+      "number": 20,
+      "category": "Cart Model",
+      "description": "Implement getTaxAmount() - calculate tax on subtotal"
+    },
+    {
+      "number": 21,
+      "category": "Cart Model",
+      "description": "Implement getTotal() - final total with all calculations"
+    },
+    {
+      "number": 22,
+      "category": "ProductService",
+      "description": "Implement getProductsByCategory() - filter by category"
+    },
+    {
+      "number": 23,
+      "category": "ProductService",
+      "description": "Implement searchProducts() - search by name or description"
+    },
+    {
+      "number": 24,
+      "category": "ProductService",
+      "description": "Implement getInStockProducts() - get only available items"
+    },
+    {
+      "number": 25,
+      "category": "ProductService",
+      "description": "Implement getProductsByPriceRange() - filter by min/max price"
+    },
+    {
+      "number": 26,
+      "category": "ProductService",
+      "description": "Implement getTopRatedProducts() - sort by average rating"
+    },
+    {
+      "number": 27,
+      "category": "ProductService",
+      "description": "Implement getSimilarProducts() - find related items"
+    },
+    {
+      "number": 28,
+      "category": "CouponService",
+      "description": "Implement getCouponByCode() - find coupon by code"
+    },
+    {
+      "number": 29,
+      "category": "CouponService",
+      "description": "Implement validateCouponCode() - validate coupon applicability"
+    },
+    {
+      "number": 30,
+      "category": "CouponService",
+      "description": "Implement getAvailableCoupons() - get active coupons"
+    },
+    {
+      "number": 31,
+      "category": "CouponService",
+      "description": "Implement getExpiringSoonCoupons() - alerts for expiring coupons"
+    },
+    {
+      "number": 32,
+      "category": "CouponService",
+      "description": "Implement deactivateCoupon() - manually disable coupon"
+    },
+    {
+      "number": 33,
+      "category": "CartService",
+      "description": "Implement addProductToCart() - add with full validation"
+    },
+    {
+      "number": 34,
+      "category": "CartService",
+      "description": "Implement removeItemFromCart() - remove and sync storage"
+    },
+    {
+      "number": 35,
+      "category": "CartService",
+      "description": "Implement updateItemQuantity() - update with validation"
+    },
+    {
+      "number": 36,
+      "category": "CartService",
+      "description": "Implement applyCouponCode() - apply with validation"
+    },
+    {
+      "number": 37,
+      "category": "CartService",
+      "description": "Implement removeCoupon() - remove applied coupon"
+    },
+    {
+      "number": 38,
+      "category": "CartService",
+      "description": "Implement checkout() - prepare cart for purchase"
+    },
+    {
+      "number": 39,
+      "category": "CartService",
+      "description": "Implement restoreCartFromStorage() - load saved cart"
+    },
+    {
+      "number": 40,
+      "category": "StorageService",
+      "description": "Implement saveCart() - persist to localStorage"
+    },
+    {
+      "number": 41,
+      "category": "StorageService",
+      "description": "Implement loadCart() - retrieve from localStorage"
+    },
+    {
+      "number": 42,
+      "category": "StorageService",
+      "description": "Implement saveOrder() - store completed order"
+    },
+    {
+      "number": 43,
+      "category": "StorageService",
+      "description": "Implement getOrderHistory() - retrieve all orders"
+    },
+    {
+      "number": 44,
+      "category": "StorageService",
+      "description": "Implement deleteCart() - remove saved cart"
+    },
+    {
+      "number": 45,
+      "category": "Main Entry Point",
+      "description": "Initialize sample products and coupons for testing"
+    }
+  ],
+  "bonusFeatures": [
+    "Product variants (size, color, etc.)",
+    "Gift card system",
+    "Loyalty points and rewards",
+    "Wishlists and save for later",
+    "Abandoned cart recovery",
+    "Personalized recommendations",
+    "Advanced filtering and search",
+    "Analytics and reporting",
+    "One-click repurchase"
+  ]
+}

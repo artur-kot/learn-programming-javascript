@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 150: Todo Load Storage - Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📂 Todo Load Storage</h1>
+      <p>Master app initialization and loading persisted data from localStorage</p>
+    </div>
+
+    <div class="main-content">
+      <!-- Section 1: Check Storage on Load -->
+      <div class="section">
+        <div class="section-title">1. Check Storage Availability on Load</div>
+        <p>Verify that localStorage is accessible when the app starts:</p>
+        
+        <div class="demo-section">
+          <button class="action-button" onclick="demoCheckStorage()">Check Storage</button>
+          <div id="checkStorageResult" class="data-display"></div>
+        </div>
+
+        <p><strong>What it does:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Tests if localStorage is available</li>
+          <li>Handles cases where storage is disabled (private mode, third-party context)</li>
+          <li>Returns availability status for app initialization</li>
+          <li>Used to determine if persistence features should be enabled</li>
+        </ul>
+      </div>
+
+      <!-- Section 2: Load Todos on Startup -->
+      <div class="section">
+        <div class="section-title">2. Load Todos on Startup</div>
+        <p>Load persisted todos from localStorage when the page loads:</p>
+        
+        <div class="demo-section">
+          <button class="action-button" onclick="demoLoadTodos()">Load Todos</button>
+          <button class="action-button secondary" onclick="demoLoadTodosEmpty()">Load (Empty)</button>
+          <button class="action-button secondary" onclick="demoLoadTodosCorrupted()">Load (Corrupted)</button>
+          <div id="loadTodosResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Scenarios:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li><strong>Load Todos:</strong> Restore previously saved todos from storage</li>
+          <li><strong>Load (Empty):</strong> Handle first visit (no todos stored yet)</li>
+          <li><strong>Load (Corrupted):</strong> Recover from invalid data in storage</li>
+        </ul>
+      </div>
+
+      <!-- Section 3: Get Initial App State -->
+      <div class="section">
+        <div class="section-title">3. Get Initial App State</div>
+        <p>Create comprehensive initial state with all metadata on app startup:</p>
+        
+        <div class="demo-section">
+          <button class="action-button" onclick="demoInitialState()">Get Initial State</button>
+          <div id="initialStateResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Initial State Includes:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>todos: Array of loaded todos</li>
+          <li>loaded: Whether data is from storage</li>
+          <li>timestamp: When app initialized</li>
+          <li>storageAvailable: Storage capability</li>
+          <li>version: App data format version</li>
+        </ul>
+      </div>
+
+      <!-- Section 4: Restore from Storage with Validation -->
+      <div class="section">
+        <div class="section-title">4. Restore Todos with Validation</div>
+        <p>Recover todos from storage and validate structure:</p>
+        
+        <div class="demo-section">
+          <button class="action-button" onclick="demoRestoreTodos()">Restore & Validate</button>
+          <button class="action-button secondary" onclick="demoRestoreInvalid()">Restore (Invalid)</button>
+          <div id="restoreTodosResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Validation Checks:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Data is valid JSON</li>
+          <li>Data is an array</li>
+          <li>Each todo has required properties (id, title, completed)</li>
+          <li>Invalid todos are filtered out or marked</li>
+        </ul>
+      </div>
+
+      <!-- Section 5: Setup App State -->
+      <div class="section">
+        <div class="section-title">5. Setup App State</div>
+        <p>Process and organize loaded todos for application use:</p>
+        
+        <div class="demo-section">
+          <button class="action-button" onclick="demoSetupState()">Setup State</button>
+          <div id="setupStateResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Processing Steps:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Sort todos (newest first, oldest last)</li>
+          <li>Add computed properties (completion percentage, etc.)</li>
+          <li>Group todos (completed vs pending)</li>
+          <li>Prepare for efficient rendering</li>
+        </ul>
+      </div>
+
+      <!-- Section 6: Handle Storage Errors -->
+      <div class="section">
+        <div class="section-title">6. Handle Storage Errors</div>
+        <p>Gracefully manage storage-related errors with recovery suggestions:</p>
+        
+        <div class="demo-section">
+          <button class="action-button" onclick="demoHandleQuotaError()">Quota Error</button>
+          <button class="action-button" onclick="demoHandleSecurityError()">Security Error</button>
+          <button class="action-button" onclick="demoHandleParseError()">Parse Error</button>
+          <div id="errorHandlingResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Error Types:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li><strong>QuotaExceededError:</strong> Storage is full</li>
+          <li><strong>SecurityError:</strong> Access denied (private mode, CORS)</li>
+          <li><strong>SyntaxError:</strong> Data corrupted in storage</li>
+        </ul>
+      </div>
+
+      <!-- Section 7: Render Initial Todos -->
+      <div class="section">
+        <div class="section-title">7. Render Loaded Todos</div>
+        <p>Display persisted todos to the DOM after loading:</p>
+        
+        <div class="demo-section">
+          <button class="action-button" onclick="demoRenderInitialTodos()">Render Todos</button>
+          <button class="action-button secondary" onclick="demoRenderEmpty()">Render (Empty)</button>
+          <ul id="renderResult" class="todo-list"></ul>
+        </div>
+
+        <p><strong>Rendering Features:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Display todos with title and status</li>
+          <li>Show empty state when no todos</li>
+          <li>Preserve completion state visually</li>
+          <li>Handle large todo lists efficiently</li>
+        </ul>
+      </div>
+
+      <!-- Section 8: App Initialization Flow -->
+      <div class="section">
+        <div class="section-title">8. Complete App Initialization</div>
+        <p>Execute full initialization sequence when app starts:</p>
+        
+        <div class="demo-section">
+          <button class="action-button success" onclick="demoInitializeApp()">Initialize App</button>
+          <button class="action-button secondary" onclick="demoResetStorage()">Reset Storage First</button>
+          <div id="initializeResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Initialization Steps:</strong></p>
+        <ol style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Check storage availability</li>
+          <li>Load todos from storage</li>
+          <li>Validate loaded data</li>
+          <li>Setup application state</li>
+          <li>Render todos to DOM</li>
+          <li>Log status for debugging</li>
+        </ol>
+      </div>
+
+      <!-- Section 9: Migration and Diagnostics -->
+      <div class="section">
+        <div class="section-title">9. Data Migration & Diagnostics</div>
+        <p>Upgrade old data formats and provide initialization diagnostics:</p>
+        
+        <div class="demo-section">
+          <button class="action-button" onclick="demoMigrateData()">Migrate Old Data</button>
+          <button class="action-button secondary" onclick="demoDiagnostics()">Run Diagnostics</button>
+          <div id="migrationResult" class="data-display"></div>
+        </div>
+
+        <p><strong>Features:</strong></p>
+        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+          <li>Detect old data format</li>
+          <li>Add missing properties to todos</li>
+          <li>Save migrated data back to storage</li>
+          <li>Log all initialization steps</li>
+          <li>Report storage capacity and usage</li>
+        </ul>
+      </div>
+
+      <!-- Storage Info Panel -->
+      <div class="section">
+        <div class="section-title">💾 Storage Information</div>
+        <div class="storage-info">
+          <div class="storage-item">
+            <span class="storage-label">Storage Type:</span>
+            <span class="storage-value" id="storageType">localStorage</span>
+          </div>
+          <div class="storage-item">
+            <span class="storage-label">Available:</span>
+            <span class="storage-value" id="storageAvailable">Checking...</span>
+          </div>
+          <div class="storage-item">
+            <span class="storage-label">Current Todos:</span>
+            <span class="storage-value" id="storageTodos">0</span>
+          </div>
+          <div class="storage-item">
+            <span class="storage-label">Data Size:</span>
+            <span class="storage-value" id="storageSize">0 bytes</span>
+          </div>
+        </div>
+
+        <div class="action-buttons" style="margin-top: 15px;">
+          <button class="action-button secondary" onclick="updateStorageInfo()">Refresh Info</button>
+          <button class="action-button secondary" onclick="clearStorageDemo()">Clear Storage</button>
+          <button class="action-button secondary" onclick="addSampleTodos()">Add Sample Todos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Helper Functions
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function formatJson(obj) {
+      return JSON.stringify(obj, null, 2);
+    }
+
+    function displayResult(elementId, title, data, className = '') {
+      const element = document.getElementById(elementId);
+      const formatted = typeof data === 'string' ? data : formatJson(data);
+      element.innerHTML = `
+        <strong>${title}:</strong>
+        <pre>${escapeHtml(formatted)}</pre>
+      `;
+      element.className = `data-display ${className}`;
+    }
+
+    function displayStatus(elementId, title, type, data) {
+      const element = document.getElementById(elementId);
+      const statusClass = `status-box ${type}`;
+      element.innerHTML = `
+        <div class="${statusClass}">
+          <span class="status-label">${title}</span>
+          <span class="status-value">${escapeHtml(JSON.stringify(data))}</span>
+        </div>
+      `;
+    }
+
+    // Demo Functions
+    function demoCheckStorage() {
+      try {
+        const test = '__storage_test__';
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        
+        displayResult('checkStorageResult', 'Storage Check Result', {
+          available: true,
+          accessible: true,
+          type: 'localStorage',
+          timestamp: new Date().toISOString()
+        });
+      } catch (error) {
+        displayResult('checkStorageResult', 'Storage Check Result', {
+          available: false,
+          accessible: false,
+          error: error.message,
+          reason: error.name
+        });
+      }
+    }
+
+    function demoLoadTodos() {
+      const todos = [
+        { id: 1, title: 'Learn initialization', description: 'Master app startup', completed: false },
+        { id: 2, title: 'Load from storage', description: 'Recover persisted data', completed: true },
+        { id: 3, title: 'Handle errors', description: 'Graceful error recovery', completed: false }
+      ];
+      
+      localStorage.setItem('todos', JSON.stringify(todos));
+      
+      const loaded = JSON.parse(localStorage.getItem('todos')) || [];
+      displayResult('loadTodosResult', 'Loaded Todos from Storage', {
+        loaded: loaded.length,
+        todos: loaded
+      });
+    }
+
+    function demoLoadTodosEmpty() {
+      localStorage.removeItem('todos');
+      
+      const loaded = localStorage.getItem('todos');
+      displayResult('loadTodosResult', 'Empty Storage Result', {
+        stored: loaded,
+        loaded: [],
+        message: 'No todos in storage (first visit)'
+      });
+    }
+
+    function demoLoadTodosCorrupted() {
+      localStorage.setItem('todos', '{invalid: json}');
+      
+      try {
+        JSON.parse(localStorage.getItem('todos'));
+      } catch (error) {
+        displayResult('loadTodosResult', 'Corrupted Data Recovery', {
+          error: error.message,
+          recovery: 'Fallback to empty array',
+          fallback: [],
+          suggestion: 'Clear storage and start fresh'
+        });
+        return;
+      }
+    }
+
+    function demoInitialState() {
+      const todos = JSON.parse(localStorage.getItem('todos') || '[]');
+      
+      displayResult('initialStateResult', 'Initial App State', {
+        todos: todos,
+        loaded: todos.length > 0,
+        timestamp: new Date().toISOString(),
+        storageAvailable: true,
+        error: null,
+        version: '1.0',
+        totals: {
+          count: todos.length,
+          completed: todos.filter(t => t.completed).length,
+          pending: todos.filter(t => !t.completed).length
+        }
+      });
+    }
+
+    function demoRestoreTodos() {
+      const todos = [
+        { id: 1, title: 'Task 1', completed: false },
+        { id: 2, title: 'Task 2', completed: true },
+        { id: 3, title: 'Task 3', completed: false }
+      ];
+      
+      localStorage.setItem('todos', JSON.stringify(todos));
+      
+      const stored = JSON.parse(localStorage.getItem('todos'));
+      const valid = stored.filter(todo => 
+        todo.id && typeof todo.title === 'string' && typeof todo.completed === 'boolean'
+      );
+      
+      displayResult('restoreTodosResult', 'Restored & Validated Todos', {
+        total: stored.length,
+        valid: valid.length,
+        todos: valid
+      });
+    }
+
+    function demoRestoreInvalid() {
+      const invalid = [
+        { id: 1, title: 'Good todo', completed: false },
+        { id: 2 }, // Missing title
+        { title: 'No ID todo', completed: false }, // Missing ID
+        { id: 4, title: 'Valid again', completed: true }
+      ];
+      
+      localStorage.setItem('todos', JSON.stringify(invalid));
+      
+      const stored = JSON.parse(localStorage.getItem('todos'));
+      const valid = stored.filter(todo => 
+        todo.id && typeof todo.title === 'string' && typeof todo.completed === 'boolean'
+      );
+      
+      displayResult('restoreTodosResult', 'Validation Filtering', {
+        total: stored.length,
+        valid: valid.length,
+        invalid: stored.length - valid.length,
+        filtered: valid
+      });
+    }
+
+    function demoSetupState() {
+      const todos = JSON.parse(localStorage.getItem('todos') || '[]');
+      
+      const sorted = todos.sort((a, b) => {
+        const aTime = new Date(a.createdAt || 0).getTime();
+        const bTime = new Date(b.createdAt || 0).getTime();
+        return bTime - aTime;
+      });
+      
+      displayResult('setupStateResult', 'State Setup & Organization', {
+        processed: sorted.length,
+        sorted: true,
+        todos: sorted.slice(0, 3), // Show first 3
+        stats: {
+          total: sorted.length,
+          completed: sorted.filter(t => t.completed).length,
+          pending: sorted.filter(t => !t.completed).length
+        }
+      });
+    }
+
+    function demoHandleQuotaError() {
+      const error = new Error('QuotaExceededError');
+      error.name = 'QuotaExceededError';
+      
+      displayResult('errorHandlingResult', 'Quota Error Recovery', {
+        message: 'Storage quota exceeded',
+        recovery: 'Clear old data or delete some todos',
+        error: error.name,
+        timestamp: new Date().toISOString(),
+        action: 'Show user "Storage Full" message'
+      });
+    }
+
+    function demoHandleSecurityError() {
+      const error = new Error('SecurityError');
+      error.name = 'SecurityError';
+      
+      displayResult('errorHandlingResult', 'Security Error Recovery', {
+        message: 'Storage access denied',
+        recovery: 'Check browser privacy settings',
+        error: error.name,
+        timestamp: new Date().toISOString(),
+        action: 'Disable persistence features'
+      });
+    }
+
+    function demoHandleParseError() {
+      const error = new Error('SyntaxError');
+      error.name = 'SyntaxError';
+      
+      displayResult('errorHandlingResult', 'Parse Error Recovery', {
+        message: 'Corrupted data in storage',
+        recovery: 'Clear storage and start fresh',
+        error: error.name,
+        timestamp: new Date().toISOString(),
+        action: 'Fallback to empty todos'
+      });
+    }
+
+    function demoRenderInitialTodos() {
+      const todos = JSON.parse(localStorage.getItem('todos') || '[]');
+      const container = document.getElementById('renderResult');
+      container.innerHTML = '';
+      
+      if (todos.length === 0) {
+        container.innerHTML = `
+          <li style="padding: 20px; text-align: center; color: #999;">
+            No todos yet. Create one to get started!
+          </li>
+        `;
+        return;
+      }
+      
+      todos.forEach(todo => {
+        const li = document.createElement('li');
+        li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+        li.innerHTML = `
+          <div class="todo-content">
+            <div class="todo-title">${escapeHtml(todo.title)}</div>
+            <div class="todo-description">${escapeHtml(todo.description || '')}</div>
+          </div>
+          <span class="todo-status ${todo.completed ? 'completed' : 'pending'}">
+            ${todo.completed ? 'Completed' : 'Pending'}
+          </span>
+        `;
+        container.appendChild(li);
+      });
+    }
+
+    function demoRenderEmpty() {
+      localStorage.removeItem('todos');
+      const container = document.getElementById('renderResult');
+      container.innerHTML = `
+        <li style="padding: 20px; text-align: center; color: #999;">
+          📭 Empty state: No todos stored
+        </li>
+      `;
+    }
+
+    function demoInitializeApp() {
+      const todos = JSON.parse(localStorage.getItem('todos') || '[]');
+      
+      const result = {
+        success: true,
+        steps: [
+          { step: 'Check storage', status: 'complete', result: true },
+          { step: 'Load todos', status: 'complete', result: todos.length },
+          { step: 'Validate data', status: 'complete', result: 'passed' },
+          { step: 'Setup state', status: 'complete', result: 'ready' },
+          { step: 'Render to DOM', status: 'complete', result: 'visible' },
+          { step: 'Log status', status: 'complete', result: 'logged' }
+        ],
+        app: {
+          initialized: true,
+          todos: todos.length,
+          timestamp: new Date().toISOString(),
+          ready: true
+        }
+      };
+      
+      displayResult('initializeResult', 'App Initialization Complete', result);
+    }
+
+    function demoResetStorage() {
+      localStorage.clear();
+      displayResult('initializeResult', 'Storage Reset', {
+        cleared: true,
+        todos: 0,
+        message: 'Storage cleared. Run "Initialize App" to start fresh.'
+      });
+    }
+
+    function demoMigrateData() {
+      const oldFormat = [
+        { id: 1, title: 'Old format todo' }
+      ];
+      
+      const migrated = oldFormat.map(todo => ({
+        id: todo.id,
+        title: todo.title,
+        description: todo.description || '',
+        completed: todo.completed || false,
+        createdAt: todo.createdAt || new Date().toISOString(),
+        updatedAt: todo.updatedAt || new Date().toISOString(),
+        tags: todo.tags || [],
+        priority: todo.priority || 'normal'
+      }));
+      
+      displayResult('migrationResult', 'Data Migration', {
+        from: 'v0.x (incomplete)',
+        to: 'v1.0 (complete)',
+        count: oldFormat.length,
+        before: oldFormat[0],
+        after: migrated[0]
+      });
+    }
+
+    function demoDiagnostics() {
+      const json = localStorage.getItem('todos');
+      
+      displayResult('migrationResult', 'Initialization Diagnostics', {
+        storage: {
+          available: true,
+          type: 'localStorage'
+        },
+        todos: {
+          stored: json ? JSON.parse(json) : [],
+          count: json ? JSON.parse(json).length : 0
+        },
+        data: {
+          size: json ? new Blob([json]).size : 0,
+          bytes: json ? json.length : 0
+        },
+        timestamp: new Date().toISOString(),
+        browser: navigator.userAgent.substring(0, 50) + '...'
+      });
+    }
+
+    function updateStorageInfo() {
+      const json = localStorage.getItem('todos');
+      const todos = json ? JSON.parse(json) : [];
+      
+      document.getElementById('storageAvailable').textContent = 'Yes';
+      document.getElementById('storageTodos').textContent = todos.length;
+      document.getElementById('storageSize').textContent = json ? 
+        new Blob([json]).size + ' bytes' : '0 bytes';
+    }
+
+    function clearStorageDemo() {
+      localStorage.clear();
+      updateStorageInfo();
+      document.getElementById('renderResult').innerHTML = `
+        <li style="padding: 20px; text-align: center; color: #999;">
+          Storage cleared
+        </li>
+      `;
+    }
+
+    function addSampleTodos() {
+      const samples = [
+        { id: 1, title: 'Learn App Initialization', description: 'Master startup patterns', completed: false, createdAt: new Date().toISOString() },
+        { id: 2, title: 'Load from Storage', description: 'Recover persisted todos', completed: true, createdAt: new Date().toISOString() },
+        { id: 3, title: 'Handle Errors Gracefully', description: 'Error recovery strategies', completed: false, createdAt: new Date().toISOString() },
+        { id: 4, title: 'Render Initial Todos', description: 'Display loaded data', completed: false, createdAt: new Date().toISOString() },
+        { id: 5, title: 'Support Data Migration', description: 'Upgrade old formats', completed: false, createdAt: new Date().toISOString() }
+      ];
+      
+      localStorage.setItem('todos', JSON.stringify(samples));
+      updateStorageInfo();
+      demoRenderInitialTodos();
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      updateStorageInfo();
+      addSampleTodos();
+    });
+  </script>
+</body>
+</html>

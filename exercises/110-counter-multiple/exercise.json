@@ -1,0 +1,22 @@
+{
+  "id": "110-counter-multiple",
+  "number": 110,
+  "title": "Interactive Counter - Multiple Buttons",
+  "series": "22-interactive-counter",
+  "seriesNumber": 3,
+  "topic": "Handling Multiple Button Events",
+  "description": "Add increment, decrement, and reset buttons with different actions.",
+  "concepts": [
+    "Multiple event listeners",
+    "Conditional logic",
+    "Button identification",
+    "Different actions per button",
+    "Event target checking",
+    "Counter operations",
+    "UI state management"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "109-counter-event-obj"
+  ]
+}

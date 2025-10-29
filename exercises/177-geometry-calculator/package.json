@@ -1,0 +1,15 @@
+{
+  "name": "geometry-calculator",
+  "version": "1.0.0",
+  "description": "Real-world geometry calculator using math library",
+  "type": "module",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "node test.js",
+    "example": "node example.js",
+    "calculate": "node calculator.js"
+  },
+  "keywords": ["geometry", "calculator", "measurements", "shapes"],
+  "author": "",
+  "license": "MIT"
+}

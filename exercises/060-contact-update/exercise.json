@@ -1,0 +1,10 @@
+{
+  "id": "060-contact-update",
+  "title": "Contact Manager - Update Contact",
+  "description": "Dynamically add and modify contact properties.",
+  "series": "12",
+  "seriesName": "Contact Manager",
+  "difficulty": "beginner",
+  "topics": ["objects", "dynamic properties", "delete operator"],
+  "skills": ["mutating objects", "property management"]
+}

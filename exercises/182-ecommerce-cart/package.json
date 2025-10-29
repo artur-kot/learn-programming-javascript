@@ -1,0 +1,36 @@
+{
+  "name": "182-ecommerce-cart",
+  "version": "1.0.0",
+  "description": "Professional e-commerce cart system with modern project structure, real-world patterns, and popular libraries",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "dev": "node src/index.js",
+    "build": "echo 'Build script - implement bundling with webpack/vite'",
+    "lint": "eslint src tests"
+  },
+  "keywords": [
+    "ecommerce",
+    "cart",
+    "shopping",
+    "project-structure",
+    "real-world-patterns",
+    "services",
+    "components"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^9.0.0",
+    "lodash-es": "^4.17.21",
+    "date-fns": "^2.30.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "@babel/preset-env": "^7.20.0",
+    "babel-jest": "^29.0.0"
+  }
+}

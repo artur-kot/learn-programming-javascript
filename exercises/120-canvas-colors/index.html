@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Drawing Canvas - Colors</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .info-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background: #667eea;
+      color: white;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .canvas-wrapper {
+      margin: 20px 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    #drawing-canvas {
+      display: block;
+      width: 100%;
+      cursor: crosshair;
+      background: white;
+    }
+
+    .controls {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .color-picker {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .color-btn {
+      padding: 10px 16px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: white;
+    }
+
+    .color-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .color-btn.active {
+      border-color: white;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button.btn-primary {
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #667eea;
+      color: white;
+    }
+
+    button.btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .status {
+      margin-top: 15px;
+      padding: 12px;
+      background: #e8f5e9;
+      border-radius: 6px;
+      border-left: 4px solid #4caf50;
+      color: #2e7d32;
+      font-size: 14px;
+    }
+
+    .status.drawing {
+      background: #fff3e0;
+      border-left-color: #ff9800;
+      color: #e65100;
+    }
+
+    .color-info {
+      display: inline-block;
+      padding: 4px 12px;
+      background: white;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 12px;
+      margin-left: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .help-section {
+      margin-top: 30px;
+      padding: 20px;
+      background: #e3f2fd;
+      border-radius: 8px;
+      border-left: 4px solid #2196f3;
+    }
+
+    .help-section h2 {
+      color: #1976d2;
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .help-section p {
+      color: #0d47a1;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .code-block {
+      background: white;
+      padding: 12px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #333;
+      overflow-x: auto;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+    }
+
+    .tips {
+      margin-top: 15px;
+      padding: 12px;
+      background: white;
+      border-radius: 4px;
+      border-left: 3px solid #4caf50;
+    }
+
+    .tips strong {
+      color: #2e7d32;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 15px 0;
+    }
+
+    .comparison-box {
+      padding: 12px;
+      background: white;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+
+    .comparison-box h4 {
+      margin-top: 0;
+      color: #1976d2;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .color-picker {
+        justify-content: center;
+      }
+
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Drawing with Colors <span class="info-badge">Color Picker</span></h1>
+
+    <div class="canvas-wrapper">
+      <canvas id="drawing-canvas" width="800" height="600"></canvas>
+    </div>
+
+    <div class="controls">
+      <div>
+        <label style="font-weight: 600; color: #333;">Select Drawing Color:</label>
+        <div class="color-picker" id="color-container"></div>
+      </div>
+
+      <div class="button-group" style="margin-top: 15px;">
+        <button class="btn-primary" id="clear-btn">Clear Canvas</button>
+      </div>
+
+      <div class="status" id="status">
+        Ready to draw! Select a color and click to draw.
+        <span class="color-info" id="current-color">Color: Black</span>
+      </div>
+    </div>
+
+    <div class="help-section">
+      <h2>Event Delegation and Color Selection</h2>
+
+      <p><strong>What's Event Delegation?</strong></p>
+      <p>
+        Instead of attaching a click listener to EACH color button, we attach ONE listener
+        to the parent container and let it handle clicks on all buttons. This is more efficient
+        and works even when buttons are added dynamically.
+      </p>
+
+      <div class="comparison">
+        <div class="comparison-box">
+          <h4>❌ Without Delegation (Bad)</h4>
+          <div class="code-block">
+// Attach listener to EACH button
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    selectColor(btn.color);
+  });
+});
+
+// Problems:
+// - More memory (many listeners)
+// - New buttons need manual setup
+// - Repeating code
+          </div>
+        </div>
+
+        <div class="comparison-box">
+          <h4>✅ With Delegation (Good)</h4>
+          <div class="code-block">
+// Attach listener to CONTAINER
+container.addEventListener('click', (e) => {
+  if (e.target.tagName === 'BUTTON') {
+    selectColor(e.target.dataset.color);
+  }
+});
+
+// Benefits:
+// - One listener for all buttons
+// - New buttons work automatically
+// - Cleaner code
+          </div>
+        </div>
+      </div>
+
+      <p><strong>How Event Delegation Works:</strong></p>
+      <p>
+        When you click a button, the click event "bubbles up" through parent elements.
+        We can catch it at the container level and check what was actually clicked.
+      </p>
+
+      <div class="code-block">
+User clicks button
+  ↓
+Button dispatches 'click' event
+  ↓
+Event bubbles to container
+  ↓
+Container's click listener fires
+  ↓
+Check event.target (what was clicked)
+  ↓
+If it's a button, extract and use color
+      </div>
+
+      <p><strong>The Event Delegation Pattern:</strong></p>
+      <div class="code-block">
+// 1. Container has the listener
+container.addEventListener('click', (event) => {
+  
+  // 2. Check what was clicked
+  const button = event.target;
+  
+  // 3. Only process if it's a button
+  if (button.tagName === 'BUTTON') {
+    // 4. Get data from the button
+    const color = button.dataset.color;
+    
+    // 5. Do something with it
+    updateColor(color);
+  }
+});
+      </div>
+
+      <p><strong>Data Attributes in HTML:</strong></p>
+      <p>
+        We store color information in data attributes. These are custom attributes that
+        hold data specific to our application:
+      </p>
+
+      <div class="code-block">
+HTML:
+&lt;button data-color="#FF0000"&gt;Red&lt;/button&gt;
+&lt;button data-color="#00FF00"&gt;Green&lt;/button&gt;
+
+JavaScript:
+const button = document.querySelector('button');
+const color = button.dataset.color; // "#FF0000"
+      </div>
+
+      <p><strong>Accessing Data Attributes:</strong></p>
+      <p>
+        Data attributes are stored as properties on the element's <code>dataset</code> object.
+        Hyphens in attribute names become camelCase in JavaScript:
+      </p>
+
+      <div class="code-block">
+HTML attribute:    JavaScript property:
+data-color         element.dataset.color
+data-user-id       element.dataset.userId
+data-background-url element.dataset.backgroundUrl
+      </div>
+
+      <p><strong>Building the Color Picker:</strong></p>
+      <p>
+        Here's the complete flow:
+      </p>
+
+      <div class="code-block">
+// 1. Create color data
+const colors = [
+  { hex: '#000000', name: 'Black' },
+  { hex: '#FF0000', name: 'Red' },
+  { hex: '#00FF00', name: 'Green' }
+];
+
+// 2. Create button for each color
+colors.forEach(color => {
+  const button = document.createElement('button');
+  button.dataset.color = color.hex;
+  button.textContent = color.name;
+  container.appendChild(button);
+});
+
+// 3. Set up event delegation
+container.addEventListener('click', (e) => {
+  if (e.target.tagName === 'BUTTON') {
+    const color = e.target.dataset.color;
+    ctx.strokeStyle = color;
+  }
+});
+      </div>
+
+      <p><strong>Finding Parent Elements:</strong></p>
+      <p>
+        Sometimes you need to find the button even if a nested element was clicked.
+        Use <code>closest()</code> to find the nearest parent matching a selector:
+      </p>
+
+      <div class="code-block">
+container.addEventListener('click', (e) => {
+  // Finds the closest 'button' ancestor
+  const button = e.target.closest('button');
+  
+  if (button) {
+    const color = button.dataset.color;
+    ctx.strokeStyle = color;
+  }
+});
+      </div>
+
+      <p><strong>Highlighting the Active Color:</strong></p>
+      <p>
+        To show which color is selected, we add/remove a class on the active button:
+      </p>
+
+      <div class="code-block">
+container.addEventListener('click', (e) => {
+  const button = e.target.closest('button');
+  if (!button) return;
+
+  // Remove active from all buttons
+  container.querySelectorAll('button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  // Add active to clicked button
+  button.classList.add('active');
+
+  // Update color
+  ctx.strokeStyle = button.dataset.color;
+});
+      </div>
+
+      <p><strong>Event Delegation for Dynamic Content:</strong></p>
+      <p>
+        A big advantage: if you add buttons dynamically (after page load),
+        event delegation still works without any extra setup!
+      </p>
+
+      <div class="code-block">
+// Initial setup (only once)
+container.addEventListener('click', handleColorClick);
+
+// Later... add more buttons
+const newButton = document.createElement('button');
+newButton.dataset.color = '#0000FF';
+newButton.textContent = 'Blue';
+container.appendChild(newButton);
+
+// The new button works immediately!
+// No need to re-attach listener
+      </div>
+
+      <div class="tips">
+        <strong>💡 Key Benefits of Event Delegation:</strong>
+        <ul style="color: #0d47a1; margin: 8px 0;">
+          <li>Better performance (one listener vs many)</li>
+          <li>Automatic support for dynamic elements</li>
+          <li>Simpler code</li>
+          <li>Easier to maintain</li>
+        </ul>
+      </div>
+
+      <p><strong>When NOT to Use Event Delegation:</strong></p>
+      <p>
+        For simple, static elements without much nesting, direct listeners can be clearer.
+        But for interactive components with many items or dynamic content, delegation is better.
+      </p>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      getColorFromButton,
+      updateDrawingColor,
+      handleColorClick,
+      setupColorEventDelegation,
+      createColorButton,
+      initColorPicker
+    } from './120-canvas-colors.js';
+
+    const canvas = document.getElementById('drawing-canvas');
+    const ctx = canvas.getContext('2D');
+    const colorContainer = document.getElementById('color-container');
+    const statusDiv = document.getElementById('status');
+    const currentColorDiv = document.getElementById('current-color');
+    const clearBtn = document.getElementById('clear-btn');
+
+    // Setup canvas
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#000000';
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    // Color palette
+    const colors = [
+      { hex: '#000000', name: 'Black' },
+      { hex: '#FF0000', name: 'Red' },
+      { hex: '#00FF00', name: 'Green' },
+      { hex: '#0000FF', name: 'Blue' },
+      { hex: '#FFFF00', name: 'Yellow' },
+      { hex: '#FF00FF', name: 'Magenta' },
+      { hex: '#00FFFF', name: 'Cyan' },
+      { hex: '#FFA500', name: 'Orange' }
+    ];
+
+    // Initialize color picker
+    initColorPicker(colorContainer, colors, ctx);
+
+    // Setup event delegation
+    setupColorEventDelegation(colorContainer, ctx);
+
+    // Add visual feedback for active color
+    colorContainer.addEventListener('click', (e) => {
+      const button = e.target.closest('button');
+      if (!button) return;
+
+      // Remove active from all buttons
+      colorContainer.querySelectorAll('button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Add active to clicked button
+      button.classList.add('active');
+
+      // Update status
+      const colorName = button.textContent;
+      currentColorDiv.textContent = `Color: ${colorName}`;
+    });
+
+    // Set first button as active
+    const firstButton = colorContainer.querySelector('button');
+    if (firstButton) {
+      firstButton.classList.add('active');
+    }
+
+    // Drawing state
+    const drawing = {
+      isDrawing: false,
+      lastX: 0,
+      lastY: 0
+    };
+
+    canvas.addEventListener('mousedown', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      drawing.isDrawing = true;
+      drawing.lastX = e.clientX - rect.left;
+      drawing.lastY = e.clientY - rect.top;
+      statusDiv.textContent = '✏️ Drawing...';
+      statusDiv.classList.add('drawing');
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (!drawing.isDrawing) return;
+
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      ctx.beginPath();
+      ctx.moveTo(drawing.lastX, drawing.lastY);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+
+      drawing.lastX = x;
+      drawing.lastY = y;
+    });
+
+    canvas.addEventListener('mouseup', () => {
+      drawing.isDrawing = false;
+      statusDiv.textContent = '✋ Drawing stopped. Ready for more!';
+      statusDiv.classList.remove('drawing');
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      drawing.isDrawing = false;
+      statusDiv.textContent = 'Mouse left canvas. Ready to draw again!';
+      statusDiv.classList.remove('drawing');
+    });
+
+    clearBtn.addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      statusDiv.textContent = '🗑️ Canvas cleared!';
+      statusDiv.classList.remove('drawing');
+    });
+  </script>
+</body>
+</html>

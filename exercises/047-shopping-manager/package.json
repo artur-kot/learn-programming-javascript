@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 047-shopping-manager.test.js"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": 165,
+  "title": "Iterator - Infinite Sequences",
+  "description": "Create infinite generators and work with lazy evaluation",
+  "series": 33,
+  "difficulty": "intermediate",
+  "topics": ["generators", "infinite sequences", "lazy evaluation"],
+  "functions": [
+    {
+      "name": "infiniteCount",
+      "description": "Generator that counts infinitely from 1",
+      "parameters": [],
+      "returns": "Generator yielding 1, 2, 3, ..."
+    },
+    {
+      "name": "infiniteRepeating",
+      "description": "Generator that infinitely repeats array items",
+      "parameters": ["array"],
+      "returns": "Generator cycling through array forever"
+    },
+    {
+      "name": "infiniteFibonacci",
+      "description": "Generator that yields infinite Fibonacci sequence",
+      "parameters": [],
+      "returns": "Generator yielding Fibonacci numbers forever"
+    },
+    {
+      "name": "infiniteSquares",
+      "description": "Generator that yields perfect squares infinitely",
+      "parameters": [],
+      "returns": "Generator yielding 1, 4, 9, 16, ..."
+    },
+    {
+      "name": "infinitePowers",
+      "description": "Generator that yields powers of a base infinitely",
+      "parameters": ["base"],
+      "returns": "Generator yielding base^1, base^2, base^3, ..."
+    },
+    {
+      "name": "take",
+      "description": "Take first n items from any iterable",
+      "parameters": ["iterable", "n"],
+      "returns": "Array of first n items"
+    },
+    {
+      "name": "takeWhile",
+      "description": "Take items while predicate is true",
+      "parameters": ["iterable", "predicate"],
+      "returns": "Array of items while condition holds"
+    },
+    {
+      "name": "skip",
+      "description": "Skip first n items from iterable",
+      "parameters": ["iterable", "n"],
+      "returns": "Array of remaining items after skipping n"
+    },
+    {
+      "name": "cycle",
+      "description": "Create infinite cycle from array items",
+      "parameters": ["array"],
+      "returns": "Generator cycling through array"
+    },
+    {
+      "name": "takeEvery",
+      "description": "Take every nth item from iterable",
+      "parameters": ["iterable", "n"],
+      "returns": "Array of every nth item"
+    }
+  ]
+}

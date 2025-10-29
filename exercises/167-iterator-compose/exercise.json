@@ -1,0 +1,70 @@
+{
+  "id": 167,
+  "title": "Iterator - Generator Composition",
+  "description": "Compose and chain multiple generators for complex transformations",
+  "series": 33,
+  "difficulty": "advanced",
+  "topics": ["generators", "composition", "functional programming"],
+  "functions": [
+    {
+      "name": "compose",
+      "description": "Compose two generator functions into one",
+      "parameters": ["gen1", "gen2"],
+      "returns": "Generator applying both transformations"
+    },
+    {
+      "name": "pipe",
+      "description": "Chain multiple transformations left-to-right",
+      "parameters": ["transformers"],
+      "returns": "Function that applies all transformers in order"
+    },
+    {
+      "name": "map",
+      "description": "Transform each yielded value with function",
+      "parameters": ["generator", "fn"],
+      "returns": "Generator yielding transformed values"
+    },
+    {
+      "name": "filter",
+      "description": "Only yield values matching predicate",
+      "parameters": ["generator", "predicate"],
+      "returns": "Generator yielding matching values"
+    },
+    {
+      "name": "flatMap",
+      "description": "Map then flatten results one level",
+      "parameters": ["generator", "fn"],
+      "returns": "Generator yielding flattened values"
+    },
+    {
+      "name": "takeUntil",
+      "description": "Yield until predicate becomes true",
+      "parameters": ["generator", "predicate"],
+      "returns": "Generator stopping when condition met"
+    },
+    {
+      "name": "dropWhile",
+      "description": "Skip while condition true, yield rest",
+      "parameters": ["generator", "predicate"],
+      "returns": "Generator after dropping initial items"
+    },
+    {
+      "name": "chunk",
+      "description": "Group consecutive items into arrays",
+      "parameters": ["generator", "size"],
+      "returns": "Generator yielding chunks"
+    },
+    {
+      "name": "interleave",
+      "description": "Alternate values from two generators",
+      "parameters": ["gen1", "gen2"],
+      "returns": "Generator alternating between sources"
+    },
+    {
+      "name": "chain",
+      "description": "Combine multiple generators sequentially",
+      "parameters": ["generators"],
+      "returns": "Generator yielding all values in sequence"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "125-factory-multiple",
+  "number": 125,
+  "title": "Counter Factory - Multiple Counters",
+  "series": "25-counter-factory",
+  "seriesNumber": 3,
+  "topic": "Closures and Factory Functions",
+  "description": "Create multiple independent counter instances and manage their separate states.",
+  "concepts": [
+    "Multiple instances",
+    "Independent closures",
+    "State isolation",
+    "Counter registry",
+    "Factory scaling",
+    "Closure independence",
+    "Instance management"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "124-factory-private"
+  ]
+}

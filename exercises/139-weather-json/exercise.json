@@ -1,0 +1,35 @@
+{
+  "id": 139,
+  "series": 28,
+  "title": "Weather Dashboard - JSON Parsing",
+  "description": "Learn to parse JSON responses and extract specific data from API responses.",
+  "difficulty": "intermediate",
+  "skills": [
+    "json parsing",
+    "object destructuring",
+    "data extraction",
+    "nested objects",
+    "optional chaining",
+    "data transformation"
+  ],
+  "prerequisites": [
+    "138-weather-fetch"
+  ],
+  "concepts": {
+    "json_parse": "Convert JSON strings to objects",
+    "destructuring": "Extract values from objects",
+    "nested_access": "Access deeply nested properties",
+    "optional_chaining": "Safe property access with ?.",
+    "data_extraction": "Pulling specific fields from API response",
+    "transformation": "Reformatting API data for use"
+  },
+  "learning_outcomes": [
+    "Parse JSON responses from APIs",
+    "Extract specific fields from complex objects",
+    "Handle nested data structures",
+    "Use destructuring for cleaner code",
+    "Transform API data into usable formats",
+    "Handle missing or optional fields"
+  ],
+  "estimated_time": "45 minutes"
+}

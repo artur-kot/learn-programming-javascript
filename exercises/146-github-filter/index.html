@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 146: GitHub Advanced Filtering</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 { color: #333; margin-bottom: 10px; font-size: 2.5em; }
+    .subtitle { color: #666; font-size: 1.1em; }
+    .demo-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+    .demo-section h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    .filter-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    input, select {
+      padding: 10px 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 0.95em;
+      transition: border-color 0.3s;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    button {
+      padding: 10px 20px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover { background: #5568d3; }
+    .info-box {
+      background: #f9f9f9;
+      border-left: 4px solid #667eea;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+    }
+    .repo-item {
+      background: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .repo-name { font-size: 1.1em; font-weight: bold; color: #667eea; margin-bottom: 6px; }
+    .repo-description { color: #666; font-size: 0.9em; margin-bottom: 10px; }
+    .repo-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.85em;
+      color: #999;
+    }
+    .meta-item { display: flex; align-items: center; gap: 5px; }
+    .result-count {
+      background: #667eea;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .demo-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔎 GitHub Advanced Filtering</h1>
+      <p class="subtitle">Master complex repository filtering with multiple criteria</p>
+    </header>
+
+    <!-- Section 1: Min Stars Filter -->
+    <div class="demo-section">
+      <h2>1. Filter by Minimum Stars</h2>
+      <div class="info-box">Filter repositories that have at least a certain number of stars.</div>
+      <div class="filter-controls">
+        <div class="filter-group">
+          <label>Minimum Stars:</label>
+          <input type="number" id="minStars" placeholder="e.g., 100" min="0" value="100">
+        </div>
+      </div>
+      <button onclick="demoMinStars()">Apply Filter</button>
+      <div id="starsOutput"></div>
+    </div>
+
+    <!-- Section 2: Min Forks Filter -->
+    <div class="demo-section">
+      <h2>2. Filter by Minimum Forks</h2>
+      <div class="info-box">Filter repositories with a minimum number of forks.</div>
+      <div class="filter-controls">
+        <div class="filter-group">
+          <label>Minimum Forks:</label>
+          <input type="number" id="minForks" placeholder="e.g., 10" min="0" value="10">
+        </div>
+      </div>
+      <button onclick="demoMinForks()">Apply Filter</button>
+      <div id="forksOutput"></div>
+    </div>
+
+    <!-- Section 3: Date Range Filter -->
+    <div class="demo-section">
+      <h2>3. Filter by Date Range</h2>
+      <div class="info-box">Filter repositories updated within a specific time period.</div>
+      <div class="filter-controls">
+        <div class="filter-group">
+          <label>Start Date:</label>
+          <input type="date" id="startDate" value="2024-01-01">
+        </div>
+        <div class="filter-group">
+          <label>End Date:</label>
+          <input type="date" id="endDate" value="2024-12-31">
+        </div>
+      </div>
+      <button onclick="demoDateRange()">Apply Filter</button>
+      <div id="dateOutput"></div>
+    </div>
+
+    <!-- Section 4: Language Filter -->
+    <div class="demo-section">
+      <h2>4. Filter by Language</h2>
+      <div class="info-box">Filter repositories by programming language.</div>
+      <div class="filter-controls">
+        <div class="filter-group">
+          <label>Language:</label>
+          <select id="language">
+            <option value="">All Languages</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+            <option value="Go">Go</option>
+            <option value="C">C</option>
+            <option value="Rust">Rust</option>
+          </select>
+        </div>
+      </div>
+      <button onclick="demoLanguageFilter()">Apply Filter</button>
+      <div id="languageOutput"></div>
+    </div>
+
+    <!-- Section 5: Topics Filter -->
+    <div class="demo-section">
+      <h2>5. Filter by Topics</h2>
+      <div class="info-box">Filter repositories that have specific topics/tags.</div>
+      <div class="filter-controls">
+        <div class="filter-group">
+          <label>Topics (comma-separated):</label>
+          <input type="text" id="topics" placeholder="e.g., web, api, database">
+        </div>
+      </div>
+      <button onclick="demoTopicsFilter()">Apply Filter</button>
+      <div id="topicsOutput"></div>
+    </div>
+
+    <!-- Section 6: Archived Filter -->
+    <div class="demo-section">
+      <h2>6. Include/Exclude Archived</h2>
+      <div class="info-box">Choose to show or hide archived repositories.</div>
+      <div class="demo-buttons">
+        <button onclick="demoArchived(false)">Exclude Archived</button>
+        <button onclick="demoArchived(true)">Include Archived</button>
+      </div>
+      <div id="archivedOutput"></div>
+    </div>
+
+    <!-- Section 7: Combined Filters -->
+    <div class="demo-section">
+      <h2>7. Combined Filters</h2>
+      <div class="info-box">Apply multiple filter criteria at once.</div>
+      <div class="filter-controls">
+        <div class="filter-group">
+          <label>Min Stars:</label>
+          <input type="number" id="combinedStars" placeholder="0" min="0" value="50">
+        </div>
+        <div class="filter-group">
+          <label>Min Forks:</label>
+          <input type="number" id="combinedForks" placeholder="0" min="0" value="5">
+        </div>
+        <div class="filter-group">
+          <label>Language:</label>
+          <select id="combinedLanguage">
+            <option value="">Any</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+          </select>
+        </div>
+      </div>
+      <button onclick="demoCombinedFilters()">Apply All Filters</button>
+      <div id="combinedOutput"></div>
+    </div>
+
+    <!-- Section 8: Filter Statistics -->
+    <div class="demo-section">
+      <h2>8. Filter Analysis</h2>
+      <div class="info-box">See statistics about filtered results.</div>
+      <div class="demo-buttons">
+        <button onclick="demoFilterStats()">Analyze Filters</button>
+        <button onclick="demoClearStats()">Clear</button>
+      </div>
+      <div id="statsOutput"></div>
+    </div>
+  </div>
+
+  <script>
+    // Sample data for demo
+    const sampleRepos = [
+      { name: 'React', language: 'JavaScript', stargazers_count: 180000, forks_count: 40000, archived: false, updated_at: '2024-01-15', topics: ['web', 'ui', 'library'] },
+      { name: 'Vue', language: 'JavaScript', stargazers_count: 50000, forks_count: 10000, archived: false, updated_at: '2024-01-10', topics: ['web', 'framework'] },
+      { name: 'Django', language: 'Python', stargazers_count: 80000, forks_count: 35000, archived: false, updated_at: '2024-01-20', topics: ['web', 'framework'] },
+      { name: 'Flask', language: 'Python', stargazers_count: 65000, forks_count: 20000, archived: false, updated_at: '2023-12-15', topics: ['web', 'api'] },
+      { name: 'Go-lang', language: 'Go', stargazers_count: 120000, forks_count: 18000, archived: false, updated_at: '2024-01-05', topics: ['language', 'systems'] },
+      { name: 'Old-Project', language: 'JavaScript', stargazers_count: 5000, forks_count: 500, archived: true, updated_at: '2020-06-01', topics: [] }
+    ];
+
+    function formatNumber(num) {
+      if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+      if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+      return num.toString();
+    }
+
+    function renderRepos(repos, containerId) {
+      const container = document.getElementById(containerId);
+      if (repos.length === 0) {
+        container.innerHTML = '<p style="color: #999; text-align: center; padding: 20px;">No repositories match your criteria</p>';
+        return;
+      }
+      container.innerHTML = `<div class="result-count">Found ${repos.length} repository(ies)</div>`;
+      repos.forEach(repo => {
+        const div = document.createElement('div');
+        div.className = 'repo-item';
+        div.innerHTML = `
+          <div class="repo-name">${repo.name}</div>
+          <div class="repo-description">${repo.language || 'Unknown Language'}</div>
+          <div class="repo-meta">
+            <div class="meta-item">⭐ ${formatNumber(repo.stargazers_count)}</div>
+            <div class="meta-item">🔀 ${formatNumber(repo.forks_count)}</div>
+            ${repo.archived ? '<div class="meta-item">📦 Archived</div>' : ''}
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function demoMinStars() {
+      const minStars = parseInt(document.getElementById('minStars').value) || 0;
+      const filtered = sampleRepos.filter(r => r.stargazers_count >= minStars);
+      renderRepos(filtered, 'starsOutput');
+    }
+
+    function demoMinForks() {
+      const minForks = parseInt(document.getElementById('minForks').value) || 0;
+      const filtered = sampleRepos.filter(r => r.forks_count >= minForks);
+      renderRepos(filtered, 'forksOutput');
+    }
+
+    function demoDateRange() {
+      const startDate = new Date(document.getElementById('startDate').value);
+      const endDate = new Date(document.getElementById('endDate').value);
+      const filtered = sampleRepos.filter(r => {
+        const updated = new Date(r.updated_at);
+        return updated >= startDate && updated <= endDate;
+      });
+      renderRepos(filtered, 'dateOutput');
+    }
+
+    function demoLanguageFilter() {
+      const language = document.getElementById('language').value;
+      const filtered = language ? sampleRepos.filter(r => r.language === language) : sampleRepos;
+      renderRepos(filtered, 'languageOutput');
+    }
+
+    function demoTopicsFilter() {
+      const topics = document.getElementById('topics').value.split(',').map(t => t.trim().toLowerCase()).filter(t => t);
+      const filtered = topics.length > 0 
+        ? sampleRepos.filter(r => r.topics.some(t => topics.includes(t.toLowerCase())))
+        : sampleRepos;
+      renderRepos(filtered, 'topicsOutput');
+    }
+
+    function demoArchived(include) {
+      const filtered = include ? sampleRepos : sampleRepos.filter(r => !r.archived);
+      renderRepos(filtered, 'archivedOutput');
+    }
+
+    function demoCombinedFilters() {
+      const minStars = parseInt(document.getElementById('combinedStars').value) || 0;
+      const minForks = parseInt(document.getElementById('combinedForks').value) || 0;
+      const language = document.getElementById('combinedLanguage').value;
+
+      let filtered = sampleRepos
+        .filter(r => r.stargazers_count >= minStars)
+        .filter(r => r.forks_count >= minForks)
+        .filter(r => !language || r.language === language);
+
+      renderRepos(filtered, 'combinedOutput');
+    }
+
+    function demoFilterStats() {
+      const output = document.getElementById('statsOutput');
+      const stats = {
+        totalRepos: sampleRepos.length,
+        byLanguage: {},
+        avgStars: Math.floor(sampleRepos.reduce((sum, r) => sum + r.stargazers_count, 0) / sampleRepos.length),
+        archived: sampleRepos.filter(r => r.archived).length
+      };
+
+      sampleRepos.forEach(r => {
+        stats.byLanguage[r.language] = (stats.byLanguage[r.language] || 0) + 1;
+      });
+
+      output.innerHTML = `
+        <div style="background: #f9f9f9; padding: 20px; border-radius: 8px;">
+          <p><strong>Total Repositories:</strong> ${stats.totalRepos}</p>
+          <p><strong>Archived:</strong> ${stats.archived}</p>
+          <p><strong>Average Stars:</strong> ${formatNumber(stats.avgStars)}</p>
+          <p><strong>By Language:</strong></p>
+          <ul style="margin-left: 20px; margin-top: 10px;">
+            ${Object.entries(stats.byLanguage).map(([lang, count]) => `<li>${lang}: ${count}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    function demoClearStats() {
+      document.getElementById('statsOutput').innerHTML = '';
+    }
+  </script>
+</body>
+</html>

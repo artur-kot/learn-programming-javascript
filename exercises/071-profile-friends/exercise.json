@@ -1,0 +1,10 @@
+{
+  "id": "071-profile-friends",
+  "title": "User Profile - Friends List",
+  "description": "Add array of friend objects and implement social network features.",
+  "series": "14",
+  "seriesName": "User Profile System",
+  "difficulty": "advanced",
+  "topics": ["arrays", "object relationships", "social graphs"],
+  "skills": ["managing relationships", "array operations", "graph concepts"]
+}

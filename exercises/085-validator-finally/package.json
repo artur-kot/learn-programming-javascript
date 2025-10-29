@@ -1,0 +1,19 @@
+{
+  "name": "085-validator-finally",
+  "version": "1.0.0",
+  "description": "Form Validator - Finally Cleanup",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 085-validator-finally.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "error-handling",
+    "finally",
+    "cleanup",
+    "validation"
+  ],
+  "author": "",
+  "license": "MIT"
+}

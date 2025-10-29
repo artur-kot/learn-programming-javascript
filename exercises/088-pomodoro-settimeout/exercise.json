@@ -1,0 +1,21 @@
+{
+  "id": "088-pomodoro-settimeout",
+  "number": 88,
+  "title": "Pomodoro Timer - Basic Countdown",
+  "series": "18-pomodoro-timer",
+  "seriesNumber": 1,
+  "topic": "setTimeout Fundamentals",
+  "description": "Learn to use setTimeout for delayed execution. Build a simple countdown that waits and then executes after a delay.",
+  "concepts": [
+    "setTimeout function",
+    "Asynchronous execution",
+    "Callbacks",
+    "Timing and delays",
+    "Simple promises",
+    "Return values from timers"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "087-validator-debug"
+  ]
+}

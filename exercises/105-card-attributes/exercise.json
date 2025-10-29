@@ -1,0 +1,22 @@
+{
+  "id": "105-card-attributes",
+  "number": 105,
+  "title": "Card Generator - Set Attributes",
+  "series": "21-card-generator",
+  "seriesNumber": 3,
+  "topic": "Setting Element Attributes",
+  "description": "Add classes, IDs, and data attributes to elements. Learn attribute management.",
+  "concepts": [
+    "Setting className",
+    "Setting id attribute",
+    "Data attributes (data-*)",
+    "setAttribute method",
+    "getAttribute method",
+    "classList API",
+    "Attribute naming"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "104-card-content"
+  ]
+}

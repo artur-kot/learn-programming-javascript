@@ -1,0 +1,7 @@
+{
+  "name": "038-text-word-count",
+  "type": "module",
+  "scripts": {
+    "test": "node 038-text-word-count.test.js"
+  }
+}

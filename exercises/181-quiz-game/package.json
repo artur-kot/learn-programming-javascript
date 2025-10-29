@@ -1,0 +1,25 @@
+{
+  "name": "181-quiz-game",
+  "version": "1.0.0",
+  "description": "Complete quiz game application - Capstone project combining multiple features",
+  "main": "quiz.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "quiz",
+    "game",
+    "javascript",
+    "capstone",
+    "state-management",
+    "timer",
+    "scoring"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}

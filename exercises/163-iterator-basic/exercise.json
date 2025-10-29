@@ -1,0 +1,70 @@
+{
+  "id": 163,
+  "title": "Iterator - Basic Iterator",
+  "description": "Implement Symbol.iterator for custom objects to make them iterable",
+  "series": 33,
+  "difficulty": "intermediate",
+  "topics": ["iterators", "Symbol", "iteration protocol"],
+  "functions": [
+    {
+      "name": "createCounterIterator",
+      "description": "Create object with Symbol.iterator that counts from 1 to max",
+      "parameters": ["max"],
+      "returns": "Object with [Symbol.iterator] method"
+    },
+    {
+      "name": "createArrayIterator",
+      "description": "Create iterator that manually iterates through array items",
+      "parameters": ["array"],
+      "returns": "Object with next() method returning {value, done}"
+    },
+    {
+      "name": "createFilterIterator",
+      "description": "Create iterator that only yields items matching predicate",
+      "parameters": ["array", "predicate"],
+      "returns": "Object with [Symbol.iterator] method"
+    },
+    {
+      "name": "createPairsIterator",
+      "description": "Create iterator that returns adjacent pairs from array",
+      "parameters": ["array"],
+      "returns": "Object with [Symbol.iterator] method"
+    },
+    {
+      "name": "createMapIterator",
+      "description": "Create iterator that transforms items using mapping function",
+      "parameters": ["array", "mapFn"],
+      "returns": "Object with [Symbol.iterator] method"
+    },
+    {
+      "name": "makeIterableString",
+      "description": "Create object that iterates through string characters",
+      "parameters": ["str"],
+      "returns": "Object with [Symbol.iterator] method"
+    },
+    {
+      "name": "createRangeIterator",
+      "description": "Create iterator from start to end with optional step",
+      "parameters": ["start", "end", "step"],
+      "returns": "Object with [Symbol.iterator] method"
+    },
+    {
+      "name": "isIterable",
+      "description": "Check if object implements the iterable protocol",
+      "parameters": ["obj"],
+      "returns": "Boolean - true if object has [Symbol.iterator]"
+    },
+    {
+      "name": "getIteratorValues",
+      "description": "Extract all values from an iterable into array",
+      "parameters": ["iterable"],
+      "returns": "Array of all yielded values"
+    },
+    {
+      "name": "createZipIterator",
+      "description": "Create iterator that yields pairs from two arrays in parallel",
+      "parameters": ["array1", "array2"],
+      "returns": "Object with [Symbol.iterator] method"
+    }
+  ]
+}

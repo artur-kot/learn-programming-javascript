@@ -1,0 +1,10 @@
+{
+  "id": "055-playlist-search",
+  "title": "Playlist Search",
+  "description": "Implement search functionality for playlists by finding songs by title or artist.",
+  "series": "11",
+  "seriesName": "Playlist Manager",
+  "difficulty": "intermediate",
+  "topics": ["arrays", "array methods", "filter", "string methods"],
+  "skills": ["filtering", "case-insensitive search", "string manipulation"]
+}

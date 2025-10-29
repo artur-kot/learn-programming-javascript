@@ -1,0 +1,23 @@
+{
+  "name": "103-card-create",
+  "version": "1.0.0",
+  "description": "Card Generator - Create Element",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "dom",
+    "createElement",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^4.0.4",
+    "@vitest/browser": "^4.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

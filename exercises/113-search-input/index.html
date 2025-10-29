@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Search Filter - Input Event</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .search-input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    #search-input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+
+    #search-input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      font-size: 18px;
+    }
+
+    .results-container {
+      margin-top: 20px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .result-item {
+      padding: 12px 16px;
+      background: #f9f9f9;
+      border-left: 4px solid #667eea;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .result-item:hover {
+      background: #f0f0f0;
+      transform: translateX(4px);
+    }
+
+    .result-item:active {
+      transform: translateX(0);
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      font-size: 16px;
+    }
+
+    .result-count {
+      padding: 10px 16px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .search-help {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e3f2fd;
+      border-radius: 6px;
+      color: #1976d2;
+      font-size: 13px;
+      border-left: 4px solid #1976d2;
+    }
+
+    .loading {
+      text-align: center;
+      color: #667eea;
+      font-size: 14px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <h1>Live Search Filter</h1>
+    
+    <div class="search-input-group">
+      <input
+        id="search-input"
+        type="text"
+        placeholder="Search programming languages, frameworks..."
+        autocomplete="off"
+      >
+      <span class="search-icon">🔍</span>
+    </div>
+
+    <div id="results" class="results-container"></div>
+
+    <div class="search-help">
+      <strong>Tip:</strong> Start typing to filter the list in real-time. Search is case-insensitive and matches partial text.
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      getInputValue,
+      filterItems,
+      displayResults,
+      setupSearchListener
+    } from './113-search-input.js';
+
+    const searchInput = document.getElementById('search-input');
+    const resultsContainer = document.getElementById('results');
+
+    const items = [
+      'JavaScript',
+      'Python',
+      'Java',
+      'C++',
+      'C#',
+      'Ruby',
+      'Go',
+      'Rust',
+      'PHP',
+      'Swift',
+      'Kotlin',
+      'TypeScript',
+      'React',
+      'Vue.js',
+      'Angular',
+      'Django',
+      'Flask',
+      'Express.js',
+      'Node.js',
+      'Svelte'
+    ];
+
+    setupSearchListener(searchInput, resultsContainer, items);
+  </script>
+</body>
+</html>

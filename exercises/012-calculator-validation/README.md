@@ -129,8 +129,6 @@ This exercise teaches essential error handling concepts:
 - **Defensive programming**: Planning for things to go wrong
 - **Edge cases**: Handling special situations (divide by zero, negative square root)
 
-These skills are critical for building reliable, user-friendly applications!
-
 ## Reflection Questions
 
 After completing the exercise, think about:
@@ -140,7 +138,7 @@ After completing the exercise, think about:
 
 ## What You've Learned
 
-Through this series, you've mastered:
+Through this series, you've learn basics of:
 
 - **Arithmetic operators**: +, -, *, /, %, **
 - **Math object**: Math.sqrt() and other built-in functions

@@ -1,0 +1,19 @@
+{
+  "name": "081-slug-extract",
+  "version": "1.0.0",
+  "description": "URL Slug Generator - Extract Parts",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 081-slug-extract.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "strings",
+    "slice",
+    "substring",
+    "extract"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,45 @@
+{
+  "id": 174,
+  "title": "Autocomplete - Optimize & Performance",
+  "description": "Build an optimized autocomplete system with debouncing, caching, fuzzy search, and advanced performance techniques. Learn production-ready patterns for real-world applications.",
+  "series": 35,
+  "difficulty": "Intermediate-Advanced",
+  "tags": ["fullstack", "fastify", "vite", "performance", "optimization", "debouncing", "caching"],
+  "technologies": ["Node.js", "Fastify", "Vite", "HTML5", "CSS3", "REST API", "Performance Optimization"],
+  "learningOutcomes": [
+    "Implement debouncing to reduce API calls",
+    "Add client-side caching for repeated searches",
+    "Optimize search algorithms with fuzzy matching",
+    "Implement lazy loading and virtual scrolling",
+    "Add keyboard navigation and accessibility",
+    "Measure and analyze performance improvements"
+  ],
+  "skillsFocused": [
+    "Debouncing and throttling patterns",
+    "Client-side caching strategies",
+    "Fuzzy/approximate matching algorithms",
+    "DOM performance optimization",
+    "Keyboard event handling",
+    "Performance profiling and measurement"
+  ],
+  "estimatedHours": 3,
+  "prerequisitesContent": [
+    "Exercise 173: Autocomplete Basic Setup (full-stack architecture)",
+    "Understanding of asynchronous JavaScript",
+    "DOM manipulation and event handling",
+    "Algorithm basics (sorting, filtering)"
+  ],
+  "structure": {
+    "backend": {
+      "mainFile": "src/server.js",
+      "dataFile": "data/countries.json",
+      "description": "Enhanced Fastify server with caching and advanced search"
+    },
+    "frontend": {
+      "mainFile": "src/main.js",
+      "htmlFile": "index.html",
+      "styleFile": "src/style.css",
+      "description": "Optimized Vite frontend with performance enhancements"
+    }
+  }
+}

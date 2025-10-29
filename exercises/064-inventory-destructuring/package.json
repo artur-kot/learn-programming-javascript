@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 064-inventory-destructuring.test.js"
+  }
+}

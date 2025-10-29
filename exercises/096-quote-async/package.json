@@ -1,0 +1,18 @@
+{
+  "name": "096-quote-async",
+  "version": "1.0.0",
+  "description": "Quote Fetcher - Async/Await",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 096-quote-async.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "async",
+    "await",
+    "modern-promises"
+  ],
+  "author": "",
+  "license": "MIT"
+}

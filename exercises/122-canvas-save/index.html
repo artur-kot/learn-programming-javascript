@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Drawing Canvas - Save Drawing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .info-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background: #667eea;
+      color: white;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .canvas-wrapper {
+      margin: 20px 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    #drawing-canvas {
+      display: block;
+      width: 100%;
+      cursor: crosshair;
+      background: white;
+    }
+
+    .controls {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .color-picker {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .color-btn {
+      padding: 10px 16px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: white;
+    }
+
+    .color-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .color-btn.active {
+      border-color: white;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-success {
+      background: #4caf50;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #45a049;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+    }
+
+    .btn-secondary {
+      background: #f57c00;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #e65100;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(245, 124, 0, 0.4);
+    }
+
+    .save-options {
+      margin-top: 15px;
+      padding: 15px;
+      background: white;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    .save-options h3 {
+      margin-top: 0;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .option-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .format-btn {
+      padding: 8px 16px;
+      font-size: 12px;
+      background: #e0e0e0;
+      color: #333;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .format-btn.active {
+      background: #667eea;
+      color: white;
+    }
+
+    .status {
+      margin-top: 15px;
+      padding: 12px;
+      background: #e8f5e9;
+      border-radius: 6px;
+      border-left: 4px solid #4caf50;
+      color: #2e7d32;
+      font-size: 14px;
+    }
+
+    .status.success {
+      background: #c8e6c9;
+      border-left-color: #4caf50;
+      color: #1b5e20;
+    }
+
+    .status.info {
+      background: #bbdefb;
+      border-left-color: #2196f3;
+      color: #0d47a1;
+    }
+
+    .help-section {
+      margin-top: 30px;
+      padding: 20px;
+      background: #e3f2fd;
+      border-radius: 8px;
+      border-left: 4px solid #2196f3;
+    }
+
+    .help-section h2 {
+      color: #1976d2;
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .help-section p {
+      color: #0d47a1;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .code-block {
+      background: white;
+      padding: 12px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #333;
+      overflow-x: auto;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+    }
+
+    .tips {
+      margin-top: 15px;
+      padding: 12px;
+      background: white;
+      border-radius: 4px;
+      border-left: 3px solid #4caf50;
+    }
+
+    .tips strong {
+      color: #2e7d32;
+    }
+
+    .preview {
+      margin-top: 15px;
+      padding: 12px;
+      background: white;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    .preview h4 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .preview-url {
+      word-break: break-all;
+      font-family: monospace;
+      font-size: 11px;
+      color: #666;
+      background: #f5f5f5;
+      padding: 8px;
+      border-radius: 4px;
+      max-height: 60px;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .color-picker {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Drawing and Exporting <span class="info-badge">Save/Export</span></h1>
+
+    <div class="canvas-wrapper">
+      <canvas id="drawing-canvas" width="800" height="600"></canvas>
+    </div>
+
+    <div class="controls">
+      <div>
+        <label style="font-weight: 600; color: #333;">Select Drawing Color:</label>
+        <div class="color-picker" id="color-container"></div>
+      </div>
+
+      <div class="button-group" style="margin-top: 15px;">
+        <button class="btn-primary" id="clear-btn">Clear Canvas</button>
+        <button class="btn-secondary" id="undo-btn">Undo</button>
+      </div>
+
+      <div class="save-options">
+        <h3>📥 Save and Export Drawing:</h3>
+        <div class="option-group">
+          <button class="format-btn active" data-format="png">PNG</button>
+          <button class="format-btn" data-format="jpg">JPEG</button>
+        </div>
+        <div class="button-group" style="margin-top: 10px;">
+          <button class="btn-success" id="download-btn">⬇️ Download Drawing</button>
+          <button class="btn-success" id="copy-btn">📋 Copy to Clipboard</button>
+        </div>
+      </div>
+
+      <div class="status" id="status">
+        Ready to draw! Create your masterpiece and save it.
+      </div>
+
+      <div class="preview" id="preview" style="display: none;">
+        <h4>Preview:</h4>
+        <div class="preview-url" id="preview-url"></div>
+      </div>
+    </div>
+
+    <div class="help-section">
+      <h2>Saving and Exporting Canvas Drawings</h2>
+
+      <p><strong>What is toDataURL()?</strong></p>
+      <p>
+        Canvas has a built-in method <code>toDataURL()</code> that converts the entire canvas
+        into a string representation. This string can be used as an image source, saved as a file,
+        or sent to a server.
+      </p>
+
+      <p><strong>What is a Data URL?</strong></p>
+      <p>
+        A Data URL is a long string that represents an entire image in text format. It starts with
+        <code>data:image/png;base64,</code> followed by the image data encoded in base64.
+      </p>
+
+      <div class="code-block">
+// Data URL looks like:
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEA...
+
+// Can be used directly in HTML
+&lt;img src="data:image/png;base64,iVBORw0KGgo..." /&gt;
+
+// Or as canvas source in JavaScript
+img.src = dataUrl;
+      </div>
+
+      <p><strong>Canvas Export Methods:</strong></p>
+      <div class="code-block">
+// 1. Get Data URL (text representation)
+const dataUrl = canvas.toDataURL('image/png');
+
+// 2. Get Blob (binary data)
+canvas.toBlob(blob => {
+  console.log('Blob:', blob);
+});
+
+// 3. Get ImageData (pixel array)
+const imageData = ctx.getImageData(0, 0, 800, 600);
+      </div>
+
+      <p><strong>Creating Download Links:</strong></p>
+      <p>
+        To save a canvas drawing to a user's computer, create a temporary link element
+        and trigger a download:
+      </p>
+
+      <div class="code-block">
+function downloadCanvasImage(canvas, filename = 'drawing.png') {
+  // Create temporary link
+  const link = document.createElement('a');
+  
+  // Set href to data URL
+  link.href = canvas.toDataURL('image/png');
+  
+  // Set filename
+  link.download = filename;
+  
+  // Trigger download
+  link.click();
+}
+
+// Usage
+downloadCanvasImage(canvas, 'my-drawing.png');
+      </div>
+
+      <p><strong>Image Format Conversion:</strong></p>
+      <p>
+        Different formats have different properties. Choose based on your needs:
+      </p>
+
+      <div class="code-block">
+// PNG - Lossless (full quality, larger file)
+const pngUrl = canvas.toDataURL('image/png');
+
+// JPEG - Lossy (smaller file, slight quality loss)
+const jpegUrl = canvas.toDataURL('image/jpeg', 0.9);
+// Quality: 0 (worst) to 1 (best)
+
+// WebP - Modern format (good compression)
+const webpUrl = canvas.toDataURL('image/webp', 0.8);
+      </div>
+
+      <p><strong>File Size Comparison:</strong></p>
+      <ul style="color: #0d47a1; line-height: 1.8;">
+        <li><strong>PNG:</strong> Lossless - Preserves all detail, larger files</li>
+        <li><strong>JPEG:</strong> Lossy - Smaller files, slight quality loss</li>
+        <li><strong>WebP:</strong> Modern - Smaller than JPEG, good quality</li>
+      </ul>
+
+      <p><strong>Using Blob for Downloads:</strong></p>
+      <p>
+        Blob provides a more efficient way to handle binary data. It's especially useful
+        for large images:
+      </p>
+
+      <div class="code-block">
+// Blob approach (better for large files)
+canvas.toBlob(blob => {
+  // Create object URL
+  const url = URL.createObjectURL(blob);
+  
+  // Create and trigger link
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'drawing.png';
+  link.click();
+  
+  // Clean up
+  URL.revokeObjectURL(url);
+}, 'image/png');
+      </div>
+
+      <p><strong>Copying Canvas to Clipboard (Modern Browsers):</strong></p>
+      <p>
+        Modern browsers support copying image data directly to clipboard:
+      </p>
+
+      <div class="code-block">
+// Copy canvas as image to clipboard
+canvas.toBlob(blob => {
+  const item = new ClipboardItem({ 'image/png': blob });
+  navigator.clipboard.write([item]).then(() => {
+    console.log('Copied to clipboard!');
+  });
+}, 'image/png');
+      </div>
+
+      <p><strong>Generating Filenames with Timestamp:</strong></p>
+      <p>
+        Create unique filenames by including timestamp:
+      </p>
+
+      <div class="code-block">
+function generateFileName(extension = 'png') {
+  const date = new Date();
+  const timestamp = date.toISOString()
+    .split('T')[0] // YYYY-MM-DD
+    .replace(/-/g, ''); // Remove hyphens
+  
+  return `drawing-${timestamp}-${Date.now()}.${extension}`;
+}
+
+// Result: drawing-20240115-1705332456789.png
+      </div>
+
+      <p><strong>Determining Format from Filename:</strong></p>
+      <div class="code-block">
+function getImageFormat(filename) {
+  const ext = filename.split('.').pop().toLowerCase();
+  
+  const formats = {
+    'png': 'image/png',
+    'jpg': 'image/jpeg',
+    'jpeg': 'image/jpeg',
+    'webp': 'image/webp'
+  };
+  
+  return formats[ext] || 'image/png';
+}
+
+// Usage
+const format = getImageFormat('my-drawing.jpg');
+// Returns: 'image/jpeg'
+      </div>
+
+      <p><strong>Browser Support:</strong></p>
+      <ul style="color: #0d47a1; line-height: 1.8;">
+        <li><code>toDataURL()</code> - All browsers</li>
+        <li><code>toBlob()</code> - All modern browsers</li>
+        <li><code>ClipboardItem</code> - Modern browsers (not IE)</li>
+      </ul>
+
+      <div class="tips">
+        <strong>💡 Performance Tips:</strong>
+        <ul style="color: #0d47a1; margin: 8px 0;">
+          <li>Use Blob for large images (more efficient)</li>
+          <li>PNG for art/screenshots, JPEG for photos</li>
+          <li>Remember to revoke object URLs when done</li>
+          <li>Clipboard copy is asynchronous (wait with await)</li>
+        </ul>
+      </div>
+
+      <p><strong>Common Issues and Solutions:</strong></p>
+      <div class="code-block">
+// Issue: Canvas has drawing from previous sessions
+// Solution: Clear canvas at start
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+// Issue: Downloaded image is blank
+// Solution: Ensure canvas has content before saving
+if (hasContent) {
+  downloadCanvasImage(canvas, 'drawing.png');
+}
+
+// Issue: Large data URLs crash browser
+// Solution: Use Blob instead
+canvas.toBlob(blob => {
+  // Process blob instead of data URL
+}, 'image/png');
+      </div>
+
+      <p><strong>Advanced: Server Upload</strong></p>
+      <p>
+        After saving to Blob, you can upload to server:
+      </p>
+
+      <div class="code-block">
+canvas.toBlob(blob => {
+  const formData = new FormData();
+  formData.append('image', blob, 'drawing.png');
+  
+  fetch('/upload', {
+    method: 'POST',
+    body: formData
+  }).then(res => res.json())
+    .then(data => console.log('Uploaded:', data));
+}, 'image/png');
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      getCanvasDataURL,
+      createBlobFromCanvas,
+      downloadCanvasImage,
+      getImageFormat,
+      copyCanvasToClipboard,
+      generateFileName
+    } from './122-canvas-save.js';
+
+    const canvas = document.getElementById('drawing-canvas');
+    const ctx = canvas.getContext('2D');
+    const colorContainer = document.getElementById('color-container');
+    const statusDiv = document.getElementById('status');
+    const clearBtn = document.getElementById('clear-btn');
+    const undoBtn = document.getElementById('undo-btn');
+    const downloadBtn = document.getElementById('download-btn');
+    const copyBtn = document.getElementById('copy-btn');
+    const previewDiv = document.getElementById('preview');
+    const previewUrl = document.getElementById('preview-url');
+    const formatBtns = document.querySelectorAll('.format-btn');
+
+    // Setup canvas
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#000000';
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    // History for undo
+    const history = [];
+
+    // Save initial state
+    function saveState() {
+      const url = getCanvasDataURL(canvas);
+      history.push(url);
+    }
+    saveState();
+
+    // Color palette
+    const colors = [
+      { hex: '#000000', name: 'Black' },
+      { hex: '#FF0000', name: 'Red' },
+      { hex: '#00FF00', name: 'Green' },
+      { hex: '#0000FF', name: 'Blue' },
+      { hex: '#FFFF00', name: 'Yellow' },
+      { hex: '#FF00FF', name: 'Magenta' },
+      { hex: '#00FFFF', name: 'Cyan' },
+      { hex: '#FFA500', name: 'Orange' }
+    ];
+
+    // Create color buttons
+    colors.forEach(color => {
+      const btn = document.createElement('button');
+      btn.className = 'color-btn';
+      btn.dataset.color = color.hex;
+      btn.textContent = color.name;
+      btn.style.backgroundColor = color.hex;
+      colorContainer.appendChild(btn);
+    });
+
+    // Color selection
+    colorContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+
+      colorContainer.querySelectorAll('button').forEach(b => {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      ctx.strokeStyle = btn.dataset.color;
+    });
+
+    // Set first color as active
+    colorContainer.querySelector('button').classList.add('active');
+
+    // Drawing state
+    const drawing = {
+      isDrawing: false,
+      lastX: 0,
+      lastY: 0
+    };
+
+    canvas.addEventListener('mousedown', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      drawing.isDrawing = true;
+      drawing.lastX = e.clientX - rect.left;
+      drawing.lastY = e.clientY - rect.top;
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (!drawing.isDrawing) return;
+
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      ctx.beginPath();
+      ctx.moveTo(drawing.lastX, drawing.lastY);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+
+      drawing.lastX = x;
+      drawing.lastY = y;
+    });
+
+    canvas.addEventListener('mouseup', () => {
+      if (drawing.isDrawing) {
+        drawing.isDrawing = false;
+        saveState();
+      }
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      if (drawing.isDrawing) {
+        drawing.isDrawing = false;
+        saveState();
+      }
+    });
+
+    // Clear button
+    clearBtn.addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      saveState();
+      statusDiv.textContent = '🗑️ Canvas cleared!';
+      statusDiv.classList.add('success');
+      setTimeout(() => statusDiv.classList.remove('success'), 2000);
+    });
+
+    // Undo button
+    undoBtn.addEventListener('click', () => {
+      if (history.length <= 1) return;
+
+      history.pop();
+      const previousState = history[history.length - 1];
+
+      const img = new Image();
+      img.onload = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+      };
+      img.src = previousState;
+
+      statusDiv.textContent = '↩️ Undone!';
+      statusDiv.classList.add('info');
+      setTimeout(() => statusDiv.classList.remove('info'), 2000);
+    });
+
+    // Format selection
+    let selectedFormat = 'png';
+    formatBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        formatBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedFormat = btn.dataset.format;
+      });
+    });
+
+    // Download button
+    downloadBtn.addEventListener('click', async () => {
+      const filename = generateFileName(selectedFormat);
+      downloadCanvasImage(canvas, filename);
+      statusDiv.textContent = `✅ Downloading as ${filename}!`;
+      statusDiv.classList.add('success');
+      setTimeout(() => statusDiv.classList.remove('success'), 3000);
+    });
+
+    // Copy to clipboard button
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await copyCanvasToClipboard(canvas);
+        statusDiv.textContent = '✅ Copied to clipboard!';
+        statusDiv.classList.add('success');
+        setTimeout(() => statusDiv.classList.remove('success'), 3000);
+      } catch (err) {
+        statusDiv.textContent = '❌ Clipboard not available in this browser';
+        statusDiv.classList.add('info');
+        setTimeout(() => statusDiv.classList.remove('info'), 3000);
+      }
+    });
+
+    // Show preview
+    canvas.addEventListener('mouseup', () => {
+      const format = getImageFormat(`drawing.${selectedFormat}`);
+      const url = getCanvasDataURL(canvas, format);
+      previewUrl.textContent = url.substring(0, 100) + '...';
+      previewDiv.style.display = 'block';
+    });
+  </script>
+</body>
+</html>

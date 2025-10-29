@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 156: Notes Persist & Storage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 min-h-screen text-white py-8">
+  <div class="max-w-6xl mx-auto p-4">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-5xl font-bold mb-4">Notes Persist & Storage</h1>
+      <p class="text-xl text-purple-200">Master localStorage and data persistence patterns</p>
+    </div>
+
+    <!-- Storage Controls -->
+    <div class="card bg-base-100 shadow-xl mb-8">
+      <div class="card-body">
+        <h2 class="card-title mb-6">Storage Management</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Operations -->
+          <div class="space-y-4">
+            <h3 class="font-bold text-lg">Operations</h3>
+            <button class="btn btn-primary w-full" id="saveBtn">Save Notes</button>
+            <button class="btn btn-secondary w-full" id="loadBtn">Load Notes</button>
+            <button class="btn btn-warning w-full" id="backupBtn">Create Backup</button>
+            <button class="btn btn-error w-full" id="clearBtn">Clear All</button>
+          </div>
+
+          <!-- Stats -->
+          <div class="space-y-4">
+            <h3 class="font-bold text-lg">Storage Stats</h3>
+            <div class="bg-gray-800 p-4 rounded border border-gray-700 space-y-2">
+              <div class="flex justify-between">
+                <span>Notes Stored:</span>
+                <span class="font-bold" id="noteCount">0</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Storage Used:</span>
+                <span class="font-bold" id="storageUsed">0 KB</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Items in Storage:</span>
+                <span class="font-bold" id="itemCount">0</span>
+              </div>
+              <div class="divider"></div>
+              <button class="btn btn-sm btn-ghost w-full" id="statsBtn">Refresh Stats</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Import/Export -->
+    <div class="card bg-base-100 shadow-xl mb-8">
+      <div class="card-body">
+        <h2 class="card-title mb-6">Import & Export</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-3">
+            <label class="label">
+              <span class="label-text">Export Notes as JSON</span>
+            </label>
+            <textarea id="exportArea" readonly class="textarea textarea-bordered w-full" placeholder="Export will appear here" rows="6"></textarea>
+            <button class="btn btn-primary w-full" id="exportBtn">Export</button>
+          </div>
+
+          <div class="space-y-3">
+            <label class="label">
+              <span class="label-text">Import from JSON</span>
+            </label>
+            <textarea id="importArea" class="textarea textarea-bordered w-full" placeholder="Paste JSON here" rows="6"></textarea>
+            <button class="btn btn-primary w-full" id="importBtn">Import</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo Sections -->
+    <div class="space-y-8">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 1: Save Notes to Storage</h2>
+          <p class="text-sm text-gray-300 mb-4">Persist notes to browser storage</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Save notes array to localStorage<br>
+const notes = [<br>
+&nbsp;&nbsp;{ id: 1, title: 'Note', content: 'Content' }<br>
+];<br>
+saveNotesToStorage(notes);<br>
+// Returns: true if successful
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 2: Load Notes from Storage</h2>
+          <p class="text-sm text-gray-300 mb-4">Retrieve saved notes from storage</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Load notes from localStorage<br>
+const notes = loadNotesFromStorage();<br>
+// Returns: array of notes or empty array
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 3: Delete Note from Storage</h2>
+          <p class="text-sm text-gray-300 mb-4">Remove a specific note by ID</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Delete note with id=5<br>
+const deleted = deleteNoteFromStorage(5);<br>
+// Returns: true if found and deleted, false otherwise
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 4: Get Storage Statistics</h2>
+          <p class="text-sm text-gray-300 mb-4">Analyze storage usage</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Get storage stats<br>
+const stats = getStorageStats();<br>
+// {<br>
+// &nbsp;&nbsp;noteCount: 42,<br>
+// &nbsp;&nbsp;totalBytes: 15234,<br>
+// &nbsp;&nbsp;estimatedUsage: '14.8 KB'<br>
+// }
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 5: Validate Storage Data</h2>
+          <p class="text-sm text-gray-300 mb-4">Check if data format is valid</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Validate data<br>
+const result = validateStorageData(data);<br>
+// { isValid: true, errors: [] }<br>
+// or<br>
+// { isValid: false, errors: ['...'] }
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 6: Backup & Restore</h2>
+          <p class="text-sm text-gray-300 mb-4">Create timestamped backups</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Create backup<br>
+const backupKey = backupNotes();<br>
+// 'notes_backup_2024-01-15_10-30-45'<br>
+<br>
+// Later, restore<br>
+restoreNotesFromBackup(backupKey);<br>
+// Returns: true if successful
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 7: Export to JSON</h2>
+          <p class="text-sm text-gray-300 mb-4">Export notes for sharing or backup</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Export notes<br>
+const json = exportNotesToJSON(notes);<br>
+// Returns prettified JSON string<br>
+// Save to file or send to server
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Example 8: Import from JSON</h2>
+          <p class="text-sm text-gray-300 mb-4">Import notes from JSON file</p>
+          <div class="bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+            <code class="text-yellow-300">
+// Import notes<br>
+const result = importNotesFromJSON(jsonString);<br>
+// {<br>
+// &nbsp;&nbsp;success: true,<br>
+// &nbsp;&nbsp;notes: [...],<br>
+// &nbsp;&nbsp;errors: []<br>
+// }
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sample data
+    const sampleNotes = [
+      {
+        id: 1,
+        title: 'My First Note',
+        content: 'This is a stored note in localStorage',
+        tags: ['important', 'work'],
+        createdAt: new Date().toISOString(),
+        modifiedAt: new Date().toISOString()
+      },
+      {
+        id: 2,
+        title: 'Second Note',
+        content: 'Another note for persistence demo',
+        tags: ['tutorial'],
+        createdAt: new Date().toISOString(),
+        modifiedAt: new Date().toISOString()
+      }
+    ];
+
+    function updateStats() {
+      const notes = localStorage.getItem('notes');
+      const noteArray = notes ? JSON.parse(notes) : [];
+      const itemCount = Object.keys(localStorage).length;
+      
+      let totalBytes = 0;
+      for (let key in localStorage) {
+        if (localStorage.hasOwnProperty(key)) {
+          totalBytes += localStorage.getItem(key).length;
+        }
+      }
+      const kb = (totalBytes / 1024).toFixed(2);
+      
+      document.getElementById('noteCount').textContent = noteArray.length;
+      document.getElementById('storageUsed').textContent = kb + ' KB';
+      document.getElementById('itemCount').textContent = itemCount;
+    }
+
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      localStorage.setItem('notes', JSON.stringify(sampleNotes));
+      alert('Notes saved!');
+      updateStats();
+    });
+
+    document.getElementById('loadBtn').addEventListener('click', () => {
+      const notes = localStorage.getItem('notes');
+      if (notes) {
+        alert(`Loaded ${JSON.parse(notes).length} notes`);
+      } else {
+        alert('No notes found in storage');
+      }
+      updateStats();
+    });
+
+    document.getElementById('backupBtn').addEventListener('click', () => {
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+      const backupKey = `notes_backup_${timestamp}`;
+      const notes = localStorage.getItem('notes');
+      if (notes) {
+        localStorage.setItem(backupKey, notes);
+        alert(`Backup created: ${backupKey}`);
+      } else {
+        alert('No notes to backup');
+      }
+      updateStats();
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      if (confirm('Clear all notes?')) {
+        localStorage.removeItem('notes');
+        alert('All notes cleared');
+        updateStats();
+      }
+    });
+
+    document.getElementById('statsBtn').addEventListener('click', updateStats);
+
+    document.getElementById('exportBtn').addEventListener('click', () => {
+      const notes = localStorage.getItem('notes');
+      if (notes) {
+        const json = JSON.stringify(JSON.parse(notes), null, 2);
+        document.getElementById('exportArea').value = json;
+        alert('Notes exported to text area');
+      } else {
+        alert('No notes to export');
+      }
+    });
+
+    document.getElementById('importBtn').addEventListener('click', () => {
+      const json = document.getElementById('importArea').value;
+      try {
+        const notes = JSON.parse(json);
+        localStorage.setItem('notes', JSON.stringify(notes));
+        alert(`Imported ${notes.length} notes`);
+        updateStats();
+      } catch (e) {
+        alert('Invalid JSON format');
+      }
+    });
+
+    // Initialize
+    updateStats();
+  </script>
+</body>
+</html>

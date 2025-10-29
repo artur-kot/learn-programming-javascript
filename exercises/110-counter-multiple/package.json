@@ -1,0 +1,25 @@
+{
+  "name": "110-counter-multiple",
+  "version": "1.0.0",
+  "description": "Interactive Counter - Multiple Buttons",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "events",
+    "multiple buttons",
+    "conditional logic",
+    "event handling",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

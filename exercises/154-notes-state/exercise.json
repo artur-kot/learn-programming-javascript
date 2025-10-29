@@ -1,0 +1,205 @@
+{
+  "id": "154-notes-state",
+  "title": "Notes State Management",
+  "description": "Learn state management techniques for note applications including searching, filtering, and sorting operations",
+  "series": 31,
+  "exerciseNumber": 154,
+  "difficulty": "intermediate",
+  "functions": [
+    {
+      "name": "searchNotes",
+      "description": "Search notes by title or content using a query string",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects with title and content properties"
+        },
+        {
+          "name": "query",
+          "type": "String",
+          "description": "Search query string (case-insensitive)"
+        }
+      ],
+      "returns": {
+        "type": "Array<Object>",
+        "description": "Filtered array of notes matching the query"
+      }
+    },
+    {
+      "name": "sortNotesByDate",
+      "description": "Sort notes chronologically by creation date",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects with createdAt timestamp"
+        },
+        {
+          "name": "ascending",
+          "type": "Boolean",
+          "description": "If true, sort oldest first; if false, newest first"
+        }
+      ],
+      "returns": {
+        "type": "Array<Object>",
+        "description": "Sorted array of notes"
+      }
+    },
+    {
+      "name": "sortNotesByTitle",
+      "description": "Sort notes alphabetically by title",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects with title property"
+        },
+        {
+          "name": "ascending",
+          "type": "Boolean",
+          "description": "If true, sort A-Z; if false, sort Z-A"
+        }
+      ],
+      "returns": {
+        "type": "Array<Object>",
+        "description": "Sorted array of notes"
+      }
+    },
+    {
+      "name": "filterNotesByLength",
+      "description": "Filter notes by content length (min and max characters)",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects with content property"
+        },
+        {
+          "name": "minLength",
+          "type": "Number",
+          "description": "Minimum content length in characters"
+        },
+        {
+          "name": "maxLength",
+          "type": "Number",
+          "description": "Maximum content length in characters"
+        }
+      ],
+      "returns": {
+        "type": "Array<Object>",
+        "description": "Filtered array of notes within the length range"
+      }
+    },
+    {
+      "name": "getNotesByTag",
+      "description": "Get notes that contain a specific tag in their tags array",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects with tags property (array of strings)"
+        },
+        {
+          "name": "tag",
+          "type": "String",
+          "description": "Tag to search for (case-insensitive)"
+        }
+      ],
+      "returns": {
+        "type": "Array<Object>",
+        "description": "Notes that include the specified tag"
+      }
+    },
+    {
+      "name": "getNotesStatistics",
+      "description": "Calculate statistics about the notes collection",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "Object with properties: totalNotes, totalCharacters, averageLength, shortestNote, longestNote, mostRecentDate, oldestDate"
+      }
+    },
+    {
+      "name": "getNotesGroupedByDate",
+      "description": "Group notes by their creation date (day)",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects with createdAt timestamp"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "Object with date strings as keys and arrays of notes as values"
+      }
+    },
+    {
+      "name": "getRecentNotes",
+      "description": "Get the N most recently created notes",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects with createdAt timestamp"
+        },
+        {
+          "name": "count",
+          "type": "Number",
+          "description": "Number of recent notes to retrieve"
+        }
+      ],
+      "returns": {
+        "type": "Array<Object>",
+        "description": "Array of the N most recent notes in descending order"
+      }
+    },
+    {
+      "name": "filterByMultipleTags",
+      "description": "Filter notes that contain ALL specified tags (intersection)",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects with tags property"
+        },
+        {
+          "name": "tags",
+          "type": "Array<String>",
+          "description": "Array of tags that notes must contain"
+        }
+      ],
+      "returns": {
+        "type": "Array<Object>",
+        "description": "Notes that have all specified tags"
+      }
+    },
+    {
+      "name": "createFilteredView",
+      "description": "Create a complex filtered view combining multiple filters",
+      "parameters": [
+        {
+          "name": "notes",
+          "type": "Array<Object>",
+          "description": "Array of note objects"
+        },
+        {
+          "name": "filters",
+          "type": "Object",
+          "description": "Filter object with optional properties: searchQuery, minLength, maxLength, tags, sortBy, sortOrder"
+        }
+      ],
+      "returns": {
+        "type": "Array<Object>",
+        "description": "Filtered and sorted array of notes"
+      }
+    }
+  ]
+}

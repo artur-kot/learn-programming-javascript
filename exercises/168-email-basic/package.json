@@ -1,0 +1,15 @@
+{
+  "name": "email-validator-basic",
+  "version": "1.0.0",
+  "description": "Email Validator - Basic Pattern Matching Exercise",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": ["regex", "email", "validation"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node": ">=18.0.0"
+  }
+}

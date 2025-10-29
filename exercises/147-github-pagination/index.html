@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 147: GitHub Pagination</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .demo-section {
+      background: white;
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .demo-section h2 {
+      color: #667eea;
+      margin-bottom: 15px;
+      font-size: 20px;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+
+    .code-example {
+      background: #f5f5f5;
+      border-left: 4px solid #667eea;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    select {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 16px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+      margin-right: 5px;
+    }
+
+    button:hover {
+      background: #5568d3;
+    }
+
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .result-box {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 15px;
+      margin: 15px 0;
+      font-family: monospace;
+      word-break: break-all;
+    }
+
+    .pagination {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .pagination button {
+      min-width: 40px;
+      padding: 8px 12px;
+    }
+
+    .pagination button.active {
+      background: #764ba2;
+      border: 2px solid #667eea;
+    }
+
+    .pagination .ellipsis {
+      padding: 8px 12px;
+      background: none;
+      color: #333;
+    }
+
+    .items-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .item-card {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 4px;
+      border-left: 4px solid #667eea;
+    }
+
+    .item-card strong {
+      color: #333;
+    }
+
+    .info-text {
+      color: #666;
+      font-size: 14px;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: #667eea;
+      color: white;
+    }
+
+    tr:hover {
+      background: #f9f9f9;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+
+    .control-group {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    label {
+      font-weight: 500;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📄 Exercise 147: GitHub Pagination</h1>
+      <p class="subtitle">Interactive demonstrations of pagination patterns and calculations</p>
+    </header>
+
+    <!-- Section 1: Calculate Total Pages -->
+    <div class="demo-section">
+      <h2>1. Calculate Total Pages</h2>
+      <p>Determine how many pages are needed for a dataset.</p>
+      <div class="code-example">
+calculateTotalPages(105, 20) // Math.ceil(105/20) = 6
+      </div>
+      <div class="controls">
+        <div class="control-group">
+          <label>Total Items:</label>
+          <input type="number" id="totalItems" value="105" min="0">
+        </div>
+        <div class="control-group">
+          <label>Items Per Page:</label>
+          <input type="number" id="itemsPerPage1" value="20" min="1">
+        </div>
+        <button onclick="demoCalculatePages()">Calculate Pages</button>
+      </div>
+      <div class="result-box" id="pagesResult"></div>
+    </div>
+
+    <!-- Section 2: Get Current Page Items -->
+    <div class="demo-section">
+      <h2>2. Get Current Page Items</h2>
+      <p>Extract items for a specific page from a list.</p>
+      <div class="code-example">
+const items = [1,2,3,4,5,6,7,8,9,10];
+getCurrentPage(items, 2, 3) // [4, 5, 6]
+      </div>
+      <div class="controls">
+        <div class="control-group">
+          <label>Page Number:</label>
+          <input type="number" id="pageNum1" value="2" min="1">
+        </div>
+        <div class="control-group">
+          <label>Items Per Page:</label>
+          <input type="number" id="itemsPerPage2" value="3" min="1">
+        </div>
+        <button onclick="demoGetCurrentPage()">Get Page Items</button>
+      </div>
+      <div class="result-box" id="pageItemsResult"></div>
+    </div>
+
+    <!-- Section 3: Navigate Pages -->
+    <div class="demo-section">
+      <h2>3. Navigate Between Pages</h2>
+      <p>Move to next/previous pages with boundary checking.</p>
+      <div class="code-example">
+nextPage(3, 5) // 4
+nextPage(5, 5) // 5 (don't exceed)
+prevPage(3) // 2
+prevPage(1) // 1 (don't go below)
+      </div>
+      <div class="controls">
+        <div class="control-group">
+          <label>Current Page:</label>
+          <input type="number" id="currentPage" value="3" min="1">
+        </div>
+        <div class="control-group">
+          <label>Total Pages:</label>
+          <input type="number" id="totalPages1" value="5" min="1">
+        </div>
+        <button onclick="demoNextPage()">Next Page</button>
+        <button onclick="demoPrevPage()">Previous Page</button>
+      </div>
+      <div class="result-box" id="navigationResult"></div>
+    </div>
+
+    <!-- Section 4: Format Pagination Info -->
+    <div class="demo-section">
+      <h2>4. Format Pagination Information</h2>
+      <p>Create human-readable pagination text.</p>
+      <div class="code-example">
+formatPaginationInfo(2, 5, 100, 20)
+// "Page 2 of 5 (Items 21-40 of 100)"
+      </div>
+      <div class="controls">
+        <div class="control-group">
+          <label>Page:</label>
+          <input type="number" id="infoPage" value="2" min="1">
+        </div>
+        <div class="control-group">
+          <label>Total Pages:</label>
+          <input type="number" id="infoTotalPages" value="5" min="1">
+        </div>
+        <div class="control-group">
+          <label>Total Items:</label>
+          <input type="number" id="infoTotalItems" value="100" min="0">
+        </div>
+        <div class="control-group">
+          <label>Items Per Page:</label>
+          <input type="number" id="infoPageSize" value="20" min="1">
+        </div>
+        <button onclick="demoFormatInfo()">Format Info</button>
+      </div>
+      <div class="result-box" id="infoResult"></div>
+    </div>
+
+    <!-- Section 5: Smart Page Buttons -->
+    <div class="demo-section">
+      <h2>5. Smart Page Buttons with Ellipsis</h2>
+      <p>Generate page button array with intelligent ellipsis placement.</p>
+      <div class="code-example">
+createPageButtons(5, 20, 5)
+// [1, '...', 4, 5, 6, '...', 20]
+      </div>
+      <div class="controls">
+        <div class="control-group">
+          <label>Current Page:</label>
+          <input type="number" id="buttonCurrentPage" value="5" min="1">
+        </div>
+        <div class="control-group">
+          <label>Total Pages:</label>
+          <input type="number" id="buttonTotalPages" value="20" min="1">
+        </div>
+        <div class="control-group">
+          <label>Max Visible:</label>
+          <input type="number" id="maxVisible" value="5" min="3">
+        </div>
+        <button onclick="demoCreatePageButtons()">Generate Buttons</button>
+      </div>
+      <div class="result-box" id="pageButtonsResult"></div>
+    </div>
+
+    <!-- Section 6: Interactive Pagination UI -->
+    <div class="demo-section">
+      <h2>6. Interactive Pagination Control</h2>
+      <p>Build and interact with pagination controls.</p>
+      <div class="controls">
+        <div class="control-group">
+          <label>Total Items:</label>
+          <input type="number" id="uiTotalItems" value="100" min="0">
+        </div>
+        <div class="control-group">
+          <label>Items Per Page:</label>
+          <input type="number" id="uiPageSize" value="20" min="1">
+        </div>
+        <button onclick="demoInteractivePagination()">Create Pagination</button>
+      </div>
+      <div id="paginationDemo"></div>
+    </div>
+
+    <!-- Section 7: Display Items with Pagination -->
+    <div class="demo-section">
+      <h2>7. Display Items with Pagination</h2>
+      <p>View sample items and navigate between pages.</p>
+      <div class="controls">
+        <div class="control-group">
+          <label>Items Per Page:</label>
+          <input type="number" id="displayPageSize" value="5" min="1" max="50">
+        </div>
+        <button onclick="demoDisplayItems()">Show Items</button>
+      </div>
+      <div id="itemsDisplay"></div>
+    </div>
+
+    <!-- Section 8: Pagination Stats -->
+    <div class="demo-section">
+      <h2>8. Pagination Statistics</h2>
+      <p>Analyze pagination performance metrics.</p>
+      <div class="controls">
+        <div class="control-group">
+          <label>Dataset Size:</label>
+          <input type="number" id="statsDataset" value="1000" min="100" step="100">
+        </div>
+        <button onclick="demoStats()">Analyze</button>
+      </div>
+      <div id="statsResult"></div>
+    </div>
+  </div>
+
+  <script>
+    // Helper functions for demonstrations
+    
+    function calculateTotalPages(totalItems, itemsPerPage) {
+      return itemsPerPage === 0 ? 0 : Math.ceil(totalItems / itemsPerPage);
+    }
+
+    function getCurrentPage(items, page, itemsPerPage) {
+      const start = (page - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      
+      if (page < 1 || start >= items.length) {
+        return [];
+      }
+      
+      return items.slice(start, end);
+    }
+
+    function nextPage(currentPage, totalPages) {
+      return Math.min(currentPage + 1, totalPages);
+    }
+
+    function prevPage(currentPage) {
+      return Math.max(1, currentPage - 1);
+    }
+
+    function formatPaginationInfo(page, totalPages, totalItems, itemsPerPage) {
+      if (totalPages === 0) return 'No items';
+      
+      const start = (page - 1) * itemsPerPage + 1;
+      const end = Math.min(page * itemsPerPage, totalItems);
+      
+      return `Page ${page} of ${totalPages} (Items ${start}-${end} of ${totalItems})`;
+    }
+
+    function createPageButtons(currentPage, totalPages, maxVisible) {
+      if (totalPages <= maxVisible) {
+        return Array.from({ length: totalPages }, (_, i) => i + 1);
+      }
+
+      const buttons = [];
+      const halfVisible = Math.floor(maxVisible / 2);
+      
+      let start = Math.max(1, currentPage - halfVisible);
+      let end = Math.min(totalPages, start + maxVisible - 1);
+      
+      if (end - start < maxVisible - 1) {
+        start = Math.max(1, end - maxVisible + 1);
+      }
+
+      if (start > 1) {
+        buttons.push(1);
+        if (start > 2) buttons.push('...');
+      }
+
+      for (let i = start; i <= end; i++) {
+        buttons.push(i);
+      }
+
+      if (end < totalPages) {
+        if (end < totalPages - 1) buttons.push('...');
+        buttons.push(totalPages);
+      }
+
+      return buttons;
+    }
+
+    // Demo functions
+
+    function demoCalculatePages() {
+      const total = parseInt(document.getElementById('totalItems').value) || 0;
+      const perPage = parseInt(document.getElementById('itemsPerPage1').value) || 1;
+      
+      const pages = calculateTotalPages(total, perPage);
+      
+      document.getElementById('pagesResult').innerHTML = `
+        <strong>Calculation:</strong> Math.ceil(${total} / ${perPage}) = ${pages}<br>
+        <strong>Result:</strong> ${pages} page${pages !== 1 ? 's' : ''} needed
+      `;
+    }
+
+    function demoGetCurrentPage() {
+      const items = Array.from({ length: 10 }, (_, i) => i + 1);
+      const page = parseInt(document.getElementById('pageNum1').value) || 1;
+      const perPage = parseInt(document.getElementById('itemsPerPage2').value) || 1;
+      
+      const pageItems = getCurrentPage(items, page, perPage);
+      
+      document.getElementById('pageItemsResult').innerHTML = `
+        <strong>All items:</strong> [${items.join(', ')}]<br>
+        <strong>Page ${page} (size ${perPage}):</strong> [${pageItems.join(', ')}]${
+          pageItems.length === 0 ? ' <em>(out of range)</em>' : ''
+        }
+      `;
+    }
+
+    function demoNextPage() {
+      const current = parseInt(document.getElementById('currentPage').value) || 1;
+      const total = parseInt(document.getElementById('totalPages1').value) || 1;
+      
+      const next = nextPage(current, total);
+      
+      document.getElementById('navigationResult').innerHTML = `
+        <strong>nextPage(${current}, ${total}) = ${next}</strong><br>
+        ${next === current ? '<em>Already at last page</em>' : ''}
+      `;
+    }
+
+    function demoPrevPage() {
+      const current = parseInt(document.getElementById('currentPage').value) || 1;
+      
+      const prev = prevPage(current);
+      
+      document.getElementById('navigationResult').innerHTML = `
+        <strong>prevPage(${current}) = ${prev}</strong><br>
+        ${prev === current ? '<em>Already at first page</em>' : ''}
+      `;
+    }
+
+    function demoFormatInfo() {
+      const page = parseInt(document.getElementById('infoPage').value) || 1;
+      const totalPages = parseInt(document.getElementById('infoTotalPages').value) || 1;
+      const total = parseInt(document.getElementById('infoTotalItems').value) || 0;
+      const perPage = parseInt(document.getElementById('infoPageSize').value) || 1;
+      
+      const info = formatPaginationInfo(page, totalPages, total, perPage);
+      
+      document.getElementById('infoResult').innerHTML = `
+        <strong>formatPaginationInfo(${page}, ${totalPages}, ${total}, ${perPage})</strong><br>
+        <strong>Result:</strong> "${info}"
+      `;
+    }
+
+    function demoCreatePageButtons() {
+      const current = parseInt(document.getElementById('buttonCurrentPage').value) || 1;
+      const total = parseInt(document.getElementById('buttonTotalPages').value) || 1;
+      const max = parseInt(document.getElementById('maxVisible').value) || 5;
+      
+      const buttons = createPageButtons(current, total, max);
+      
+      const buttonStr = buttons.map(b => typeof b === 'number' ? `[${b}]` : b).join(' ');
+      
+      document.getElementById('pageButtonsResult').innerHTML = `
+        <strong>createPageButtons(${current}, ${total}, ${max})</strong><br>
+        <strong>Result:</strong> ${buttonStr}
+      `;
+    }
+
+    function demoInteractivePagination() {
+      const totalItems = parseInt(document.getElementById('uiTotalItems').value) || 0;
+      const pageSize = parseInt(document.getElementById('uiPageSize').value) || 1;
+      
+      const totalPages = calculateTotalPages(totalItems, pageSize);
+      let currentPage = 1;
+      
+      const container = document.getElementById('paginationDemo');
+      
+      function renderPagination() {
+        const buttons = createPageButtons(currentPage, totalPages, 7);
+        
+        let html = '<div class="pagination">';
+        
+        // Previous button
+        html += `<button ${currentPage === 1 ? 'disabled' : ''} onclick="event.target.closest('.pagination').dataset.page=${Math.max(1, currentPage - 1)};demoInteractivePagination()">← Prev</button>`;
+        
+        // Page buttons
+        buttons.forEach(btn => {
+          if (btn === '...') {
+            html += '<span class="pagination ellipsis">...</span>';
+          } else {
+            html += `<button onclick="this.closest('.pagination').dataset.page=${btn};demoInteractivePagination()" ${currentPage === btn ? 'class="active"' : ''}>${btn}</button>`;
+          }
+        });
+        
+        // Next button
+        html += `<button ${currentPage === totalPages ? 'disabled' : ''} onclick="this.closest('.pagination').dataset.page=${Math.min(totalPages, currentPage + 1)};demoInteractivePagination()">Next →</button>`;
+        html += '</div>';
+        
+        html += `<p class="info-text">${formatPaginationInfo(currentPage, totalPages, totalItems, pageSize)}</p>`;
+        
+        container.innerHTML = html;
+        
+        // Update currentPage from data attribute
+        const btn = container.querySelector('[onclick*="demoInteractivePagination"]');
+        if (btn) {
+          currentPage = parseInt(btn.dataset.page) || currentPage;
+        }
+      }
+      
+      renderPagination();
+    }
+
+    function demoDisplayItems() {
+      const pageSize = parseInt(document.getElementById('displayPageSize').value) || 5;
+      const allItems = Array.from({ length: 50 }, (_, i) => ({
+        id: i + 1,
+        name: `Item ${i + 1}`,
+        description: `This is item number ${i + 1}`,
+        date: new Date(2024, 0, i + 1).toLocaleDateString()
+      }));
+      
+      let currentPage = 1;
+      const totalPages = calculateTotalPages(allItems.length, pageSize);
+      
+      const container = document.getElementById('itemsDisplay');
+      
+      function renderItems() {
+        const items = getCurrentPage(allItems, currentPage, pageSize);
+        
+        let html = `<div class="items-list>`;
+        items.forEach(item => {
+          html += `<div class="item-card">
+            <strong>ID: ${item.id}</strong><br>
+            Name: ${item.name}<br>
+            <small>${item.description}</small><br>
+            <small>Date: ${item.date}</small>
+          </div>`;
+        });
+        html += '</div>';
+        
+        html += `<p class="info-text">${formatPaginationInfo(currentPage, totalPages, allItems.length, pageSize)}</p>`;
+        
+        // Pagination controls
+        const buttons = createPageButtons(currentPage, totalPages, 5);
+        html += '<div class="pagination">';
+        html += `<button onclick="displayItemsPage(${Math.max(1, currentPage - 1)})" ${currentPage === 1 ? 'disabled' : ''}>← Prev</button>`;
+        
+        buttons.forEach(btn => {
+          if (btn === '...') {
+            html += '<span class="pagination ellipsis">...</span>';
+          } else {
+            html += `<button onclick="displayItemsPage(${btn})" ${currentPage === btn ? 'class="active"' : ''}>${btn}</button>`;
+          }
+        });
+        
+        html += `<button onclick="displayItemsPage(${Math.min(totalPages, currentPage + 1)})" ${currentPage === totalPages ? 'disabled' : ''}>Next →</button>`;
+        html += '</div>';
+        
+        container.innerHTML = html;
+      }
+      
+      window.displayItemsPage = function(page) {
+        currentPage = page;
+        renderItems();
+      };
+      
+      renderItems();
+    }
+
+    function demoStats() {
+      const datasetSize = parseInt(document.getElementById('statsDataset').value) || 1000;
+      
+      const pageSizes = [10, 20, 30, 50, 100];
+      
+      let html = '<table>';
+      html += '<tr><th>Page Size</th><th>Total Pages</th><th>API Calls*</th><th>Memory*</th></tr>';
+      
+      pageSizes.forEach(size => {
+        const pages = calculateTotalPages(datasetSize, size);
+        html += `<tr>
+          <td>${size} items/page</td>
+          <td>${pages}</td>
+          <td>${pages} calls</td>
+          <td>~${(size * 0.5).toFixed(0)} KB</td>
+        </tr>`;
+      });
+      
+      html += '</table>';
+      html += '<p class="info-text"><small>*Estimated values for demonstration. Actual values depend on item size and encoding.</small></p>';
+      
+      document.getElementById('statsResult').innerHTML = html;
+    }
+
+    // Initialize on load
+    window.addEventListener('load', () => {
+      demoCalculatePages();
+    });
+  </script>
+</body>
+</html>

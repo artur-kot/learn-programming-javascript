@@ -1,0 +1,21 @@
+{
+  "name": "151-todo-mark-complete",
+  "version": "1.0.0",
+  "description": "Exercise 151: Toggle todo completion status and manage visual feedback",
+  "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [
+    "todos",
+    "state-management",
+    "completion",
+    "toggle",
+    "vitest"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^0.34.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "123-factory-closure",
+  "number": 123,
+  "title": "Counter Factory - Basic Closure",
+  "series": "25-counter-factory",
+  "seriesNumber": 1,
+  "topic": "Closures and Factory Functions",
+  "description": "Learn to create factory functions that return closures for maintaining state.",
+  "concepts": [
+    "Closures",
+    "Factory functions",
+    "Lexical scope",
+    "Returning functions",
+    "State encapsulation",
+    "Function scope",
+    "Higher-order functions"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "122-canvas-save"
+  ]
+}

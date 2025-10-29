@@ -1,0 +1,14 @@
+{
+  "name": "133-pipeline-chaining",
+  "version": "1.0.0",
+  "description": "Data Pipeline - Method Chaining",
+  "main": "133-pipeline-chaining.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 133-pipeline-chaining.test.js",
+    "test:watch": "node --test --watch 133-pipeline-chaining.test.js"
+  },
+  "keywords": ["pipeline", "chaining", "filter", "map", "reduce", "functional"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

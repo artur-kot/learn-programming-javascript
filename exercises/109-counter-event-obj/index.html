@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Counter - Event Object</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .counter-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      text-align: center;
+      min-width: 350px;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .counter-display {
+      font-size: 72px;
+      font-weight: bold;
+      color: #667eea;
+      margin: 30px 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      width: 200px;
+    }
+
+    button:hover {
+      background: #764ba2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .event-info {
+      margin-top: 30px;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      text-align: left;
+      font-size: 14px;
+      font-family: 'Courier New', monospace;
+      color: #333;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .event-property {
+      margin: 8px 0;
+      padding: 5px;
+      background: white;
+      border-left: 3px solid #667eea;
+      padding-left: 10px;
+    }
+
+    .property-name {
+      font-weight: bold;
+      color: #667eea;
+    }
+
+    .property-value {
+      color: #666;
+    }
+
+    .info-label {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-container">
+    <h1>Counter - Event Details</h1>
+    <div class="counter-display" id="display">0</div>
+    <button id="increment-btn">Click Me!</button>
+    
+    <div class="event-info">
+      <div class="info-label">Last Event Details:</div>
+      <div id="event-details">
+        <div class="event-property">
+          <span class="property-name">Event:</span>
+          <span class="property-value">None yet</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      getEventType,
+      getEventTarget,
+      getEventTimestamp,
+      handleClickWithDetails
+    } from './109-counter-event-obj.js';
+
+    const button = document.getElementById('increment-btn');
+    const display = document.getElementById('display');
+    const eventDetails = document.getElementById('event-details');
+
+    let counter = { count: 0 };
+
+    button.addEventListener('click', (event) => {
+      const result = handleClickWithDetails(event, counter);
+      
+      // Update display
+      display.textContent = counter.count;
+      
+      // Update event info display
+      const eventType = getEventType(event);
+      const timestamp = getEventTimestamp(event);
+      const target = getEventTarget(event);
+      
+      eventDetails.innerHTML = `
+        <div class="event-property">
+          <span class="property-name">type:</span>
+          <span class="property-value">"${eventType}"</span>
+        </div>
+        <div class="event-property">
+          <span class="property-name">target:</span>
+          <span class="property-value">&lt;${target.tagName.toLowerCase()} id="${target.id}"&gt;</span>
+        </div>
+        <div class="event-property">
+          <span class="property-name">timestamp:</span>
+          <span class="property-value">${timestamp}ms</span>
+        </div>
+        <div class="event-property">
+          <span class="property-name">count:</span>
+          <span class="property-value">${result.count}</span>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>

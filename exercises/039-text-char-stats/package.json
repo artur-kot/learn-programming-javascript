@@ -1,0 +1,7 @@
+{
+  "name": "039-text-char-stats",
+  "type": "module",
+  "scripts": {
+    "test": "node 039-text-char-stats.test.js"
+  }
+}

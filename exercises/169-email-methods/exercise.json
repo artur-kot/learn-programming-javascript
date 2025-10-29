@@ -1,0 +1,130 @@
+{
+  "id": 169,
+  "title": "Email Validator - Test and Match Methods",
+  "description": "Master regex methods for email validation: test(), match(), search(), and replace()",
+  "series": 34,
+  "level": "intermediate",
+  "concepts": ["regex methods", "test()", "match()", "search()", "replace()", "flags"],
+  "functions": [
+    {
+      "name": "testEmailFormat",
+      "description": "Use regex.test() to validate email format quickly (returns true/false)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to test"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "findAllEmails",
+      "description": "Use regex.match() with global flag to find all emails in text",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text to search"
+        }
+      ],
+      "returns": "array"
+    },
+    {
+      "name": "findFirstEmail",
+      "description": "Use regex.match() without global flag to find first email only",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text to search"
+        }
+      ],
+      "returns": "array or null"
+    },
+    {
+      "name": "findEmailPosition",
+      "description": "Use regex.search() to find position (index) of first @ symbol",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email string"
+        }
+      ],
+      "returns": "number"
+    },
+    {
+      "name": "replaceAtSymbol",
+      "description": "Use regex.replace() to replace @ with ' at ' in email",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to transform"
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "name": "maskEmail",
+      "description": "Use replace() to mask email with *** (keep first 2 and @domain visible)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to mask"
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "name": "countEmails",
+      "description": "Count how many valid emails appear in text",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text containing emails"
+        }
+      ],
+      "returns": "number"
+    },
+    {
+      "name": "validateEmailList",
+      "description": "Check if all emails in array are valid format",
+      "parameters": [
+        {
+          "name": "emails",
+          "type": "array",
+          "description": "Array of email strings"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "getValidEmails",
+      "description": "Filter array to return only valid emails",
+      "parameters": [
+        {
+          "name": "emails",
+          "type": "array",
+          "description": "Mixed array of emails and non-emails"
+        }
+      ],
+      "returns": "array"
+    },
+    {
+      "name": "normalizeEmails",
+      "description": "Use replace() to convert multiple spaces around @ to single space",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email with possible spaces"
+        }
+      ],
+      "returns": "string"
+    }
+  ]
+}

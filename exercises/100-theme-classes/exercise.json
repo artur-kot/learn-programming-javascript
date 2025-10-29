@@ -1,0 +1,22 @@
+{
+  "id": "100-theme-classes",
+  "number": 100,
+  "title": "Theme Switcher - Toggle Classes",
+  "series": "20-theme-switcher",
+  "seriesNumber": 3,
+  "topic": "CSS Classes with classList API",
+  "description": "Toggle CSS classes to change element styling. Learn the classList API for class management.",
+  "concepts": [
+    "classList API",
+    "add() method",
+    "remove() method",
+    "toggle() method",
+    "contains() method",
+    "CSS classes for styling",
+    "Theme switching with classes"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "099-theme-text"
+  ]
+}

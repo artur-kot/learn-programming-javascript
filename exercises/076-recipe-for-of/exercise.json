@@ -1,0 +1,29 @@
+{
+  "id": "076-recipe-for-of",
+  "number": 76,
+  "title": "Recipe Organizer - For...of Iteration",
+  "series": "15-recipe-organizer",
+  "seriesNumber": 4,
+  "topic": "For...of Loop",
+  "description": "Learn to use for...of loops to iterate over arrays and iterable collections. Practice building data aggregations and validations using clean, modern iteration.",
+  "concepts": [
+    "For...of loops",
+    "Iterating over arrays",
+    "Building collections in loops",
+    "Data validation",
+    "Aggregation patterns"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "075-recipe-spread"
+  ],
+  "estimatedTime": 20,
+  "keywords": [
+    "for-of",
+    "iteration",
+    "loops",
+    "recipes",
+    "aggregation",
+    "validation"
+  ]
+}

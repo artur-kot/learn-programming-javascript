@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 042-text-composition.test.js"
+  }
+}

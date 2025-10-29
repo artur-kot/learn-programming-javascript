@@ -1,0 +1,23 @@
+{
+  "id": "107-card-remove",
+  "number": 107,
+  "title": "Card Generator - Remove Cards",
+  "series": "21-card-generator",
+  "seriesNumber": 5,
+  "topic": "Removing Elements from DOM",
+  "description": "Delete cards from the DOM. Manage element lifecycle and cleanup.",
+  "concepts": [
+    "removeChild method",
+    "remove method",
+    "Element deletion",
+    "Removing by ID",
+    "Removing by class",
+    "Removing all children",
+    "Element lifecycle",
+    "Cleanup operations"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "106-card-append"
+  ]
+}

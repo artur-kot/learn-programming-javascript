@@ -1,0 +1,28 @@
+{
+  "id": "074-recipe-rest",
+  "number": 74,
+  "title": "Recipe Organizer - Rest Parameters",
+  "series": "15-recipe-organizer",
+  "seriesNumber": 2,
+  "topic": "Rest Parameters",
+  "description": "Learn to use rest parameters to accept variable numbers of arguments. Use the ... syntax to capture multiple arguments into a single array parameter.",
+  "concepts": [
+    "Rest parameters (...)",
+    "Variable argument functions",
+    "Spread operator with rest",
+    "Rest in function signatures",
+    "Array operations with rest parameters"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "073-recipe-ingredients"
+  ],
+  "estimatedTime": 20,
+  "keywords": [
+    "rest-parameters",
+    "spread-operator",
+    "variable-arguments",
+    "recipes",
+    "es6"
+  ]
+}

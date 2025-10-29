@@ -1,0 +1,35 @@
+{
+  "id": 138,
+  "series": 28,
+  "title": "Weather Dashboard - Basic Fetch API",
+  "description": "Learn the Fetch API by making HTTP requests to a weather service. Understand how to fetch data from servers and handle responses.",
+  "difficulty": "intermediate",
+  "skills": [
+    "fetch api",
+    "http requests",
+    "promises",
+    "async operations",
+    "api integration",
+    "request handling"
+  ],
+  "prerequisites": [
+    "097-quote-all"
+  ],
+  "concepts": {
+    "fetch": "Browser API for making HTTP requests",
+    "http_methods": "GET, POST, PUT, DELETE request types",
+    "response_object": "Object containing status, headers, body",
+    "json_parsing": "Converting response to JavaScript objects",
+    "promise_based": "Fetch returns promises for async handling",
+    "network_requests": "Communication between client and server"
+  },
+  "learning_outcomes": [
+    "Make HTTP GET requests with Fetch API",
+    "Understand promise-based async operations",
+    "Handle fetch responses and parse JSON",
+    "Work with real-world weather APIs",
+    "Structure API request code properly",
+    "Build interactive weather application"
+  ],
+  "estimated_time": "50 minutes"
+}

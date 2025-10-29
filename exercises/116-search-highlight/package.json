@@ -1,0 +1,26 @@
+{
+  "name": "116-search-highlight",
+  "version": "1.0.0",
+  "description": "Live Search Filter - Highlight Results",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "text highlighting",
+    "regex",
+    "string manipulation",
+    "innerHTML",
+    "search",
+    "DOM"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

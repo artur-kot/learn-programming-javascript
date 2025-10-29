@@ -1,0 +1,130 @@
+{
+  "id": 171,
+  "title": "Email Validator - Advanced Patterns",
+  "description": "Master advanced regex patterns: lookahead, lookbehind, word boundaries, and complex email validation",
+  "series": 34,
+  "level": "advanced",
+  "concepts": ["lookahead", "lookbehind", "word boundaries", "advanced patterns", "complex validation"],
+  "functions": [
+    {
+      "name": "validateWithWordBoundaries",
+      "description": "Validate email using word boundaries to prevent partial matches",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text to check"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "validateEmailWithDots",
+      "description": "Validate email allowing dots in local part (john.doe@example.com)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "validateEmailWithPlus",
+      "description": "Validate email allowing + for subaddressing (user+tag@example.com)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "validateLongTLD",
+      "description": "Validate TLD using lookahead to ensure 2-6 letters",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "rejectConsecutiveDots",
+      "description": "Reject emails with consecutive dots (user..name@example.com)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "validateNoSpecialStart",
+      "description": "Reject emails starting with dot or number using negative lookahead",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "findEmailsNotInBrackets",
+      "description": "Find emails not in angle brackets using lookahead/lookbehind",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text to search"
+        }
+      ],
+      "returns": "array"
+    },
+    {
+      "name": "validateEmailWithHyphens",
+      "description": "Validate email with hyphens in domain (my-domain.com)",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to validate"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "validateCommonDomains",
+      "description": "Validate email ending in common domains using alternation",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email to check"
+        }
+      ],
+      "returns": "boolean"
+    },
+    {
+      "name": "extractEmailWithContext",
+      "description": "Extract email and preserve surrounding context using groups",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text containing email"
+        }
+      ],
+      "returns": "object with email, before, after"
+    }
+  ]
+}

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Drawing Canvas - Mouse Move</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .info-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background: #667eea;
+      color: white;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .canvas-wrapper {
+      margin: 20px 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    #drawing-canvas {
+      display: block;
+      width: 100%;
+      cursor: crosshair;
+      background: white;
+    }
+
+    .controls {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .status {
+      margin-top: 15px;
+      padding: 12px;
+      background: #e8f5e9;
+      border-radius: 6px;
+      border-left: 4px solid #4caf50;
+      color: #2e7d32;
+      font-size: 14px;
+    }
+
+    .status.drawing {
+      background: #fff3e0;
+      border-left-color: #ff9800;
+      color: #e65100;
+    }
+
+    .help-section {
+      margin-top: 30px;
+      padding: 20px;
+      background: #e3f2fd;
+      border-radius: 8px;
+      border-left: 4px solid #2196f3;
+    }
+
+    .help-section h2 {
+      color: #1976d2;
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .help-section p {
+      color: #0d47a1;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .code-block {
+      background: white;
+      padding: 12px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #333;
+      overflow-x: auto;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+    }
+
+    .tips {
+      margin-top: 15px;
+      padding: 12px;
+      background: white;
+      border-radius: 4px;
+      border-left: 3px solid #4caf50;
+    }
+
+    .tips strong {
+      color: #2e7d32;
+    }
+
+    .coords {
+      display: inline-block;
+      padding: 4px 12px;
+      background: white;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Continuous Drawing <span class="info-badge">Mouse Move</span></h1>
+
+    <div class="canvas-wrapper">
+      <canvas id="drawing-canvas" width="800" height="600"></canvas>
+    </div>
+
+    <div class="controls">
+      <div class="button-group">
+        <button class="btn-primary" id="clear-btn">Clear Canvas</button>
+      </div>
+      <div class="status" id="status">
+        Ready to draw! Click and drag to draw continuously.
+        <span class="coords" id="coords"></span>
+      </div>
+    </div>
+
+    <div class="help-section">
+      <h2>Continuous Drawing with Mouse Movement</h2>
+      
+      <p><strong>From Click-Based to Continuous Drawing:</strong></p>
+      <p>
+        In Exercise 118, we tracked when the mouse button was pressed/released.
+        Now we'll add the <code>mousemove</code> event to draw continuously as the mouse moves.
+      </p>
+
+      <p><strong>The Key: Drawing Line Segments</strong></p>
+      <p>
+        To create smooth drawing, we draw small line segments from the last mouse position
+        to the current mouse position. This happens so fast (on every mouse move event) that
+        it appears as one smooth line.
+      </p>
+
+      <div class="code-block">
+// Last position where mouse was
+let lastX = 0;
+let lastY = 0;
+
+canvas.addEventListener('mousemove', (event) => {
+  if (!isDrawing) return;
+
+  // Get current position
+  const x = event.clientX - canvas.left;
+  const y = event.clientY - canvas.top;
+
+  // Draw line segment from last to current
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(x, y);
+  ctx.stroke();
+
+  // Remember current position for next segment
+  lastX = x;
+  lastY = y;
+});
+      </div>
+
+      <p><strong>Why This Approach Works:</strong></p>
+      <p>
+        Mouse events fire many times per second (typically 60+ times). By drawing small
+        segments between each event, we create the illusion of one continuous smooth line.
+      </p>
+
+      <p><strong>Event Flow:</strong></p>
+      <div class="code-block">
+User clicks on canvas
+  → mousedown event fires
+  → Set isDrawing = true
+  → Set lastX, lastY = mouse position
+
+User moves mouse while button is down
+  → mousemove event fires repeatedly
+  → If isDrawing, draw segment from (lastX, lastY) to (currentX, currentY)
+  → Update lastX, lastY = current position
+
+User releases mouse button
+  → mouseup event fires
+  → Set isDrawing = false
+
+User moves mouse with button up
+  → mousemove events fire but isDrawing is false
+  → No drawing happens (just waiting for next mousedown)
+      </div>
+
+      <p><strong>Handling Mouse Leave:</strong></p>
+      <p>
+        It's also good practice to stop drawing if the mouse leaves the canvas
+        while the button is still pressed. This prevents weird behavior if the user
+        drags outside the canvas area.
+      </p>
+
+      <div class="code-block">
+canvas.addEventListener('mouseleave', () => {
+  isDrawing = false; // Stop drawing if mouse leaves
+});
+      </div>
+
+      <div class="tips">
+        <strong>💡 Performance Tip:</strong> Mouse events can fire very frequently (60+ per second).
+        Drawing is fast, but if you need to do expensive operations, consider debouncing or
+        throttling the mousemove event (more on that in future exercises).
+      </div>
+
+      <p><strong>Smooth Lines with Line Caps and Joins:</strong></p>
+      <p>
+        To make lines look better when connected, we can set line cap and join styles:
+      </p>
+
+      <div class="code-block">
+ctx.lineCap = 'round';    // Rounded line ends
+ctx.lineJoin = 'round';   // Rounded line joints
+      </div>
+
+      <p>Options for <code>lineCap</code>:</p>
+      <ul style="color: #0d47a1; margin: 5px 0;">
+        <li><strong>butt</strong> (default) - Square edges</li>
+        <li><strong>round</strong> - Rounded semicircle ends</li>
+        <li><strong>square</strong> - Square edges that extend beyond endpoint</li>
+      </ul>
+
+      <p>Options for <code>lineJoin</code>:</p>
+      <ul style="color: #0d47a1; margin: 5px 0;">
+        <li><strong>miter</strong> (default) - Sharp corners</li>
+        <li><strong>round</strong> - Rounded corners</li>
+        <li><strong>bevel</strong> - Cut corners</li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      getMousePosition,
+      drawLineSegment,
+      updateDrawingState,
+      setupDrawingEventHandlers
+    } from './119-canvas-mouse-move.js';
+
+    const canvas = document.getElementById('drawing-canvas');
+    const statusDiv = document.getElementById('status');
+    const coordsDiv = document.getElementById('coords');
+    const clearBtn = document.getElementById('clear-btn');
+    const ctx = canvas.getContext('2D');
+
+    // Setup drawing properties
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#000000';
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    // Drawing state
+    const drawingState = {
+      isDrawing: false,
+      lastX: 0,
+      lastY: 0
+    };
+
+    // Setup event handlers
+    canvas.addEventListener('mousedown', (event) => {
+      const pos = getMousePosition(event, canvas);
+      drawingState.isDrawing = true;
+      drawingState.lastX = pos.x;
+      drawingState.lastY = pos.y;
+      statusDiv.textContent = '✏️ Drawing...';
+      statusDiv.classList.add('drawing');
+    });
+
+    canvas.addEventListener('mousemove', (event) => {
+      if (!drawingState.isDrawing) return;
+
+      const pos = getMousePosition(event, canvas);
+      
+      // Draw line segment
+      drawLineSegment(
+        ctx,
+        drawingState.lastX,
+        drawingState.lastY,
+        pos.x,
+        pos.y,
+        '#000000',
+        2
+      );
+
+      // Update state
+      updateDrawingState(drawingState, pos.x, pos.y);
+
+      // Show coordinates
+      coordsDiv.textContent = `(${Math.round(pos.x)}, ${Math.round(pos.y)})`;
+    });
+
+    canvas.addEventListener('mouseup', () => {
+      drawingState.isDrawing = false;
+      statusDiv.textContent = '✋ Drawing stopped. Ready for more!';
+      statusDiv.classList.remove('drawing');
+      coordsDiv.textContent = '';
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      drawingState.isDrawing = false;
+      statusDiv.textContent = 'Mouse left canvas. Ready to draw again!';
+      statusDiv.classList.remove('drawing');
+      coordsDiv.textContent = '';
+    });
+
+    clearBtn.addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      statusDiv.textContent = '🗑️ Canvas cleared!';
+      statusDiv.classList.remove('drawing');
+      coordsDiv.textContent = '';
+    });
+  </script>
+</body>
+</html>

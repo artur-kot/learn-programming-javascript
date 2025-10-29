@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 041-text-higher-order.test.js"
+  }
+}

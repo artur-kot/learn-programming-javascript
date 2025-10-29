@@ -1,0 +1,38 @@
+{
+  "id": 146,
+  "name": "GitHub Advanced Filtering",
+  "series": 29,
+  "difficulty": "advanced",
+  "description": "Implement advanced filtering for GitHub repositories with complex criteria",
+  "learningOutcomes": [
+    "Implement multi-criteria filtering",
+    "Create custom filter predicates",
+    "Combine multiple filters",
+    "Filter by date ranges",
+    "Filter by numeric thresholds",
+    "Implement filter UI controls",
+    "Persist filter state"
+  ],
+  "prerequisites": [
+    "GitHub Repositories (Exercise 145)",
+    "Array filtering and reduction"
+  ],
+  "functions": [
+    "filterByMinStars(repos, minStars)",
+    "filterByMinForks(repos, minForks)",
+    "filterByDateRange(repos, startDate, endDate)",
+    "filterByTopics(repos, topics)",
+    "filterBySize(repos, minSize, maxSize)",
+    "filterArchived(repos, includeArchived)",
+    "createFilterPredicate(criteria)",
+    "applyMultipleFilters(repos, filters)",
+    "createFilterUI(onFilterChange)",
+    "buildFilterString(criteria)"
+  ],
+  "estimatedTime": "90 minutes",
+  "resources": [
+    "Complex Array Filtering",
+    "Filter UI Patterns",
+    "State Management for Filters"
+  ]
+}

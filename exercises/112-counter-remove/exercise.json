@@ -1,0 +1,22 @@
+{
+  "id": "112-counter-remove",
+  "number": 112,
+  "title": "Interactive Counter - Remove Listeners",
+  "series": "22-interactive-counter",
+  "seriesNumber": 5,
+  "topic": "Removing Event Listeners",
+  "description": "Disable buttons by removing event listeners. Toggle event listener attachment.",
+  "concepts": [
+    "removeEventListener method",
+    "Listener removal",
+    "Disabling events",
+    "Event listener management",
+    "Toggling listeners",
+    "Named function references",
+    "Cleanup and management"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "111-counter-keyboard"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "042-text-composition",
+  "title": "Text Analyzer - Function Composition",
+  "description": "Combine multiple analysis functions into a comprehensive analyzer",
+  "series": "Series 8: Text Analyzer Tool",
+  "seriesIndex": 5,
+  "difficulty": "Intermediate",
+  "topics": ["functions", "composition", "object creation", "text processing"],
+  "skills": [
+    "Composing functions",
+    "Creating complex objects",
+    "Optional parameters and defaults",
+    "Function result combination"
+  ],
+  "keywords": ["composition", "object", "analysis", "text", "combining functions"]
+}

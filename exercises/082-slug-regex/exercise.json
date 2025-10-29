@@ -1,0 +1,21 @@
+{
+  "id": "082-slug-regex",
+  "number": 82,
+  "title": "URL Slug Generator - Regex Pattern Matching",
+  "series": "16-url-slug-generator",
+  "seriesNumber": 5,
+  "topic": "Advanced Regular Expressions",
+  "description": "Master regular expressions to create a sophisticated slug generator that handles all edge cases and special patterns.",
+  "concepts": [
+    "Complex regex patterns",
+    "Named character classes",
+    "Quantifiers and alternation",
+    "Match() and exec() methods",
+    "Testing patterns with test()",
+    "Advanced string replacement with regex"
+  ],
+  "difficulty": "advanced",
+  "prerequisites": [
+    "081-slug-extract"
+  ]
+}

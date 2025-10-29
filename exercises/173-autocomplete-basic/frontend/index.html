@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autocomplete Search - Basic Setup</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pico-css/css/pico.min.css">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <main class="container">
+    <section>
+      <h1>🌍 Country Autocomplete</h1>
+      <p>Search for any country or region to see real-time suggestions</p>
+      
+      <div class="search-container">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Start typing a country name (e.g., 'united', 'fr', 'united states')..."
+          autocomplete="off"
+        />
+        <div id="resultsContainer" class="results-container">
+          <!-- Results will be inserted here -->
+        </div>
+      </div>
+
+      <div id="stats" class="stats">
+        <p>Results: <strong id="resultCount">0</strong></p>
+        <p>Status: <strong id="status">Ready</strong></p>
+      </div>
+    </section>
+
+    <section class="info">
+      <h2>About This Exercise</h2>
+      <p>
+        This is a basic autocomplete setup demonstrating:
+      </p>
+      <ul>
+        <li><strong>Backend:</strong> Fastify API server on port 3000</li>
+        <li><strong>Frontend:</strong> Vite-bundled JavaScript application</li>
+        <li><strong>Communication:</strong> REST API via fetch() with GET /search endpoint</li>
+        <li><strong>Data:</strong> 250+ countries with name, code, and region</li>
+      </ul>
+
+      <h3>How It Works</h3>
+      <ol>
+        <li>Type in the search box</li>
+        <li>JavaScript listens for input changes</li>
+        <li>Fetch request sends query to backend</li>
+        <li>Fastify searches countries dataset</li>
+        <li>Results returned as JSON</li>
+        <li>Frontend displays results in real-time</li>
+      </ol>
+
+      <h3>Next Steps (Exercise 174)</h3>
+      <p>The improved version will add performance optimizations:</p>
+      <ul>
+        <li>Debouncing to reduce API calls</li>
+        <li>Client-side caching for repeated searches</li>
+        <li>Better search algorithms</li>
+        <li>Keyboard navigation</li>
+        <li>Lazy loading for large datasets</li>
+      </ul>
+    </section>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "id": 134,
+  "series": 27,
+  "title": "Data Pipeline - Flatten Data",
+  "description": "Master array flattening with flat() and flatMap(). Transform nested arrays into single-level structures and handle complex hierarchical data.",
+  "difficulty": "intermediate",
+  "skills": [
+    "flat method",
+    "flatMap method",
+    "nested arrays",
+    "array flattening",
+    "recursive structures",
+    "data transformation"
+  ],
+  "prerequisites": [
+    "133-pipeline-chaining"
+  ],
+  "concepts": {
+    "flat": "Flattens nested arrays by specified depth",
+    "flatMap": "Maps then flattens in single operation",
+    "depth": "How many levels of nesting to flatten",
+    "recursive_structures": "Data with multiple levels of nesting",
+    "single_level": "Converting multi-level to single array"
+  },
+  "learning_outcomes": [
+    "Use flat() to flatten nested arrays",
+    "Understand depth parameter in flat()",
+    "Use flatMap() for mapping and flattening",
+    "Handle complex nested data structures",
+    "Compare flat() vs flatMap() approaches",
+    "Combine flattening with other transformations"
+  ],
+  "estimated_time": "45 minutes"
+}

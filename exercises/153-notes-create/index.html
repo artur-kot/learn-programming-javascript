@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes App - Create Notes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 min-h-screen">
+  <div class="max-w-6xl mx-auto p-4">
+    <!-- Header -->
+    <div class="text-center mb-8 pt-8">
+      <h1 class="text-5xl font-bold text-white mb-2">📝 Note-Taking App</h1>
+      <p class="text-xl text-blue-200">Exercise 153: Create Notes</p>
+    </div>
+
+    <!-- Create Note Form -->
+    <div class="card bg-base-100 shadow-xl mb-8">
+      <div class="card-body">
+        <h2 class="card-title text-2xl mb-4">Create a New Note</h2>
+        <form id="note-form" class="space-y-4">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text text-lg font-semibold">Note Title</span>
+            </label>
+            <input
+              type="text"
+              id="note-title"
+              placeholder="Enter note title..."
+              maxlength="100"
+              class="input input-bordered input-lg w-full"
+            />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text text-lg font-semibold">Note Content</span>
+            </label>
+            <textarea
+              id="note-content"
+              placeholder="Enter note content..."
+              rows="5"
+              class="textarea textarea-bordered textarea-lg w-full"
+            ></textarea>
+          </div>
+          <div class="card-actions justify-end mt-6">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <span class="text-lg">Create Note</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <div class="text-4xl font-bold text-primary mb-2" id="note-count">0</div>
+          <div class="text-lg">Total Notes</div>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <div class="text-4xl font-bold text-secondary mb-2" id="char-count">0</div>
+          <div class="text-lg">Total Characters</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notes Display -->
+    <div id="notes-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body text-center">
+          <p class="text-gray-400">No notes yet. Create your first note above! 🚀</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Section -->
+  <div class="max-w-6xl mx-auto p-4 mt-16">
+    <h2 class="text-3xl font-bold text-white text-center mb-8">📚 Demo Sections</h2>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <!-- Demo 1 -->
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <h3 class="card-title">Demo 1: createNote()</h3>
+          <p class="text-sm opacity-75 mb-3">Creates a note with auto-generated ID and timestamps</p>
+          <pre class="bg-base-200 p-3 rounded text-xs overflow-auto"><code>const note = createNote('My Note', 'Content');
+// Returns: {
+//   id: 'note_1234567890',
+//   title: 'My Note',
+//   content: 'Content',
+//   createdAt: Date,
+//   updatedAt: Date
+// }</code></pre>
+        </div>
+      </div>
+
+      <!-- Demo 2 -->
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <h3 class="card-title">Demo 2: generateNoteId()</h3>
+          <p class="text-sm opacity-75 mb-3">Generates unique IDs for each note</p>
+          <pre class="bg-base-200 p-3 rounded text-xs overflow-auto"><code>generateNoteId();
+// Returns: 'note_1234567890_5678'
+
+generateNoteId();
+// Returns: 'note_1234567891_9012'
+// Different each time</code></pre>
+        </div>
+      </div>
+
+      <!-- Demo 3 -->
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <h3 class="card-title">Demo 3: validateNoteInput()</h3>
+          <p class="text-sm opacity-75 mb-3">Validates input before creating notes</p>
+          <pre class="bg-base-200 p-3 rounded text-xs overflow-auto"><code>validateNoteInput('Title', 'Content')
+// { isValid: true, error: null }
+
+validateNoteInput('', 'Content')
+// { isValid: false, error: '...' }</code></pre>
+        </div>
+      </div>
+
+      <!-- Demo 4 -->
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <h3 class="card-title">Demo 4: addNoteToList()</h3>
+          <p class="text-sm opacity-75 mb-3">Adds notes to array immutably</p>
+          <pre class="bg-base-200 p-3 rounded text-xs overflow-auto"><code>let notes = [];
+const newNote = createNote(...);
+notes = addNoteToList(notes, newNote);
+// Returns new array with note added</code></pre>
+        </div>
+      </div>
+
+      <!-- Demo 5 -->
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <h3 class="card-title">Demo 5: renderNoteElement()</h3>
+          <p class="text-sm opacity-75 mb-3">Creates DOM elements for notes</p>
+          <pre class="bg-base-200 p-3 rounded text-xs overflow-auto"><code>const element = renderNoteElement(note);
+// Returns: HTMLElement with note card
+// Includes title, content, and date</code></pre>
+        </div>
+      </div>
+
+      <!-- Demo 6 -->
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <h3 class="card-title">Demo 6: formatNoteDate()</h3>
+          <p class="text-sm opacity-75 mb-3">Formats dates for display</p>
+          <pre class="bg-base-200 p-3 rounded text-xs overflow-auto"><code>formatNoteDate(new Date());
+// Returns: "Oct 29, 2025 at 2:30 PM"
+// User-friendly format</code></pre>
+        </div>
+      </div>
+
+      <!-- Demo 7 -->
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <h3 class="card-title">Demo 7: getNoteCount()</h3>
+          <p class="text-sm opacity-75 mb-3">Counts total notes</p>
+          <pre class="bg-base-200 p-3 rounded text-xs overflow-auto"><code>getNoteCount([note1, note2, note3]);
+// Returns: 3
+
+getNoteCount([]);
+// Returns: 0</code></pre>
+        </div>
+      </div>
+
+      <!-- Demo 8 -->
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <h3 class="card-title">Demo 8: clearNoteForm()</h3>
+          <p class="text-sm opacity-75 mb-3">Resets form after submission</p>
+          <pre class="bg-base-200 p-3 rounded text-xs overflow-auto"><code>clearNoteForm('note-form');
+// Clears all inputs in the form
+// Ready for new note entry</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      createNote,
+      validateNoteInput,
+      addNoteToList,
+      renderNoteElement,
+      renderAllNotes,
+      clearNoteForm,
+      getNoteCount,
+      formatNoteDate,
+      initializeNoteApp
+    } from './153-notes-create.js';
+
+    let notes = [];
+
+    const form = document.getElementById('note-form');
+    const titleInput = document.getElementById('note-title');
+    const contentInput = document.getElementById('note-content');
+    const notesContainer = document.getElementById('notes-container');
+    const noteCountEl = document.getElementById('note-count');
+    const charCountEl = document.getElementById('char-count');
+
+    function updateStats() {
+      const totalNotes = getNoteCount(notes);
+      const totalChars = notes.reduce((sum, note) => sum + note.content.length, 0);
+      
+      noteCountEl.textContent = totalNotes;
+      charCountEl.textContent = totalChars;
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const title = titleInput.value.trim();
+      const content = contentInput.value.trim();
+
+      const validation = validateNoteInput(title, content);
+      if (!validation.isValid) {
+        alert(validation.error);
+        return;
+      }
+
+      const newNote = createNote(title, content);
+      notes = addNoteToList(notes, newNote);
+
+      renderAllNotes(notes, 'notes-container');
+      clearNoteForm('note-form');
+      updateStats();
+    }
+
+    form.addEventListener('submit', handleSubmit);
+    updateStats();
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "086-validator-messages",
+  "version": "1.0.0",
+  "description": "Form Validator - Error Messages",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 086-validator-messages.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "error-handling",
+    "messages",
+    "validation",
+    "user-friendly"
+  ],
+  "author": "",
+  "license": "MIT"
+}

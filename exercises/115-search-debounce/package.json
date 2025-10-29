@@ -1,0 +1,26 @@
+{
+  "name": "115-search-debounce",
+  "version": "1.0.0",
+  "description": "Live Search Filter - Debounce Input",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "debounce",
+    "setTimeout",
+    "clearTimeout",
+    "performance",
+    "search",
+    "optimization"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

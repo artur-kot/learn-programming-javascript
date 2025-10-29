@@ -1,0 +1,22 @@
+{
+  "id": "101-theme-styles",
+  "number": 101,
+  "title": "Theme Switcher - Inline Styles",
+  "series": "20-theme-switcher",
+  "seriesNumber": 4,
+  "topic": "CSS Inline Styles with .style Property",
+  "description": "Change CSS properties directly using the .style API. Learn when to use inline styles vs classes.",
+  "concepts": [
+    "element.style property",
+    "camelCase CSS properties",
+    "Setting inline styles",
+    "Reading inline styles",
+    "Color properties",
+    "Background properties",
+    "Inline styles vs classes"
+  ],
+  "difficulty": "beginner",
+  "prerequisites": [
+    "100-theme-classes"
+  ]
+}

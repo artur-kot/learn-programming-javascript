@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Counter - Multiple Buttons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .counter-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      text-align: center;
+      min-width: 350px;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .counter-display {
+      font-size: 72px;
+      font-weight: bold;
+      color: #667eea;
+      margin: 30px 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      min-width: 70px;
+    }
+
+    button:hover {
+      background: #764ba2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    #increment-btn {
+      background: #51cf66;
+    }
+
+    #increment-btn:hover {
+      background: #40c057;
+    }
+
+    #decrement-btn {
+      background: #ff6b6b;
+    }
+
+    #decrement-btn:hover {
+      background: #ff5252;
+    }
+
+    #reset-btn {
+      background: #ffa94d;
+    }
+
+    #reset-btn:hover {
+      background: #ff922b;
+    }
+
+    .button-labels {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #999;
+    }
+
+    .label {
+      min-width: 70px;
+    }
+
+    .info {
+      margin-top: 30px;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .button-hint {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e3f2fd;
+      border-radius: 6px;
+      color: #1976d2;
+      font-size: 13px;
+      border-left: 4px solid #1976d2;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-container">
+    <h1>Multiple Button Counter</h1>
+    <div class="counter-display" id="display">0</div>
+    
+    <div class="button-group">
+      <button id="decrement-btn">−</button>
+      <button id="increment-btn">+</button>
+      <button id="reset-btn">Reset</button>
+    </div>
+
+    <div class="button-labels">
+      <div class="label">Decrement</div>
+      <div class="label">Increment</div>
+      <div class="label">Reset</div>
+    </div>
+
+    <div class="info">
+      <p>Use the buttons to control the counter:</p>
+      <ul style="text-align: left; display: inline-block;">
+        <li><strong>+</strong> to increment by 1</li>
+        <li><strong>−</strong> to decrement by 1</li>
+        <li><strong>Reset</strong> to set to 0</li>
+      </ul>
+    </div>
+
+    <div class="button-hint">
+      Each button has a different action. The handlers are set up with event listeners that check which button was clicked.
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      setupCounterButtons,
+      getCountValue
+    } from './110-counter-multiple.js';
+
+    const incrementBtn = document.getElementById('increment-btn');
+    const decrementBtn = document.getElementById('decrement-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const display = document.getElementById('display');
+
+    const counter = { count: 0 };
+
+    setupCounterButtons(incrementBtn, decrementBtn, resetBtn, display, counter);
+  </script>
+</body>
+</html>

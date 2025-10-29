@@ -1,0 +1,17 @@
+{
+  "name": "155-notes-edit",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "dev": "vite",
+    "vite": "vite"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "daisyui": "^4.10.1"
+  }
+}

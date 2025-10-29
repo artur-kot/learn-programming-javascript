@@ -1,0 +1,7 @@
+{
+  "name": "035-temp-kelvin",
+  "type": "module",
+  "scripts": {
+    "test": "node 035-temp-kelvin.test.js"
+  }
+}

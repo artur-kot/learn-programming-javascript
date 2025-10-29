@@ -1,0 +1,17 @@
+{
+  "name": "138-weather-fetch",
+  "version": "1.0.0",
+  "description": "Weather Dashboard - Basic Fetch API",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run 138-weather-fetch.test.js",
+    "test:watch": "vitest watch 138-weather-fetch.test.js"
+  },
+  "dependencies": {
+    "vitest": "^1.0.0"
+  },
+  "keywords": ["fetch", "api", "weather", "http", "requests"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

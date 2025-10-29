@@ -1,0 +1,38 @@
+{
+  "id": 179,
+  "title": "Calculator Tests - Vitest Framework",
+  "description": "Learn testing with Vitest, a modern test framework inspired by Jest but optimized for speed. Port your tests from node:test to Vitest and learn modern testing patterns.",
+  "series": 37,
+  "difficulty": "Intermediate",
+  "tags": ["testing", "vitest", "unit-tests", "modern-testing", "fast"],
+  "technologies": ["Vitest", "Node.js", "ES6 Modules"],
+  "learningOutcomes": [
+    "Understand Vitest testing framework",
+    "Write tests using describe/it syntax",
+    "Learn test fixtures and hooks (beforeEach, afterEach)",
+    "Practice snapshot testing basics",
+    "Port tests between frameworks"
+  ],
+  "skillsFocused": [
+    "Modern test frameworks",
+    "describe/it test organization",
+    "Test hooks and lifecycle",
+    "Framework-agnostic testing concepts",
+    "Fast test feedback"
+  ],
+  "estimatedHours": 1.5,
+  "prerequisitesContent": [
+    "Exercise 178: Node Test basics",
+    "Understanding of npm packages",
+    "Basic testing concepts"
+  ],
+  "structure": {
+    "files": [
+      "calculator.js - Same calculator from Exercise 178 (reused)",
+      "calculator.test.js - Vitest version with partial tests (YOUR JOB: complete tests)",
+      "vitest.config.js - Vitest configuration",
+      "package.json - Project config with Vitest",
+      "exercise.json, README.md - Documentation"
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 069-profile-preferences.test.js"
+  }
+}

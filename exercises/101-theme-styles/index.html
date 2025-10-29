@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Switcher - Inline Styles</title>
+  <style>
+    * {
+      transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+    }
+
+    #theme-container {
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .status {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Theme Switcher - Inline Styles</h1>
+    <p>Directly modify CSS properties using the style API.</p>
+    
+    <button id="theme-toggle">🌙 Toggle Theme</button>
+    
+    <div id="theme-container">
+      <p>This content changes color when you toggle the theme.</p>
+    </div>
+    
+    <div id="status" class="status">
+      <strong>Theme:</strong> <span id="theme-status">Light</span>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      setBackgroundColor,
+      setTextColor,
+      toggleInlineTheme
+    } from './101-theme-styles.js';
+
+    const themeToggle = document.getElementById('theme-toggle');
+
+    themeToggle.addEventListener('click', () => {
+      toggleInlineTheme('theme-container');
+    });
+
+    // Initialize with light theme
+    setBackgroundColor('theme-container', '#f0f0f0');
+    setTextColor('theme-container', '#000000');
+  </script>
+</body>
+</html>

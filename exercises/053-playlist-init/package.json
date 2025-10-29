@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 053-playlist-init.test.js"
+  }
+}

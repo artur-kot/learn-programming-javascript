@@ -1,0 +1,25 @@
+{
+  "name": "127-factory-advanced",
+  "version": "1.0.0",
+  "description": "Counter Factory - Advanced Features",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "closures",
+    "factory",
+    "advanced",
+    "getters",
+    "setters"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

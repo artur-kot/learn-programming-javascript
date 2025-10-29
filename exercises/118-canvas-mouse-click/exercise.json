@@ -1,0 +1,22 @@
+{
+  "id": "118-canvas-mouse-click",
+  "number": 118,
+  "title": "Interactive Drawing Canvas - Mouse Down/Up Events",
+  "series": "24-interactive-drawing-canvas",
+  "seriesNumber": 1,
+  "topic": "Canvas Basics and Mouse Events",
+  "description": "Learn to draw on HTML5 canvas and manage drawing state with mouse events.",
+  "concepts": [
+    "HTML5 Canvas element",
+    "Canvas context (2D)",
+    "Drawing primitives",
+    "Mouse events (mousedown, mouseup)",
+    "Drawing state tracking",
+    "Canvas coordinates",
+    "Line drawing"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "117-search-delegation"
+  ]
+}

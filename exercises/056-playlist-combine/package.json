@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "test": "node 056-playlist-combine.test.js"
+  }
+}

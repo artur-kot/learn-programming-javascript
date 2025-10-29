@@ -1,0 +1,14 @@
+{
+  "name": "136-pipeline-custom",
+  "version": "1.0.0",
+  "description": "Data Pipeline - Custom Methods",
+  "main": "136-pipeline-custom.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 136-pipeline-custom.test.js",
+    "test:watch": "node --test --watch 136-pipeline-custom.test.js"
+  },
+  "keywords": ["pipeline", "custom methods", "utilities", "helper functions", "reusable"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

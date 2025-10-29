@@ -1,0 +1,170 @@
+{
+  "id": "157-notes-undo",
+  "title": "Notes Undo/Redo & History",
+  "description": "Learn state history management implementing undo, redo, and action history tracking for note applications",
+  "series": 31,
+  "exerciseNumber": 157,
+  "difficulty": "advanced",
+  "functions": [
+    {
+      "name": "createHistoryManager",
+      "description": "Initialize a history manager for tracking state changes",
+      "parameters": [
+        {
+          "name": "initialState",
+          "type": "Any",
+          "description": "Initial state value"
+        },
+        {
+          "name": "maxHistory",
+          "type": "Number",
+          "description": "Maximum history entries to keep (default: 50)"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "History manager object with methods"
+      }
+    },
+    {
+      "name": "pushState",
+      "description": "Add new state to history",
+      "parameters": [
+        {
+          "name": "history",
+          "type": "Object",
+          "description": "History manager object"
+        },
+        {
+          "name": "newState",
+          "type": "Any",
+          "description": "New state to add"
+        }
+      ],
+      "returns": {
+        "type": "Boolean",
+        "description": "True if state added successfully"
+      }
+    },
+    {
+      "name": "undo",
+      "description": "Undo to previous state",
+      "parameters": [
+        {
+          "name": "history",
+          "type": "Object",
+          "description": "History manager object"
+        }
+      ],
+      "returns": {
+        "type": "Any",
+        "description": "Previous state or current state if at start"
+      }
+    },
+    {
+      "name": "redo",
+      "description": "Redo to next state",
+      "parameters": [
+        {
+          "name": "history",
+          "type": "Object",
+          "description": "History manager object"
+        }
+      ],
+      "returns": {
+        "type": "Any",
+        "description": "Next state or current state if at end"
+      }
+    },
+    {
+      "name": "getCurrentState",
+      "description": "Get current state from history",
+      "parameters": [
+        {
+          "name": "history",
+          "type": "Object",
+          "description": "History manager object"
+        }
+      ],
+      "returns": {
+        "type": "Any",
+        "description": "Current state value"
+      }
+    },
+    {
+      "name": "getHistory",
+      "description": "Get all states in history",
+      "parameters": [
+        {
+          "name": "history",
+          "type": "Object",
+          "description": "History manager object"
+        }
+      ],
+      "returns": {
+        "type": "Array",
+        "description": "Array of all states"
+      }
+    },
+    {
+      "name": "canUndo",
+      "description": "Check if undo is available",
+      "parameters": [
+        {
+          "name": "history",
+          "type": "Object",
+          "description": "History manager object"
+        }
+      ],
+      "returns": {
+        "type": "Boolean",
+        "description": "True if can undo"
+      }
+    },
+    {
+      "name": "canRedo",
+      "description": "Check if redo is available",
+      "parameters": [
+        {
+          "name": "history",
+          "type": "Object",
+          "description": "History manager object"
+        }
+      ],
+      "returns": {
+        "type": "Boolean",
+        "description": "True if can redo"
+      }
+    },
+    {
+      "name": "clearHistory",
+      "description": "Clear all history",
+      "parameters": [
+        {
+          "name": "history",
+          "type": "Object",
+          "description": "History manager object"
+        }
+      ],
+      "returns": {
+        "type": "Boolean",
+        "description": "True if cleared"
+      }
+    },
+    {
+      "name": "getHistoryStats",
+      "description": "Get statistics about history",
+      "parameters": [
+        {
+          "name": "history",
+          "type": "Object",
+          "description": "History manager object"
+        }
+      ],
+      "returns": {
+        "type": "Object",
+        "description": "Stats with currentIndex, totalStates, undoCount, redoCount"
+      }
+    }
+  ]
+}

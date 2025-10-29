@@ -1,0 +1,17 @@
+{
+  "name": "140-weather-errors",
+  "version": "1.0.0",
+  "description": "Weather Dashboard - Error Handling",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run 140-weather-errors.test.js",
+    "test:watch": "vitest watch 140-weather-errors.test.js"
+  },
+  "dependencies": {
+    "vitest": "^1.0.0"
+  },
+  "keywords": ["error handling", "try catch", "validation", "resilience"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

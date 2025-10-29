@@ -1,0 +1,18 @@
+{
+  "name": "093-quote-promise",
+  "version": "1.0.0",
+  "description": "Quote Fetcher - Simulate API",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 093-quote-promise.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "promises",
+    "async",
+    "api-simulation"
+  ],
+  "author": "",
+  "license": "MIT"
+}

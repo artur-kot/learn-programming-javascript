@@ -1,0 +1,26 @@
+{
+  "name": "113-search-input",
+  "version": "1.0.0",
+  "description": "Live Search Filter - Input Event",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "events",
+    "input event",
+    "search",
+    "filter",
+    "real-time",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

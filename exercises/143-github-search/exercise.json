@@ -1,0 +1,38 @@
+{
+  "id": 143,
+  "name": "GitHub User Search",
+  "series": 29,
+  "difficulty": "intermediate",
+  "description": "Master GitHub API integration by building user search functionality",
+  "learningOutcomes": [
+    "Make authenticated API requests to GitHub REST API",
+    "Construct API URLs with query parameters",
+    "Handle rate limiting and API headers",
+    "Parse GitHub user response objects",
+    "Validate search input and API responses",
+    "Implement search result caching"
+  ],
+  "prerequisites": [
+    "Fetch API fundamentals (Series 28, Exercise 138)",
+    "JSON parsing (Series 28, Exercise 139)",
+    "Error handling (Series 28, Exercise 140)"
+  ],
+  "functions": [
+    "searchGithubUser(username)",
+    "buildGithubUrl(username, options)",
+    "getUserData(username)",
+    "validateUsername(username)",
+    "cacheUserData(username, data)",
+    "getCachedUser(username)",
+    "clearUserCache()",
+    "formatApiResponse(response)",
+    "checkApiResponse(response)",
+    "searchMultipleUsers(usernames)"
+  ],
+  "estimatedTime": "90 minutes",
+  "resources": [
+    "GitHub REST API Documentation",
+    "GitHub User Endpoints Reference",
+    "API Rate Limiting Guide"
+  ]
+}

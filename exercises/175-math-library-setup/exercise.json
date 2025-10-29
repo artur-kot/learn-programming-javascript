@@ -1,0 +1,40 @@
+{
+  "id": 175,
+  "title": "Math Library - Setup & Basics",
+  "description": "Build a reusable math utility library with basic arithmetic, trigonometry, and statistics functions. Learn ES6 modules and function organization.",
+  "series": 36,
+  "difficulty": "Intermediate",
+  "tags": ["modules", "es6", "math", "functions", "export", "import"],
+  "technologies": ["JavaScript ES6 Modules", "Functions", "Math API"],
+  "learningOutcomes": [
+    "Create and organize utility functions into modules",
+    "Use ES6 export/import syntax",
+    "Build a reusable library of math functions",
+    "Understand function documentation and signatures",
+    "Practice testing and validating library functions"
+  ],
+  "skillsFocused": [
+    "Module creation and organization",
+    "Named exports for multiple functions",
+    "Function composition",
+    "Parameter validation",
+    "Mathematical formulas"
+  ],
+  "estimatedHours": 2.5,
+  "prerequisitesContent": [
+    "JavaScript functions and parameters",
+    "Math object and basic calculations",
+    "Arrow functions",
+    "Simple testing/validation"
+  ],
+  "structure": {
+    "files": [
+      "src/math.js - Core math functions",
+      "src/trigonometry.js - Angle/circle calculations",
+      "src/statistics.js - Basic stats functions",
+      "index.js - Main entry point, exports all",
+      "test.js - Test suite for all functions",
+      "examples.js - Real-world usage examples"
+    ]
+  }
+}

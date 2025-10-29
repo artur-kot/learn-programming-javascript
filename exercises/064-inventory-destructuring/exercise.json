@@ -1,0 +1,10 @@
+{
+  "id": "064-inventory-destructuring",
+  "title": "Inventory - Object Destructuring",
+  "description": "Extract product properties using object destructuring.",
+  "series": "13",
+  "seriesName": "Product Inventory",
+  "difficulty": "intermediate",
+  "topics": ["objects", "destructuring", "default values"],
+  "skills": ["object destructuring", "extracting properties", "default parameters"]
+}

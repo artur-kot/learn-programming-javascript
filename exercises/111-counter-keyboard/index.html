@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Counter - Keyboard Events</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .counter-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      text-align: center;
+      min-width: 400px;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .counter-display {
+      font-size: 72px;
+      font-weight: bold;
+      color: #667eea;
+      margin: 30px 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    .info {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .keyboard-controls {
+      margin-top: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 6px;
+      border: 2px solid #667eea;
+    }
+
+    .control-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .key {
+      background: #667eea;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .action {
+      color: #666;
+      margin-left: 15px;
+    }
+
+    .last-key {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e3f2fd;
+      border-radius: 6px;
+      color: #1976d2;
+      border-left: 4px solid #1976d2;
+      font-family: 'Courier New', monospace;
+    }
+
+    .hint {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff3cd;
+      border-radius: 6px;
+      color: #856404;
+      border-left: 4px solid #ffc107;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-container">
+    <h1>Keyboard Counter</h1>
+    <div class="counter-display" id="display">0</div>
+
+    <div class="keyboard-controls">
+      <div class="control-item">
+        <span class="key">↑ Up Arrow</span>
+        <span class="action">Increment</span>
+      </div>
+      <div class="control-item">
+        <span class="key">↓ Down Arrow</span>
+        <span class="action">Decrement</span>
+      </div>
+      <div class="control-item">
+        <span class="key">→ Right Arrow</span>
+        <span class="action">Increment</span>
+      </div>
+      <div class="control-item">
+        <span class="key">← Left Arrow</span>
+        <span class="action">Decrement</span>
+      </div>
+      <div class="control-item">
+        <span class="key">R</span>
+        <span class="action">Reset to 0</span>
+      </div>
+    </div>
+
+    <div class="last-key">
+      Last key pressed: <strong id="last-key">None</strong>
+    </div>
+
+    <div class="info">
+      <p>Use your keyboard to control the counter:</p>
+      <ul style="text-align: left; display: inline-block;">
+        <li><strong>Arrow Keys (↑ ↓)</strong> to increment/decrement</li>
+        <li><strong>R Key</strong> to reset to zero</li>
+      </ul>
+    </div>
+
+    <div class="hint">
+      The counter responds to keyboard events. No buttons needed - just use your keyboard!
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      setupKeyboardListener,
+      getKeyName
+    } from './111-counter-keyboard.js';
+
+    const display = document.getElementById('display');
+    const lastKeySpan = document.getElementById('last-key');
+
+    const counter = { count: 0 };
+
+    setupKeyboardListener(display, counter);
+
+    // Track last key pressed for display
+    window.addEventListener('keydown', (event) => {
+      const keyName = getKeyName(event.key);
+      lastKeySpan.textContent = keyName;
+    });
+  </script>
+</body>
+</html>

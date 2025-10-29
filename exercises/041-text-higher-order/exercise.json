@@ -1,0 +1,16 @@
+{
+  "name": "041-text-higher-order",
+  "title": "Text Analyzer - Higher-Order Functions",
+  "description": "Create functions that return filter functions for text analysis",
+  "series": "Series 8: Text Analyzer Tool",
+  "seriesIndex": 4,
+  "difficulty": "Intermediate",
+  "topics": ["functions", "higher-order functions", "callbacks", "text processing"],
+  "skills": [
+    "Writing functions that return functions",
+    "Understanding functional programming patterns",
+    "Factory functions",
+    "Function closures"
+  ],
+  "keywords": ["higher-order", "factory", "closure", "text", "filter"]
+}

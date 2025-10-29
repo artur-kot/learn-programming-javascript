@@ -1,0 +1,14 @@
+{
+  "name": "134-pipeline-flatten",
+  "version": "1.0.0",
+  "description": "Data Pipeline - Flatten Data",
+  "main": "134-pipeline-flatten.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 134-pipeline-flatten.test.js",
+    "test:watch": "node --test --watch 134-pipeline-flatten.test.js"
+  },
+  "keywords": ["pipeline", "flatten", "flat", "flatMap", "nested arrays"],
+  "author": "Learn Programming JavaScript",
+  "license": "MIT"
+}

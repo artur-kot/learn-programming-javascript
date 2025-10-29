@@ -1,0 +1,19 @@
+{
+  "name": "092-pomodoro-notify",
+  "version": "1.0.0",
+  "description": "Pomodoro Timer - Notification System",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 092-pomodoro-notify.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "asynchronous",
+    "notifications",
+    "events",
+    "pomodoro"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "086-validator-messages",
+  "number": 86,
+  "title": "Form Validator - Error Messages",
+  "series": "17-form-validator",
+  "seriesNumber": 4,
+  "topic": "User-Friendly Error Messages",
+  "description": "Create a comprehensive error message system for validation. Provide helpful, specific messages that guide users to fix issues.",
+  "concepts": [
+    "Error message templates",
+    "Context in errors",
+    "User-friendly language",
+    "Message formatting",
+    "Internationalization basics",
+    "Field-specific messages"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "085-validator-finally"
+  ]
+}

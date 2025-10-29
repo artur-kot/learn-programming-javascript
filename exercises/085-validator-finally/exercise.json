@@ -1,0 +1,21 @@
+{
+  "id": "085-validator-finally",
+  "number": 85,
+  "title": "Form Validator - Finally Cleanup",
+  "series": "17-form-validator",
+  "seriesNumber": 3,
+  "topic": "Finally Blocks and Cleanup",
+  "description": "Master the finally block for cleanup and logging. Learn to execute code that always runs, whether an error occurs or not.",
+  "concepts": [
+    "Finally blocks",
+    "Guaranteed execution",
+    "Cleanup operations",
+    "Resource management",
+    "Logging patterns",
+    "State tracking"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "084-validator-custom-errors"
+  ]
+}

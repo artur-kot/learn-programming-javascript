@@ -1,0 +1,32 @@
+{
+  "id": 130,
+  "series": 26,
+  "title": "RPG Character System - Methods and Properties",
+  "description": "Add instance methods to RPG characters. Learn how to define methods in classes, use them to modify state, and implement game mechanics like attack, defend, heal, and leveling.",
+  "difficulty": "intermediate",
+  "skills": [
+    "class methods",
+    "instance methods",
+    "this context in methods",
+    "state modification",
+    "method chaining",
+    "game mechanics"
+  ],
+  "prerequisites": [
+    "129-rpg-class"
+  ],
+  "concepts": {
+    "class_methods": "Functions defined in a class that operate on instances",
+    "instance_methods": "Methods that use 'this' to access and modify instance state",
+    "method_chaining": "Calling methods in sequence for fluent API",
+    "state_management": "Modifying instance properties through methods"
+  },
+  "learning_outcomes": [
+    "Define methods in classes",
+    "Use 'this' to access and modify instance state",
+    "Implement game mechanics (attack, defend, heal, level up)",
+    "Create methods that return instance for chaining",
+    "Understand method scope and context"
+  ],
+  "estimated_time": "50 minutes"
+}

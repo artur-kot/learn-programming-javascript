@@ -1,0 +1,17 @@
+{
+  "name": "145-github-repos",
+  "version": "1.0.0",
+  "description": "GitHub API integration - Fetch and display user repositories",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": ["github", "api", "repositories", "repos"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.0.4"
+  }
+}

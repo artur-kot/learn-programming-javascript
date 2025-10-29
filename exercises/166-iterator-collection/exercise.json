@@ -1,0 +1,82 @@
+{
+  "id": 166,
+  "title": "Iterator - Custom Collections",
+  "description": "Create custom iterable collection classes with Symbol.iterator",
+  "series": 33,
+  "difficulty": "intermediate",
+  "topics": ["classes", "iterators", "collections"],
+  "functions": [
+    {
+      "name": "LinkedListNode",
+      "description": "Class representing single node in linked list",
+      "parameters": ["value", "next"],
+      "returns": "Node object with value and next properties"
+    },
+    {
+      "name": "LinkedList",
+      "description": "Class for singly-linked list collection",
+      "parameters": [],
+      "returns": "LinkedList instance"
+    },
+    {
+      "name": "LinkedList.prototype.add",
+      "description": "Add value to end of linked list",
+      "parameters": ["value"],
+      "returns": "this for chaining"
+    },
+    {
+      "name": "LinkedList.prototype[Symbol.iterator]",
+      "description": "Make LinkedList iterable with for...of",
+      "parameters": [],
+      "returns": "Iterator object"
+    },
+    {
+      "name": "Queue",
+      "description": "FIFO queue collection class",
+      "parameters": [],
+      "returns": "Queue instance"
+    },
+    {
+      "name": "Queue.prototype.enqueue",
+      "description": "Add item to back of queue",
+      "parameters": ["value"],
+      "returns": "this for chaining"
+    },
+    {
+      "name": "Queue.prototype.dequeue",
+      "description": "Remove and return item from front",
+      "parameters": [],
+      "returns": "Value or undefined if empty"
+    },
+    {
+      "name": "Queue.prototype[Symbol.iterator]",
+      "description": "Make Queue iterable",
+      "parameters": [],
+      "returns": "Iterator"
+    },
+    {
+      "name": "Stack",
+      "description": "LIFO stack collection class",
+      "parameters": [],
+      "returns": "Stack instance"
+    },
+    {
+      "name": "Stack.prototype.push",
+      "description": "Add item to top of stack",
+      "parameters": ["value"],
+      "returns": "this for chaining"
+    },
+    {
+      "name": "Stack.prototype.pop",
+      "description": "Remove and return item from top",
+      "parameters": [],
+      "returns": "Value or undefined if empty"
+    },
+    {
+      "name": "Stack.prototype[Symbol.iterator]",
+      "description": "Make Stack iterable (top to bottom)",
+      "parameters": [],
+      "returns": "Iterator"
+    }
+  ]
+}
