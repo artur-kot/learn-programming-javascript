@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autocomplete Search - Optimized</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pico-css/css/pico.min.css">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <main class="container">
+    <section>
+      <h1>🌍 Country Autocomplete - Optimized</h1>
+      <p>Advanced search with debouncing, caching, fuzzy matching, and keyboard navigation</p>
+      
+      <div class="search-container">
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search countries (type 'unite', 'frane', 'pari'... fuzzy matching works!)..."
+            autocomplete="off"
+            aria-label="Search countries"
+          />
+          <button id="clearBtn" class="clear-btn" aria-label="Clear search" title="Clear">✕</button>
+          <div id="loadingSpinner" class="spinner" hidden></div>
+        </div>
+        
+        <div id="resultsContainer" class="results-container" role="listbox">
+          <!-- Results will be inserted here -->
+        </div>
+      </div>
+
+      <div class="stats-panel">
+        <div class="stat-item">
+          <label>Results:</label>
+          <span id="resultCount">0</span>
+        </div>
+        <div class="stat-item">
+          <label>Cache Hits:</label>
+          <span id="cacheHits">0</span>
+        </div>
+        <div class="stat-item">
+          <label>Status:</label>
+          <span id="status">Ready</span>
+        </div>
+        <div class="stat-item">
+          <label>Response Time:</label>
+          <span id="responseTime">-</span>
+        </div>
+      </div>
+
+      <details class="performance-info">
+        <summary>📊 Performance Features Enabled</summary>
+        <ul>
+          <li><strong>Debouncing:</strong> Waits 300ms after typing stops before API call</li>
+          <li><strong>Client-side Caching:</strong> Stores previous searches to avoid re-fetching</li>
+          <li><strong>Fuzzy Matching:</strong> Finds similar spellings (e.g., 'frane' → 'France')</li>
+          <li><strong>Keyboard Navigation:</strong> Arrow keys to navigate, Enter to select</li>
+          <li><strong>Smart Indexing:</strong> Backend indexes countries for faster searching</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="info">
+      <h2>Improvements Over Exercise 173</h2>
+      
+      <h3>Frontend Optimizations</h3>
+      <ul>
+        <li><strong>Debouncing:</strong> Each keystroke doesn't trigger API call immediately. Waits 300ms of inactivity.</li>
+        <li><strong>Result Caching:</strong> Previously searched terms cached locally. Same search = instant results.</li>
+        <li><strong>Keyboard Navigation:</strong> Arrow keys to move between results, Enter to select.</li>
+        <li><strong>Clear Button:</strong> Quick way to reset search and results.</li>
+        <li><strong>Better UX:</strong> Loading spinner, ARIA labels for accessibility.</li>
+      </ul>
+
+      <h3>Backend Optimizations</h3>
+      <ul>
+        <li><strong>Fuzzy Matching:</strong> Finds similar spellings using Levenshtein distance.</li>
+        <li><strong>Search Index:</strong> Pre-indexed countries for faster searching.</li>
+        <li><strong>Performance Metrics:</strong> New `/search-with-stats` endpoint shows response times.</li>
+        <li><strong>Scoring Algorithm:</strong> Results ranked by relevance.</li>
+      </ul>
+
+      <h3>Try These Searches</h3>
+      <ul>
+        <li><strong>Exact:</strong> "france", "united states", "new zealand"</li>
+        <li><strong>Partial:</strong> "united", "island", "congo"</li>
+        <li><strong>Fuzzy (Typos):</strong> "frane" → France, "chna" → China, "swden" → Sweden</li>
+        <li><strong>Code:</strong> "us", "gb", "ca" (case-insensitive)</li>
+      </ul>
+
+      <h3>Performance Comparison</h3>
+      <p>
+        <strong>Exercise 173 (Basic):</strong> Every keystroke = 1 API call. 100 keystrokes = 100 API calls.<br>
+        <strong>Exercise 174 (Optimized):</strong> Same 100 keystrokes = 5-10 API calls due to debouncing. Also uses cache!
+      </p>
+
+      <h3>Keyboard Shortcuts</h3>
+      <ul>
+        <li><kbd>↑</kbd> / <kbd>↓</kbd> Navigate results</li>
+        <li><kbd>Enter</kbd> Select highlighted result</li>
+        <li><kbd>Escape</kbd> Clear search</li>
+      </ul>
+    </section>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

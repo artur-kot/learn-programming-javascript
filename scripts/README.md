@@ -1,5 +1,7 @@
 # Exercise Manager
 
+This is tool is intended to use for course contributors.
+
 A command-line tool to manage exercise order and structure in the JavaScript course.
 
 ## Features

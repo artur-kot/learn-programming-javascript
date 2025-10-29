@@ -1,0 +1,19 @@
+{
+  "name": "autocomplete-backend-optimized",
+  "version": "1.0.0",
+  "description": "Optimized Fastify backend for autocomplete search with caching and fuzzy matching",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": ["fastify", "autocomplete", "search", "caching", "fuzzy-match"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "fastify": "^4.25.0",
+    "@fastify/cors": "^8.4.2"
+  },
+  "devDependencies": {}
+}

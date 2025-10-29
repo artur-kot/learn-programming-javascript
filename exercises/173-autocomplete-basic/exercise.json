@@ -1,0 +1,44 @@
+{
+  "id": 173,
+  "title": "Autocomplete - Basic Setup",
+  "description": "Build a full-stack autocomplete search application with Fastify backend and Vite frontend. Learn REST API architecture, real-time search, and frontend-backend communication.",
+  "series": 35,
+  "difficulty": "Intermediate",
+  "tags": ["fullstack", "fastify", "vite", "rest-api", "real-time", "search"],
+  "technologies": ["Node.js", "Fastify", "Vite", "HTML5", "CSS3", "REST API"],
+  "learningOutcomes": [
+    "Understand full-stack architecture with separate backend and frontend",
+    "Build a REST API endpoint for search functionality",
+    "Create a frontend that communicates with a backend API",
+    "Implement real-time search with user input",
+    "Structure a Vite project with module bundling"
+  ],
+  "skillsFocused": [
+    "Backend development with Fastify",
+    "Frontend-backend communication via HTTP",
+    "REST API design (GET with query parameters)",
+    "HTML/CSS/JavaScript frontend development",
+    "Package.json configuration for both frontend and backend"
+  ],
+  "estimatedHours": 2,
+  "prerequisitesContent": [
+    "JavaScript functions and arrow functions",
+    "Array methods (filter, find, map)",
+    "Async/await and fetch API",
+    "Basic HTML and CSS",
+    "Node.js and npm basics"
+  ],
+  "structure": {
+    "backend": {
+      "mainFile": "src/server.js",
+      "dataFile": "data/countries.json",
+      "description": "Fastify HTTP server with autocomplete search endpoint"
+    },
+    "frontend": {
+      "mainFile": "src/main.js",
+      "htmlFile": "index.html",
+      "styleFile": "src/style.css",
+      "description": "Vite-based frontend with autocomplete UI component"
+    }
+  }
+}

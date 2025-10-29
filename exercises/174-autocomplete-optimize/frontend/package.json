@@ -1,0 +1,18 @@
+{
+  "name": "autocomplete-frontend-optimized",
+  "version": "1.0.0",
+  "description": "Optimized Vite frontend with debouncing, caching, and keyboard navigation",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["vite", "autocomplete", "performance", "debouncing"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
