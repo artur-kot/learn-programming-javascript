@@ -1,0 +1,15 @@
+{
+  "name": "stats-analyzer",
+  "version": "1.0.0",
+  "description": "Real-world statistics analyzer using math library",
+  "type": "module",
+  "main": "analyzer.js",
+  "scripts": {
+    "test": "node test.js",
+    "example": "node example.js",
+    "analyze": "node analyzer.js"
+  },
+  "keywords": ["statistics", "analysis", "data", "report"],
+  "author": "",
+  "license": "MIT"
+}

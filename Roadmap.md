@@ -13,19 +13,20 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## 📊 Progress Summary
 
-**Overall Progress:** 172/200 exercises completed (86%)
+**Overall Progress:** 178/200 exercises completed (89%)
 
-**Completed Series:** 35/40 series ✅
+**Completed Series:** 36/40 series ✅
 - Series 1-32: All complete (162 exercises)
 - Series 33: All complete (5 exercises)
 - Series 34: All complete (5 exercises)
-- Series 35: All complete (2 exercises) 🎉
+- Series 35: All complete (2 exercises)
+- Series 36: All complete (3 exercises) 🎉
 
 **Current Status:**
-- Phase 1-18: ✅ COMPLETE (Exercises 1-174)
-- Phase 19+: 🔄 In Progress (Exercises 175-200)
+- Phase 1-19: ✅ COMPLETE (Exercises 1-178)
+- Phase 20+: 🔄 In Progress (Exercises 179-200)
 
-**Next Series:** Series 36 - Math Utility Library (ES6 Modules)
+**Next Series:** Series 37 - Tested Calculator (Unit Testing)
 
 ---
 
@@ -586,33 +587,29 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## Phase 20: Modern Development Practices
 
-### Series 36: Math Utility Library
-*Build a utility library to learn ES6 modules*
+### Series 36: Math Utility Library ✅ COMPLETE
+*Build and use a reusable utility library to learn ES6 modules and real-world library integration (3 focused exercises instead of 5)*
 
 <!-- TODO: to refine -->
-175. [ ] **Math Library - Named Exports** - Export multiple math functions ([exercise 175](./exercises/175-math-named-exports))
+175. [x] **Math Library - Setup & Basics** - Build comprehensive math library with 30+ functions across 3 modules: math, trigonometry, statistics ([exercise 175](./exercises/175-math-library-setup))
 <!-- TODO: to refine -->
-176. [ ] **Math Library - Import Functions** - Import and use exported utilities ([exercise 176](./exercises/176-math-import))
+176. [x] **Math Library - Statistics Analyzer** - Build real-world data analysis tool using the math library for statistical reports and insights ([exercise 176](./exercises/176-stats-analyzer))
 <!-- TODO: to refine -->
-177. [ ] **Math Library - Default Export** - Export main calculator class ([exercise 177](./exercises/177-math-default))
-<!-- TODO: to refine -->
-178. [ ] **Math Library - Organize Modules** - Split into multiple module files ([exercise 178](./exercises/178-math-organize))
-<!-- TODO: to refine -->
-179. [ ] **Math Library - Re-export** - Create index file to re-export all modules ([exercise 179](./exercises/179-math-reexport))
+177. [x] **Math Library - Geometry Calculator** - Build practical geometry calculator with 14 shape functions and unit conversions using the library ([exercise 177](./exercises/177-geometry-calculator))
 
 ### Series 37: Tested Calculator
 *Build a calculator with full test coverage to learn testing*
 
 <!-- TODO: to refine -->
-180. [ ] **Calculator Tests - First Test** - Write simple addition test ([exercise 180](./exercises/180-calc-first-test))
+178. [ ] **Calculator Tests - First Test** - Write simple addition test ([exercise 178](./exercises/178-calc-first-test))
 <!-- TODO: to refine -->
-181. [ ] **Calculator Tests - Test Functions** - Add tests for all operations ([exercise 181](./exercises/181-calc-test-functions))
+179. [ ] **Calculator Tests - Test Functions** - Add tests for all operations ([exercise 179](./exercises/179-calc-test-functions))
 <!-- TODO: to refine -->
-182. [ ] **Calculator Tests - Edge Cases** - Test division by zero, negative numbers ([exercise 182](./exercises/182-calc-edge-cases))
+180. [ ] **Calculator Tests - Edge Cases** - Test division by zero, negative numbers ([exercise 180](./exercises/180-calc-edge-cases))
 <!-- TODO: to refine -->
-183. [ ] **Calculator Tests - TDD Feature** - Add new feature using test-first approach ([exercise 183](./exercises/183-calc-tdd))
+181. [ ] **Calculator Tests - TDD Feature** - Add new feature using test-first approach ([exercise 181](./exercises/181-calc-tdd))
 <!-- TODO: to refine -->
-184. [ ] **Calculator Tests - Test Suite** - Organize tests with describe and it blocks ([exercise 184](./exercises/184-calc-suite))
+182. [ ] **Calculator Tests - Test Suite** - Organize tests with describe and it blocks ([exercise 182](./exercises/182-calc-suite))
 
 ---
 
@@ -622,48 +619,48 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a complete quiz application combining multiple skills*
 
 <!-- TODO: to refine -->
-185. [ ] **Quiz - Question Display** - Show questions with multiple choice answers ([exercise 185](./exercises/185-quiz-display))
+183. [ ] **Quiz - Question Display** - Show questions with multiple choice answers ([exercise 183](./exercises/183-quiz-display))
 <!-- TODO: to refine -->
-186. [ ] **Quiz - Score Tracking** - Track correct/incorrect answers ([exercise 186](./exercises/186-quiz-score))
+184. [ ] **Quiz - Score Tracking** - Track correct/incorrect answers ([exercise 184](./exercises/184-quiz-score))
 <!-- TODO: to refine -->
-187. [ ] **Quiz - Timer System** - Add countdown timer for each question ([exercise 187](./exercises/187-quiz-timer))
+185. [ ] **Quiz - Timer System** - Add countdown timer for each question ([exercise 185](./exercises/185-quiz-timer))
 <!-- TODO: to refine -->
-188. [ ] **Quiz - Progress Bar** - Show visual progress through quiz ([exercise 188](./exercises/188-quiz-progress))
+186. [ ] **Quiz - Progress Bar** - Show visual progress through quiz ([exercise 186](./exercises/186-quiz-progress))
 <!-- TODO: to refine -->
-189. [ ] **Quiz - Results Screen** - Display final score with review option ([exercise 189](./exercises/189-quiz-results))
+187. [ ] **Quiz - Results Screen** - Display final score with review option ([exercise 187](./exercises/187-quiz-results))
 
 ### Series 39: E-commerce Cart
 *Build a shopping cart system integrating advanced features*
 
 <!-- TODO: to refine -->
-190. [ ] **Cart - Product List** - Display products with add to cart buttons ([exercise 190](./exercises/190-cart-products))
+188. [ ] **Cart - Product List** - Display products with add to cart buttons ([exercise 188](./exercises/188-cart-products))
 <!-- TODO: to refine -->
-191. [ ] **Cart - Add/Remove Items** - Manage cart items with quantity ([exercise 191](./exercises/191-cart-manage))
+189. [ ] **Cart - Add/Remove Items** - Manage cart items with quantity ([exercise 189](./exercises/189-cart-manage))
 <!-- TODO: to refine -->
-192. [ ] **Cart - Calculate Totals** - Compute subtotal, tax, and total price ([exercise 192](./exercises/192-cart-calculate))
+190. [ ] **Cart - Calculate Totals** - Compute subtotal, tax, and total price ([exercise 190](./exercises/190-cart-calculate))
 <!-- TODO: to refine -->
-193. [ ] **Cart - Discount Codes** - Apply coupon codes and promotions ([exercise 193](./exercises/193-cart-discounts))
+191. [ ] **Cart - Discount Codes** - Apply coupon codes and promotions ([exercise 191](./exercises/191-cart-discounts))
 <!-- TODO: to refine -->
-194. [ ] **Cart - Persist Cart** - Save cart to localStorage between sessions ([exercise 194](./exercises/194-cart-persist))
+192. [ ] **Cart - Persist Cart** - Save cart to localStorage between sessions ([exercise 192](./exercises/192-cart-persist))
 
 ### Series 40: Image Gallery
 *Build an interactive gallery with advanced UI features*
 
 <!-- TODO: to refine -->
-195. [ ] **Gallery - Grid Layout** - Display images in responsive grid ([exercise 195](./exercises/195-gallery-grid))
+193. [ ] **Gallery - Grid Layout** - Display images in responsive grid ([exercise 193](./exercises/193-gallery-grid))
 <!-- TODO: to refine -->
-196. [ ] **Gallery - Lightbox View** - Click to view full-size image ([exercise 196](./exercises/196-gallery-lightbox))
+194. [ ] **Gallery - Lightbox View** - Click to view full-size image ([exercise 194](./exercises/194-gallery-lightbox))
 <!-- TODO: to refine -->
-197. [ ] **Gallery - Navigation** - Add prev/next buttons in lightbox ([exercise 197](./exercises/197-gallery-navigation))
+195. [ ] **Gallery - Navigation** - Add prev/next buttons in lightbox ([exercise 195](./exercises/195-gallery-navigation))
 <!-- TODO: to refine -->
-198. [ ] **Gallery - Keyboard Controls** - Navigate with arrow keys and ESC ([exercise 198](./exercises/198-gallery-keyboard))
+196. [ ] **Gallery - Keyboard Controls** - Navigate with arrow keys and ESC ([exercise 196](./exercises/196-gallery-keyboard))
 <!-- TODO: to refine -->
-199. [ ] **Gallery - Lazy Loading** - Load images as user scrolls ([exercise 199](./exercises/199-gallery-lazy-load))
+197. [ ] **Gallery - Lazy Loading** - Load images as user scrolls ([exercise 197](./exercises/197-gallery-lazy-load))
 
 ---
 
 ### ⭐ Bonus Exercises
-200. [ ] **Your Own Project** - Design and build your own application using concepts from entire course
+198. [ ] **Your Own Project** - Design and build your own application using concepts from entire course
 
 ### Skills You've Mastered
 

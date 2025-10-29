@@ -1,0 +1,40 @@
+{
+  "id": 176,
+  "title": "Math Library - Statistics Analyzer",
+  "description": "Build a real-world statistics analyzer for survey/data analysis using the math library from Exercise 175. Apply the library to solve practical problems.",
+  "series": 36,
+  "difficulty": "Intermediate",
+  "tags": ["modules", "statistics", "data-analysis", "real-world", "library-usage"],
+  "technologies": ["JavaScript ES6 Modules", "Math Library", "Data Analysis"],
+  "learningOutcomes": [
+    "Use a library you created in a real-world application",
+    "Perform statistical analysis on datasets",
+    "Generate insights from data",
+    "Create data visualization in console",
+    "Build complete application using library functions"
+  ],
+  "skillsFocused": [
+    "Library integration",
+    "Data processing pipelines",
+    "Statistical analysis workflows",
+    "Meaningful output generation",
+    "Application design using modules"
+  ],
+  "estimatedHours": 2.5,
+  "prerequisitesContent": [
+    "Exercise 175: Math Library - Setup & Basics",
+    "ES6 modules and imports",
+    "Array methods and iteration",
+    "Object manipulation"
+  ],
+  "structure": {
+    "files": [
+      "analyzer.js - Main analyzer application",
+      "datasets.js - Sample datasets for analysis",
+      "reports.js - Report generation functions",
+      "test.js - Test suite for analyzer",
+      "example.js - Example analyses",
+      "package.json, exercise.json, README.md"
+    ]
+  }
+}
