@@ -622,4 +622,4 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 182. [ ] **E-commerce Cart - Complete System** - Build full cart system with product management, services layer, discounts, and persistence. 45 TODOs across models, services, and utilities. Entry point for extending with UI components ([exercise 182](./exercises/182-ecommerce-cart)).
 
 ### ⭐ Bonus
-188. [ ] **Your Own Project** - Design and build your own application using concepts from entire course
+183. **Your Own Project** - Design and build your own application using concepts from entire course
