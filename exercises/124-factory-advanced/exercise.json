@@ -1,0 +1,25 @@
+{
+  "id": "124-factory-advanced",
+  "number": 124,
+  "title": "Factory Functions - Module Pattern & Advanced Features",
+  "series": "25-counter-factory",
+  "seriesNumber": 2,
+  "topic": "Advanced Factory Patterns",
+  "description": "Master advanced factory patterns: module pattern, getters/setters, observers, undo/redo, and validation.",
+  "concepts": [
+    "Module pattern",
+    "IIFE (Immediately Invoked Function Expression)",
+    "Revealing module pattern",
+    "Getters and setters",
+    "Observer pattern",
+    "Undo/redo functionality",
+    "Validation callbacks",
+    "Event listeners",
+    "Advanced closures",
+    "Computed properties"
+  ],
+  "difficulty": "advanced",
+  "prerequisites": [
+    "123-factory-basics"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "123-factory-basics",
+  "version": "1.0.0",
+  "description": "Factory Functions - Closures & Private State",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "closures",
+    "factory",
+    "functions",
+    "scope",
+    "private variables",
+    "encapsulation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "123-factory-basics",
+  "number": 123,
+  "title": "Factory Functions - Closures & Private State",
+  "series": "25-counter-factory",
+  "seriesNumber": 1,
+  "topic": "Closures and Factory Functions",
+  "description": "Master factory functions with closures to create private state, encapsulated objects, and independent instances.",
+  "concepts": [
+    "Closures",
+    "Factory functions",
+    "Lexical scope",
+    "Private variables",
+    "Encapsulation",
+    "State isolation",
+    "Independent instances",
+    "Public interface",
+    "Information hiding",
+    "Higher-order functions"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "122-canvas-save"
+  ]
+}

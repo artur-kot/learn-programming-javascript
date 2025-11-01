@@ -32,9 +32,9 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ### Getting Started Exercises (Not part of a series)
 <!-- TODO: to refine -->
-1. [x] **Hello World** - Write your first JavaScript program that displays a message ([exercise 001](./exercises/001-hello-world))
+1. [x] **Hello World** - Write your first JavaScript program that displays a message ([exercise 1](./exercises/001-hello-world))
 <!-- TODO: to refine -->
-2. [x] **Console Methods** - Understand different ways to output information: log, warn, error ([exercise 002](./exercises/002-console-methods))
+2. [x] **Console Methods** - Understand different ways to output information: log, warn, error ([exercise 2](./exercises/002-console-methods))
 
 ---
 
@@ -43,28 +43,28 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 1: Profile Card Builder
 *Build a user profile display by learning variables, strings, and template literals*
 <!-- TODO: to refine -->
-3. [x] **Profile Card - Store User Info** - Create variables to store name, age, and email ([exercise 003](./exercises/003-profile-store-info))
+3. [x] **Profile Card - Store User Info** - Create variables to store name, age, and email ([exercise 3](./exercises/003-profile-store-info))
 <!-- TODO: to refine -->
-4. [x] **Profile Card - Display With Concatenation** - Combine strings to show user information ([exercise 004](./exercises/004-profile-concatenation))
+4. [x] **Profile Card - Display With Concatenation** - Combine strings to show user information ([exercise 4](./exercises/004-profile-concatenation))
 <!-- TODO: to refine -->
-5. [x] **Profile Card - Template Literals** - Improve display using modern template strings ([exercise 005](./exercises/005-profile-templates))
+5. [x] **Profile Card - Template Literals** - Improve display using modern template strings ([exercise 5](./exercises/005-profile-templates))
 <!-- TODO: to refine -->
-6. [x] **Profile Card - Format and Style** - Use string methods to format text (uppercase, lowercase, trim) ([exercise 006](./exercises/006-profile-format))
+6. [x] **Profile Card - Format and Style** - Use string methods to format text (uppercase, lowercase, trim) ([exercise 6](./exercises/006-profile-format))
 <!-- TODO: to refine -->
-7. [x] **Profile Card - Validate Email** - Check if email contains @ symbol using string methods ([exercise 007](./exercises/007-profile-validate))
+7. [x] **Profile Card - Validate Email** - Check if email contains @ symbol using string methods ([exercise 7](./exercises/007-profile-validate))
 
 ### Series 2: Simple Calculator
 *Build a basic calculator to learn numbers, operators, and type conversion*
 <!-- TODO: to refine -->
-8. [x] **Calculator - Basic Operations** - Create functions for add, subtract, multiply, divide ([exercise 008](./exercises/008-calculator-basic))
+8. [x] **Calculator - Basic Operations** - Create functions for add, subtract, multiply, divide ([exercise 8](./exercises/008-calculator-basic))
 <!-- TODO: to refine -->
-9. [x] **Calculator - Advanced Math** - Add modulo, power, and square root operations ([exercise 009](./exercises/009-calculator-advanced))
+9. [x] **Calculator - Advanced Math** - Add modulo, power, and square root operations ([exercise 9](./exercises/009-calculator-advanced))
 <!-- TODO: to refine -->
-10. [x] **Calculator - Handle User Input** - Accept string input and convert to numbers ([exercise 010](./exercises/010-calculator-input))
+10. [x] **Calculator - Handle User Input** - Accept string input and convert to numbers ([exercise 10](./exercises/010-calculator-input))
 <!-- TODO: to refine -->
-11. [x] **Calculator - Display Results** - Format output with proper decimal places and units ([exercise 011](./exercises/011-calculator-display))
+11. [x] **Calculator - Display Results** - Format output with proper decimal places and units ([exercise 11](./exercises/011-calculator-display))
 <!-- TODO: to refine -->
-12. [x] **Calculator - Input Validation** - Check for valid numbers and division by zero ([exercise 012](./exercises/012-calculator-validation))
+12. [x] **Calculator - Input Validation** - Check for valid numbers and division by zero ([exercise 12](./exercises/012-calculator-validation))
 
 ---
 
@@ -73,29 +73,29 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 3: Age Checker App
 *Build an age verification system to learn conditionals and boolean logic*
 <!-- TODO: to refine -->
-13. [x] **Age Checker - Basic If Statement** - Check if user is 18 or older ([exercise 013](./exercises/013-age-basic-if))
+13. [x] **Age Checker - Basic If Statement** - Check if user is 18 or older ([exercise 13](./exercises/013-age-basic-if))
 <!-- TODO: to refine -->
-14. [x] **Age Checker - If-Else for Categories** - Classify as child, teen, or adult ([exercise 014](./exercises/014-age-if-else))
+14. [x] **Age Checker - If-Else for Categories** - Classify as child, teen, or adult ([exercise 14](./exercises/014-age-if-else))
 <!-- TODO: to refine -->
-15. [x] **Age Checker - Multiple Age Groups** - Use else-if for child, teen, adult, senior categories ([exercise 015](./exercises/015-age-multiple-groups))
+15. [x] **Age Checker - Multiple Age Groups** - Use else-if for child, teen, adult, senior categories ([exercise 15](./exercises/015-age-multiple-groups))
 <!-- TODO: to refine -->
-16. [x] **Age Checker - Discount Calculator** - Calculate age-based discounts with nested conditions ([exercise 016](./exercises/016-age-discounts))
+16. [x] **Age Checker - Discount Calculator** - Calculate age-based discounts with nested conditions ([exercise 16](./exercises/016-age-discounts))
 <!-- TODO: to refine -->
-17. [x] **Age Checker - Permission System** - Use logical operators for complex permission rules ([exercise 017](./exercises/017-age-permissions))
+17. [x] **Age Checker - Permission System** - Use logical operators for complex permission rules ([exercise 17](./exercises/017-age-permissions))
 
 ### Series 4: Grade Calculator
 *Build a student grade system to master conditionals and comparison operators*
 
 <!-- TODO: to refine -->
-18. [x] **Grade Calculator - Letter Grades** - Convert numeric scores to letter grades (A-F) ([exercise 018](./exercises/018-grade-letter))
+18. [x] **Grade Calculator - Letter Grades** - Convert numeric scores to letter grades (A-F) ([exercise 18](./exercises/018-grade-letter))
 <!-- TODO: to refine -->
-19. [x] **Grade Calculator - Plus/Minus Grades** - Add + and - to grades (A+, A, A-, etc.) ([exercise 019](./exercises/019-grade-plus-minus))
+19. [x] **Grade Calculator - Plus/Minus Grades** - Add + and - to grades (A+, A, A-, etc.) ([exercise 19](./exercises/019-grade-plus-minus))
 <!-- TODO: to refine -->
-20. [x] **Grade Calculator - Pass/Fail Status** - Determine if student passed with switch statement ([exercise 020](./exercises/020-grade-pass-fail))
+20. [x] **Grade Calculator - Pass/Fail Status** - Determine if student passed with switch statement ([exercise 20](./exercises/020-grade-pass-fail))
 <!-- TODO: to refine -->
-21. [x] **Grade Calculator - Multiple Subjects** - Calculate GPA across multiple courses ([exercise 021](./exercises/021-grade-gpa))
+21. [x] **Grade Calculator - Multiple Subjects** - Calculate GPA across multiple courses ([exercise 21](./exercises/021-grade-gpa))
 <!-- TODO: to refine -->
-22. [x] **Grade Calculator - Honor Roll** - Determine honor roll status with complex conditions ([exercise 022](./exercises/022-grade-honor-roll))
+22. [x] **Grade Calculator - Honor Roll** - Determine honor roll status with complex conditions ([exercise 22](./exercises/022-grade-honor-roll))
 
 ---
 
@@ -105,29 +105,29 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a countdown display to learn loops and iteration*
 
 <!-- TODO: to refine -->
-23. [x] **Countdown - Basic While Loop** - Count down from 10 to 1 ([exercise 023](./exercises/023-countdown-while))
+23. [x] **Countdown - Basic While Loop** - Count down from 10 to 1 ([exercise 23](./exercises/023-countdown-while))
 <!-- TODO: to refine -->
-24. [x] **Countdown - For Loop Version** - Rewrite using for loop ([exercise 024](./exercises/024-countdown-for))
+24. [x] **Countdown - For Loop Version** - Rewrite using for loop ([exercise 24](./exercises/024-countdown-for))
 <!-- TODO: to refine -->
-25. [x] **Countdown - Custom Start** - Accept any starting number and count down ([exercise 025](./exercises/025-countdown-custom))
+25. [x] **Countdown - Custom Start** - Accept any starting number and count down ([exercise 25](./exercises/025-countdown-custom))
 <!-- TODO: to refine -->
-26. [x] **Countdown - Skip Numbers** - Count down by different intervals (by 2s, 5s, etc.) ([exercise 026](./exercises/026-countdown-skip))
+26. [x] **Countdown - Skip Numbers** - Count down by different intervals (by 2s, 5s, etc.) ([exercise 26](./exercises/026-countdown-skip))
 <!-- TODO: to refine -->
-27. [x] **Countdown - Early Stop** - Use break to stop at specific number ([exercise 027](./exercises/027-countdown-break))
+27. [x] **Countdown - Early Stop** - Use break to stop at specific number ([exercise 27](./exercises/027-countdown-break))
 
 ### Series 6: Multiplication Table Generator
 *Build a times table generator to practice nested loops*
 
 <!-- TODO: to refine -->
-28. [x] **Times Table - Single Number** - Generate multiplication table for one number ([exercise 028](./exercises/028-times-single))
+28. [x] **Times Table - Single Number** - Generate multiplication table for one number ([exercise 28](./exercises/028-times-single))
 <!-- TODO: to refine -->
-29. [x] **Times Table - Full Grid** - Create complete 1-10 multiplication grid ([exercise 029](./exercises/029-times-grid))
+29. [x] **Times Table - Full Grid** - Create complete 1-10 multiplication grid ([exercise 29](./exercises/029-times-grid))
 <!-- TODO: to refine -->
-30. [x] **Times Table - Custom Range** - Accept min and max values for flexible tables ([exercise 030](./exercises/030-times-range))
+30. [x] **Times Table - Custom Range** - Accept min and max values for flexible tables ([exercise 30](./exercises/030-times-range))
 <!-- TODO: to refine -->
-31. [x] **Times Table - Skip Evens** - Use continue to skip even numbers ([exercise 031](./exercises/031-times-skip))
+31. [x] **Times Table - Skip Evens** - Use continue to skip even numbers ([exercise 31](./exercises/031-times-skip))
 <!-- TODO: to refine -->
-32. [x] **Times Table - Formatted Display** - Format output in neat columns ([exercise 032](./exercises/032-times-format))
+32. [x] **Times Table - Formatted Display** - Format output in neat columns ([exercise 32](./exercises/032-times-format))
 
 ---
 
@@ -137,29 +137,29 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a temperature conversion tool to learn functions, parameters, and returns*
 
 <!-- TODO: to refine -->
-33. [x] **Temperature - Celsius to Fahrenheit** - Create function to convert C to F ([exercise 033](./exercises/033-temp-c-to-f))
+33. [x] **Temperature - Celsius to Fahrenheit** - Create function to convert C to F ([exercise 33](./exercises/033-temp-c-to-f))
 <!-- TODO: to refine -->
-34. [x] **Temperature - Fahrenheit to Celsius** - Add reverse conversion function ([exercise 034](./exercises/034-temp-f-to-c))
+34. [x] **Temperature - Fahrenheit to Celsius** - Add reverse conversion function ([exercise 34](./exercises/034-temp-f-to-c))
 <!-- TODO: to refine -->
-35. [x] **Temperature - Kelvin Conversions** - Add Kelvin to/from Celsius and Fahrenheit ([exercise 035](./exercises/035-temp-kelvin))
+35. [x] **Temperature - Kelvin Conversions** - Add Kelvin to/from Celsius and Fahrenheit ([exercise 35](./exercises/035-temp-kelvin))
 <!-- TODO: to refine -->
-36. [x] **Temperature - Default Values** - Add default parameters for common temperatures ([exercise 036](./exercises/036-temp-defaults))
+36. [x] **Temperature - Default Values** - Add default parameters for common temperatures ([exercise 36](./exercises/036-temp-defaults))
 <!-- TODO: to refine -->
-37. [x] **Temperature - Arrow Functions** - Refactor all functions to use arrow syntax ([exercise 037](./exercises/037-temp-arrows))
+37. [x] **Temperature - Arrow Functions** - Refactor all functions to use arrow syntax ([exercise 37](./exercises/037-temp-arrows))
 
 ### Series 8: Text Analyzer Tool
 *Build a text analysis utility to practice functions and callbacks*
 
 <!-- TODO: to refine -->
-38. [x] **Text Analyzer - Word Counter** - Function to count words in a string ([exercise 038](./exercises/038-text-word-count))
+38. [x] **Text Analyzer - Word Counter** - Function to count words in a string ([exercise 38](./exercises/038-text-word-count))
 <!-- TODO: to refine -->
-39. [x] **Text Analyzer - Character Stats** - Add character, letter, and digit counting ([exercise 039](./exercises/039-text-char-stats))
+39. [x] **Text Analyzer - Character Stats** - Add character, letter, and digit counting ([exercise 39](./exercises/039-text-char-stats))
 <!-- TODO: to refine -->
-40. [x] **Text Analyzer - Custom Filters** - Accept callback functions to filter text ([exercise 040](./exercises/040-text-callbacks))
+40. [x] **Text Analyzer - Custom Filters** - Accept callback functions to filter text ([exercise 40](./exercises/040-text-callbacks))
 <!-- TODO: to refine -->
-41. [x] **Text Analyzer - Higher-Order Functions** - Create functions that return functions ([exercise 041](./exercises/041-text-higher-order))
+41. [x] **Text Analyzer - Higher-Order Functions** - Create functions that return functions ([exercise 41](./exercises/041-text-higher-order))
 <!-- TODO: to refine -->
-42. [x] **Text Analyzer - Function Composition** - Combine multiple analysis functions ([exercise 042](./exercises/042-text-composition))
+42. [x] **Text Analyzer - Function Composition** - Combine multiple analysis functions ([exercise 42](./exercises/042-text-composition))
 
 ---
 
@@ -169,43 +169,43 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a shopping list manager to learn state management, arrays, and object composition*
 
 <!-- TODO: to refine -->
-43. [x] **Shopping List - Add Item** - Create basic item storage with add and get functions ([exercise 043](./exercises/043-shopping-add-item))
+43. [x] **Shopping List - Add Item** - Create basic item storage with add and get functions ([exercise 43](./exercises/043-shopping-add-item))
 <!-- TODO: to refine -->
-44. [x] **Shopping List - Item List** - Manage multiple items using array storage ([exercise 044](./exercises/044-shopping-list))
+44. [x] **Shopping List - Item List** - Manage multiple items using array storage ([exercise 44](./exercises/044-shopping-list))
 <!-- TODO: to refine -->
-45. [x] **Shopping List - Remove & Find** - Search for and remove items from the list ([exercise 045](./exercises/045-shopping-remove))
+45. [x] **Shopping List - Remove & Find** - Search for and remove items from the list ([exercise 45](./exercises/045-shopping-remove))
 <!-- TODO: to refine -->
-46. [x] **Shopping List - Item Quantities** - Track quantities for each item using objects ([exercise 046](./exercises/046-shopping-quantities))
+46. [x] **Shopping List - Item Quantities** - Track quantities for each item using objects ([exercise 46](./exercises/046-shopping-quantities))
 <!-- TODO: to refine -->
-47. [x] **Shopping List - Shopping Manager** - Compose all functionality into a complete manager object ([exercise 047](./exercises/047-shopping-manager))
+47. [x] **Shopping List - Shopping Manager** - Compose all functionality into a complete manager object ([exercise 47](./exercises/047-shopping-manager))
 
 ### Series 10: Student Grade Book
 *Build a grade tracking system to learn about Maps and practice arrays*
 
 <!-- TODO: to refine -->
-48. [x] **Grade Book - Store Scores** - Create array of student scores ([exercise 048](./exercises/048-gradebook-store))
+48. [x] **Grade Book - Store Scores** - Create array of student scores ([exercise 48](./exercises/048-gradebook-store))
 <!-- TODO: to refine -->
-49. [x] **Grade Book - Map to Letters** - Use map to convert scores to letter grades ([exercise 049](./exercises/049-gradebook-map))
+49. [x] **Grade Book - Map to Letters** - Use map to convert scores to letter grades ([exercise 49](./exercises/049-gradebook-map))
 <!-- TODO: to refine -->
-50. [x] **Grade Book - Filter Passing** - Use filter to find passing students ([exercise 050](./exercises/050-gradebook-filter))
+50. [x] **Grade Book - Filter Passing** - Use filter to find passing students ([exercise 50](./exercises/050-gradebook-filter))
 <!-- TODO: to refine -->
-51. [x] **Grade Book - Find Student** - Use find and findIndex to locate specific scores ([exercise 051](./exercises/051-gradebook-find))
+51. [x] **Grade Book - Find Student** - Use find and findIndex to locate specific scores ([exercise 51](./exercises/051-gradebook-find))
 <!-- TODO: to refine -->
-52. [x] **Grade Book - Calculate Average** - Use reduce to compute class average ([exercise 052](./exercises/052-gradebook-reduce))
+52. [x] **Grade Book - Calculate Average** - Use reduce to compute class average ([exercise 52](./exercises/052-gradebook-reduce))
 
 ### Series 11: Playlist Manager
 *Build a music playlist app to practice advanced array operations*
 
 <!-- TODO: to refine -->
-53. [x] **Playlist - Initialize Songs** - Create array of song objects with title and artist ([exercise 053](./exercises/053-playlist-init))
+53. [x] **Playlist - Initialize Songs** - Create array of song objects with title and artist ([exercise 53](./exercises/053-playlist-init))
 <!-- TODO: to refine -->
-54. [x] **Playlist - Sort and Shuffle** - Implement sort by title and random shuffle ([exercise 054](./exercises/054-playlist-sort))
+54. [x] **Playlist - Sort and Shuffle** - Implement sort by title and random shuffle ([exercise 54](./exercises/054-playlist-sort))
 <!-- TODO: to refine -->
-55. [x] **Playlist - Search Songs** - Use filter to search by title or artist ([exercise 055](./exercises/055-playlist-search))
+55. [x] **Playlist - Search Songs** - Use filter to search by title or artist ([exercise 55](./exercises/055-playlist-search))
 <!-- TODO: to refine -->
-56. [x] **Playlist - Combine Playlists** - Use concat and spread to merge playlists ([exercise 056](./exercises/056-playlist-combine))
+56. [x] **Playlist - Combine Playlists** - Use concat and spread to merge playlists ([exercise 56](./exercises/056-playlist-combine))
 <!-- TODO: to refine -->
-57. [x] **Playlist - Check Duplicates** - Use includes and some to detect duplicate songs ([exercise 057](./exercises/057-playlist-duplicates))
+57. [x] **Playlist - Check Duplicates** - Use includes and some to detect duplicate songs ([exercise 57](./exercises/057-playlist-duplicates))
 
 ---
 
@@ -215,43 +215,43 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a contact management system to learn objects and object methods*
 
 <!-- TODO: to refine -->
-58. [x] **Contact Manager - Create Contact** - Build object with name, email, phone properties ([exercise 058](./exercises/058-contact-create))
+58. [x] **Contact Manager - Create Contact** - Build object with name, email, phone properties ([exercise 58](./exercises/058-contact-create))
 <!-- TODO: to refine -->
-59. [x] **Contact Manager - Access Info** - Use dot and bracket notation to read properties ([exercise 059](./exercises/059-contact-access))
+59. [x] **Contact Manager - Access Info** - Use dot and bracket notation to read properties ([exercise 59](./exercises/059-contact-access))
 <!-- TODO: to refine -->
-60. [x] **Contact Manager - Update Contact** - Add and modify contact properties dynamically ([exercise 060](./exercises/060-contact-update))
+60. [x] **Contact Manager - Update Contact** - Add and modify contact properties dynamically ([exercise 60](./exercises/060-contact-update))
 <!-- TODO: to refine -->
-61. [x] **Contact Manager - Add Methods** - Create methods to display and format contact info ([exercise 061](./exercises/061-contact-methods))
+61. [x] **Contact Manager - Add Methods** - Create methods to display and format contact info ([exercise 61](./exercises/061-contact-methods))
 <!-- TODO: to refine -->
-62. [x] **Contact Manager - Multiple Contacts** - Store contacts in array and iterate with for...in ([exercise 062](./exercises/062-contact-multiple))
+62. [x] **Contact Manager - Multiple Contacts** - Store contacts in array and iterate with for...in ([exercise 62](./exercises/062-contact-multiple))
 
 ### Series 13: Product Inventory
 *Build inventory system to master object operations and destructuring*
 
 <!-- TODO: to refine -->
-63. [x] **Inventory - Product Objects** - Create products with name, price, quantity, category ([exercise 063](./exercises/063-inventory-products))
+63. [x] **Inventory - Product Objects** - Create products with name, price, quantity, category ([exercise 63](./exercises/063-inventory-products))
 <!-- TODO: to refine -->
-64. [x] **Inventory - Object Destructuring** - Extract product properties using destructuring ([exercise 064](./exercises/064-inventory-destructuring))
+64. [x] **Inventory - Object Destructuring** - Extract product properties using destructuring ([exercise 64](./exercises/064-inventory-destructuring))
 <!-- TODO: to refine -->
-65. [x] **Inventory - Object Methods** - Use Object.keys, values, entries for analysis ([exercise 065](./exercises/065-inventory-object-methods))
+65. [x] **Inventory - Object Methods** - Use Object.keys, values, entries for analysis ([exercise 65](./exercises/065-inventory-object-methods))
 <!-- TODO: to refine -->
-66. [x] **Inventory - Clone and Merge** - Use spread operator to clone and update products ([exercise 066](./exercises/066-inventory-spread))
+66. [x] **Inventory - Clone and Merge** - Use spread operator to clone and update products ([exercise 66](./exercises/066-inventory-spread))
 <!-- TODO: to refine -->
-67. [x] **Inventory - Search Products** - Filter and find products using array of objects ([exercise 067](./exercises/067-inventory-search))
+67. [x] **Inventory - Search Products** - Filter and find products using array of objects ([exercise 67](./exercises/067-inventory-search))
 
 ### Series 14: User Profile System
 *Build user profiles to practice complex nested data structures*
 
 <!-- TODO: to refine -->
-68. [x] **User Profile - Basic Info** - Create user object with nested address object ([exercise 068](./exercises/068-profile-nested))
+68. [x] **User Profile - Basic Info** - Create user object with nested address object ([exercise 68](./exercises/068-profile-nested))
 <!-- TODO: to refine -->
-69. [x] **User Profile - Preferences** - Add nested settings and preferences objects ([exercise 069](./exercises/069-profile-preferences))
+69. [x] **User Profile - Preferences** - Add nested settings and preferences objects ([exercise 69](./exercises/069-profile-preferences))
 <!-- TODO: to refine -->
-70. [x] **User Profile - Optional Chaining** - Safely access deeply nested properties ([exercise 070](./exercises/070-profile-optional))
+70. [x] **User Profile - Optional Chaining** - Safely access deeply nested properties ([exercise 70](./exercises/070-profile-optional))
 <!-- TODO: to refine -->
-71. [x] **User Profile - Friends List** - Add array of friend objects to user profile ([exercise 071](./exercises/071-profile-friends))
+71. [x] **User Profile - Friends List** - Add array of friend objects to user profile ([exercise 71](./exercises/071-profile-friends))
 <!-- TODO: to refine -->
-72. [x] **User Profile - Export to JSON** - Convert to JSON and parse back to object ([exercise 072](./exercises/072-profile-json))
+72. [x] **User Profile - Export to JSON** - Convert to JSON and parse back to object ([exercise 72](./exercises/072-profile-json))
 
 ---
 
@@ -261,29 +261,29 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a recipe app to learn ES6+ features and array destructuring*
 
 <!-- TODO: to refine -->
-73. [x] **Recipe - Store Ingredients** - Use arrays and destructuring to extract ingredients ([exercise 073](./exercises/073-recipe-ingredients))
+73. [x] **Recipe - Store Ingredients** - Use arrays and destructuring to extract ingredients ([exercise 73](./exercises/073-recipe-ingredients))
 <!-- TODO: to refine -->
-74. [x] **Recipe - Rest Parameters** - Function accepting variable number of ingredients ([exercise 074](./exercises/074-recipe-rest))
+74. [x] **Recipe - Rest Parameters** - Function accepting variable number of ingredients ([exercise 74](./exercises/074-recipe-rest))
 <!-- TODO: to refine -->
-75. [x] **Recipe - Spread Operator** - Combine multiple recipe arrays ([exercise 075](./exercises/075-recipe-spread))
+75. [x] **Recipe - Spread Operator** - Combine multiple recipe arrays ([exercise 75](./exercises/075-recipe-spread))
 <!-- TODO: to refine -->
-76. [x] **Recipe - For...of Iteration** - Loop through ingredients using for...of ([exercise 076](./exercises/076-recipe-for-of))
+76. [x] **Recipe - For...of Iteration** - Loop through ingredients using for...of ([exercise 76](./exercises/076-recipe-for-of))
 <!-- TODO: to refine -->
-77. [x] **Recipe - Block Scope** - Use let and const properly in recipe functions ([exercise 077](./exercises/077-recipe-scope))
+77. [x] **Recipe - Block Scope** - Use let and const properly in recipe functions ([exercise 77](./exercises/077-recipe-scope))
 
 ### Series 16: URL Slug Generator
 *Build a slug generator to master advanced string operations*
 
 <!-- TODO: to refine -->
-78. [x] **Slug - Basic Conversion** - Convert title to lowercase with spaces replaced ([exercise 078](./exercises/078-slug-basic))
+78. [x] **Slug - Basic Conversion** - Convert title to lowercase with spaces replaced ([exercise 78](./exercises/078-slug-basic))
 <!-- TODO: to refine -->
-79. [x] **Slug - Remove Special Characters** - Use replace to clean special characters ([exercise 079](./exercises/079-slug-replace))
+79. [x] **Slug - Remove Special Characters** - Use replace to clean special characters ([exercise 79](./exercises/079-slug-replace))
 <!-- TODO: to refine -->
-80. [x] **Slug - Split and Join** - Convert string to array, clean, and rejoin ([exercise 080](./exercises/080-slug-split-join))
+80. [x] **Slug - Split and Join** - Convert string to array, clean, and rejoin ([exercise 80](./exercises/080-slug-split-join))
 <!-- TODO: to refine -->
-81. [x] **Slug - Extract Parts** - Use string extraction methods (slice, substring) ([exercise 081](./exercises/081-slug-extract))
+81. [x] **Slug - Extract Parts** - Use string extraction methods (slice, substring) ([exercise 81](./exercises/081-slug-extract))
 <!-- TODO: to refine -->
-82. [x] **Slug - Regex Pattern Matching** - Use regular expressions for advanced cleaning ([exercise 082](./exercises/082-slug-regex))
+82. [x] **Slug - Regex Pattern Matching** - Use regular expressions for advanced cleaning ([exercise 82](./exercises/082-slug-regex))
 
 ---
 
@@ -293,15 +293,15 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a form validation library to learn error handling*
 
 <!-- TODO: to refine -->
-83. [x] **Validator - Try-Catch Basics** - Wrap validation in try-catch blocks ([exercise 083](./exercises/083-validator-try-catch))]
+83. [x] **Validator - Try-Catch Basics** - Wrap validation in try-catch blocks ([exercise 83](./exercises/083-validator-try-catch))]
 <!-- TODO: to refine -->
-84. [x] **Validator - Custom Errors** - Throw specific errors for different validation failures ([exercise 084](./exercises/084-validator-custom-errors))
+84. [x] **Validator - Custom Errors** - Throw specific errors for different validation failures ([exercise 84](./exercises/084-validator-custom-errors))
 <!-- TODO: to refine -->
-85. [x] **Validator - Finally Cleanup** - Use finally for cleanup and logging ([exercise 085](./exercises/085-validator-finally))
+85. [x] **Validator - Finally Cleanup** - Use finally for cleanup and logging ([exercise 85](./exercises/085-validator-finally))
 <!-- TODO: to refine -->
-86. [x] **Validator - Error Messages** - Create user-friendly error message system ([exercise 086](./exercises/086-validator-messages))
+86. [x] **Validator - Error Messages** - Create user-friendly error message system ([exercise 86](./exercises/086-validator-messages))
 <!-- TODO: to refine -->
-87. [x] **Validator - Debug Mode** - Add console debugging with table and group ([exercise 087](./exercises/087-validator-debug))
+87. [x] **Validator - Debug Mode** - Add console debugging with table and group ([exercise 87](./exercises/087-validator-debug))
 
 ---
 
@@ -311,29 +311,29 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a productivity timer to learn timing functions*
 
 <!-- TODO: to refine -->
-88. [x] **Pomodoro - Basic Countdown** - Use setTimeout for simple delay ([exercise 088](./exercises/088-pomodoro-settimeout))
+88. [x] **Pomodoro - Basic Countdown** - Use setTimeout for simple delay ([exercise 88](./exercises/088-pomodoro-settimeout))
 <!-- TODO: to refine -->
-89. [x] **Pomodoro - Tick Every Second** - Use setInterval for countdown display ([exercise 089](./exercises/089-pomodoro-setinterval))
+89. [x] **Pomodoro - Tick Every Second** - Use setInterval for countdown display ([exercise 89](./exercises/089-pomodoro-setinterval))
 <!-- TODO: to refine -->
-90. [x] **Pomodoro - Pause and Resume** - Clear and restart intervals ([exercise 090](./exercises/090-pomodoro-clear))
+90. [x] **Pomodoro - Pause and Resume** - Clear and restart intervals ([exercise 90](./exercises/090-pomodoro-clear))
 <!-- TODO: to refine -->
-91. [x] **Pomodoro - Multiple Timers** - Manage work and break periods ([exercise 091](./exercises/091-pomodoro-multiple))
+91. [x] **Pomodoro - Multiple Timers** - Manage work and break periods ([exercise 91](./exercises/091-pomodoro-multiple))
 <!-- TODO: to refine -->
-92. [x] **Pomodoro - Notification System** - Trigger alerts when timer completes ([exercise 092](./exercises/092-pomodoro-notify))
+92. [x] **Pomodoro - Notification System** - Trigger alerts when timer completes ([exercise 92](./exercises/092-pomodoro-notify))
 
 ### Series 19: Quote Fetcher
 *Build a random quote app to master promises and async/await*
 
 <!-- TODO: to refine -->
-93. [x] **Quote Fetcher - Simulate API** - Create promise that returns quote after delay ([exercise 093](./exercises/093-quote-promise))
+93. [x] **Quote Fetcher - Simulate API** - Create promise that returns quote after delay ([exercise 93](./exercises/093-quote-promise))
 <!-- TODO: to refine -->
-94. [x] **Quote Fetcher - Handle Success** - Use .then to display quote ([exercise 094](./exercises/094-quote-then))
+94. [x] **Quote Fetcher - Handle Success** - Use .then to display quote ([exercise 94](./exercises/094-quote-then))
 <!-- TODO: to refine -->
-95. [x] **Quote Fetcher - Error Handling** - Use .catch for failed requests ([exercise 095](./exercises/095-quote-catch))
+95. [x] **Quote Fetcher - Error Handling** - Use .catch for failed requests ([exercise 95](./exercises/095-quote-catch))
 <!-- TODO: to refine -->
-96. [x] **Quote Fetcher - Async/Await** - Refactor using async/await syntax ([exercise 096](./exercises/096-quote-async))
+96. [x] **Quote Fetcher - Async/Await** - Refactor using async/await syntax ([exercise 96](./exercises/096-quote-async))
 <!-- TODO: to refine -->
-97. [x] **Quote Fetcher - Multiple Sources** - Use Promise.all to fetch from multiple sources ([exercise 097](./exercises/097-quote-all))
+97. [x] **Quote Fetcher - Multiple Sources** - Use Promise.all to fetch from multiple sources ([exercise 97](./exercises/097-quote-all))
 
 ---
 
@@ -343,9 +343,9 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 *Build a dark/light theme toggle to learn DOM selection and styling*
 
 <!-- TODO: to refine -->
-98. [x] **Theme Switcher - Select Elements** - Use querySelector to find theme button and body ([exercise 098](./exercises/098-theme-select))
+98. [x] **Theme Switcher - Select Elements** - Use querySelector to find theme button and body ([exercise 98](./exercises/098-theme-select))
 <!-- TODO: to refine -->
-99. [x] **Theme Switcher - Change Text** - Modify button text with textContent ([exercise 099](./exercises/099-theme-text))
+99. [x] **Theme Switcher - Change Text** - Modify button text with textContent ([exercise 99](./exercises/099-theme-text))
 <!-- TODO: to refine -->
 100. [x] **Theme Switcher - Toggle Classes** - Add/remove dark-theme class ([exercise 100](./exercises/100-theme-classes))
 <!-- TODO: to refine -->
