@@ -4,6 +4,50 @@ Congratulations on making it to the final exercise in the Profile Card Builder s
 
 Every time you create an account on a website, the site checks whether your email looks valid. One basic check is making sure it contains the `@` symbol. That's exactly what you'll build in this exercise!
 
+## String Methods for Validation
+
+So far, you've learned how to transform strings (`.toUpperCase()`, `.toLowerCase()`, `.trim()`). Now you'll use a string method to **search** for content within a string.
+
+### The `.includes()` Method
+
+The `.includes()` method checks if a string contains a specific piece of text. It returns `true` if found, `false` if not:
+
+```javascript
+const email = "sarah.chen@email.com";
+email.includes("@")  // Returns: true
+email.includes("xyz") // Returns: false
+```
+
+This is perfect for validating that an email contains the `@` symbol!
+
+### The Ternary Operator
+
+You've already used `if` and `else` statements to make decisions. JavaScript also has a more compact way to choose between two values: the **ternary operator**. It's like a shorthand if-else:
+
+```javascript
+// Traditional if-else:
+if (email.includes("@")) {
+  status = "valid";
+} else {
+  status = "invalid";
+}
+
+// With ternary operator (much shorter!):
+status = email.includes("@") ? "valid" : "invalid";
+```
+
+The ternary operator follows this pattern:
+```
+condition ? valueIfTrue : valueIfFalse
+```
+
+You can even use it right inside a template literal:
+```javascript
+const email = "sarah@email.com";
+console.log(`Email: ${email.includes("@") ? "valid" : "invalid"}`);
+// Output: Email: valid
+```
+
 ## Your Challenge
 
 Open `007-profile-validate.js`. You'll see three email addresses, and one of them is missing the `@` symbol.

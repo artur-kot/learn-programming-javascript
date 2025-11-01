@@ -6,6 +6,76 @@ What happens when someone enters "hello" instead of a number? Or tries to divide
 
 **Building on previous exercises**: This exercise completes your calculator from exercises 008-011 by adding robust input validation and error handling.
 
+## Input Validation and Error Handling
+
+Professional applications don't crash or produce confusing results when users enter bad data. Instead, they validate inputs before processing them and return helpful error messages when something goes wrong.
+
+### The `isNaN()` Function
+
+When you try to convert text to a number and it fails, JavaScript returns `NaN` (Not a Number). You can detect this with `isNaN()`:
+
+```javascript
+Number("hello")    // Returns: NaN
+isNaN(Number("hello"))  // Returns: true (it IS NaN)
+isNaN(Number("42"))     // Returns: false (it's a valid number)
+
+// Practical example:
+function add(a, b) {
+  if (isNaN(a) || isNaN(b)) {
+    return "Error: Invalid input";
+  }
+  return a + b;
+}
+
+add("hello", 5)  // Returns: "Error: Invalid input" ✓
+add(10, 5)       // Returns: 15 ✓
+```
+
+### Checking for Special Cases
+
+Some operations have specific restrictions:
+
+**Division by zero:**
+```javascript
+function divide(a, b) {
+  // First check if inputs are valid numbers
+  if (isNaN(a) || isNaN(b)) {
+    return "Error: Invalid input";
+  }
+  
+  // Then check for impossible operation
+  if (b === 0) {
+    return "Error: Division by zero";
+  }
+  
+  return a / b;
+}
+```
+
+**Square root of negative numbers:**
+```javascript
+function squareRoot(a) {
+  if (isNaN(a)) {
+    return "Error: Invalid input";
+  }
+  
+  if (a < 0) {
+    return "Error: Cannot calculate square root of negative number";
+  }
+  
+  return Math.sqrt(a);
+}
+```
+
+### The Order Matters
+
+Always validate in this order:
+1. **First**: Check if inputs are valid numbers
+2. **Second**: Check for operation-specific restrictions (divide by zero, negative square root, etc.)
+3. **Third**: If all checks pass, perform the calculation
+
+This ensures you catch basic problems before checking for special cases.
+
 ## Your Challenge
 
 Real users make mistakes. They might:

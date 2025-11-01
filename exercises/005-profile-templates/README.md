@@ -4,6 +4,21 @@ In the last exercise, you used the `+` operator to combine strings. That works, 
 
 Template literals make it much easier and cleaner to insert variables into strings. They're like mad-libs for your code - you create a sentence with blanks, and JavaScript fills in the blanks with your variable values.
 
+## Template Literals
+Template literals use backticks (`` ` ``) instead of regular quotes. Inside a template literal, you can insert variables directly using `${variableName}` syntax.
+For example:
+```javascript
+const name = "Sarah Chen";
+const greeting = `Hello, my name is ${name}.`;
+console.log(greeting); // Output: Hello, my name is Sarah Chen.
+```
+It's also working for different data types:
+```javascript
+const age = 28;
+const ageMessage = `I am ${age} years old.`;
+console.log(ageMessage); // Output: I am 28 years old.
+```
+
 ## Your Challenge
 
 Open `005-profile-templates.js`. You'll see the same three variables (name, age, email) from the previous exercises.

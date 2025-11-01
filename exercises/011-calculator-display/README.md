@@ -6,6 +6,65 @@ In this exercise, you'll learn to format calculator results like a professional 
 
 **Building on previous exercises**: This exercise builds on your calculator from exercises 008-010, adding professional formatting to the output.
 
+## Number Formatting
+
+Raw numbers are often confusing or ugly. Professional applications format them with appropriate precision, symbols, and units. JavaScript provides methods to control how numbers are displayed.
+
+### The `toFixed()` Method
+
+The `toFixed()` method limits a number to a specific number of decimal places:
+
+```javascript
+(19.5).toFixed(2)      // Returns: "19.50" (adds trailing zero)
+(3.14159).toFixed(2)   // Returns: "3.14" (rounds to 2 places)
+(1234.5).toFixed(2)    // Returns: "1234.50"
+(42).toFixed(2)        // Returns: "42.00"
+```
+
+**Important note**: `toFixed()` returns a **string**, not a number! This is actually useful because we want to display it with symbols.
+
+### Formatting with Context
+
+You can add symbols and units by concatenating formatted numbers with strings:
+
+```javascript
+// Currency formatting
+const price = 19.5;
+const formatted = "$" + price.toFixed(2);
+console.log(formatted);  // Output: $19.50
+
+// Percentage formatting
+const rate = 0.156;
+const percentage = (rate * 100).toFixed(1) + "%";
+console.log(percentage);  // Output: 15.6%
+
+// Distance with units
+const distance = 1.5;
+const formatted = distance.toFixed(2) + " km";
+console.log(formatted);   // Output: 1.50 km
+```
+
+### Conditional Formatting
+
+Sometimes the format depends on the value:
+
+```javascript
+function formatDistance(meters) {
+  if (meters >= 1000) {
+    // Show in kilometers
+    return (meters / 1000).toFixed(2) + " km";
+  } else {
+    // Show in meters
+    return Math.round(meters) + " m";
+  }
+}
+
+formatDistance(500)   // Output: "500 m"
+formatDistance(1500)  // Output: "1.50 km"
+```
+
+This approach makes numbers user-friendly and professional!
+
 ## Your Challenge
 
 Imagine showing calculator results to real users. Compare these outputs:

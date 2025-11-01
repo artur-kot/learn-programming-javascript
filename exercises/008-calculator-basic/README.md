@@ -4,6 +4,46 @@ Welcome to the Simple Calculator series! Over the next 5 exercises, you'll build
 
 But first things first: let's create the foundation by building four basic math operations.
 
+## Arithmetic Operators in JavaScript
+
+At the heart of every calculator are mathematical operations. JavaScript makes it easy to perform math on numbers using **arithmetic operators**.
+
+### The Basic Operators
+
+JavaScript has built-in operators for the four basic math operations:
+
+```javascript
+// Addition
+10 + 5    // Results in 15
+
+// Subtraction
+10 - 5    // Results in 5
+
+// Multiplication
+10 * 5    // Results in 50
+
+// Division
+10 / 5    // Results in 2
+```
+
+### Functions That Return Values
+
+So far, you've created functions that print output using `console.log()`. But functions can also **calculate** a value and send it back using the `return` keyword:
+
+```javascript
+function add(a, b) {
+  return a + b;  // Send the sum back to whoever called this function
+}
+
+const result = add(10, 5);  // result now contains 15
+console.log(result);         // Output: 15
+```
+
+When you use `return`, the function stops executing and sends that value back. This is powerful because:
+- The caller receives the value and can use it for other operations
+- You can chain functions together
+- You can store results in variables for later use
+
 ## Your Challenge
 
 Imagine you're building a calculator app. Before you can add fancy features, you need the core operations that every calculator has: **add**, **subtract**, **multiply**, and **divide**.
