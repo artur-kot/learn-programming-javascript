@@ -1,0 +1,20 @@
+{
+  "name": "090-pomodoro-complete",
+  "version": "1.0.0",
+  "description": "Pomodoro Timer - Complete Application",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 090-pomodoro-complete.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "asynchronous",
+    "event-emitter",
+    "notifications",
+    "pomodoro",
+    "application"
+  ],
+  "author": "",
+  "license": "MIT"
+}

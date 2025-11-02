@@ -1,0 +1,19 @@
+{
+  "name": "088-pomodoro-timers",
+  "version": "1.0.0",
+  "description": "Pomodoro Timer - Timer Fundamentals",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 088-pomodoro-timers.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "asynchronous",
+    "settimeout",
+    "setinterval",
+    "timing"
+  ],
+  "author": "",
+  "license": "MIT"
+}

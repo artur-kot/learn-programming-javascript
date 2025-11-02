@@ -1,0 +1,20 @@
+{
+  "name": "089-pomodoro-advanced",
+  "version": "1.0.0",
+  "description": "Pomodoro Timer - Advanced Control and Cycles",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 089-pomodoro-advanced.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "asynchronous",
+    "timers",
+    "pause",
+    "resume",
+    "pomodoro"
+  ],
+  "author": "",
+  "license": "MIT"
+}
