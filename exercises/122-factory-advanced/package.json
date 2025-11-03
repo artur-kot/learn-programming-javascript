@@ -1,0 +1,27 @@
+{
+  "name": "124-factory-advanced",
+  "version": "1.0.0",
+  "description": "Factory Functions - Module Pattern & Advanced Features",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "javascript",
+    "exercises",
+    "factory",
+    "functions",
+    "module pattern",
+    "IIFE",
+    "observers",
+    "undo redo",
+    "validation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.0.4",
+    "@vitest/browser": "^1.0.4",
+    "jsdom": "^27.0.1"
+  }
+}

@@ -12,14 +12,26 @@ Go to `002-console-methods.js` file and implement the three functions to use the
 
 **console.error()** - Used for error messages. These indicate something went wrong. In most browsers and terminals, errors appear in red color and may include a stack trace.
 
-## Why does this matter?
+### Stack Trace
+Stack trace is a report that provides information about the sequence of function calls that led to an error, helping developers identify where the problem occurred in the code.
+#### Example Stack Trace
 
-Using the right console method helps developers:
-- Quickly identify the severity of messages
-- Filter logs by type in browser DevTools or terminal
-- Make debugging easier by categorizing output
+Here's an example of a stack trace that might appear when using `console.error()` in Node.js:
 
-For example, if you're looking for why something broke, you can filter to show only `console.error()` messages instead of sifting through hundreds of `console.log()` statements.
+```
+Error: Division by zero
+  at divide (/c:/Users/artur/Development/learn-programming-javascript/exercises/002-console-methods/002-console-methods.js:10:11)
+  at main (/c:/Users/artur/Development/learn-programming-javascript/exercises/002-console-methods/002-console-methods.js:15:5)
+  at Object.<anonymous> (/c:/Users/artur/Development/learn-programming-javascript/exercises/002-console-methods/002-console-methods.js:18:1)
+  at Module._compile (internal/modules/cjs/loader.js:1137:30)
+  at Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+  at Module.load (internal/modules/cjs/loader.js:985:32)
+  at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+  at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+  at internal/main/run_main_module.js:17:47
+```
+
+This trace shows the call stack leading to the error, starting from the point where the error occurred (`divide` function) and tracing back through the functions that called it.
 
 ## Test your code
 

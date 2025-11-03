@@ -6,6 +6,62 @@ In this exercise, you'll learn how to convert string inputs into numbers so your
 
 **Building on previous exercises**: This exercise enhances your calculator functions from exercises 008-009 to handle string inputs.
 
+## Type Conversion: Strings to Numbers
+
+When users interact with web forms, command-line interfaces, or text inputs, JavaScript receives their data as **strings** (text), not numbers. This creates a problem: the `+` operator with strings concatenates (joins) them instead of adding them!
+
+### The Problem with String Concatenation
+
+```javascript
+// Strings vs Numbers
+"10" + "5"      // Results in "105" (string concatenation - not what we want!)
+10 + 5          // Results in 15 (number addition - correct!)
+Number("10") + Number("5")  // Results in 15 (string → number → addition)
+```
+
+### Converting Strings to Numbers
+
+JavaScript provides several ways to convert strings to numbers:
+
+#### 1. The `Number()` Function (Most Common)
+```javascript
+Number("10")    // Returns: 10 (a number)
+Number("3.14")  // Returns: 3.14 (decimal numbers work too)
+Number("hello") // Returns: NaN (invalid - Not a Number)
+```
+
+#### 2. The `parseFloat()` Function
+```javascript
+parseFloat("3.14")   // Returns: 3.14
+parseFloat("42")     // Returns: 42
+parseFloat("3.14abc") // Returns: 3.14 (ignores text after the number)
+```
+
+#### 3. The `parseInt()` Function
+```javascript
+parseInt("42")    // Returns: 42
+parseInt("3.14")  // Returns: 3 (drops decimal part)
+parseInt("42abc") // Returns: 42 (ignores text after the number)
+```
+
+**For this exercise, use `Number()` since it handles both integers and decimals correctly!**
+
+### Making Your Functions Work with String Input
+
+```javascript
+function add(a, b) {
+  // Convert strings to numbers first
+  const numA = Number(a);
+  const numB = Number(b);
+  
+  // Now perform the calculation
+  return numA + numB;
+}
+
+add("10", "5")  // Returns: 15 ✓ (not "105")
+add(10, 5)      // Still works: 15 ✓ (Number() handles actual numbers too)
+```
+
 ## Your Challenge
 
 Here's the situation: when a user types numbers into a calculator interface, JavaScript sees them as strings:

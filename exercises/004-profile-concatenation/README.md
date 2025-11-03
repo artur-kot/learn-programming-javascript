@@ -4,6 +4,14 @@ You've learned how to store user information in variables. Now let's make it loo
 
 This exercise teaches you **string concatenation** - a fancy term for joining pieces of text together.
 
+## Concatenation
+Concatenation is the process of joining two or more strings (pieces of text) together to form a single string. In JavaScript, you can concatenate strings using the `+` operator.
+For example:
+```javascript
+let greeting = "Hello, " + "world!";
+console.log(greeting); // Output: Hello, world!
+```
+
 ## Your Challenge
 
 Open `004-profile-concatenation.js`. You'll see the same three variables from the previous exercise (name, age, email).
@@ -74,10 +82,6 @@ After completing the exercise, think about:
 1. Why is "Name: " + name easier to read than just displaying the name alone?
 2. What happens when you use `+` with a string and a number?
 3. Can you think of other situations where you'd want to combine text with variable values?
-
-## Next Steps
-
-Nice work! You've created a formatted profile card using string concatenation. But JavaScript has an even better way to combine strings and variables - **template literals**! In the next exercise (**004-profile-templates**), you'll learn a more modern and readable approach. Ready? Let's go!
 
 ## Read More
 

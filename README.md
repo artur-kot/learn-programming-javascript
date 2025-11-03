@@ -37,4 +37,4 @@ learnp ./learn-programming-javascript
 The exercises in the `exercises` folder are currently AI-generated. They will be reviewed and refined over time.
 
 ### Contributions are welcome
-In [Roadmap](ROADMAP.md), exercises with comment `<!-- TODO: to refine -->` are open for contributions. Feel free to improve them and submit a pull request. Read the [Contribution Guidelines](CONTRIBUTING.md) for more details.
+Feel free to improve them and submit a pull request. Read the [Contribution Guidelines](CONTRIBUTING.md) for more details.

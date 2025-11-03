@@ -9,7 +9,7 @@
 
 ## Hello World in JavaScript!
 
-It is a tradition to start learning a new programming language with a simple "Hello, World!" program. In this exercise, you will create a function that returns the string "Hello, World!".
+It is a tradition to start learning a new programming language with a simple "Hello, World!" program.
 
 Go to `exercise.js` file and fill the console.log statement to print "Hello, World!" to the console.
 

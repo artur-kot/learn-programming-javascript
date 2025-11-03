@@ -4,6 +4,23 @@ Imagine you're building a social media app. Before you can display user informat
 
 In this exercise, you'll create your first variables to store a user's profile information: their name, age, and email address.
 
+In JavaScript, there are two main ways to create variables:
+- `let`: Use this when the value might change later.
+```javascript
+let age = 25;
+```
+- `const`: Use this when the value will stay the same.
+```javascript
+const name = "John Doe";
+```
+
+Also, we have primitive data types to represent different kinds of information:
+- **String**: Text values, like names or email addresses. These are wrapped in quotes (single or double).
+- **Number**: Numeric values, like age. These are written without quotes.
+- **Boolean**: True or false values, often used for yes/no questions.
+
+These types will fit for now, you have to remember that we have also other types like `null`, `undefined`, `object`, but let's not complicate things for now.
+
 ## Your Challenge
 
 Open `003-profile-store-info.js` and create three variables inside the `createProfile` function:
@@ -45,36 +62,9 @@ You've created variables to hold your data. Now how do you show what's inside th
 
 </details>
 
-## Test Your Code
-
-To run your code and see the output:
-```bash
-cd exercises/003-profile-store-info
-node 003-profile-store-info
-```
-
-To run the tests:
-```bash
-npm test
-```
-
-## What You're Learning
-
-This exercise teaches you about **variables** - one of the most fundamental concepts in programming. Variables let you:
-- Store information to use later
-- Give meaningful names to your data
-- Organize your code so it's easier to understand and modify
-
-## Reflection Questions
-
-After completing the exercise, think about:
-1. Why is it helpful to store information in variables instead of just typing the values directly?
-2. What's the difference between the name variable and the age variable? (Hint: one uses quotes, one doesn't)
-3. If you wanted to change the user's email, where would you make that change?
-
-## Next Steps
-
-Great job! Now that you know how to store information, the next exercise will teach you how to combine these pieces of information to create a formatted profile card display. Move on to **exercise 004-profile-concatenation** when you're ready!
+## Bonus Goals
+- Create `boolean` variable `isActive` and set it to `true` to indicate the user is active.
+- Create `const` variable `country` and set it to `"USA"` to store the user's country.
 
 ## Read More
 
