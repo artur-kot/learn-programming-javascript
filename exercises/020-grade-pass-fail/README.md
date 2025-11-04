@@ -4,6 +4,58 @@ This exercise builds on **exercise 019**! Your enhanced `getLetterGrade` functio
 
 Schools need to quickly categorize students as passing or failing. While you have precise grades (A+, B-, etc.), sometimes you just need a simple Pass/Fail status for reporting or determining eligibility for activities.
 
+## Switch Statements
+
+A switch statement is a control flow structure in programming that allows you to execute different blocks of code based on the value of a single expression. It's often used as an alternative to long chains of if-else-if statements when you need to compare the expression against multiple specific values.
+
+### Syntax
+
+```javascript
+switch (expression) {
+  case value1:
+    // Code to execute if expression === value1
+    break;
+  case value2:
+    // Code to execute if expression === value2
+    break;
+  // More cases...
+  default:
+    // Code to execute if none of the cases match
+}
+```
+
+### Key Points
+- The `expression` is evaluated once and compared to each `case` value using strict equality (`===`).
+- If a match is found, execution starts from that case and continues until a `break` statement or the end of the switch.
+- The `default` case is optional and runs if no cases match.
+- Without `break`, execution "falls through" to the next case, which can be useful for grouping.
+
+### Example: Day of the Week
+
+Here's an example using a switch statement to determine the type of day based on a string:
+
+```javascript
+const day = "Saturday";
+
+switch (day) {
+  case "Monday":
+  case "Tuesday":
+  case "Wednesday":
+  case "Thursday":
+  case "Friday":
+    console.log("It's a weekday.");
+    break;
+  case "Saturday":
+  case "Sunday":
+    console.log("It's a weekend!");
+    break;
+  default:
+    console.log("Invalid day.");
+}
+```
+
+In this example, if `day` is "Saturday", it matches the second case and outputs "It's a weekend!" due to fall-through from "Saturday" to the shared code block.
+
 ## What You're Building On
 
 From exercises 018-019, you already have:

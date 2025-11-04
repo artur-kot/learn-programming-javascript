@@ -4,6 +4,24 @@ You've mastered if statements (one condition) and if-else statements (two option
 
 In the real world, age classification often has more than two groups. Think about movie ratings, ticket prices, or insurance categories. You might have child, teen, adult, and senior groups - that's four categories, not two! This is where **else-if chains** shine.
 
+## If-Else-If Statements
+An **else-if** statement allows you to check multiple conditions in sequence. The program evaluates each condition one by one:
+```javascript
+let score = 85;
+
+if (score >= 90) {
+  console.log("Grade: A");
+} else if (score >= 80) {
+  console.log("Grade: B");
+} else if (score >= 70) {
+  console.log("Grade: C");
+} else if (score >= 60) {
+  console.log("Grade: D");
+} else {
+  console.log("Grade: F");
+}
+```
+
 ## Your Challenge
 
 Open `015-age-multiple-groups.js`. You'll see four different ages: 8, 16, 35, and 72.

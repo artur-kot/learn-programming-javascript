@@ -4,6 +4,27 @@ Building on what you learned in exercise 013, you now know how to run code when 
 
 In the previous exercise, your code only displayed a message for ages 18+. Now you'll improve your age checker to handle **both cases**: displaying one message when someone is an adult and a **different message** when they're a minor.
 
+## If-Else Statements
+An **if-else statement** gives your code two paths: one when the condition is true, another when it's false.
+Think about a fork in the road: you can only go left OR right, never both. Similarly, if-else ensures exactly one path executes.
+### Example: Temperature Checker
+
+```javascript
+let temperature = 75;
+
+if (temperature >= 70) {
+  console.log("It's warm outside - wear light clothes!");
+} else {
+  console.log("It's cool outside - bring a jacket!");
+}
+```
+
+The syntax is simple:
+- `if` checks a condition
+- The first block runs when the condition is **true**
+- `else` handles when the condition is **false**
+- One block will **always** execute - never both, never neither
+
 ## Your Challenge
 
 Open `014-age-if-else.js`. You'll see three different ages: 25, 16, and 10.
