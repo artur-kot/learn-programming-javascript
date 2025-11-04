@@ -13,18 +13,12 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 
 ## 📊 Progress Summary
 
-**Overall Progress:** 182/192 exercises completed (94.8%)
+**Overall Progress:** 176/176 exercises completed (100%)
 
-**Completed Series:** 38/40 series ✅
-- Series 1-37: All complete (180 exercises)
-- Series 38: Complete - Consolidated capstone (1 exercise: Quiz Game)
-- Series 39: Complete - Consolidated capstone (1 exercise: E-commerce Cart)
+**Total Series:** 37 series ✅
 
 **Current Status:**
-- Phase 1-20: ✅ COMPLETE (Exercises 1-180)
-- Phase 21: 🔄 In Progress (Exercises 181-188)
-
-**Next Series:** Series 40 - Image Gallery
+- All phases complete! ✅
 
 ---
 
@@ -223,20 +217,18 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 18: Pomodoro Timer
 *Build a productivity timer to learn timing functions*
 
-88. [x] **Pomodoro - Basic Countdown** - Use setTimeout for simple delay ([exercise 88](./exercises/088-pomodoro-settimeout))
-89. [x] **Pomodoro - Tick Every Second** - Use setInterval for countdown display ([exercise 89](./exercises/089-pomodoro-setinterval))
-90. [x] **Pomodoro - Pause and Resume** - Clear and restart intervals ([exercise 90](./exercises/090-pomodoro-clear))
-91. [x] **Pomodoro - Multiple Timers** - Manage work and break periods ([exercise 91](./exercises/091-pomodoro-multiple))
-92. [x] **Pomodoro - Notification System** - Trigger alerts when timer completes ([exercise 92](./exercises/092-pomodoro-notify))
+88. [x] **Pomodoro - Basic Countdown** - Use setTimeout for simple delay ([exercise 88](./exercises/088-pomodoro-timers))
+89. [x] **Pomodoro - Advanced Features** - Use setInterval for countdown display and controls ([exercise 89](./exercises/089-pomodoro-advanced))
+90. [x] **Pomodoro - Complete System** - Full pomodoro with work/break cycles and notifications ([exercise 90](./exercises/090-pomodoro-complete))
 
 ### Series 19: Quote Fetcher
 *Build a random quote app to master promises and async/await*
 
-93. [x] **Quote Fetcher - Simulate API** - Create promise that returns quote after delay ([exercise 93](./exercises/093-quote-promise))
-94. [x] **Quote Fetcher - Handle Success** - Use .then to display quote ([exercise 94](./exercises/094-quote-then))
-95. [x] **Quote Fetcher - Error Handling** - Use .catch for failed requests ([exercise 95](./exercises/095-quote-catch))
-96. [x] **Quote Fetcher - Async/Await** - Refactor using async/await syntax ([exercise 96](./exercises/096-quote-async))
-97. [x] **Quote Fetcher - Multiple Sources** - Use Promise.all to fetch from multiple sources ([exercise 97](./exercises/097-quote-all))
+91. [x] **Quote Fetcher - Simulate API** - Create promise that returns quote after delay ([exercise 91](./exercises/091-quote-promise))
+92. [x] **Quote Fetcher - Handle Success** - Use .then to display quote ([exercise 92](./exercises/092-quote-then))
+93. [x] **Quote Fetcher - Error Handling** - Use .catch for failed requests ([exercise 93](./exercises/093-quote-catch))
+94. [x] **Quote Fetcher - Async/Await** - Refactor using async/await syntax ([exercise 94](./exercises/094-quote-async))
+95. [x] **Quote Fetcher - Multiple Sources** - Use Promise.all to fetch from multiple sources ([exercise 95](./exercises/095-quote-all))
 
 ---
 
@@ -245,20 +237,20 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 20: Theme Switcher
 *Build a dark/light theme toggle to learn DOM selection and styling*
 
-98. [x] **Theme Switcher - Select Elements** - Use querySelector to find theme button and body ([exercise 98](./exercises/098-theme-select))
-99. [x] **Theme Switcher - Change Text** - Modify button text with textContent ([exercise 99](./exercises/099-theme-text))
-100. [x] **Theme Switcher - Toggle Classes** - Add/remove dark-theme class ([exercise 100](./exercises/100-theme-classes))
-101. [x] **Theme Switcher - Inline Styles** - Change CSS properties with .style ([exercise 101](./exercises/101-theme-styles))
-102. [x] **Theme Switcher - Save Preference** - Store theme choice in localStorage ([exercise 102](./exercises/102-theme-storage))
+96. [x] **Theme Switcher - Select Elements** - Use querySelector to find theme button and body ([exercise 96](./exercises/096-theme-select))
+97. [x] **Theme Switcher - Change Text** - Modify button text with textContent ([exercise 97](./exercises/097-theme-text))
+98. [x] **Theme Switcher - Toggle Classes** - Add/remove dark-theme class ([exercise 98](./exercises/098-theme-classes))
+99. [x] **Theme Switcher - Inline Styles** - Change CSS properties with .style ([exercise 99](./exercises/099-theme-styles))
+100. [x] **Theme Switcher - Save Preference** - Store theme choice in localStorage ([exercise 100](./exercises/100-theme-storage))
 
 ### Series 21: Dynamic Card Generator
 *Build a card creation tool to practice DOM manipulation*
 
-103. [x] **Card Generator - Create Element** - Use createElement to make card div ([exercise 103](./exercises/103-card-create))
-104. [x] **Card Generator - Set Content** - Add title, description with innerHTML ([exercise 104](./exercises/104-card-content))
-105. [x] **Card Generator - Set Attributes** - Add classes, IDs, data attributes ([exercise 105](./exercises/105-card-attributes))
-106. [x] **Card Generator - Append to Page** - Add cards to DOM with appendChild ([exercise 106](./exercises/106-card-append))
-107. [x] **Card Generator - Remove Cards** - Delete cards from DOM ([exercise 107](./exercises/107-card-remove))
+101. [x] **Card Generator - Create Element** - Use createElement to make card div ([exercise 101](./exercises/101-card-create))
+102. [x] **Card Generator - Set Content** - Add title, description with innerHTML ([exercise 102](./exercises/102-card-content))
+103. [x] **Card Generator - Set Attributes** - Add classes, IDs, data attributes ([exercise 103](./exercises/103-card-attributes))
+104. [x] **Card Generator - Append to Page** - Add cards to DOM with appendChild ([exercise 104](./exercises/104-card-append))
+105. [x] **Card Generator - Remove Cards** - Delete cards from DOM ([exercise 105](./exercises/105-card-remove))
 
 ---
 
@@ -267,29 +259,29 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 22: Interactive Counter
 *Build a click counter to learn event listeners*
 
-108. [x] **Counter - Click Event** - Increment counter on button click ([exercise 108](./exercises/108-counter-click))
-109. [x] **Counter - Event Object** - Access event details (target, type, timestamp) ([exercise 109](./exercises/109-counter-event-obj))
-110. [x] **Counter - Multiple Buttons** - Add increment, decrement, reset buttons ([exercise 110](./exercises/110-counter-multiple))
-111. [x] **Counter - Keyboard Events** - Use arrow keys to control counter ([exercise 111](./exercises/111-counter-keyboard))
-112. [x] **Counter - Remove Listeners** - Disable buttons by removing event listeners ([exercise 112](./exercises/112-counter-remove))
+106. [x] **Counter - Click Event** - Increment counter on button click ([exercise 106](./exercises/106-counter-click))
+107. [x] **Counter - Event Object** - Access event details (target, type, timestamp) ([exercise 107](./exercises/107-counter-event-obj))
+108. [x] **Counter - Multiple Buttons** - Add increment, decrement, reset buttons ([exercise 108](./exercises/108-counter-multiple))
+109. [x] **Counter - Keyboard Events** - Use arrow keys to control counter ([exercise 109](./exercises/109-counter-keyboard))
+110. [x] **Counter - Remove Listeners** - Disable buttons by removing event listeners ([exercise 110](./exercises/110-counter-remove))
 
 ### Series 23: Live Search Filter
 *Build a search feature to master form and input events*
 
-113. [x] **Search - Input Event** - Filter list as user types ([exercise 113](./exercises/113-search-input))
-114. [x] **Search - Prevent Default** - Handle form submission without page reload ([exercise 114](./exercises/114-search-prevent))
-115. [x] **Search - Debounce Input** - Delay search until user stops typing ([exercise 115](./exercises/115-search-debounce))
-116. [x] **Search - Highlight Results** - Style matching items ([exercise 116](./exercises/116-search-highlight))
-117. [x] **Search - Event Delegation** - Handle clicks on dynamic result items ([exercise 117](./exercises/117-search-delegation))
+111. [x] **Search - Input Event** - Filter list as user types ([exercise 111](./exercises/111-search-input))
+112. [x] **Search - Prevent Default** - Handle form submission without page reload ([exercise 112](./exercises/112-search-prevent))
+113. [x] **Search - Debounce Input** - Delay search until user stops typing ([exercise 113](./exercises/113-search-debounce))
+114. [x] **Search - Highlight Results** - Style matching items ([exercise 114](./exercises/114-search-highlight))
+115. [x] **Search - Event Delegation** - Handle clicks on dynamic result items ([exercise 115](./exercises/115-search-delegation))
 
 ### Series 24: Interactive Drawing Canvas
 *Build a simple drawing app to practice mouse events*
 
-118. [x] **Canvas - Mouse Down/Up** - Start and stop drawing on click ([exercise 118](./exercises/118-canvas-mouse-click))
-119. [x] **Canvas - Mouse Move** - Draw while mouse moves ([exercise 119](./exercises/119-canvas-mouse-move))
-120. [x] **Canvas - Color Picker** - Change drawing color with event delegation ([exercise 120](./exercises/120-canvas-colors))
-121. [x] **Canvas - Clear Button** - Reset canvas with custom event ([exercise 121](./exercises/121-canvas-custom-event))
-122. [x] **Canvas - Save Drawing** - Export canvas as image ([exercise 122](./exercises/122-canvas-save))
+116. [x] **Canvas - Mouse Down/Up** - Start and stop drawing on click ([exercise 116](./exercises/116-canvas-mouse-click))
+117. [x] **Canvas - Mouse Move** - Draw while mouse moves ([exercise 117](./exercises/117-canvas-mouse-move))
+118. [x] **Canvas - Color Picker** - Change drawing color with event delegation ([exercise 118](./exercises/118-canvas-colors))
+119. [x] **Canvas - Clear Button** - Reset canvas with custom event ([exercise 119](./exercises/119-canvas-custom-event))
+120. [x] **Canvas - Save Drawing** - Export canvas as image ([exercise 120](./exercises/120-canvas-save))
 
 ---
 
@@ -298,29 +290,26 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 25: Counter Factory
 *Build a counter creation system to learn closures and scope*
 
-123. [x] **Counter Factory - Basic Closure** - Create function that returns counter ([exercise 123](./exercises/123-factory-closure))
-124. [x] **Counter Factory - Private Variables** - Use closures for private count value ([exercise 124](./exercises/124-factory-private))
-125. [x] **Counter Factory - Multiple Counters** - Create independent counter instances ([exercise 125](./exercises/125-factory-multiple))
-126. [x] **Counter Factory - Module Pattern** - Organize with revealing module pattern ([exercise 126](./exercises/126-factory-module))
-127. [x] **Counter Factory - Advanced Features** - Add getters, setters, and reset ([exercise 127](./exercises/127-factory-advanced))
+121. [x] **Counter Factory - Basic Closure** - Create function that returns counter ([exercise 121](./exercises/121-factory-basics))
+122. [x] **Counter Factory - Advanced Features** - Add multiple independent counters and methods ([exercise 122](./exercises/122-factory-advanced))
 
 ### Series 26: RPG Character System
 *Build a game character creator to master OOP and classes*
 
-128. [x] **RPG - Constructor Function** - Create character using constructor ([exercise 128](./exercises/128-rpg-constructor))
-129. [x] **RPG - Class Syntax** - Convert to modern class syntax ([exercise 129](./exercises/129-rpg-class))
-130. [x] **RPG - Methods and Properties** - Add attack, defend, heal methods ([exercise 130](./exercises/130-rpg-methods))
-131. [x] **RPG - Class Inheritance** - Create Warrior, Mage subclasses ([exercise 131](./exercises/131-rpg-inheritance))
-132. [x] **RPG - Static Methods** - Add class-level utility methods ([exercise 132](./exercises/132-rpg-static))
+123. [x] **RPG - Constructor Function** - Create character using constructor ([exercise 123](./exercises/123-rpg-constructor))
+124. [x] **RPG - Class Syntax** - Convert to modern class syntax ([exercise 124](./exercises/124-rpg-class))
+125. [x] **RPG - Methods and Properties** - Add attack, defend, heal methods ([exercise 125](./exercises/125-rpg-methods))
+126. [x] **RPG - Class Inheritance** - Create Warrior, Mage subclasses ([exercise 126](./exercises/126-rpg-inheritance))
+127. [x] **RPG - Static Methods** - Add class-level utility methods ([exercise 127](./exercises/127-rpg-static))
 
 ### Series 27: Data Pipeline
 *Build a data transformation system to practice functional programming*
 
-133. [x] **Pipeline - Method Chaining** - Chain filter, map, reduce operations ([exercise 133](./exercises/133-pipeline-chaining))
-134. [x] **Pipeline - Flatten Data** - Use flat and flatMap for nested arrays ([exercise 134](./exercises/134-pipeline-flatten))
-135. [x] **Pipeline - Array Construction** - Use Array.from and Array.of ([exercise 135](./exercises/135-pipeline-construction))
-136. [x] **Pipeline - Custom Methods** - Build custom array transformation utilities ([exercise 136](./exercises/136-pipeline-custom))
-137. [x] **Pipeline - Compose Functions** - Create reusable transformation pipeline ([exercise 137](./exercises/137-pipeline-compose))
+128. [x] **Pipeline - Method Chaining** - Chain filter, map, reduce operations ([exercise 128](./exercises/128-pipeline-chaining))
+129. [x] **Pipeline - Flatten Data** - Use flat and flatMap for nested arrays ([exercise 129](./exercises/129-pipeline-flatten))
+130. [x] **Pipeline - Array Construction** - Use Array.from and Array.of ([exercise 130](./exercises/130-pipeline-construction))
+131. [x] **Pipeline - Custom Methods** - Build custom array transformation utilities ([exercise 131](./exercises/131-pipeline-custom))
+132. [x] **Pipeline - Compose Functions** - Create reusable transformation pipeline ([exercise 132](./exercises/132-pipeline-compose))
 
 ---
 
@@ -329,20 +318,20 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 28: Weather Dashboard ✓
 *Build a weather app to learn Fetch API and data handling*
 
-138. [x] **Weather - Basic Fetch** - Make GET request to weather API ([exercise 138](./exercises/138-weather-fetch))
-139. [x] **Weather - Parse JSON** - Extract temperature, conditions from response ([exercise 139](./exercises/139-weather-json))
-140. [x] **Weather - Error Handling** - Handle network errors and invalid locations ([exercise 140](./exercises/140-weather-errors))
-141. [x] **Weather - Display Data** - Show weather info in formatted cards ([exercise 141](./exercises/141-weather-display))
-142. [x] **Weather - Multiple Cities** - Fetch and compare weather for multiple locations ([exercise 142](./exercises/142-weather-multiple))
+133. [x] **Weather - Basic Fetch** - Make GET request to weather API ([exercise 133](./exercises/133-weather-fetch))
+134. [x] **Weather - Parse JSON** - Extract temperature, conditions from response ([exercise 134](./exercises/134-weather-json))
+135. [x] **Weather - Error Handling** - Handle network errors and invalid locations ([exercise 135](./exercises/135-weather-errors))
+136. [x] **Weather - Display Data** - Show weather info in formatted cards ([exercise 136](./exercises/136-weather-display))
+137. [x] **Weather - Multiple Cities** - Fetch and compare weather for multiple locations ([exercise 137](./exercises/137-weather-multiple))
 
 ### Series 29: GitHub User Finder ✓
 *Build a GitHub profile viewer to master API integration*
 
-143. [x] **GitHub - User Search** - Fetch user data from GitHub API ([exercise 143](./exercises/143-github-search))
-144. [x] **GitHub - Display Profile** - Show avatar, bio, stats in UI ([exercise 144](./exercises/144-github-display))
-145. [x] **GitHub - Repository List** - Fetch and display user's repos ([exercise 145](./exercises/145-github-repos))
-146. [x] **GitHub - Filter Repos** - Add search and filter for repositories ([exercise 146](./exercises/146-github-filter))
-147. [x] **GitHub - Pagination** - Load repos with pagination support ([exercise 147](./exercises/147-github-pagination))
+138. [x] **GitHub - User Search** - Fetch user data from GitHub API ([exercise 138](./exercises/138-github-search))
+139. [x] **GitHub - Display Profile** - Show avatar, bio, stats in UI ([exercise 139](./exercises/139-github-display))
+140. [x] **GitHub - Repository List** - Fetch and display user's repos ([exercise 140](./exercises/140-github-repos))
+141. [x] **GitHub - Filter Repos** - Add search and filter for repositories ([exercise 141](./exercises/141-github-filter))
+142. [x] **GitHub - Pagination** - Load repos with pagination support ([exercise 142](./exercises/142-github-pagination))
 
 ---
 
@@ -351,20 +340,20 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 30: Todo List App ✓
 *Build a complete todo app to master localStorage and state management*
 
-148. [x] **Todo - Add and Display** - Create todos and render to page ([exercise 148](./exercises/148-todo-add-display))
-149. [x] **Todo - Save to Storage** - Store todos in localStorage ([exercise 149](./exercises/149-todo-save-storage))
-150. [x] **Todo - Load from Storage** - Retrieve and display saved todos on page load ([exercise 150](./exercises/150-todo-load-storage))
-151. [x] **Todo - Mark Complete** - Toggle completion status and update storage ([exercise 151](./exercises/151-todo-mark-complete))
-152. [x] **Todo - Delete Items** - Remove todos and sync with localStorage ([exercise 152](./exercises/152-todo-delete-items))
+143. [x] **Todo - Add and Display** - Create todos and render to page ([exercise 143](./exercises/143-todo-add-display))
+144. [x] **Todo - Save to Storage** - Store todos in localStorage ([exercise 144](./exercises/144-todo-save-storage))
+145. [x] **Todo - Load from Storage** - Retrieve and display saved todos on page load ([exercise 145](./exercises/145-todo-load-storage))
+146. [x] **Todo - Mark Complete** - Toggle completion status and update storage ([exercise 146](./exercises/146-todo-mark-complete))
+147. [x] **Todo - Delete Items** - Remove todos and sync with localStorage ([exercise 147](./exercises/147-todo-delete-items))
 
 ### Series 31: Note-Taking App ✅ COMPLETE
 *Build a notes app to practice state management and storage*
 
-153. [x] **Notes - Create Notes** - Add notes with title and content ([exercise 153](./exercises/153-notes-create))
-154. [x] **Notes - State Management** - Manage notes array as application state ([exercise 154](./exercises/154-notes-state))
-155. [x] **Notes - Edit Notes** - Update existing notes and sync UI ([exercise 155](./exercises/155-notes-edit))
-156. [x] **Notes - Persist Data** - Save notes to localStorage with JSON ([exercise 156](./exercises/156-notes-persist))
-157. [x] **Notes - Undo/Redo** - Implement history with state snapshots ([exercise 157](./exercises/157-notes-undo))
+148. [x] **Notes - Create Notes** - Add notes with title and content ([exercise 148](./exercises/148-notes-create))
+149. [x] **Notes - State Management** - Manage notes array as application state ([exercise 149](./exercises/149-notes-state))
+150. [x] **Notes - Edit Notes** - Update existing notes and sync UI ([exercise 150](./exercises/150-notes-edit))
+151. [x] **Notes - Persist Data** - Save notes to localStorage with JSON ([exercise 151](./exercises/151-notes-persist))
+152. [x] **Notes - Undo/Redo** - Implement history with state snapshots ([exercise 152](./exercises/152-notes-undo))
 
 ---
 
@@ -373,71 +362,59 @@ This roadmap guides you from zero programming knowledge to JavaScript proficienc
 ### Series 32: Tag Manager ✅ COMPLETE
 *Build a tag/category system to learn Sets and Maps*
 
-158. [x] **Tag Manager - Set Basics** - Store unique tags in a Set ([exercise 158](./exercises/158-tags-set))
-159. [x] **Tag Manager - Set Operations** - Add, delete, check tag existence ([exercise 159](./exercises/159-tags-operations))
-160. [x] **Tag Manager - Map for Counts** - Track tag usage counts with Map ([exercise 160](./exercises/160-tags-map))
-161. [x] **Tag Manager - Tag Categories** - Use Map with Set values for categorization ([exercise 161](./exercises/161-tags-categories))
-162. [x] **Tag Manager - Performance** - Compare Set/Map vs Array/Object performance ([exercise 162](./exercises/162-tags-performance))
+153. [x] **Tag Manager - Set Basics** - Store unique tags in a Set ([exercise 153](./exercises/153-tags-set))
+154. [x] **Tag Manager - Set Operations** - Add, delete, check tag existence ([exercise 154](./exercises/154-tags-operations))
+155. [x] **Tag Manager - Map for Counts** - Track tag usage counts with Map ([exercise 155](./exercises/155-tags-map))
+156. [x] **Tag Manager - Tag Categories** - Use Map with Set values for categorization ([exercise 156](./exercises/156-tags-categories))
+157. [x] **Tag Manager - Performance** - Compare Set/Map vs Array/Object performance ([exercise 157](./exercises/157-tags-performance))
 
 ### Series 33: Custom Iterator ✅ COMPLETE
 *Build a custom data structure with iteration to learn iterators and generators*
 
-163. [x] **Iterator - Basic Iterator** - Implement Symbol.iterator for custom object ([exercise 163](./exercises/163-iterator-basic))
-164. [x] **Iterator - Generator Functions** - Create generator function for number ranges ([exercise 164](./exercises/164-iterator-generator))
-165. [x] **Iterator - Infinite Sequences** - Build generator for infinite sequences ([exercise 165](./exercises/165-iterator-infinite))
-166. [x] **Iterator - Custom Collection** - Create iterable collection class ([exercise 166](./exercises/166-iterator-collection))
-167. [x] **Iterator - Generator Composition** - Combine multiple generators ([exercise 167](./exercises/167-iterator-compose))
+158. [x] **Iterator - Basic Iterator** - Implement Symbol.iterator for custom object ([exercise 158](./exercises/158-iterator-basic))
+159. [x] **Iterator - Generator Functions** - Create generator function for number ranges ([exercise 159](./exercises/159-iterator-generator))
+160. [x] **Iterator - Infinite Sequences** - Build generator for infinite sequences ([exercise 160](./exercises/160-iterator-infinite))
+161. [x] **Iterator - Custom Collection** - Create iterable collection class ([exercise 161](./exercises/161-iterator-collection))
+162. [x] **Iterator - Generator Composition** - Combine multiple generators ([exercise 162](./exercises/162-iterator-compose))
 
 ### Series 34: Email Validator ✅ COMPLETE
 *Build email validation to master regular expressions*
 
-168. [x] **Email Validator - Basic Pattern** - Learn regex basics: character classes, quantifiers, anchors ([exercise 168](./exercises/168-email-basic))
-169. [x] **Email Validator - Test and Match Methods** - Master regex methods: test(), match(), search(), replace() ([exercise 169](./exercises/169-email-methods))
-170. [x] **Email Validator - Capture Groups** - Extract parts using parentheses and capture groups ([exercise 170](./exercises/170-email-groups))
-171. [x] **Email Validator - Advanced Patterns** - Lookahead, lookbehind, word boundaries, alternation ([exercise 171](./exercises/171-email-advanced))
-172. [x] **Email Validator - Multiple Formats** - Validate phone, URL, and email formats together ([exercise 172](./exercises/172-email-multiple))
+163. [x] **Email Validator - Basic Pattern** - Learn regex basics: character classes, quantifiers, anchors ([exercise 163](./exercises/163-email-basic))
+164. [x] **Email Validator - Test and Match Methods** - Master regex methods: test(), match(), search(), replace() ([exercise 164](./exercises/164-email-methods))
+165. [x] **Email Validator - Capture Groups** - Extract parts using parentheses and capture groups ([exercise 165](./exercises/165-email-groups))
+166. [x] **Email Validator - Advanced Patterns** - Lookahead, lookbehind, word boundaries, alternation ([exercise 166](./exercises/166-email-advanced))
+167. [x] **Email Validator - Multiple Formats** - Validate phone, URL, and email formats together ([exercise 167](./exercises/167-email-multiple))
 
 ---
 
-## Phase 19: Full-Stack Development
+## Phase 17: Full-Stack Development
 
 ### Series 35: Autocomplete Search ✅ COMPLETE
 *Build autocomplete feature with Fastify backend and Vite frontend to learn full-stack architecture and performance optimization*
 
-173. [x] **Autocomplete - Basic Setup** - Implement Fastify backend API and Vite frontend with real-time search ([exercise 173](./exercises/173-autocomplete-basic))
-174. [x] **Autocomplete - Optimize & Performance** - Add debouncing, caching, fuzzy matching, and keyboard navigation ([exercise 174](./exercises/174-autocomplete-optimize))
+168. [x] **Autocomplete - Basic Setup** - Implement Fastify backend API and Vite frontend with real-time search ([exercise 168](./exercises/168-autocomplete-basic))
+169. [x] **Autocomplete - Optimize & Performance** - Add debouncing, caching, fuzzy matching, and keyboard navigation ([exercise 169](./exercises/169-autocomplete-optimize))
 
 ---
 
-## Phase 20: Modern Development Practices
+## Phase 18: Modern Development Practices
 
-### Series 36: Math Utility Library ✅ COMPLETE
-*Build and use a reusable utility library to learn ES6 modules and real-world library integration (3 focused exercises instead of 5)*
+### Series 36: Tested Calculator ✅ COMPLETE
+*Master unit testing with three frameworks - node:test, Vitest, and Jest. Learn by writing tests for a complete calculator, not by building the calculator. Includes meta-testing (testing your tests!)*
 
-175. [x] **Math Library - Setup & Basics** - Build comprehensive math library with 30+ functions across 3 modules: math, trigonometry, statistics ([exercise 175](./exercises/175-math-library-setup))
-176. [x] **Math Library - Statistics Analyzer** - Build real-world data analysis tool using the math library for statistical reports and insights ([exercise 176](./exercises/176-stats-analyzer))
-177. [x] **Math Library - Geometry Calculator** - Build practical geometry calculator with 14 shape functions and unit conversions using the library ([exercise 177](./exercises/177-geometry-calculator))
+170. [x] **Calculator Tests - Node.js Built-in (node:test)** - Write 27+ unit tests using node:test framework and node:assert library. Learn testing fundamentals with Node.js built-in tools, no dependencies required ([exercise 170](./exercises/170-calc-node-test))
+171. [x] **Calculator Tests - Vitest (Modern Framework)** - Port tests to Vitest, learning describe/it syntax, expect matchers, and advanced features like hooks and UI testing. Same calculator, different framework ([exercise 171](./exercises/171-calc-vitest))
+172. [x] **Calculator Tests - Jest (Industry Standard)** - Master Jest framework used by React teams worldwide. Learn professional testing with coverage analysis ([exercise 172](./exercises/172-calc-jest))
 
-### Series 37: Tested Calculator ✅ COMPLETE
-*Master unit testing with three frameworks - node:test, Vitest, and Jest. Learn by writing tests for a complete calculator, not by building the calculator. Includes meta-testing (testing your tests!) (3 focused exercises instead of 5)*
+### Series 37: Geometry Calculator & Stats Analyzer ✅ COMPLETE
+*Build practical applications using ES6 modules and library composition*
 
-178. [x] **Calculator Tests - Node.js Built-in (node:test)** - Write 27+ unit tests using node:test framework and node:assert library. Learn testing fundamentals with Node.js built-in tools, no dependencies required ([exercise 178](./exercises/178-calc-node-test))
-179. [x] **Calculator Tests - Vitest (Modern Framework)** - Port tests to Vitest, learning describe/it syntax, expect matchers, and advanced features like hooks and UI testing. Same calculator, different framework ([exercise 179](./exercises/179-calc-vitest))
-180. [x] **Calculator Tests - Jest (Industry Standard) + Meta-Testing** - Master Jest framework used by React teams worldwide. Learn professional testing with coverage analysis. NEW: Include meta-tests that validate your tests actually test the code (test-validator.js) ([exercise 180](./exercises/180-calc-jest))
+173. [x] **Quiz Game** - Build full quiz system with question display, scoring, timer, progress, and results ([exercise 173](./exercises/173-quiz-game))
+174. [x] **E-commerce Cart** - Build full cart system with product management, services layer, discounts, and persistence ([exercise 174](./exercises/174-ecommerce-cart))
+175. [x] **Geometry Calculator** - Build practical geometry calculator with 14 shape functions and unit conversions ([exercise 175](./exercises/175-geometry-calculator))
+176. [x] **Stats Analyzer** - Build real-world data analysis tool for statistical reports and insights ([exercise 176](./exercises/176-stats-analyzer))
 
----
-
-## Phase 21: Capstone Projects
-
-### Series 38: Quiz Game
-*Build a complete quiz application combining multiple skills in one capstone project*
-
-181. [ ] **Quiz Game - Complete Application** - Build full quiz system with question display, scoring, timer, progress, and results in one exercise. Entry point for extending with additional features ([exercise 181](./exercises/181-quiz-game))
-
-### Series 39: E-commerce Cart
-*Build a production-grade shopping cart system with service-oriented architecture*
-
-182. [ ] **E-commerce Cart - Complete System** - Build full cart system with product management, services layer, discounts, and persistence. 45 TODOs across models, services, and utilities. Entry point for extending with UI components ([exercise 182](./exercises/182-ecommerce-cart)).
 
 ### ⭐ Bonus
-183. **Your Own Project** - Design and build your own application using concepts from entire course
+177. **Your Own Project** - Design and build your own application using concepts from entire course
