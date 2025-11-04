@@ -4,6 +4,37 @@ This exercise builds on **exercise 018**! In the previous exercise, you created 
 
 Most schools don't just award a "B" - they distinguish between B+ (high B), B (solid B), and B- (low B). This gives students and parents a more accurate picture of performance. Let's add this precision to your grading system!
 
+## Nesting If Statements
+
+Nesting if statements means placing one if statement inside another. This allows for more complex decision-making by checking conditions in layers. For example, you might first check if a user is logged in, and if so, then check their role.
+
+### Example: Weather Outfit Advisor
+
+Imagine a program that suggests what to wear based on temperature and weather conditions:
+
+```javascript
+let temperature = 75; // in Fahrenheit
+let isRaining = false;
+
+if (temperature > 70) {
+  // It's warm
+  if (isRaining) {
+    console.log("Wear a light jacket and bring an umbrella.");
+  } else {
+    console.log("Wear shorts and a t-shirt.");
+  }
+} else {
+  // It's cool
+  if (isRaining) {
+    console.log("Wear a coat and boots.");
+  } else {
+    console.log("Wear jeans and a sweater.");
+  }
+}
+```
+
+In this example, the outer if checks the temperature range, and the inner if checks for rain within each temperature category. This creates a two-level decision tree for precise advice.
+
 ## What You're Building On
 
 Your `getLetterGrade` function from exercise 018 already:

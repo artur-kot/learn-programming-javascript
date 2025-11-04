@@ -5,7 +5,7 @@ Repository for learning JavaScript programming through hands-on exercises for us
 This repository is in early phase of development.
 
 ## About
-There are over **180 hands-on exercises** which will teach you JavaScript from scratch.
+There are **179 hands-on exercises** which will teach you JavaScript from scratch.
 The goal is to allow you to **learn by practice** and keep you **stay curious** by requiring you to put your hands on some external resources.
 
 ## How to use

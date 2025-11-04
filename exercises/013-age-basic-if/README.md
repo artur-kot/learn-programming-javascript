@@ -4,6 +4,60 @@ Welcome to the **Age Checker App** series! Over the next five exercises, you'll 
 
 In many countries, you need to be 18 years old to vote. Websites and apps check your age to determine what you're allowed to do. That's exactly what you'll build in this exercise using your first **if statement**.
 
+## Introduction to If Statements
+An **if statement** is the foundation of decision-making in programming. Think of it as teaching your computer to think: "If this condition is true, then do this action."
+
+### The Basic Structure
+
+Every if statement follows this pattern:
+```javascript
+if (condition) {
+  // Code to run when condition is true
+}
+```
+
+The **condition** is a question that can be answered with true or false. If the answer is true, the code inside the curly braces `{}` runs. If false, that code is completely skipped.
+
+### Real-World Examples
+
+Before diving into code, let's think about everyday decisions:
+- **If** you're hungry, **then** eat something
+- **If** it's raining, **then** take an umbrella  
+- **If** you're 18 or older, **then** you can vote
+
+These are all conditional statements - actions that depend on circumstances.
+
+### Programming Example
+
+Here's how you'd check voting age in JavaScript:
+```javascript
+let age = 25;
+
+if (age >= 18) {
+  console.log("You are old enough to vote!");
+}
+```
+
+### Breaking Down the Parts
+
+1. **`if`** - The keyword that starts the statement
+2. **`(age >= 18)`** - The condition to test (is age greater than or equal to 18?)
+3. **`{}`** - The code block that runs when the condition is true
+4. **`>=`** - The "greater than or equal to" comparison operator
+
+### Why If Statements Matter
+
+Without if statements, programs could only follow one path - they'd do the same thing every single time. If statements give your code the power to:
+- Respond to different inputs
+- Handle various scenarios  
+- Make intelligent decisions
+- Create interactive experiences
+
+### Truthy/Falsy Values
+In JavaScript, conditions can evaluate to "truthy" or "falsy" values. A truthy value means the condition is considered true, while a falsy value means it's false. Here are some common examples:
+- **Truthy values:** non-zero numbers, non-empty strings, objects, arrays
+- **Falsy values:** `0`, `""` (empty string), `null`, `undefined`, `NaN`, `false`
+
 ## Your Challenge
 
 Open `013-age-basic-if.js`. You'll see three different ages: 25, 16, and 18.
