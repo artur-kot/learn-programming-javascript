@@ -72,7 +72,7 @@ Therefore:
 Each exercise README should include:
 
 1. **Hook/Introduction**: A brief, engaging scenario that frames the challenge
-2. **Learning Objective**: What skill or concept this exercise develops (keep it concise)
+2. **Learning Objective**: Teach about the specific concept or skill being practiced first, without giving away the solution. Do not create code snippets related to exercise/solution here.
 3. **Challenge Description**: The problem to solve, presented without explanation of how
 4. **Requirements**: Clear, specific criteria for success
 5. **Hints Section**: Progressive hints that guide without solving (collapsed/hidden if possible). Do not include solutions here!
