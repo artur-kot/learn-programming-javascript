@@ -5,7 +5,7 @@ Repository for learning JavaScript programming through hands-on exercises for us
 This repository is in early phase of development.
 
 ## About
-There are **179 hands-on exercises** which will teach you JavaScript from scratch.
+There are **176** which will teach you JavaScript from scratch.
 The goal is to allow you to **learn by practice** and keep you **stay curious** by requiring you to put your hands on some external resources.
 
 ## How to use
@@ -34,7 +34,7 @@ learnp ./learn-programming-javascript
 
 ## Exercises
 
-The exercises in the `exercises` folder are currently AI-generated. They will be reviewed and refined over time.
+The exercises in the `exercises` folder are currently AI-generated. Give them a try tough - they're refined and good enough.
 
 ### Contributions are welcome
 Feel free to improve them and submit a pull request. Read the [Contribution Guidelines](CONTRIBUTING.md) for more details.
